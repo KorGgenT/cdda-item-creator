@@ -2,12 +2,34 @@ using System.Collections.Generic;
 
 namespace cdda_item_creator
 {
+
     namespace spell
     {
         static class allowed_strings
         {
+            public static string[] spell_flags =
+            {
+                "PERMANENT",
+                "IGNORE_WALLS",
+                "HOSTILE_SUMMON",
+                "HOSTILE_50",
+                "SILENT",
+                "LOUD",
+                "VERBAL",
+                "SOMATIC",
+                "NO_HANDS",
+                "UNSAFE_TELEPORT",
+                "NO_LEGS",
+                "CONCENTRATE",
+                "RANDOM_AOE",
+                "RANDOM_DAMAGE",
+                "RANDOM_DURATION",
+                "RANDOM_TARGET",
+                "MUTATE_TRAIT",
+                "WONDER"
+            };
             // flag, description
-            public static Dictionary<string, string> spell_flags = new Dictionary<string, string> 
+            public static Dictionary<string, string> spell_flags_description = new Dictionary<string, string> 
             {
                 { "PERMANENT", "items or creatures spawned with this spell do not disappear and die as normal" },
                 { "IGNORE_WALLS", "spell's aoe goes through walls" },
@@ -84,8 +106,31 @@ namespace cdda_item_creator
                 "dim",
                 "artifact_light"
             };
+            // allowed spell effects
+            public static string[] effects =
+            {
+                "pain_split",
+                "target_attack",
+                "cone_attack",
+                "line_attack",
+                "spawn_item",
+                "teleport_random",
+                "recover_energy",
+                "ter_transform",
+                "vomit",
+                "timed_event",
+                "explosion",
+                "flashbang",
+                "mod_moves",
+                "map",
+                "morale",
+                "charm_monster",
+                "mutate",
+                "bash",
+                "none"
+            };
             // effect, description
-            public static Dictionary<string, string> effects = new Dictionary<string, string>
+            public static Dictionary<string, string> effect_descriptions = new Dictionary<string, string>
             {
                 { "pain_split", "makes all of your limbs' damage even out" },
                 { "target_attack", "deals damage to a target (ignores walls). If effect_str is included, it will add that effect (defined elsewhere in json) to the targets if able, to the body parts defined in effected_body_parts. Any aoe will manifest as a circular area centered on the target, and will only deal damage to valid_targets. (aoe does not ignore walls)" },
@@ -105,7 +150,8 @@ namespace cdda_item_creator
                 { "morale", "gives a morale effect to all npcs or avatar within aoe, with value damage(). decay_start is duration() / 10." },
                 { "charm_monster", "charms a monster that has less hp than damage() for approximately duration()" },
                 { "mutate", "mutates the target(s). if effect_str is defined, mutates toward that category instead of picking at random. the MUTATE_TRAIT flag allows effect_str to be a specific trait instead of a category. damage() / 100 is the percent chance the mutation will be successful (a value of 10000 represents 100.00%)" },
-                { "bash", "bashes the terrain at the target. uses damage() as the strength of the bash." }
+                { "bash", "bashes the terrain at the target. uses damage() as the strength of the bash." },
+                { "none", "please select a spell effect" }
             };
         }
         struct fake_spell
@@ -126,6 +172,18 @@ namespace cdda_item_creator
             {
                 min_ = min;
                 increment_ = increment;
+                max_ = max;
+            }
+            public void update_min( int min )
+            {
+                min_ = min;
+            }
+            public void update_increment( float increment )
+            {
+                increment_ = increment;
+            }
+            public void update_max( int max )
+            {
                 max_ = max;
             }
 
@@ -158,62 +216,81 @@ namespace cdda_item_creator
 
         class spell_type
         {
-            spell_type( string name )
+            public spell_type() { }
+
+            public string id = "";
+            public string name = "";
+            public string description = "";
+            public string message = "You cast %s!";
+            public string sound_description = "an explosion";
+            public string sound_type = "combat";
+            public bool sound_ambient = false;
+            public string sound_id = "";
+            public string sound_variant = "default";
+            public string effect = "none";
+            public string effect_str = "";
+            public List<fake_spell> additional_spells;
+            public string field = "";
+            public int field_chance = 1;
+
+            public spell_value_member field_intensity = new spell_value_member("field_intensity");
+
+            public float field_intensity_variance = 0.0f;
+
+            public spell_value_member damage = new spell_value_member("damage");
+            public spell_value_member range = new spell_value_member("range");
+            public spell_value_member aoe = new spell_value_member("aoe");
+            public spell_value_member dot = new spell_value_member("dot");
+            public spell_value_member pierce = new spell_value_member("pierce");
+
+            public int min_duration = 0;
+            public int duration_increment = 0;
+            public int max_duration = 0;
+
+            public int base_energy_cost = 0;
+            public float energy_increment = 0.0f;
+            public int final_energy_cost = 0;
+
+            public string spell_class = "NONE";
+
+            public int difficulty = 0;
+            public int max_level = 0;
+
+            public int base_casting_time = 0;
+            public float casting_time_increment = 0.0f;
+            public int final_casting_time = 0;
+
+            public Dictionary<string, int> learn_spells;
+
+            public string energy_source = "NONE";
+            public string dmg_type = "NONE";
+
+            public List<string> effect_targets = new List<string> { };
+            public List<string> valid_targets = new List<string> { };
+            public List<string> affected_bps = new List<string> { };
+            public List<string> spell_tags = new List<string> { };
+            
+            public string jsonize_as_array(List<string> string_list)
             {
-                this.name = name;
+                string ret = "";
+
+                if (string_list.Count == 0)
+                {
+                    return ret;
+                }
+                ret = "[ ";
+                for (int i = 0; i < string_list.Count; i++)
+                {
+                    ret += "\"" + string_list[i] + "\"";
+                    if (i < string_list.Count - 1)
+                    {
+                        ret += ", ";
+                    }
+                }
+                ret += " ]";
+
+                return ret;
             }
-
-            string id = "";
-            string name = "";
-            string description = "";
-            string message = "You cast %s!";
-            string sound_description = "an explosion";
-            string sound_type = "combat";
-            bool sound_ambient = false;
-            string sound_id = "";
-            string sound_variant = "default";
-            string effect = "none";
-            string effect_str = "";
-            List<fake_spell> additional_spells;
-            string field = "";
-            int field_chance = 1;
-
-            spell_value_member field_intensity = new spell_value_member("field_intensity");
-
-            float field_intensity_variance = 0.0f;
-
-            spell_value_member damage = new spell_value_member("damage");
-            spell_value_member range = new spell_value_member("range");
-            spell_value_member aoe = new spell_value_member("aoe");
-            spell_value_member dot = new spell_value_member("dot");
-            spell_value_member pierce = new spell_value_member("pierce");
-
-            int min_duration = 0;
-            int duration_increment = 0;
-            int max_duration = 0;
-
-            int base_energy_cost = 0;
-            float energy_increment = 0.0f;
-            int final_energy_cost = 0;
-
-            string spell_class = "NONE";
-
-            int difficulty = 0;
-            int max_level = 0;
-
-            int base_casting_time = 0;
-            float casting_time_increment = 0.0f;
-            int final_casting_time = 0;
-
-            Dictionary<string, int> learn_spells;
-
-            string energy_source = "none";
-            string dmg_type = "NONE";
-
-            HashSet<string> effect_targets;
-            HashSet<string> valid_targets;
-            HashSet<string> affected_bps;
-            HashSet<string> spell_tags;
 
             public string create_json()
             {
@@ -230,7 +307,10 @@ namespace cdda_item_creator
                 {
                     ret += begin + "effect_str\": \"" + effect_str + "\",";
                 }
-                ret += begin + "spell_class\": \"" + spell_class + "\",";
+                if (spell_class != "NONE")
+                {
+                    ret += begin + "spell_class\": \"" + spell_class + "\",";
+                }
                 if (difficulty != 0)
                 {
                     ret += begin + "difficulty\": " + difficulty.ToString() + ",";
@@ -239,9 +319,18 @@ namespace cdda_item_creator
                 {
                     ret += begin + "max_level\": " + max_level.ToString() + ",";
                 }
+
+                if(energy_source != "NONE")
+                {
+                    ret += begin + "energy_source\": \"" + energy_source + "\",";
+                }
+
                 ret += damage.create_json();
                 ret += range.create_json();
                 ret += aoe.create_json();
+
+                // flags
+                ret += begin + "flags\": " + jsonize_as_array(spell_tags);
 
                 ret += "\n  }";
                 return ret;
