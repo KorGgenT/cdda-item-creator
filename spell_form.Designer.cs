@@ -106,6 +106,8 @@
             this.sound_variant_label = new System.Windows.Forms.Label();
             this.allowedstringsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.allowedstringsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.effect_filter_listbox = new System.Windows.Forms.CheckedListBox();
+            this.effect_filter_label = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.min_damage_updown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.damage_increment_updown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.max_damage_updown)).BeginInit();
@@ -1033,7 +1035,20 @@
             // sound_type_combobox
             // 
             this.sound_type_combobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.sound_type_combobox.Items.AddRange(spell.allowed_strings.sound_types);
+            this.sound_type_combobox.Items.AddRange(new object[] {
+            "background",
+            "weather",
+            "music",
+            "movement",
+            "speech",
+            "movement",
+            "speech",
+            "activity",
+            "destructive_activity",
+            "alarm",
+            "combat",
+            "alert",
+            "order"});
             this.sound_type_combobox.Location = new System.Drawing.Point(589, 299);
             this.sound_type_combobox.Name = "sound_type_combobox";
             this.sound_type_combobox.Size = new System.Drawing.Size(103, 21);
@@ -1093,11 +1108,41 @@
             // 
             this.allowedstringsBindingSource1.DataSource = typeof(cdda_item_creator.spell.allowed_strings);
             // 
+            // effect_filter_listbox
+            // 
+            this.effect_filter_listbox.FormattingEnabled = true;
+            this.effect_filter_listbox.Items.AddRange(new object[] {
+            "ally",
+            "hostile",
+            "self",
+            "ground",
+            "none",
+            "item",
+            "fd_fire",
+            "fd_blood"});
+            this.effect_filter_listbox.Location = new System.Drawing.Point(281, 406);
+            this.effect_filter_listbox.Margin = new System.Windows.Forms.Padding(2);
+            this.effect_filter_listbox.Name = "effect_filter_listbox";
+            this.effect_filter_listbox.Size = new System.Drawing.Size(96, 64);
+            this.effect_filter_listbox.TabIndex = 84;
+            this.effect_filter_listbox.SelectedIndexChanged += new System.EventHandler(this.effect_filter_listbox_SelectedIndexChanged);
+            // 
+            // effect_filter_label
+            // 
+            this.effect_filter_label.AutoSize = true;
+            this.effect_filter_label.Location = new System.Drawing.Point(289, 391);
+            this.effect_filter_label.Name = "effect_filter_label";
+            this.effect_filter_label.Size = new System.Drawing.Size(60, 13);
+            this.effect_filter_label.TabIndex = 85;
+            this.effect_filter_label.Text = "Effect Filter";
+            // 
             // spell_form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(710, 542);
+            this.Controls.Add(this.effect_filter_label);
+            this.Controls.Add(this.effect_filter_listbox);
             this.Controls.Add(this.sound_variant_label);
             this.Controls.Add(this.sound_variant_textbox);
             this.Controls.Add(this.sound_id_label);
@@ -1286,6 +1331,8 @@
         private System.Windows.Forms.Label sound_id_label;
         private System.Windows.Forms.TextBox sound_variant_textbox;
         private System.Windows.Forms.Label sound_variant_label;
+        private System.Windows.Forms.CheckedListBox effect_filter_listbox;
+        private System.Windows.Forms.Label effect_filter_label;
     }
 }
 

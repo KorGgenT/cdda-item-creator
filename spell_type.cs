@@ -111,8 +111,11 @@ namespace cdda_item_creator
             {
                 "pain_split",
                 "target_attack",
+                "projectile_attack",
                 "cone_attack",
                 "line_attack",
+                "area_pull",
+                "area_push",
                 "spawn_item",
                 "teleport_random",
                 "recover_energy",
@@ -168,6 +171,8 @@ namespace cdda_item_creator
                 { "projectile_attack", "similar to target_attack, except the projectile you shoot will stop short at impassable terrain. If effect_str is included, it will add that effect (defined elsewhere in json) to the targets if able, to the body parts defined in effected_body_parts." },
                 { "cone_attack", "fires a cone toward the target up to your range. The arc of the cone in degrees is aoe. Stops at walls. If effect_str is included, it will add that effect (defined elsewhere in json) to the targets if able, to the body parts defined in effected_body_parts." },
                 { "line_attack", "fires a line with width aoe toward the target, being blocked by walls on the way. If effect_str is included, it will add that effect (defined elsewhere in json) to the targets if able, to the body parts defined in effected_body_parts." },
+                { "area_pull", "pulls effect filtered targets toward the epicenter" },
+                { "area_push", "pushes effect filtered targets away from the epicenter" },
                 { "spawn_item", "spawns an item that disappear at the end of its duration. default duration is 0." },
                 { "teleport_random", "teleports the player randomly range spaces with aoe variation" },
                 { "recover_energy", "recovers an energy source (defined in the effect_str) equal to damage of the spell" },
@@ -396,7 +401,7 @@ namespace cdda_item_creator
                     ret += begin + "sound_ambient\": true,";
                 }
 
-                if( valid_targets.Count != 0)
+                if( affected_bps.Count != 0)
                 {
                     ret += begin + "affected_body_parts\": " + jsonize_as_array(affected_bps) + ",";
                 }

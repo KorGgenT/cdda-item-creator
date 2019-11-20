@@ -71,6 +71,13 @@ namespace cdda_item_creator
             {
                 main_spell.spell_tags.Add(item);
             }
+
+            main_spell.valid_targets.Clear();
+
+            foreach (string item in valid_targets_listbox.CheckedItems)
+            {
+                main_spell.valid_targets.Add(item);
+            }
         }
 
         private void spell_description_textbox_TextChanged(object sender, EventArgs e)
@@ -269,6 +276,16 @@ namespace cdda_item_creator
         private void sound_ambient_checkbox_CheckedChanged(object sender, EventArgs e)
         {
             main_spell.sound_ambient = sound_ambient_checkbox.Checked;
+        }
+
+        private void effect_filter_listbox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            main_spell.effect_targets.Clear();
+
+            foreach (string item in valid_targets_listbox.CheckedItems)
+            {
+                main_spell.effect_targets.Add(item);
+            }
         }
     }
 }
