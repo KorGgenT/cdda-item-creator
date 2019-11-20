@@ -59,7 +59,7 @@ namespace cdda_item_creator
                 "BIONIC",
                 "FATGIUE"
             };
-            public static HashSet<string> valid_targets = new HashSet<string>
+            public static string[] valid_targets =
             {
                 "ally",
                 "hostile",
@@ -70,7 +70,7 @@ namespace cdda_item_creator
                 "fd_fire",
                 "fd_blood"
             };
-            public static HashSet<string> damage_types = new HashSet<string>
+            public static string[] damage_types =
             {
                 "fire",
                 "acid",
@@ -83,7 +83,7 @@ namespace cdda_item_creator
                 "none"
             };
             // available options for recover_energy effect
-            public static HashSet<string> recover_energy = new HashSet<string>
+            public static string[] recover_energy_types =
             {
                 "MANA",
                 "STAMINA",
@@ -92,7 +92,7 @@ namespace cdda_item_creator
                 "BIONIC"
             };
             // available options for timed_event effect
-            public static HashSet<string> timed_event = new HashSet<string>
+            public static string[] timed_event =
             {
                 "help",
                 "wanted",
@@ -128,6 +128,37 @@ namespace cdda_item_creator
                 "mutate",
                 "bash",
                 "none"
+            };
+            public static string[] body_parts =
+            {
+                "TORSO",
+                "HEAD",
+                "EYES",
+                "MOUTH",
+                "ARM_L",
+                "ARM_R",
+                "HAND_L",
+                "HAND_R",
+                "LEG_L",
+                "LEG_R",
+                "FOOT_L",
+                "FOOT_R"
+            };
+            public static string[] sound_types =
+            {
+                "background",
+                "weather",
+                "music",
+                "movement",
+                "speech",
+                "movement",
+                "speech",
+                "activity",
+                "destructive_activity",
+                "alarm",
+                "combat",
+                "alert",
+                "order"
             };
             // effect, description
             public static Dictionary<string, string> effect_descriptions = new Dictionary<string, string>
@@ -325,12 +356,56 @@ namespace cdda_item_creator
                     ret += begin + "energy_source\": \"" + energy_source + "\",";
                 }
 
+                ret += begin + "base_casting_time\": " + base_casting_time.ToString() + ",";
+                if (casting_time_increment != 0.0f) 
+                {
+                    ret += begin + "casting_time_increment\": " + casting_time_increment.ToString() + ",";
+                }
+                ret += begin + "final_casting_time\": " + final_casting_time.ToString() + ",";
+
                 ret += damage.create_json();
                 ret += range.create_json();
                 ret += aoe.create_json();
 
+                if (field.Length > 0)
+                {
+                    ret += begin + "field_id\": \"" + field + "\",";
+                    ret += field_intensity.create_json();
+                    ret += begin + "field_intensity_variance\": " + field_intensity_variance.ToString() + ",";
+                    ret += begin + "field_chance\": " + field_chance.ToString() + ",";
+                }
+
+                if (sound_id.Length > 0)
+                {
+                    ret += begin + "sound_id\": \"" + sound_id + "\",";
+                }
+                if (sound_description.Length > 0)
+                {
+                    ret += begin + "sound_description\": \"" + sound_description + "\",";
+                }
+                if(sound_type != "combat")
+                {
+                    ret += begin + "sound_type\": \"" + sound_type + "\",";
+                }
+                if(sound_variant.Length > 0)
+                {
+                    ret += begin + "sound_variant\": \"" + sound_variant + "\",";
+                }
+                if (sound_ambient)
+                {
+                    ret += begin + "sound_ambient\": true,";
+                }
+
+                if( valid_targets.Count != 0)
+                {
+                    ret += begin + "affected_body_parts\": " + jsonize_as_array(affected_bps) + ",";
+                }
                 // flags
-                ret += begin + "flags\": " + jsonize_as_array(spell_tags);
+                if (spell_tags.Count != 0)
+                {
+                    ret += begin + "flags\": " + jsonize_as_array(spell_tags) + ",";
+                }
+                ret += begin + "valid_targets\": " + jsonize_as_array(valid_targets);
 
                 ret += "\n  }";
                 return ret;
