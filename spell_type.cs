@@ -405,6 +405,10 @@ namespace cdda_item_creator
                 {
                     ret += begin + "affected_body_parts\": " + jsonize_as_array(affected_bps) + ",";
                 }
+                if( effect_targets.Count != 0)
+                {
+                    ret += begin + "effect_filter\": " + jsonize_as_array(effect_targets) + ",";
+                }
                 // flags
                 if (spell_tags.Count != 0)
                 {
