@@ -227,26 +227,7 @@
             // effect_combobox
             // 
             this.effect_combobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.effect_combobox.Items.AddRange(new object[] {
-            "pain_split",
-            "target_attack",
-            "cone_attack",
-            "line_attack",
-            "spawn_item",
-            "teleport_random",
-            "recover_energy",
-            "ter_transform",
-            "vomit",
-            "timed_event",
-            "explosion",
-            "flashbang",
-            "mod_moves",
-            "map",
-            "morale",
-            "charm_monster",
-            "mutate",
-            "bash",
-            "none"});
+            this.effect_combobox.Items.AddRange(spell.allowed_strings.effects);
             this.effect_combobox.Location = new System.Drawing.Point(12, 154);
             this.effect_combobox.Name = "effect_combobox";
             this.effect_combobox.Size = new System.Drawing.Size(102, 21);

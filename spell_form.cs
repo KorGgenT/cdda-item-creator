@@ -40,7 +40,7 @@ namespace cdda_item_creator
         {
             InitializeComponent();
             energy_type_combobox.SelectedIndex = 0;
-            effect_combobox.SelectedIndex = 18;
+            effect_combobox.SelectedIndex = 21;
             damage_type_combobox.SelectedIndex = 8;
             sound_type_combobox.SelectedIndex = 10;
         }
