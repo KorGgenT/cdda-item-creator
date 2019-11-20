@@ -384,7 +384,7 @@ namespace cdda_item_creator
                 {
                     ret += begin + "sound_id\": \"" + sound_id + "\",";
                 }
-                if (sound_description.Length > 0)
+                if (sound_description != "an explosion")
                 {
                     ret += begin + "sound_description\": \"" + sound_description + "\",";
                 }
@@ -392,7 +392,7 @@ namespace cdda_item_creator
                 {
                     ret += begin + "sound_type\": \"" + sound_type + "\",";
                 }
-                if(sound_variant.Length > 0)
+                if(sound_variant != "default")
                 {
                     ret += begin + "sound_variant\": \"" + sound_variant + "\",";
                 }
