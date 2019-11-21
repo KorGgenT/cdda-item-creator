@@ -25,8 +25,8 @@ namespace cdda_item_creator
                 effect_combobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             } else if( effect == "timed_event" )
             {
-                effect_str_combobox.SelectedIndex = 0;
                 effect_str_combobox.Items.AddRange(spell.allowed_strings.timed_event);
+                effect_str_combobox.SelectedIndex = 0;
                 effect_str_combobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             } else if( effect == "pain_split" || effect == "teleport_random" || effect == "vomit" || effect == "explosion" ||
                 effect == "flashbang" || effect == "mod_moves" || effect == "map" || effect == "bash" || effect == "charm_monster" )
