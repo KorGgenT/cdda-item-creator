@@ -95,6 +95,7 @@ namespace cdda_item_creator
 
         private void flags_listbox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            flag_description_labe.Text = spell.allowed_strings.spell_flags_description[(string)flags_listbox.SelectedItem];
             main_spell.spell_tags.Clear();
             
             foreach (string item in flags_listbox.CheckedItems)
@@ -286,6 +287,11 @@ namespace cdda_item_creator
             {
                 main_spell.effect_targets.Add(item);
             }
+        }
+
+        private void spell_message_textbox_TextChanged(object sender, EventArgs e)
+        {
+            main_spell.message = spell_message_textbox.Text;
         }
     }
 }

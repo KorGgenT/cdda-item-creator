@@ -104,10 +104,13 @@
             this.sound_id_label = new System.Windows.Forms.Label();
             this.sound_variant_textbox = new System.Windows.Forms.TextBox();
             this.sound_variant_label = new System.Windows.Forms.Label();
-            this.allowedstringsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.allowedstringsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.effect_filter_listbox = new System.Windows.Forms.CheckedListBox();
             this.effect_filter_label = new System.Windows.Forms.Label();
+            this.flag_description_labe = new System.Windows.Forms.Label();
+            this.allowedstringsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.allowedstringsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.spell_message_textbox = new System.Windows.Forms.TextBox();
+            this.spell_message_label = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.min_damage_updown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.damage_increment_updown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.max_damage_updown)).BeginInit();
@@ -227,7 +230,29 @@
             // effect_combobox
             // 
             this.effect_combobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.effect_combobox.Items.AddRange(spell.allowed_strings.effects);
+            this.effect_combobox.Items.AddRange(new object[] {
+            "pain_split",
+            "target_attack",
+            "projectile_attack",
+            "cone_attack",
+            "line_attack",
+            "area_pull",
+            "area_push",
+            "spawn_item",
+            "teleport_random",
+            "recover_energy",
+            "ter_transform",
+            "vomit",
+            "timed_event",
+            "explosion",
+            "flashbang",
+            "mod_moves",
+            "map",
+            "morale",
+            "charm_monster",
+            "mutate",
+            "bash",
+            "none"});
             this.effect_combobox.Location = new System.Drawing.Point(12, 154);
             this.effect_combobox.Name = "effect_combobox";
             this.effect_combobox.Size = new System.Drawing.Size(102, 21);
@@ -981,16 +1006,17 @@
             // sounds_label
             // 
             this.sounds_label.AutoSize = true;
-            this.sounds_label.Location = new System.Drawing.Point(521, 265);
+            this.sounds_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sounds_label.Location = new System.Drawing.Point(521, 303);
             this.sounds_label.Name = "sounds_label";
-            this.sounds_label.Size = new System.Drawing.Size(43, 13);
+            this.sounds_label.Size = new System.Drawing.Size(49, 13);
             this.sounds_label.TabIndex = 74;
             this.sounds_label.Text = "Sounds";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(450, 283);
+            this.label2.Location = new System.Drawing.Point(450, 321);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(60, 13);
             this.label2.TabIndex = 75;
@@ -998,7 +1024,7 @@
             // 
             // sound_description_textbox
             // 
-            this.sound_description_textbox.Location = new System.Drawing.Point(446, 299);
+            this.sound_description_textbox.Location = new System.Drawing.Point(446, 337);
             this.sound_description_textbox.Name = "sound_description_textbox";
             this.sound_description_textbox.Size = new System.Drawing.Size(137, 20);
             this.sound_description_textbox.TabIndex = 76;
@@ -1007,7 +1033,7 @@
             // sound_type_label
             // 
             this.sound_type_label.AutoSize = true;
-            this.sound_type_label.Location = new System.Drawing.Point(587, 282);
+            this.sound_type_label.Location = new System.Drawing.Point(587, 320);
             this.sound_type_label.Name = "sound_type_label";
             this.sound_type_label.Size = new System.Drawing.Size(31, 13);
             this.sound_type_label.TabIndex = 77;
@@ -1030,7 +1056,7 @@
             "combat",
             "alert",
             "order"});
-            this.sound_type_combobox.Location = new System.Drawing.Point(589, 299);
+            this.sound_type_combobox.Location = new System.Drawing.Point(589, 337);
             this.sound_type_combobox.Name = "sound_type_combobox";
             this.sound_type_combobox.Size = new System.Drawing.Size(103, 21);
             this.sound_type_combobox.TabIndex = 78;
@@ -1038,7 +1064,7 @@
             // sound_ambient_checkbox
             // 
             this.sound_ambient_checkbox.AutoSize = true;
-            this.sound_ambient_checkbox.Location = new System.Drawing.Point(485, 321);
+            this.sound_ambient_checkbox.Location = new System.Drawing.Point(485, 359);
             this.sound_ambient_checkbox.Name = "sound_ambient_checkbox";
             this.sound_ambient_checkbox.Size = new System.Drawing.Size(64, 17);
             this.sound_ambient_checkbox.TabIndex = 79;
@@ -1048,7 +1074,7 @@
             // 
             // sound_id_textbox
             // 
-            this.sound_id_textbox.Location = new System.Drawing.Point(446, 341);
+            this.sound_id_textbox.Location = new System.Drawing.Point(446, 379);
             this.sound_id_textbox.Name = "sound_id_textbox";
             this.sound_id_textbox.Size = new System.Drawing.Size(111, 20);
             this.sound_id_textbox.TabIndex = 80;
@@ -1057,7 +1083,7 @@
             // sound_id_label
             // 
             this.sound_id_label.AutoSize = true;
-            this.sound_id_label.Location = new System.Drawing.Point(453, 326);
+            this.sound_id_label.Location = new System.Drawing.Point(453, 364);
             this.sound_id_label.Name = "sound_id_label";
             this.sound_id_label.Size = new System.Drawing.Size(15, 13);
             this.sound_id_label.TabIndex = 81;
@@ -1065,7 +1091,7 @@
             // 
             // sound_variant_textbox
             // 
-            this.sound_variant_textbox.Location = new System.Drawing.Point(565, 341);
+            this.sound_variant_textbox.Location = new System.Drawing.Point(565, 379);
             this.sound_variant_textbox.Name = "sound_variant_textbox";
             this.sound_variant_textbox.Size = new System.Drawing.Size(127, 20);
             this.sound_variant_textbox.TabIndex = 82;
@@ -1074,20 +1100,12 @@
             // sound_variant_label
             // 
             this.sound_variant_label.AutoSize = true;
-            this.sound_variant_label.Location = new System.Drawing.Point(568, 325);
+            this.sound_variant_label.Location = new System.Drawing.Point(568, 363);
             this.sound_variant_label.Name = "sound_variant_label";
             this.sound_variant_label.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.sound_variant_label.Size = new System.Drawing.Size(40, 13);
             this.sound_variant_label.TabIndex = 83;
             this.sound_variant_label.Text = "Variant";
-            // 
-            // allowedstringsBindingSource
-            // 
-            this.allowedstringsBindingSource.DataSource = typeof(cdda_item_creator.spell.allowed_strings);
-            // 
-            // allowedstringsBindingSource1
-            // 
-            this.allowedstringsBindingSource1.DataSource = typeof(cdda_item_creator.spell.allowed_strings);
             // 
             // effect_filter_listbox
             // 
@@ -1117,11 +1135,50 @@
             this.effect_filter_label.TabIndex = 85;
             this.effect_filter_label.Text = "Effect Filter";
             // 
+            // flag_description_labe
+            // 
+            this.flag_description_labe.AutoSize = true;
+            this.flag_description_labe.Location = new System.Drawing.Point(260, 302);
+            this.flag_description_labe.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.flag_description_labe.MaximumSize = new System.Drawing.Size(180, 0);
+            this.flag_description_labe.Name = "flag_description_labe";
+            this.flag_description_labe.Size = new System.Drawing.Size(83, 13);
+            this.flag_description_labe.TabIndex = 86;
+            this.flag_description_labe.Text = "Flag Description";
+            // 
+            // allowedstringsBindingSource
+            // 
+            this.allowedstringsBindingSource.DataSource = typeof(cdda_item_creator.spell.allowed_strings);
+            // 
+            // allowedstringsBindingSource1
+            // 
+            this.allowedstringsBindingSource1.DataSource = typeof(cdda_item_creator.spell.allowed_strings);
+            // 
+            // spell_message_textbox
+            // 
+            this.spell_message_textbox.Location = new System.Drawing.Point(444, 279);
+            this.spell_message_textbox.Name = "spell_message_textbox";
+            this.spell_message_textbox.Size = new System.Drawing.Size(89, 20);
+            this.spell_message_textbox.TabIndex = 87;
+            this.spell_message_textbox.TextChanged += new System.EventHandler(this.spell_message_textbox_TextChanged);
+            // 
+            // spell_message_label
+            // 
+            this.spell_message_label.AutoSize = true;
+            this.spell_message_label.Location = new System.Drawing.Point(443, 263);
+            this.spell_message_label.Name = "spell_message_label";
+            this.spell_message_label.Size = new System.Drawing.Size(76, 13);
+            this.spell_message_label.TabIndex = 88;
+            this.spell_message_label.Text = "Spell Message";
+            // 
             // spell_form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(710, 542);
+            this.Controls.Add(this.spell_message_label);
+            this.Controls.Add(this.spell_message_textbox);
+            this.Controls.Add(this.flag_description_labe);
             this.Controls.Add(this.effect_filter_label);
             this.Controls.Add(this.effect_filter_listbox);
             this.Controls.Add(this.sound_variant_label);
@@ -1314,6 +1371,9 @@
         private System.Windows.Forms.Label sound_variant_label;
         private System.Windows.Forms.CheckedListBox effect_filter_listbox;
         private System.Windows.Forms.Label effect_filter_label;
+        private System.Windows.Forms.Label flag_description_labe;
+        private System.Windows.Forms.TextBox spell_message_textbox;
+        private System.Windows.Forms.Label spell_message_label;
     }
 }
 

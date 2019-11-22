@@ -388,6 +388,10 @@ namespace cdda_item_creator
                 {
                     ret += begin + "sound_description\": \"" + sound_description + "\",";
                 }
+                if( message != "You cast %s!" )
+                {
+                    ret += begin + "message\": \"" + message + "\",";
+                }
                 if(sound_type != "combat")
                 {
                     ret += begin + "sound_type\": \"" + sound_type + "\",";
