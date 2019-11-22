@@ -20,8 +20,8 @@ namespace cdda_item_creator
             effect_str_combobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
             if (effect == "recover_energy")
             {
-                effect_str_combobox.SelectedIndex = 0;
                 effect_str_combobox.Items.AddRange(spell.allowed_strings.recover_energy_types);
+                effect_str_combobox.SelectedIndex = 0;
                 effect_combobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             } else if( effect == "timed_event" )
             {
