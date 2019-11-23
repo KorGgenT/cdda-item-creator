@@ -191,7 +191,7 @@ namespace cdda_item_creator
                 { "none", "please select a spell effect" }
             };
         }
-        struct fake_spell
+        public struct fake_spell
         {
             string id;
             int max_level;
@@ -199,103 +199,103 @@ namespace cdda_item_creator
             bool self;
         }
 
-        class spell_type
+        public class spell_type
         {
             public spell_type() { }
 
-            public string id = "";
+            public string id { get; set; } = "";
             public const string type = "SPELL";
-            public string name = "";
-            public string description = "";
+            public string name { get; set; } = "";
+            public string description { get; set; } = "";
 
             [DefaultValue("You cast %s!")]
-            public string message = "You cast %s!";
+            public string message { get; set; } = "You cast %s!";
 
             [DefaultValue("an explosion")]
             public string sound_description = "an explosion";
 
             [DefaultValue("combat")]
-            public string sound_type = "combat";
+            public string sound_type { get; set; } = "combat";
 
             public bool sound_ambient = false;
 
             [DefaultValue("")]
-            public string sound_id = "";
+            public string sound_id { get; set; } = "";
 
             [DefaultValue("default")]
-            public string sound_variant = "default";
+            public string sound_variant { get; set; } = "default";
 
             [DefaultValue("none")]
-            public string effect = "none";
+            public string effect { get; set; } = "none";
 
             [DefaultValue("")]
-            public string effect_str = "";
+            public string effect_str { get; set; } = "";
 
-            public List<fake_spell> additional_spells;
+            public List<fake_spell> additional_spells { get; set; } = new List<fake_spell>();
 
             [DefaultValue("none")]
             public string field = "none";
 
             [DefaultValue(1)]
-            public int field_chance = 1;
+            public int field_chance { get; set; } = 1;
 
-            public int min_field_intensity = 0;
-            public float field_intensity_increment = 0.0f;
-            public int max_field_intensity = 0;
+            public int min_field_intensity { get; set; }
+            public float field_intensity_increment { get; set; }
+            public int max_field_intensity { get; set; }
 
-            public float field_intensity_variance = 0.0f;
+            public float field_intensity_variance { get; set; }
 
-            public int min_damage = 0;
-            public float damage_increment = 0.0f;
-            public int max_damage = 0;
+            public int min_damage { get; set; }
+            public float damage_increment { get; set; }
+            public int max_damage { get; set; }
 
-            public int min_range = 0;
-            public float range_increment = 0.0f;
-            public int max_range = 0;
+            public int min_range { get; set; }
+            public float range_increment { get; set; }
+            public int max_range { get; set; }
 
-            public int min_aoe = 0;
-            public float aoe_increment = 0.0f;
-            public int max_aoe = 0;
+            public int min_aoe { get; set; }
+            public float aoe_increment { get; set; }
+            public int max_aoe { get; set; }
 
-            public int min_dot = 0;
-            public float dot_increment = 0.0f;
-            public int max_dot = 0;
+            public int min_dot { get; set; }
+            public float dot_increment { get; set; }
+            public int max_dot { get; set; }
 
-            public int min_pierce = 0;
-            public float pierce_increment = 0.0f;
-            public int max_pierce = 0;
+            public int min_pierce { get; set; }
+            public float pierce_increment { get; set; }
+            public int max_pierce { get; set; }
 
-            public int min_duration = 0;
-            public int duration_increment = 0;
-            public int max_duration = 0;
+            public int min_duration { get; set; }
+            public int duration_increment { get; set; }
+            public int max_duration { get; set; }
 
-            public int base_energy_cost = 0;
-            public float energy_increment = 0.0f;
-            public int final_energy_cost = 0;
+            public int base_energy_cost { get; set; }
+            public float energy_increment { get; set; }
+            public int final_energy_cost { get; set; }
 
-
-            [DefaultValue("NONE")]
-            public string spell_class = "NONE";
-
-            public int difficulty = 0;
-            public int max_level = 0;
-
-            public int base_casting_time = 0;
-            public float casting_time_increment = 0.0f;
-            public int final_casting_time = 0;
-
-            public Dictionary<string, int> learn_spells;
 
             [DefaultValue("NONE")]
-            public string energy_source = "NONE";
+            public string spell_class { get; set; } = "NONE";
+
+            public int difficulty { get; set; }
+            public int max_level { get; set; }
+
+            public int base_casting_time { get; set; }
+            public float casting_time_increment { get; set; }
+            public int final_casting_time { get; set; }
+
+            public Dictionary<string, int> learn_spells { get; set; } = new Dictionary<string, int>();
 
             [DefaultValue("NONE")]
-            public string damage_type = "NONE";
+            public string energy_source { get; set; } = "NONE";
 
-            public List<string> effect_targets = new List<string> { };
-            public List<string> valid_targets = new List<string> { };
-            public List<string> affected_bps = new List<string> { };
-            public List<string> spell_tags = new List<string> { };
+            [DefaultValue("NONE")]
+            public string damage_type { get; set; } = "NONE";
+
+            public List<string> effect_targets { get; set; } = new List<string> { };
+            public List<string> valid_targets { get; set; } = new List<string> { };
+            public List<string> affected_bps { get; set; } = new List<string> { };
+            public List<string> spell_tags { get; set; } = new List<string> { };
         }
     }
 }

@@ -15,7 +15,7 @@ namespace cdda_item_creator
 {
     public partial class spell_form : Form
     {
-        static spell.spell_type main_spell = new spell.spell_type();
+        public spell.spell_type main_spell = new spell.spell_type();
 
         void update_effect_str( string effect )
         {
