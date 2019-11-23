@@ -51,12 +51,6 @@ namespace cdda_item_creator
 
         private void clipboard_button_Click(object sender, EventArgs e)
         {
-            Clipboard.SetText(JsonConvert.SerializeObject(
-                main_spell, 
-                Formatting.Indented,
-                new JsonSerializerSettings { DefaultValueHandling = DefaultValueHandling.Ignore }
-                ));
-
             main_spell.spell_tags.Clear();
 
             foreach (string item in flags_listbox.CheckedItems)
@@ -70,6 +64,19 @@ namespace cdda_item_creator
             {
                 main_spell.valid_targets.Add(item);
             }
+
+            main_spell.affected_bps.Clear();
+
+            foreach (string item in effected_body_part_listbox.CheckedItems)
+            {
+                main_spell.affected_bps.Add(item);
+            }
+
+            Clipboard.SetText(JsonConvert.SerializeObject(
+                main_spell,
+                Formatting.Indented,
+                new JsonSerializerSettings { DefaultValueHandling = DefaultValueHandling.Ignore }
+                ));
         }
 
         private void effect_combobox_SelectedIndexChanged(object sender, EventArgs e)
@@ -149,7 +156,7 @@ namespace cdda_item_creator
         {
             main_spell.affected_bps.Clear();
 
-            foreach (string item in flags_listbox.CheckedItems)
+            foreach (string item in effected_body_part_listbox.CheckedItems)
             {
                 main_spell.affected_bps.Add(item);
             }
@@ -159,7 +166,7 @@ namespace cdda_item_creator
         {
             main_spell.effect_targets.Clear();
 
-            foreach (string item in valid_targets_listbox.CheckedItems)
+            foreach (string item in effect_filter_listbox.CheckedItems)
             {
                 main_spell.effect_targets.Add(item);
             }
