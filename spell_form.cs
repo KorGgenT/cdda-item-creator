@@ -7,6 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Serialization;
 
 namespace cdda_item_creator
 {
@@ -63,7 +66,7 @@ namespace cdda_item_creator
 
         private void clipboard_button_Click(object sender, EventArgs e)
         {
-            Clipboard.SetText(main_spell.create_json());
+            Clipboard.SetText(JsonConvert.SerializeObject(main_spell, Formatting.Indented));
 
             main_spell.spell_tags.Clear();
 
