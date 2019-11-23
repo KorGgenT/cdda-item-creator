@@ -198,63 +198,12 @@ namespace cdda_item_creator
             bool self;
         }
 
-        class spell_value_member
-        {
-            public spell_value_member(string name)
-            {
-                name_ = name;
-            }
-            public void update_values( int min, float increment, int max )
-            {
-                min_ = min;
-                increment_ = increment;
-                max_ = max;
-            }
-            public void update_min( int min )
-            {
-                min_ = min;
-            }
-            public void update_increment( float increment )
-            {
-                increment_ = increment;
-            }
-            public void update_max( int max )
-            {
-                max_ = max;
-            }
-
-            public string create_json()
-            {
-                const string spacing = "    ";
-                string ret = "";
-
-                if( max_ == 0 )
-                {
-                    return ret;
-                }
-
-                ret += "\n" + spacing + "\"min_" + name_ + "\": " + min_.ToString() + ",";
-                ret += "\n" + spacing + "\"max_" + name_ + "\": " + max_.ToString() + ",";
-
-                if( increment_ != 0.0f )
-                {
-                    ret += "\n" + spacing + "\"" + name_ + "_increment\": " + increment_.ToString() + ",";
-                }
-
-                return ret;
-            }
-
-            string name_;
-            int min_ = 0;
-            float increment_ = 0.0f;
-            int max_ = 0;
-        }
-
         class spell_type
         {
             public spell_type() { }
 
             public string id = "";
+            public const string type = "SPELL";
             public string name = "";
             public string description = "";
             public string message = "You cast %s!";
@@ -266,18 +215,34 @@ namespace cdda_item_creator
             public string effect = "none";
             public string effect_str = "";
             public List<fake_spell> additional_spells;
-            public string field = "";
+            public string field = "none";
             public int field_chance = 1;
 
-            public spell_value_member field_intensity = new spell_value_member("field_intensity");
+            public int min_field_intensity = 0;
+            public float field_intensity_increment = 0.0f;
+            public int max_field_intensity = 0;
 
             public float field_intensity_variance = 0.0f;
 
-            public spell_value_member damage = new spell_value_member("damage");
-            public spell_value_member range = new spell_value_member("range");
-            public spell_value_member aoe = new spell_value_member("aoe");
-            public spell_value_member dot = new spell_value_member("dot");
-            public spell_value_member pierce = new spell_value_member("pierce");
+            public int min_damage = 0;
+            public float damage_increment = 0.0f;
+            public int max_damage = 0;
+
+            public int min_range = 0;
+            public float range_increment = 0.0f;
+            public int max_range = 0;
+
+            public int min_aoe = 0;
+            public float aoe_increment = 0.0f;
+            public int max_aoe = 0;
+
+            public int min_dot = 0;
+            public float dot_increment = 0.0f;
+            public int max_dot = 0;
+
+            public int min_pierce = 0;
+            public float pierce_increment = 0.0f;
+            public int max_pierce = 0;
 
             public int min_duration = 0;
             public int duration_increment = 0;

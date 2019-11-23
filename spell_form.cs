@@ -109,47 +109,47 @@ namespace cdda_item_creator
 
         private void min_damage_updown_ValueChanged(object sender, EventArgs e)
         {
-            main_spell.damage.update_min((int)min_damage_updown.Value);
+            main_spell.min_damage = (int)min_damage_updown.Value;
         }
 
         private void damage_increment_updown_ValueChanged(object sender, EventArgs e)
         {
-            main_spell.damage.update_increment((float)damage_increment_updown.Value);
+            main_spell.damage_increment = (float)damage_increment_updown.Value;
         }
 
         private void max_damage_updown_ValueChanged(object sender, EventArgs e)
         {
-            main_spell.damage.update_max((int)max_damage_updown.Value);
+            main_spell.max_damage = (int)max_damage_updown.Value;
         }
 
         private void min_range_updown_ValueChanged(object sender, EventArgs e)
         {
-            main_spell.range.update_min((int)min_damage_updown.Value);
+            main_spell.min_range = (int)min_damage_updown.Value;
         }
 
         private void range_increment_updown_ValueChanged(object sender, EventArgs e)
         {
-            main_spell.range.update_increment((float)range_increment_updown.Value);
+            main_spell.range_increment = (float)range_increment_updown.Value;
         }
 
         private void max_range_updown_ValueChanged(object sender, EventArgs e)
         {
-            main_spell.range.update_max((int)max_range_updown.Value);
+            main_spell.max_range = (int)max_range_updown.Value;
         }
 
         private void min_aoe_updown_ValueChanged(object sender, EventArgs e)
         {
-            main_spell.aoe.update_min((int)min_aoe_updown.Value);
+            main_spell.min_aoe = (int)min_aoe_updown.Value;
         }
 
         private void aoe_increment_updown_ValueChanged(object sender, EventArgs e)
         {
-            main_spell.aoe.update_increment((float)aoe_increment_updown.Value);
+            main_spell.aoe_increment = (float)aoe_increment_updown.Value;
         }
 
         private void max_aoe_updown_ValueChanged(object sender, EventArgs e)
         {
-            main_spell.aoe.update_max((int)max_aoe_updown.Value);
+            main_spell.max_aoe = (int)max_aoe_updown.Value;
         }
 
         private void effect_str_combobox_SelectedIndexChanged(object sender, EventArgs e)
@@ -209,7 +209,7 @@ namespace cdda_item_creator
 
         private void min_field_intensity_updown_ValueChanged(object sender, EventArgs e)
         {
-            main_spell.field_intensity.update_min((int)min_field_intensity_updown.Value);
+            main_spell.min_field_intensity = (int)min_field_intensity_updown.Value;
         }
 
         private void min_casting_cost_updown_ValueChanged(object sender, EventArgs e)
@@ -229,12 +229,12 @@ namespace cdda_item_creator
 
         private void field_intensity_increment_updown_ValueChanged(object sender, EventArgs e)
         {
-            main_spell.field_intensity.update_increment((float)field_intensity_increment_updown.Value);
+            main_spell.field_intensity_increment = (float)field_intensity_increment_updown.Value;
         }
 
         private void max_field_intensity_updown_ValueChanged(object sender, EventArgs e)
         {
-            main_spell.field_intensity.update_max((int)max_field_intensity_updown.Value);
+            main_spell.max_field_intensity = (int)max_field_intensity_updown.Value;
         }
 
         private void min_duration_updown_ValueChanged(object sender, EventArgs e)
