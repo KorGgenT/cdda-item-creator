@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace cdda_item_creator
 {
@@ -80,7 +81,7 @@ namespace cdda_item_creator
                 "cut",
                 "electric",
                 "stab",
-                "none"
+                "NONE"
             };
             // available options for recover_energy effect
             public static string[] recover_energy_types =
@@ -206,16 +207,36 @@ namespace cdda_item_creator
             public const string type = "SPELL";
             public string name = "";
             public string description = "";
+
+            [DefaultValue("You cast %s!")]
             public string message = "You cast %s!";
+
+            [DefaultValue("an explosion")]
             public string sound_description = "an explosion";
+
+            [DefaultValue("combat")]
             public string sound_type = "combat";
+
             public bool sound_ambient = false;
+
+            [DefaultValue("")]
             public string sound_id = "";
+
+            [DefaultValue("default")]
             public string sound_variant = "default";
+
+            [DefaultValue("none")]
             public string effect = "none";
+
+            [DefaultValue("")]
             public string effect_str = "";
+
             public List<fake_spell> additional_spells;
+
+            [DefaultValue("none")]
             public string field = "none";
+
+            [DefaultValue(1)]
             public int field_chance = 1;
 
             public int min_field_intensity = 0;
@@ -252,6 +273,8 @@ namespace cdda_item_creator
             public float energy_increment = 0.0f;
             public int final_energy_cost = 0;
 
+
+            [DefaultValue("NONE")]
             public string spell_class = "NONE";
 
             public int difficulty = 0;
@@ -263,8 +286,11 @@ namespace cdda_item_creator
 
             public Dictionary<string, int> learn_spells;
 
+            [DefaultValue("NONE")]
             public string energy_source = "NONE";
-            public string dmg_type = "NONE";
+
+            [DefaultValue("NONE")]
+            public string damage_type = "NONE";
 
             public List<string> effect_targets = new List<string> { };
             public List<string> valid_targets = new List<string> { };

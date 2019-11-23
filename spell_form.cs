@@ -66,7 +66,11 @@ namespace cdda_item_creator
 
         private void clipboard_button_Click(object sender, EventArgs e)
         {
-            Clipboard.SetText(JsonConvert.SerializeObject(main_spell, Formatting.Indented));
+            Clipboard.SetText(JsonConvert.SerializeObject(
+                main_spell, 
+                Formatting.Indented,
+                new JsonSerializerSettings { DefaultValueHandling = DefaultValueHandling.Ignore }
+                ));
 
             main_spell.spell_tags.Clear();
 
@@ -169,7 +173,7 @@ namespace cdda_item_creator
 
         private void damage_type_combobox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            main_spell.dmg_type = damage_type_combobox.Text;
+            main_spell.damage_type = damage_type_combobox.Text;
         }
 
         private void valid_targets_listbox_SelectedIndexChanged(object sender, EventArgs e)

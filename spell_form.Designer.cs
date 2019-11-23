@@ -107,8 +107,6 @@
             this.effect_filter_listbox = new System.Windows.Forms.CheckedListBox();
             this.effect_filter_label = new System.Windows.Forms.Label();
             this.flag_description_labe = new System.Windows.Forms.Label();
-            this.allowedstringsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.allowedstringsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.spell_message_textbox = new System.Windows.Forms.TextBox();
             this.spell_message_label = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.min_damage_updown)).BeginInit();
@@ -136,8 +134,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.min_duration_updown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.field_chance_updown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.field_intensity_variance_updown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.allowedstringsBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.allowedstringsBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // spell_name_textbox
@@ -592,7 +588,7 @@
             "cut",
             "electric",
             "stab",
-            "none"});
+            "NONE"});
             this.damage_type_combobox.Location = new System.Drawing.Point(88, 323);
             this.damage_type_combobox.Name = "damage_type_combobox";
             this.damage_type_combobox.Size = new System.Drawing.Size(77, 21);
@@ -1146,14 +1142,6 @@
             this.flag_description_labe.TabIndex = 86;
             this.flag_description_labe.Text = "Flag Description";
             // 
-            // allowedstringsBindingSource
-            // 
-            this.allowedstringsBindingSource.DataSource = typeof(cdda_item_creator.spell.allowed_strings);
-            // 
-            // allowedstringsBindingSource1
-            // 
-            this.allowedstringsBindingSource1.DataSource = typeof(cdda_item_creator.spell.allowed_strings);
-            // 
             // spell_message_textbox
             // 
             this.spell_message_textbox.Location = new System.Drawing.Point(444, 279);
@@ -1283,8 +1271,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.min_duration_updown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.field_chance_updown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.field_intensity_variance_updown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.allowedstringsBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.allowedstringsBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
