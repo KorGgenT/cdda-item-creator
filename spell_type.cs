@@ -212,12 +212,12 @@ namespace cdda_item_creator
             public string message { get; set; } = "You cast %s!";
 
             [DefaultValue("an explosion")]
-            public string sound_description = "an explosion";
+            public string sound_description { get; set; } = "an explosion";
 
             [DefaultValue("combat")]
             public string sound_type { get; set; } = "combat";
 
-            public bool sound_ambient = false;
+            public bool sound_ambient { get; set; } = false;
 
             [DefaultValue("")]
             public string sound_id { get; set; } = "";
@@ -234,7 +234,7 @@ namespace cdda_item_creator
             public List<fake_spell> additional_spells { get; set; } = new List<fake_spell>();
 
             [DefaultValue("none")]
-            public string field = "none";
+            public string field { get; set; } = "none";
 
             [DefaultValue(1)]
             public int field_chance { get; set; } = 1;

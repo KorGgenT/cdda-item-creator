@@ -72,6 +72,8 @@
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\cdda_item_creator.spell.allowed_strings.datasource" />
+    <None Include="Properties\DataSources\cdda_item_creator.spell.fake_spell1.datasource" />
+    <None Include="Properties\DataSources\cdda_item_creator.spell.spell_type1.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

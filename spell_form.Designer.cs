@@ -109,6 +109,7 @@
             this.flag_description_labe = new System.Windows.Forms.Label();
             this.spell_message_textbox = new System.Windows.Forms.TextBox();
             this.spell_message_label = new System.Windows.Forms.Label();
+            this.spelltypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.min_damage_updown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.damage_increment_updown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.max_damage_updown)).BeginInit();
@@ -134,27 +135,29 @@
             ((System.ComponentModel.ISupportInitialize)(this.min_duration_updown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.field_chance_updown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.field_intensity_variance_updown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spelltypeBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // spell_name_textbox
             // 
+            this.spell_name_textbox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.spelltypeBindingSource, "name", true));
             this.spell_name_textbox.Location = new System.Drawing.Point(12, 24);
             this.spell_name_textbox.Name = "spell_name_textbox";
             this.spell_name_textbox.Size = new System.Drawing.Size(133, 20);
             this.spell_name_textbox.TabIndex = 0;
-            this.spell_name_textbox.TextChanged += new System.EventHandler(this.spell_name_textbox_TextChanged);
             // 
             // spell_description_textbox
             // 
+            this.spell_description_textbox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.spelltypeBindingSource, "description", true));
             this.spell_description_textbox.Location = new System.Drawing.Point(12, 68);
             this.spell_description_textbox.Multiline = true;
             this.spell_description_textbox.Name = "spell_description_textbox";
             this.spell_description_textbox.Size = new System.Drawing.Size(239, 56);
             this.spell_description_textbox.TabIndex = 1;
-            this.spell_description_textbox.TextChanged += new System.EventHandler(this.spell_description_textbox_TextChanged);
             // 
             // energy_type_combobox
             // 
+            this.energy_type_combobox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.spelltypeBindingSource, "energy_source", true));
             this.energy_type_combobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.energy_type_combobox.Items.AddRange(new object[] {
             "NONE",
@@ -167,7 +170,6 @@
             this.energy_type_combobox.Name = "energy_type_combobox";
             this.energy_type_combobox.Size = new System.Drawing.Size(70, 21);
             this.energy_type_combobox.TabIndex = 0;
-            this.energy_type_combobox.SelectedIndexChanged += new System.EventHandler(this.energy_type_combobox_SelectedIndexChanged);
             // 
             // name_label
             // 
@@ -180,11 +182,11 @@
             // 
             // id_textbox
             // 
+            this.id_textbox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.spelltypeBindingSource, "id", true));
             this.id_textbox.Location = new System.Drawing.Point(151, 24);
             this.id_textbox.Name = "id_textbox";
             this.id_textbox.Size = new System.Drawing.Size(100, 20);
             this.id_textbox.TabIndex = 3;
-            this.id_textbox.TextChanged += new System.EventHandler(this.id_textbox_TextChanged);
             // 
             // id_label
             // 
@@ -225,6 +227,7 @@
             // 
             // effect_combobox
             // 
+            this.effect_combobox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.spelltypeBindingSource, "effect", true));
             this.effect_combobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.effect_combobox.Items.AddRange(new object[] {
             "pain_split",
@@ -377,6 +380,7 @@
             // 
             // min_damage_updown
             // 
+            this.min_damage_updown.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.spelltypeBindingSource, "min_damage", true));
             this.min_damage_updown.Location = new System.Drawing.Point(524, 95);
             this.min_damage_updown.Margin = new System.Windows.Forms.Padding(2);
             this.min_damage_updown.Maximum = new decimal(new int[] {
@@ -396,6 +400,7 @@
             // 
             // damage_increment_updown
             // 
+            this.damage_increment_updown.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.spelltypeBindingSource, "damage_increment", true));
             this.damage_increment_updown.DecimalPlaces = 3;
             this.damage_increment_updown.Location = new System.Drawing.Point(582, 95);
             this.damage_increment_updown.Margin = new System.Windows.Forms.Padding(2);
@@ -416,6 +421,7 @@
             // 
             // max_damage_updown
             // 
+            this.max_damage_updown.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.spelltypeBindingSource, "max_damage", true));
             this.max_damage_updown.Location = new System.Drawing.Point(639, 95);
             this.max_damage_updown.Margin = new System.Windows.Forms.Padding(2);
             this.max_damage_updown.Maximum = new decimal(new int[] {
@@ -435,6 +441,7 @@
             // 
             // min_range_updown
             // 
+            this.min_range_updown.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.spelltypeBindingSource, "min_range", true));
             this.min_range_updown.Location = new System.Drawing.Point(524, 118);
             this.min_range_updown.Margin = new System.Windows.Forms.Padding(2);
             this.min_range_updown.Maximum = new decimal(new int[] {
@@ -449,6 +456,7 @@
             // 
             // range_increment_updown
             // 
+            this.range_increment_updown.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.spelltypeBindingSource, "range_increment", true));
             this.range_increment_updown.DecimalPlaces = 3;
             this.range_increment_updown.Location = new System.Drawing.Point(582, 118);
             this.range_increment_updown.Margin = new System.Windows.Forms.Padding(2);
@@ -469,6 +477,7 @@
             // 
             // max_range_updown
             // 
+            this.max_range_updown.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.spelltypeBindingSource, "max_range", true));
             this.max_range_updown.Location = new System.Drawing.Point(639, 118);
             this.max_range_updown.Margin = new System.Windows.Forms.Padding(2);
             this.max_range_updown.Maximum = new decimal(new int[] {
@@ -483,6 +492,7 @@
             // 
             // min_aoe_updown
             // 
+            this.min_aoe_updown.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.spelltypeBindingSource, "min_aoe", true));
             this.min_aoe_updown.Location = new System.Drawing.Point(524, 141);
             this.min_aoe_updown.Margin = new System.Windows.Forms.Padding(2);
             this.min_aoe_updown.Maximum = new decimal(new int[] {
@@ -497,6 +507,7 @@
             // 
             // aoe_increment_updown
             // 
+            this.aoe_increment_updown.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.spelltypeBindingSource, "aoe_increment", true));
             this.aoe_increment_updown.DecimalPlaces = 3;
             this.aoe_increment_updown.Location = new System.Drawing.Point(582, 141);
             this.aoe_increment_updown.Margin = new System.Windows.Forms.Padding(2);
@@ -517,6 +528,7 @@
             // 
             // max_aoe_updown
             // 
+            this.max_aoe_updown.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.spelltypeBindingSource, "max_aoe", true));
             this.max_aoe_updown.Location = new System.Drawing.Point(639, 141);
             this.max_aoe_updown.Margin = new System.Windows.Forms.Padding(2);
             this.max_aoe_updown.Maximum = new decimal(new int[] {
@@ -531,12 +543,12 @@
             // 
             // difficulty_updown
             // 
+            this.difficulty_updown.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.spelltypeBindingSource, "difficulty", true));
             this.difficulty_updown.Location = new System.Drawing.Point(69, 355);
             this.difficulty_updown.Margin = new System.Windows.Forms.Padding(2);
             this.difficulty_updown.Name = "difficulty_updown";
             this.difficulty_updown.Size = new System.Drawing.Size(57, 20);
             this.difficulty_updown.TabIndex = 38;
-            this.difficulty_updown.ValueChanged += new System.EventHandler(this.difficulty_updown_ValueChanged);
             // 
             // difficulty_label
             // 
@@ -550,21 +562,21 @@
             // 
             // effect_str_combobox
             // 
+            this.effect_str_combobox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.spelltypeBindingSource, "effect_str", true));
             this.effect_str_combobox.FormattingEnabled = true;
             this.effect_str_combobox.Location = new System.Drawing.Point(120, 154);
             this.effect_str_combobox.Name = "effect_str_combobox";
             this.effect_str_combobox.Size = new System.Drawing.Size(131, 21);
             this.effect_str_combobox.TabIndex = 40;
-            this.effect_str_combobox.SelectedIndexChanged += new System.EventHandler(this.effect_str_combobox_SelectedIndexChanged);
             // 
             // max_level_updown
             // 
+            this.max_level_updown.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.spelltypeBindingSource, "max_level", true));
             this.max_level_updown.Location = new System.Drawing.Point(194, 355);
             this.max_level_updown.Margin = new System.Windows.Forms.Padding(2);
             this.max_level_updown.Name = "max_level_updown";
             this.max_level_updown.Size = new System.Drawing.Size(57, 20);
             this.max_level_updown.TabIndex = 41;
-            this.max_level_updown.ValueChanged += new System.EventHandler(this.max_level_updown_ValueChanged);
             // 
             // max_level_label
             // 
@@ -578,6 +590,7 @@
             // 
             // damage_type_combobox
             // 
+            this.damage_type_combobox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.spelltypeBindingSource, "damage_type", true));
             this.damage_type_combobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.damage_type_combobox.Items.AddRange(new object[] {
             "fire",
@@ -593,7 +606,6 @@
             this.damage_type_combobox.Name = "damage_type_combobox";
             this.damage_type_combobox.Size = new System.Drawing.Size(77, 21);
             this.damage_type_combobox.TabIndex = 43;
-            this.damage_type_combobox.SelectedIndexChanged += new System.EventHandler(this.damage_type_combobox_SelectedIndexChanged);
             // 
             // damage_type_label
             // 
@@ -606,6 +618,7 @@
             // 
             // spell_class_textbox
             // 
+            this.spell_class_textbox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.spelltypeBindingSource, "spell_class", true));
             this.spell_class_textbox.Location = new System.Drawing.Point(171, 324);
             this.spell_class_textbox.Name = "spell_class_textbox";
             this.spell_class_textbox.Size = new System.Drawing.Size(80, 20);
@@ -692,6 +705,7 @@
             // 
             // base_casting_time_updown
             // 
+            this.base_casting_time_updown.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.spelltypeBindingSource, "base_casting_time", true));
             this.base_casting_time_updown.Location = new System.Drawing.Point(524, 47);
             this.base_casting_time_updown.Margin = new System.Windows.Forms.Padding(2);
             this.base_casting_time_updown.Maximum = new decimal(new int[] {
@@ -702,10 +716,10 @@
             this.base_casting_time_updown.Name = "base_casting_time_updown";
             this.base_casting_time_updown.Size = new System.Drawing.Size(53, 20);
             this.base_casting_time_updown.TabIndex = 52;
-            this.base_casting_time_updown.ValueChanged += new System.EventHandler(this.base_casting_time_updown_ValueChanged);
             // 
             // casting_time_increment_updown
             // 
+            this.casting_time_increment_updown.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.spelltypeBindingSource, "casting_time_increment", true));
             this.casting_time_increment_updown.Location = new System.Drawing.Point(582, 47);
             this.casting_time_increment_updown.Margin = new System.Windows.Forms.Padding(2);
             this.casting_time_increment_updown.Maximum = new decimal(new int[] {
@@ -721,10 +735,10 @@
             this.casting_time_increment_updown.Name = "casting_time_increment_updown";
             this.casting_time_increment_updown.Size = new System.Drawing.Size(53, 20);
             this.casting_time_increment_updown.TabIndex = 53;
-            this.casting_time_increment_updown.ValueChanged += new System.EventHandler(this.casting_time_increment_updown_ValueChanged);
             // 
             // final_casting_time_updown
             // 
+            this.final_casting_time_updown.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.spelltypeBindingSource, "final_casting_time", true));
             this.final_casting_time_updown.Location = new System.Drawing.Point(639, 47);
             this.final_casting_time_updown.Margin = new System.Windows.Forms.Padding(2);
             this.final_casting_time_updown.Maximum = new decimal(new int[] {
@@ -735,7 +749,6 @@
             this.final_casting_time_updown.Name = "final_casting_time_updown";
             this.final_casting_time_updown.Size = new System.Drawing.Size(53, 20);
             this.final_casting_time_updown.TabIndex = 54;
-            this.final_casting_time_updown.ValueChanged += new System.EventHandler(this.final_casting_time_updown_ValueChanged);
             // 
             // casting_time_label
             // 
@@ -759,6 +772,7 @@
             // 
             // max_field_intensity_updown
             // 
+            this.max_field_intensity_updown.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.spelltypeBindingSource, "max_field_intensity", true));
             this.max_field_intensity_updown.Location = new System.Drawing.Point(639, 189);
             this.max_field_intensity_updown.Margin = new System.Windows.Forms.Padding(2);
             this.max_field_intensity_updown.Maximum = new decimal(new int[] {
@@ -769,10 +783,10 @@
             this.max_field_intensity_updown.Name = "max_field_intensity_updown";
             this.max_field_intensity_updown.Size = new System.Drawing.Size(53, 20);
             this.max_field_intensity_updown.TabIndex = 59;
-            this.max_field_intensity_updown.ValueChanged += new System.EventHandler(this.max_field_intensity_updown_ValueChanged);
             // 
             // field_intensity_increment_updown
             // 
+            this.field_intensity_increment_updown.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.spelltypeBindingSource, "field_intensity_increment", true));
             this.field_intensity_increment_updown.DecimalPlaces = 3;
             this.field_intensity_increment_updown.Location = new System.Drawing.Point(582, 189);
             this.field_intensity_increment_updown.Margin = new System.Windows.Forms.Padding(2);
@@ -789,10 +803,10 @@
             this.field_intensity_increment_updown.Name = "field_intensity_increment_updown";
             this.field_intensity_increment_updown.Size = new System.Drawing.Size(53, 20);
             this.field_intensity_increment_updown.TabIndex = 58;
-            this.field_intensity_increment_updown.ValueChanged += new System.EventHandler(this.field_intensity_increment_updown_ValueChanged);
             // 
             // min_field_intensity_updown
             // 
+            this.min_field_intensity_updown.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.spelltypeBindingSource, "min_field_intensity", true));
             this.min_field_intensity_updown.Location = new System.Drawing.Point(524, 189);
             this.min_field_intensity_updown.Margin = new System.Windows.Forms.Padding(2);
             this.min_field_intensity_updown.Maximum = new decimal(new int[] {
@@ -803,7 +817,6 @@
             this.min_field_intensity_updown.Name = "min_field_intensity_updown";
             this.min_field_intensity_updown.Size = new System.Drawing.Size(53, 20);
             this.min_field_intensity_updown.TabIndex = 57;
-            this.min_field_intensity_updown.ValueChanged += new System.EventHandler(this.min_field_intensity_updown_ValueChanged);
             // 
             // casting_cost
             // 
@@ -817,6 +830,7 @@
             // 
             // max_casting_cost
             // 
+            this.max_casting_cost.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.spelltypeBindingSource, "final_energy_cost", true));
             this.max_casting_cost.Location = new System.Drawing.Point(639, 71);
             this.max_casting_cost.Margin = new System.Windows.Forms.Padding(2);
             this.max_casting_cost.Maximum = new decimal(new int[] {
@@ -827,10 +841,10 @@
             this.max_casting_cost.Name = "max_casting_cost";
             this.max_casting_cost.Size = new System.Drawing.Size(53, 20);
             this.max_casting_cost.TabIndex = 63;
-            this.max_casting_cost.ValueChanged += new System.EventHandler(this.max_casting_cost_ValueChanged);
             // 
             // casting_cost_increment
             // 
+            this.casting_cost_increment.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.spelltypeBindingSource, "energy_increment", true));
             this.casting_cost_increment.DecimalPlaces = 3;
             this.casting_cost_increment.Location = new System.Drawing.Point(582, 71);
             this.casting_cost_increment.Margin = new System.Windows.Forms.Padding(2);
@@ -847,10 +861,10 @@
             this.casting_cost_increment.Name = "casting_cost_increment";
             this.casting_cost_increment.Size = new System.Drawing.Size(53, 20);
             this.casting_cost_increment.TabIndex = 62;
-            this.casting_cost_increment.ValueChanged += new System.EventHandler(this.casting_cost_increment_ValueChanged);
             // 
             // min_casting_cost_updown
             // 
+            this.min_casting_cost_updown.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.spelltypeBindingSource, "base_energy_cost", true));
             this.min_casting_cost_updown.Location = new System.Drawing.Point(524, 71);
             this.min_casting_cost_updown.Margin = new System.Windows.Forms.Padding(2);
             this.min_casting_cost_updown.Maximum = new decimal(new int[] {
@@ -861,10 +875,10 @@
             this.min_casting_cost_updown.Name = "min_casting_cost_updown";
             this.min_casting_cost_updown.Size = new System.Drawing.Size(53, 20);
             this.min_casting_cost_updown.TabIndex = 61;
-            this.min_casting_cost_updown.ValueChanged += new System.EventHandler(this.min_casting_cost_updown_ValueChanged);
             // 
             // max_duration_updown
             // 
+            this.max_duration_updown.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.spelltypeBindingSource, "max_duration", true));
             this.max_duration_updown.Location = new System.Drawing.Point(639, 165);
             this.max_duration_updown.Margin = new System.Windows.Forms.Padding(2);
             this.max_duration_updown.Maximum = new decimal(new int[] {
@@ -875,10 +889,10 @@
             this.max_duration_updown.Name = "max_duration_updown";
             this.max_duration_updown.Size = new System.Drawing.Size(53, 20);
             this.max_duration_updown.TabIndex = 67;
-            this.max_duration_updown.ValueChanged += new System.EventHandler(this.max_duration_updown_ValueChanged);
             // 
             // duration_increment_updown
             // 
+            this.duration_increment_updown.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.spelltypeBindingSource, "duration_increment", true));
             this.duration_increment_updown.DecimalPlaces = 3;
             this.duration_increment_updown.Location = new System.Drawing.Point(582, 165);
             this.duration_increment_updown.Margin = new System.Windows.Forms.Padding(2);
@@ -895,10 +909,10 @@
             this.duration_increment_updown.Name = "duration_increment_updown";
             this.duration_increment_updown.Size = new System.Drawing.Size(53, 20);
             this.duration_increment_updown.TabIndex = 66;
-            this.duration_increment_updown.ValueChanged += new System.EventHandler(this.duration_increment_updown_ValueChanged);
             // 
             // min_duration_updown
             // 
+            this.min_duration_updown.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.spelltypeBindingSource, "min_duration", true));
             this.min_duration_updown.Location = new System.Drawing.Point(524, 165);
             this.min_duration_updown.Margin = new System.Windows.Forms.Padding(2);
             this.min_duration_updown.Maximum = new decimal(new int[] {
@@ -909,7 +923,6 @@
             this.min_duration_updown.Name = "min_duration_updown";
             this.min_duration_updown.Size = new System.Drawing.Size(53, 20);
             this.min_duration_updown.TabIndex = 65;
-            this.min_duration_updown.ValueChanged += new System.EventHandler(this.min_duration_updown_ValueChanged);
             // 
             // duration_label
             // 
@@ -923,11 +936,11 @@
             // 
             // field_id_textbox
             // 
+            this.field_id_textbox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.spelltypeBindingSource, "field", true));
             this.field_id_textbox.Location = new System.Drawing.Point(444, 240);
             this.field_id_textbox.Name = "field_id_textbox";
             this.field_id_textbox.Size = new System.Drawing.Size(89, 20);
             this.field_id_textbox.TabIndex = 68;
-            this.field_id_textbox.TextChanged += new System.EventHandler(this.field_id_textbox_TextChanged);
             // 
             // field_id_label
             // 
@@ -940,6 +953,7 @@
             // 
             // field_chance_updown
             // 
+            this.field_chance_updown.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.spelltypeBindingSource, "field_chance", true));
             this.field_chance_updown.Location = new System.Drawing.Point(542, 240);
             this.field_chance_updown.Margin = new System.Windows.Forms.Padding(2);
             this.field_chance_updown.Maximum = new decimal(new int[] {
@@ -972,6 +986,7 @@
             // 
             // field_intensity_variance_updown
             // 
+            this.field_intensity_variance_updown.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.spelltypeBindingSource, "field_intensity_variance", true));
             this.field_intensity_variance_updown.DecimalPlaces = 3;
             this.field_intensity_variance_updown.Location = new System.Drawing.Point(626, 241);
             this.field_intensity_variance_updown.Margin = new System.Windows.Forms.Padding(2);
@@ -1020,11 +1035,11 @@
             // 
             // sound_description_textbox
             // 
+            this.sound_description_textbox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.spelltypeBindingSource, "sound_description", true));
             this.sound_description_textbox.Location = new System.Drawing.Point(446, 337);
             this.sound_description_textbox.Name = "sound_description_textbox";
             this.sound_description_textbox.Size = new System.Drawing.Size(137, 20);
             this.sound_description_textbox.TabIndex = 76;
-            this.sound_description_textbox.TextChanged += new System.EventHandler(this.sound_description_textbox_TextChanged);
             // 
             // sound_type_label
             // 
@@ -1037,6 +1052,7 @@
             // 
             // sound_type_combobox
             // 
+            this.sound_type_combobox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.spelltypeBindingSource, "sound_type", true));
             this.sound_type_combobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.sound_type_combobox.Items.AddRange(new object[] {
             "background",
@@ -1060,21 +1076,21 @@
             // sound_ambient_checkbox
             // 
             this.sound_ambient_checkbox.AutoSize = true;
+            this.sound_ambient_checkbox.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.spelltypeBindingSource, "sound_ambient", true));
             this.sound_ambient_checkbox.Location = new System.Drawing.Point(485, 359);
             this.sound_ambient_checkbox.Name = "sound_ambient_checkbox";
             this.sound_ambient_checkbox.Size = new System.Drawing.Size(64, 17);
             this.sound_ambient_checkbox.TabIndex = 79;
             this.sound_ambient_checkbox.Text = "Ambient";
             this.sound_ambient_checkbox.UseVisualStyleBackColor = true;
-            this.sound_ambient_checkbox.CheckedChanged += new System.EventHandler(this.sound_ambient_checkbox_CheckedChanged);
             // 
             // sound_id_textbox
             // 
+            this.sound_id_textbox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.spelltypeBindingSource, "sound_id", true));
             this.sound_id_textbox.Location = new System.Drawing.Point(446, 379);
             this.sound_id_textbox.Name = "sound_id_textbox";
             this.sound_id_textbox.Size = new System.Drawing.Size(111, 20);
             this.sound_id_textbox.TabIndex = 80;
-            this.sound_id_textbox.TextChanged += new System.EventHandler(this.sound_id_textbox_TextChanged);
             // 
             // sound_id_label
             // 
@@ -1087,11 +1103,11 @@
             // 
             // sound_variant_textbox
             // 
+            this.sound_variant_textbox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.spelltypeBindingSource, "sound_variant", true));
             this.sound_variant_textbox.Location = new System.Drawing.Point(565, 379);
             this.sound_variant_textbox.Name = "sound_variant_textbox";
             this.sound_variant_textbox.Size = new System.Drawing.Size(127, 20);
             this.sound_variant_textbox.TabIndex = 82;
-            this.sound_variant_textbox.TextChanged += new System.EventHandler(this.sound_variant_textbox_TextChanged);
             // 
             // sound_variant_label
             // 
@@ -1144,9 +1160,10 @@
             // 
             // spell_message_textbox
             // 
+            this.spell_message_textbox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.spelltypeBindingSource, "message", true));
             this.spell_message_textbox.Location = new System.Drawing.Point(444, 279);
             this.spell_message_textbox.Name = "spell_message_textbox";
-            this.spell_message_textbox.Size = new System.Drawing.Size(89, 20);
+            this.spell_message_textbox.Size = new System.Drawing.Size(248, 20);
             this.spell_message_textbox.TabIndex = 87;
             this.spell_message_textbox.TextChanged += new System.EventHandler(this.spell_message_textbox_TextChanged);
             // 
@@ -1158,6 +1175,10 @@
             this.spell_message_label.Size = new System.Drawing.Size(76, 13);
             this.spell_message_label.TabIndex = 88;
             this.spell_message_label.Text = "Spell Message";
+            // 
+            // spelltypeBindingSource
+            // 
+            this.spelltypeBindingSource.DataSource = typeof(cdda_item_creator.spell.spell_type);
             // 
             // spell_form
             // 
@@ -1271,6 +1292,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.min_duration_updown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.field_chance_updown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.field_intensity_variance_updown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spelltypeBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1360,6 +1382,7 @@
         private System.Windows.Forms.Label flag_description_labe;
         private System.Windows.Forms.TextBox spell_message_textbox;
         private System.Windows.Forms.Label spell_message_label;
+        private System.Windows.Forms.BindingSource spelltypeBindingSource;
     }
 }
 
