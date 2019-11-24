@@ -112,55 +112,5 @@ namespace cdda_item_creator
             spell_effect_description_label.Text = spell.allowed_strings.effect_descriptions[effect];
             update_effect_str(effect);
         }
-
-        private void min_damage_updown_ValueChanged(object sender, EventArgs e)
-        {
-            main_spell.min_damage = (int)min_damage_updown.Value;
-        }
-
-        private void damage_increment_updown_ValueChanged(object sender, EventArgs e)
-        {
-            main_spell.damage_increment = (float)damage_increment_updown.Value;
-        }
-
-        private void max_damage_updown_ValueChanged(object sender, EventArgs e)
-        {
-            main_spell.max_damage = (int)max_damage_updown.Value;
-        }
-
-        private void min_range_updown_ValueChanged(object sender, EventArgs e)
-        {
-            main_spell.min_range = (int)min_damage_updown.Value;
-        }
-
-        private void range_increment_updown_ValueChanged(object sender, EventArgs e)
-        {
-            main_spell.range_increment = (float)range_increment_updown.Value;
-        }
-
-        private void max_range_updown_ValueChanged(object sender, EventArgs e)
-        {
-            main_spell.max_range = (int)max_range_updown.Value;
-        }
-
-        private void min_aoe_updown_ValueChanged(object sender, EventArgs e)
-        {
-            main_spell.min_aoe = (int)min_aoe_updown.Value;
-        }
-
-        private void aoe_increment_updown_ValueChanged(object sender, EventArgs e)
-        {
-            main_spell.aoe_increment = (float)aoe_increment_updown.Value;
-        }
-
-        private void max_aoe_updown_ValueChanged(object sender, EventArgs e)
-        {
-            main_spell.max_aoe = (int)max_aoe_updown.Value;
-        }
-
-        private void spell_message_textbox_TextChanged(object sender, EventArgs e)
-        {
-            main_spell.message = spell_message_textbox.Text;
-        }
     }
 }

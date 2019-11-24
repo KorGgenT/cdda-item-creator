@@ -395,7 +395,6 @@
             this.min_damage_updown.Name = "min_damage_updown";
             this.min_damage_updown.Size = new System.Drawing.Size(53, 20);
             this.min_damage_updown.TabIndex = 29;
-            this.min_damage_updown.ValueChanged += new System.EventHandler(this.min_damage_updown_ValueChanged);
             // 
             // damage_increment_updown
             // 
@@ -416,7 +415,6 @@
             this.damage_increment_updown.Name = "damage_increment_updown";
             this.damage_increment_updown.Size = new System.Drawing.Size(53, 20);
             this.damage_increment_updown.TabIndex = 30;
-            this.damage_increment_updown.ValueChanged += new System.EventHandler(this.damage_increment_updown_ValueChanged);
             // 
             // max_damage_updown
             // 
@@ -436,7 +434,6 @@
             this.max_damage_updown.Name = "max_damage_updown";
             this.max_damage_updown.Size = new System.Drawing.Size(53, 20);
             this.max_damage_updown.TabIndex = 31;
-            this.max_damage_updown.ValueChanged += new System.EventHandler(this.max_damage_updown_ValueChanged);
             // 
             // min_range_updown
             // 
@@ -451,7 +448,6 @@
             this.min_range_updown.Name = "min_range_updown";
             this.min_range_updown.Size = new System.Drawing.Size(53, 20);
             this.min_range_updown.TabIndex = 32;
-            this.min_range_updown.ValueChanged += new System.EventHandler(this.min_range_updown_ValueChanged);
             // 
             // range_increment_updown
             // 
@@ -472,7 +468,6 @@
             this.range_increment_updown.Name = "range_increment_updown";
             this.range_increment_updown.Size = new System.Drawing.Size(53, 20);
             this.range_increment_updown.TabIndex = 33;
-            this.range_increment_updown.ValueChanged += new System.EventHandler(this.range_increment_updown_ValueChanged);
             // 
             // max_range_updown
             // 
@@ -487,7 +482,6 @@
             this.max_range_updown.Name = "max_range_updown";
             this.max_range_updown.Size = new System.Drawing.Size(53, 20);
             this.max_range_updown.TabIndex = 34;
-            this.max_range_updown.ValueChanged += new System.EventHandler(this.max_range_updown_ValueChanged);
             // 
             // min_aoe_updown
             // 
@@ -502,7 +496,6 @@
             this.min_aoe_updown.Name = "min_aoe_updown";
             this.min_aoe_updown.Size = new System.Drawing.Size(53, 20);
             this.min_aoe_updown.TabIndex = 35;
-            this.min_aoe_updown.ValueChanged += new System.EventHandler(this.min_aoe_updown_ValueChanged);
             // 
             // aoe_increment_updown
             // 
@@ -523,7 +516,6 @@
             this.aoe_increment_updown.Name = "aoe_increment_updown";
             this.aoe_increment_updown.Size = new System.Drawing.Size(53, 20);
             this.aoe_increment_updown.TabIndex = 36;
-            this.aoe_increment_updown.ValueChanged += new System.EventHandler(this.aoe_increment_updown_ValueChanged);
             // 
             // max_aoe_updown
             // 
@@ -538,7 +530,6 @@
             this.max_aoe_updown.Name = "max_aoe_updown";
             this.max_aoe_updown.Size = new System.Drawing.Size(53, 20);
             this.max_aoe_updown.TabIndex = 37;
-            this.max_aoe_updown.ValueChanged += new System.EventHandler(this.max_aoe_updown_ValueChanged);
             // 
             // difficulty_updown
             // 
@@ -1161,7 +1152,6 @@
             this.spell_message_textbox.Name = "spell_message_textbox";
             this.spell_message_textbox.Size = new System.Drawing.Size(248, 20);
             this.spell_message_textbox.TabIndex = 87;
-            this.spell_message_textbox.TextChanged += new System.EventHandler(this.spell_message_textbox_TextChanged);
             // 
             // spell_message_label
             // 
