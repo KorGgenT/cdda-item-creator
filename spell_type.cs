@@ -191,12 +191,13 @@ namespace cdda_item_creator
                 { "none", "please select a spell effect" }
             };
         }
-        public struct fake_spell
+        public class FakeSpell
         {
-            string id;
-            int max_level;
-            int level;
-            bool self;
+            // mandatory member
+            string Id { get; set; } = "";
+            int MaxLevel { get; set; }
+            int Level { get; set; }
+            bool Self { get; set; }
         }
 
         public class spell_type
@@ -224,15 +225,13 @@ namespace cdda_item_creator
 
             [DefaultValue("default")]
             public string SoundVariant { get; set; } = "default";
-
-            [DefaultValue("none")]
             public string Effect { get; set; } = "none";
 
             [DefaultValue("")]
             public string EffectStr { get; set; } = "";
 
-            [DefaultValue(default(List<fake_spell>))]
-            public List<fake_spell> AdditionalSpells { get; set; }
+            [DefaultValue(default(List<FakeSpell>))]
+            public List<FakeSpell> AdditionalSpells { get; set; }
 
             [DefaultValue("none")]
             public string FieldId { get; set; } = "none";
