@@ -293,18 +293,18 @@ namespace cdda_item_creator
 
             [DefaultValue("NONE")]
             public string DamageType { get; set; } = "NONE";
-            public bool ShouldSerializeeffect_targets() => EffectTargets.Count > 0;
+            public bool ShouldSerializeEffectTargets() => EffectTargets.Count > 0;
 
             [DefaultValue(default(List<string>))]
             public List<string> EffectTargets { get; set; }
 
             [DefaultValue(default(List<string>))]
             public List<string> ValidTargets { get; set; }
-            public bool ShouldSerializeaffected_bps() => AffectedBps.Count > 0;
+            public bool ShouldSerializeAffectedBps() => AffectedBps.Count > 0;
 
             [DefaultValue(default(List<string>))]
             public List<string> AffectedBps { get; set; }
-            public bool ShouldSerializespell_tags() => Flags.Count > 0;
+            public bool ShouldSerializeFlags() => Flags.Count > 0;
 
             [DefaultValue(default(List<string>))]
             public List<string> Flags { get; set; }
