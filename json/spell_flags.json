@@ -1,0 +1,22 @@
+[
+  {
+    "PERMANENT": "items or creatures spawned with this spell do not disappear and die as normal",
+    "IGNORE_WALLS": "spell's aoe goes through walls",
+    "HOSTILE_SUMMON": "summon spell always spawns a hostile monster",
+    "HOSTILE_50": "summoned monster spawns friendly 50% of the time",
+    "SILENT": "spell makes no noise at target",
+    "LOUD": "spell makes extra noise at target",
+    "VERBAL": "spell makes noise at caster location, mouth encumbrance affects fail %",
+    "SOMATIC": "arm encumbrance affects fail % and casting time (slightly)",
+    "NO_HANDS": "hands do not affect spell energy cost",
+    "UNSAFE_TELEPORT": "teleport spell risks killing the caster or others",
+    "NO_LEGS": "focus affects spell fail %",
+    "CONCENTRATE": "picks random number between min+increment*level and max instead of normal behavior",
+    "RANDOM_AOE": "picks random number between min+increment*level and max instead of normal behavior",
+    "RANDOM_DAMAGE": "picks random number between min+increment*level and max instead of normal behavior",
+    "RANDOM_DURATION": "picks random number between min+increment*level and max instead of normal behavior",
+    "RANDOM_TARGET": "picks a random valid target within your range instead of normal behavior",
+    "MUTATE_TRAIT": "overrides the mutate spell_effect to use a specific trait_id instead of a category",
+    "WONDER": "instead of casting each of the extra_spells, it picks N of them and casts them (where N is std::min( damage(), number_of_spells ))"
+  }
+]

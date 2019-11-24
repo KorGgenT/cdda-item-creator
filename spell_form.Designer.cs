@@ -1,4 +1,7 @@
-﻿namespace cdda_item_creator
+﻿using cdda_item_creator.spell;
+using System.Collections.Generic;
+
+namespace cdda_item_creator
 {
     partial class spell_form
     {
@@ -233,29 +236,6 @@
             // 
             this.effect_combobox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.spelltypeBindingSource, "Effect", true));
             this.effect_combobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.effect_combobox.Items.AddRange(new object[] {
-            "pain_split",
-            "target_attack",
-            "projectile_attack",
-            "cone_attack",
-            "line_attack",
-            "area_pull",
-            "area_push",
-            "spawn_item",
-            "teleport_random",
-            "recover_energy",
-            "ter_transform",
-            "vomit",
-            "timed_event",
-            "explosion",
-            "flashbang",
-            "mod_moves",
-            "map",
-            "morale",
-            "charm_monster",
-            "mutate",
-            "bash",
-            "none"});
             this.effect_combobox.Location = new System.Drawing.Point(12, 154);
             this.effect_combobox.Name = "effect_combobox";
             this.effect_combobox.Size = new System.Drawing.Size(102, 21);
@@ -276,25 +256,6 @@
             // flags_listbox
             // 
             this.flags_listbox.FormattingEnabled = true;
-            this.flags_listbox.Items.AddRange(new object[] {
-            "PERMANENT",
-            "IGNORE_WALLS",
-            "HOSTILE_SUMMON",
-            "HOSTILE_50",
-            "SILENT",
-            "LOUD",
-            "VERBAL",
-            "SOMATIC",
-            "NO_HANDS",
-            "UNSAFE_TELEPORT",
-            "NO_LEGS",
-            "CONCENTRATE",
-            "RANDOM_AOE",
-            "RANDOM_DAMAGE",
-            "RANDOM_DURATION",
-            "RANDOM_TARGET",
-            "MUTATE_TRAIT",
-            "WONDER"});
             this.flags_listbox.Location = new System.Drawing.Point(256, 24);
             this.flags_listbox.Margin = new System.Windows.Forms.Padding(2);
             this.flags_listbox.Name = "flags_listbox";
@@ -1285,6 +1246,18 @@
         }
 
         #endregion
+
+        private void InitializeLists()
+        {
+            foreach ( string key in allowed_strings.spell_flags_description.Keys)
+            {
+                this.flags_listbox.Items.Add(key);
+            }
+            foreach(string key in allowed_strings.effect_descriptions.Keys)
+            {
+                this.effect_combobox.Items.Add(key);
+            }
+        }
 
         private System.Windows.Forms.TextBox spell_name_textbox;
         private System.Windows.Forms.TextBox spell_description_textbox;

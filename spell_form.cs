@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using cdda_item_creator.spell;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Serialization;
@@ -41,12 +42,15 @@ namespace cdda_item_creator
 
         public spell_form()
         {
+            StaticDataLoader loader = new StaticDataLoader { };
+            loader.loadAll();
             InitializeComponent();
+            InitializeLists();
             spelltypeBindingSource.Add(main_spell);
             energy_type_combobox.SelectedIndex = 0;
-            effect_combobox.SelectedIndex = 21;
-            damage_type_combobox.SelectedIndex = 8;
-            sound_type_combobox.SelectedIndex = 10;
+            effect_combobox.SelectedIndex = 0;
+            damage_type_combobox.SelectedIndex = 0;
+            sound_type_combobox.SelectedIndex = 0;
         }
 
         private void clipboard_button_Click(object sender, EventArgs e)
@@ -74,7 +78,11 @@ namespace cdda_item_creator
 
         private void effect_combobox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string effect = spell.allowed_strings.effects[effect_combobox.SelectedIndex];
+            string effect = effect_combobox.SelectedItem.ToString();
+            if (!spell.allowed_strings.effect_descriptions.ContainsKey(effect))
+            {
+                return;
+            }
             spell_effect_description_label.Text = spell.allowed_strings.effect_descriptions[effect];
             update_effect_str(effect);
         }
