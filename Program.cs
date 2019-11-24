@@ -16,7 +16,7 @@ namespace cdda_item_creator
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new spell_form());
+            Application.Run(new SelectorForm());
         }
     }
 }

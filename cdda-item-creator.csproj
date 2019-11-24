@@ -49,6 +49,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="mtype.cs" />
+    <Compile Include="selector.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="selector.Designer.cs">
+      <DependentUpon>selector.cs</DependentUpon>
+    </Compile>
     <Compile Include="spell_form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -67,6 +74,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="selector.resx">
+      <DependentUpon>selector.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="spell_form.resx">
       <DependentUpon>spell_form.cs</DependentUpon>
     </EmbeddedResource>
