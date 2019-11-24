@@ -15,7 +15,7 @@ namespace cdda_item_creator
         public string name_plural { get; set; } = "";
     }
 
-    class path_settings
+    class PathSettingsData
     {
         public int max_dist { get; set; }
         [DefaultValue(-1)]
@@ -32,7 +32,7 @@ namespace cdda_item_creator
 
     // this is a class that is supposed to be a carbon-copy of mtype from C:DDA
     // intended to be able to be written to JSON easily
-    class mtype
+    class Mtype
     {
         public const string type = "MONSTER";
 
@@ -68,7 +68,7 @@ namespace cdda_item_creator
         public float luminance { get; set; }
 
         [DefaultValue("")]
-        public string revert_to_itype { get; set; }
+        public string revert_to_itype { get; set; } = "";
         [DefaultValue("")]
         public string mech_weapon { get; set; } = "";
         public int mech_str_bonus { get; set; }
@@ -81,5 +81,6 @@ namespace cdda_item_creator
         public string burn_into { get; set; } = "";
         [DefaultValue(-1)]
         public int bash_skill { get; set; } = -1;
+        public PathSettingsData path_settings { get; set; }
     }
 }
