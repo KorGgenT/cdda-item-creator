@@ -296,7 +296,6 @@
             this.flags_listbox.Name = "flags_listbox";
             this.flags_listbox.Size = new System.Drawing.Size(182, 274);
             this.flags_listbox.TabIndex = 10;
-            this.flags_listbox.SelectedIndexChanged += new System.EventHandler(this.flags_listbox_SelectedIndexChanged);
             // 
             // flags_label
             // 
@@ -660,7 +659,6 @@
             this.valid_targets_listbox.Name = "valid_targets_listbox";
             this.valid_targets_listbox.Size = new System.Drawing.Size(96, 64);
             this.valid_targets_listbox.TabIndex = 48;
-            this.valid_targets_listbox.SelectedIndexChanged += new System.EventHandler(this.valid_targets_listbox_SelectedIndexChanged);
             // 
             // valid_targets_label
             // 
@@ -692,7 +690,6 @@
             this.effected_body_part_listbox.Name = "effected_body_part_listbox";
             this.effected_body_part_listbox.Size = new System.Drawing.Size(96, 64);
             this.effected_body_part_listbox.TabIndex = 50;
-            this.effected_body_part_listbox.SelectedIndexChanged += new System.EventHandler(this.effected_body_part_listbox_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -1136,7 +1133,6 @@
             this.effect_filter_listbox.Name = "effect_filter_listbox";
             this.effect_filter_listbox.Size = new System.Drawing.Size(96, 64);
             this.effect_filter_listbox.TabIndex = 84;
-            this.effect_filter_listbox.SelectedIndexChanged += new System.EventHandler(this.effect_filter_listbox_SelectedIndexChanged);
             // 
             // effect_filter_label
             // 

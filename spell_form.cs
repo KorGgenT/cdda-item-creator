@@ -51,25 +51,52 @@ namespace cdda_item_creator
 
         private void clipboard_button_Click(object sender, EventArgs e)
         {
-            main_spell.spell_tags.Clear();
-
-            foreach (string item in flags_listbox.CheckedItems)
+            if (flags_listbox.CheckedItems.Count > 0)
             {
-                main_spell.spell_tags.Add(item);
+                main_spell.spell_tags = new List<string> { };
+
+                foreach (string item in flags_listbox.CheckedItems)
+                {
+                    main_spell.spell_tags.Add(item);
+                }
+            } else {
+                main_spell.spell_tags = null;
             }
 
-            main_spell.valid_targets.Clear();
-
-            foreach (string item in valid_targets_listbox.CheckedItems)
+            if (valid_targets_listbox.CheckedItems.Count > 0)
             {
-                main_spell.valid_targets.Add(item);
+                main_spell.valid_targets = new List<string> { };
+
+                foreach (string item in valid_targets_listbox.CheckedItems)
+                {
+                    main_spell.valid_targets.Add(item);
+                }
+            } else {
+                main_spell.valid_targets = null;
             }
 
-            main_spell.affected_bps.Clear();
-
-            foreach (string item in effected_body_part_listbox.CheckedItems)
+            if (effected_body_part_listbox.CheckedItems.Count > 0)
             {
-                main_spell.affected_bps.Add(item);
+                main_spell.affected_bps = new List<string> { };
+
+                foreach (string item in effected_body_part_listbox.CheckedItems)
+                {
+                    main_spell.affected_bps.Add(item);
+                }
+            } else {
+                main_spell.affected_bps = null;
+            }
+
+            if(effect_filter_listbox.CheckedItems.Count > 0)
+            {
+                main_spell.effect_targets = new List<string> { };
+
+                foreach(string item in effect_filter_listbox.CheckedItems)
+                {
+                    main_spell.effect_targets.Add(item);
+                }
+            } else {
+                main_spell.effect_targets = null;
             }
 
             Clipboard.SetText(JsonConvert.SerializeObject(
@@ -84,17 +111,6 @@ namespace cdda_item_creator
             string effect = spell.allowed_strings.effects[effect_combobox.SelectedIndex];
             spell_effect_description_label.Text = spell.allowed_strings.effect_descriptions[effect];
             update_effect_str(effect);
-        }
-
-        private void flags_listbox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            flag_description_labe.Text = spell.allowed_strings.spell_flags_description[(string)flags_listbox.SelectedItem];
-            main_spell.spell_tags.Clear();
-            
-            foreach (string item in flags_listbox.CheckedItems)
-            {
-                main_spell.spell_tags.Add(item);
-            }
         }
 
         private void min_damage_updown_ValueChanged(object sender, EventArgs e)
@@ -140,36 +156,6 @@ namespace cdda_item_creator
         private void max_aoe_updown_ValueChanged(object sender, EventArgs e)
         {
             main_spell.max_aoe = (int)max_aoe_updown.Value;
-        }
-
-        private void valid_targets_listbox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            main_spell.valid_targets.Clear();
-
-            foreach (string item in valid_targets_listbox.CheckedItems)
-            {
-                main_spell.valid_targets.Add(item);
-            }
-        }
-
-        private void effected_body_part_listbox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            main_spell.affected_bps.Clear();
-
-            foreach (string item in effected_body_part_listbox.CheckedItems)
-            {
-                main_spell.affected_bps.Add(item);
-            }
-        }
-
-        private void effect_filter_listbox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            main_spell.effect_targets.Clear();
-
-            foreach (string item in effect_filter_listbox.CheckedItems)
-            {
-                main_spell.effect_targets.Add(item);
-            }
         }
 
         private void spell_message_textbox_TextChanged(object sender, EventArgs e)

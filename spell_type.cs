@@ -231,7 +231,8 @@ namespace cdda_item_creator
             [DefaultValue("")]
             public string effect_str { get; set; } = "";
 
-            public List<fake_spell> additional_spells { get; set; } = new List<fake_spell>();
+            [DefaultValue(default(List<fake_spell>))]
+            public List<fake_spell> additional_spells { get; set; }
 
             [DefaultValue("none")]
             public string field { get; set; } = "none";
@@ -284,7 +285,8 @@ namespace cdda_item_creator
             public float casting_time_increment { get; set; }
             public int final_casting_time { get; set; }
 
-            public Dictionary<string, int> learn_spells { get; set; } = new Dictionary<string, int>();
+            [DefaultValue(default(Dictionary<string, int>))]
+            public Dictionary<string, int> learn_spells { get; set; }
 
             [DefaultValue("NONE")]
             public string energy_source { get; set; } = "NONE";
@@ -292,10 +294,17 @@ namespace cdda_item_creator
             [DefaultValue("NONE")]
             public string damage_type { get; set; } = "NONE";
 
-            public List<string> effect_targets { get; set; } = new List<string> { };
-            public List<string> valid_targets { get; set; } = new List<string> { };
-            public List<string> affected_bps { get; set; } = new List<string> { };
-            public List<string> spell_tags { get; set; } = new List<string> { };
+            [DefaultValue(default(List<string>))]
+            public List<string> effect_targets { get; set; }
+
+            [DefaultValue(default(List<string>))]
+            public List<string> valid_targets { get; set; }
+
+            [DefaultValue(default(List<string>))]
+            public List<string> affected_bps { get; set; }
+
+            [DefaultValue(default(List<string>))]
+            public List<string> spell_tags { get; set; }
         }
     }
 }
