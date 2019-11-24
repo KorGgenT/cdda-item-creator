@@ -76,6 +76,17 @@ namespace cdda_item_creator
                 main_spell.AdditionalSpells.Add(spell);
             }
 
+            main_spell.LearnSpells = null;
+            if (spellsLearnedGrid.Rows.Count > 0)
+            {
+                main_spell.LearnSpells = new Dictionary<string, int> { };
+            }
+            foreach (DataGridViewRow row in spellsLearnedGrid.Rows)
+            {
+                main_spell.LearnSpells.Add((string)row.Cells[0].Value, (int)row.Cells[1].Value);
+            }
+
+
             DefaultContractResolver contractResolver = new DefaultContractResolver
             {
                 NamingStrategy = new SnakeCaseNamingStrategy()
@@ -114,6 +125,17 @@ namespace cdda_item_creator
             int fake_spell_max_level = (int)fakeSpellUpDown.Value;
             bool fake_spell_self = fakeSpellSelfCheckbox.Checked;
             additionalSpellGrid.Rows.Add(fake_spell_id, fake_spell_max_level, fake_spell_self);
+        }
+
+        private void spellsLearnedAddButton_Click(object sender, EventArgs e)
+        {
+            string spell_id = spellsLearnedTextbox.Text;
+            if(spell_id.Length == 0)
+            {
+                return;
+            }
+            int spell_level = (int)SpellsLearnedUpDown.Value;
+            spellsLearnedGrid.Rows.Add(spell_id, spell_level);
         }
     }
 }

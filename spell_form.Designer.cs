@@ -121,9 +121,16 @@ namespace cdda_item_creator
             this.fakeSpellUpDown = new System.Windows.Forms.NumericUpDown();
             this.fakeSpellLabel = new System.Windows.Forms.Label();
             this.fakeSpellSelfCheckbox = new System.Windows.Forms.CheckBox();
-            this.spelltypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.maxLevelInfoLabel = new System.Windows.Forms.Label();
             this.additionalSpellInfoLabel = new System.Windows.Forms.Label();
+            this.spellsLearnedGrid = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SpellsLearnedUpDown = new System.Windows.Forms.NumericUpDown();
+            this.spellsLearnedAddButton = new System.Windows.Forms.Button();
+            this.spellsLearnedTextbox = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.spelltypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.min_damage_updown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.damage_increment_updown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.max_damage_updown)).BeginInit();
@@ -151,6 +158,8 @@ namespace cdda_item_creator
             ((System.ComponentModel.ISupportInitialize)(this.field_intensity_variance_updown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.additionalSpellGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fakeSpellUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spellsLearnedGrid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SpellsLearnedUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spelltypeBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -1170,7 +1179,6 @@ namespace cdda_item_creator
             // 
             // FakeSpellIdTextbox
             // 
-            this.FakeSpellIdTextbox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.spelltypeBindingSource, "Name", true));
             this.FakeSpellIdTextbox.Location = new System.Drawing.Point(395, 447);
             this.FakeSpellIdTextbox.Name = "FakeSpellIdTextbox";
             this.FakeSpellIdTextbox.Size = new System.Drawing.Size(95, 20);
@@ -1230,10 +1238,6 @@ namespace cdda_item_creator
             this.fakeSpellSelfCheckbox.Text = "Self";
             this.fakeSpellSelfCheckbox.UseVisualStyleBackColor = true;
             // 
-            // spelltypeBindingSource
-            // 
-            this.spelltypeBindingSource.DataSource = typeof(cdda_item_creator.spell.spell_type);
-            // 
             // maxLevelInfoLabel
             // 
             this.maxLevelInfoLabel.AutoSize = true;
@@ -1252,11 +1256,90 @@ namespace cdda_item_creator
             this.additionalSpellInfoLabel.TabIndex = 96;
             this.additionalSpellInfoLabel.Text = "Additional Spells are activated when the parent spell is cast.";
             // 
+            // spellsLearnedGrid
+            // 
+            this.spellsLearnedGrid.AllowUserToAddRows = false;
+            this.spellsLearnedGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.spellsLearnedGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2});
+            this.spellsLearnedGrid.Location = new System.Drawing.Point(12, 519);
+            this.spellsLearnedGrid.Name = "spellsLearnedGrid";
+            this.spellsLearnedGrid.ReadOnly = true;
+            this.spellsLearnedGrid.Size = new System.Drawing.Size(269, 66);
+            this.spellsLearnedGrid.TabIndex = 97;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.HeaderText = "spell_id";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.HeaderText = "level";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // SpellsLearnedUpDown
+            // 
+            this.SpellsLearnedUpDown.Location = new System.Drawing.Point(160, 497);
+            this.SpellsLearnedUpDown.Margin = new System.Windows.Forms.Padding(2);
+            this.SpellsLearnedUpDown.Maximum = new decimal(new int[] {
+            99999,
+            0,
+            0,
+            0});
+            this.SpellsLearnedUpDown.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            -2147483648});
+            this.SpellsLearnedUpDown.Name = "SpellsLearnedUpDown";
+            this.SpellsLearnedUpDown.Size = new System.Drawing.Size(53, 20);
+            this.SpellsLearnedUpDown.TabIndex = 100;
+            // 
+            // spellsLearnedAddButton
+            // 
+            this.spellsLearnedAddButton.Location = new System.Drawing.Point(12, 494);
+            this.spellsLearnedAddButton.Name = "spellsLearnedAddButton";
+            this.spellsLearnedAddButton.Size = new System.Drawing.Size(40, 23);
+            this.spellsLearnedAddButton.TabIndex = 99;
+            this.spellsLearnedAddButton.Text = "Add";
+            this.spellsLearnedAddButton.UseVisualStyleBackColor = true;
+            this.spellsLearnedAddButton.Click += new System.EventHandler(this.spellsLearnedAddButton_Click);
+            // 
+            // spellsLearnedTextbox
+            // 
+            this.spellsLearnedTextbox.Location = new System.Drawing.Point(58, 496);
+            this.spellsLearnedTextbox.Name = "spellsLearnedTextbox";
+            this.spellsLearnedTextbox.Size = new System.Drawing.Size(95, 20);
+            this.spellsLearnedTextbox.TabIndex = 98;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(17, 478);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(137, 13);
+            this.label3.TabIndex = 101;
+            this.label3.Text = "Spells learned at level:";
+            // 
+            // spelltypeBindingSource
+            // 
+            this.spelltypeBindingSource.DataSource = typeof(cdda_item_creator.spell.spell_type);
+            // 
             // spell_form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(710, 600);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.SpellsLearnedUpDown);
+            this.Controls.Add(this.spellsLearnedAddButton);
+            this.Controls.Add(this.spellsLearnedTextbox);
+            this.Controls.Add(this.spellsLearnedGrid);
             this.Controls.Add(this.additionalSpellInfoLabel);
             this.Controls.Add(this.maxLevelInfoLabel);
             this.Controls.Add(this.fakeSpellSelfCheckbox);
@@ -1374,6 +1457,8 @@ namespace cdda_item_creator
             ((System.ComponentModel.ISupportInitialize)(this.field_intensity_variance_updown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.additionalSpellGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fakeSpellUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spellsLearnedGrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SpellsLearnedUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spelltypeBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -1488,6 +1573,13 @@ namespace cdda_item_creator
         private System.Windows.Forms.CheckBox fakeSpellSelfCheckbox;
         private System.Windows.Forms.Label maxLevelInfoLabel;
         private System.Windows.Forms.Label additionalSpellInfoLabel;
+        private System.Windows.Forms.DataGridView spellsLearnedGrid;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.NumericUpDown SpellsLearnedUpDown;
+        private System.Windows.Forms.Button spellsLearnedAddButton;
+        private System.Windows.Forms.TextBox spellsLearnedTextbox;
+        private System.Windows.Forms.Label label3;
     }
 }
 
