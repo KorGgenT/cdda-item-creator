@@ -168,7 +168,7 @@ namespace cdda_item_creator
             public string EffectStr { get; set; } = "";
 
             [DefaultValue(default(List<FakeSpell>))]
-            public List<FakeSpell> AdditionalSpells { get; set; }
+            public List<FakeSpell> ExtraEffects { get; set; }
 
             [DefaultValue("none")]
             public string FieldId { get; set; } = "none";

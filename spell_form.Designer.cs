@@ -279,6 +279,7 @@ namespace cdda_item_creator
             this.flags_listbox.Name = "flags_listbox";
             this.flags_listbox.Size = new System.Drawing.Size(182, 274);
             this.flags_listbox.TabIndex = 10;
+            this.flags_listbox.SelectedIndexChanged += new System.EventHandler(this.flags_listbox_SelectedIndexChanged);
             // 
             // flags_label
             // 

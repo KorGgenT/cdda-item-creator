@@ -60,10 +60,10 @@ namespace cdda_item_creator
             main_spell.AffectedBps = effected_body_part_listbox.CheckedItems.Cast<string>().ToList();
             main_spell.EffectTargets = effect_filter_listbox.CheckedItems.Cast<string>().ToList();
 
-            main_spell.AdditionalSpells = null;
+            main_spell.ExtraEffects = null;
             if(additionalSpellGrid.Rows.Count > 0)
             {
-                main_spell.AdditionalSpells = new List<FakeSpell> { };
+                main_spell.ExtraEffects = new List<FakeSpell> { };
             }
             foreach(DataGridViewRow row in additionalSpellGrid.Rows)
             {
@@ -73,7 +73,7 @@ namespace cdda_item_creator
                     MaxLevel = (int)row.Cells[1].Value,
                     Self = (bool)row.Cells[2].Value
                 };
-                main_spell.AdditionalSpells.Add(spell);
+                main_spell.ExtraEffects.Add(spell);
             }
 
             main_spell.LearnSpells = null;
@@ -136,6 +136,16 @@ namespace cdda_item_creator
             }
             int spell_level = (int)SpellsLearnedUpDown.Value;
             spellsLearnedGrid.Rows.Add(spell_id, spell_level);
+        }
+
+        private void flags_listbox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string flag = flags_listbox.SelectedItem.ToString();
+            if(!spell.allowed_strings.spell_flags_description.ContainsKey(flag))
+            {
+                return;
+            }
+            flag_description_labe.Text = spell.allowed_strings.spell_flags_description[flag];
         }
     }
 }
