@@ -203,108 +203,111 @@ namespace cdda_item_creator
         {
             public spell_type() { }
 
-            public string id { get; set; } = "";
-            public const string type = "SPELL";
-            public string name { get; set; } = "";
-            public string description { get; set; } = "";
+            public string Id { get; set; } = "";
+            public const string Type = "SPELL";
+            public string Name { get; set; } = "";
+            public string Description { get; set; } = "";
 
             [DefaultValue("You cast %s!")]
-            public string message { get; set; } = "You cast %s!";
+            public string Message { get; set; } = "You cast %s!";
 
             [DefaultValue("an explosion")]
-            public string sound_description { get; set; } = "an explosion";
+            public string SoundDescription { get; set; } = "an explosion";
 
             [DefaultValue("combat")]
-            public string sound_type { get; set; } = "combat";
+            public string SoundType { get; set; } = "combat";
 
-            public bool sound_ambient { get; set; } = false;
+            public bool SoundAmbient { get; set; } = false;
 
             [DefaultValue("")]
-            public string sound_id { get; set; } = "";
+            public string SoundId { get; set; } = "";
 
             [DefaultValue("default")]
-            public string sound_variant { get; set; } = "default";
+            public string SoundVariant { get; set; } = "default";
 
             [DefaultValue("none")]
-            public string effect { get; set; } = "none";
+            public string Effect { get; set; } = "none";
 
             [DefaultValue("")]
-            public string effect_str { get; set; } = "";
+            public string EffectStr { get; set; } = "";
 
             [DefaultValue(default(List<fake_spell>))]
-            public List<fake_spell> additional_spells { get; set; }
+            public List<fake_spell> AdditionalSpells { get; set; }
 
             [DefaultValue("none")]
-            public string field { get; set; } = "none";
+            public string FieldId { get; set; } = "none";
 
             [DefaultValue(1)]
-            public int field_chance { get; set; } = 1;
+            public int FieldChance { get; set; } = 1;
 
-            public int min_field_intensity { get; set; }
-            public float field_intensity_increment { get; set; }
-            public int max_field_intensity { get; set; }
+            public int MinFieldIntensity { get; set; }
+            public float FieldIntensityIncrement { get; set; }
+            public int MaxFieldIntensity { get; set; }
 
-            public float field_intensity_variance { get; set; }
+            public float FieldIntensityVariance { get; set; }
 
-            public int min_damage { get; set; }
-            public float damage_increment { get; set; }
-            public int max_damage { get; set; }
+            public int MinDamage { get; set; }
+            public float DamageIncrement { get; set; }
+            public int MaxDamage { get; set; }
 
-            public int min_range { get; set; }
-            public float range_increment { get; set; }
-            public int max_range { get; set; }
+            public int MinRange { get; set; }
+            public float RangeIncrement { get; set; }
+            public int MaxRange { get; set; }
 
-            public int min_aoe { get; set; }
-            public float aoe_increment { get; set; }
-            public int max_aoe { get; set; }
+            public int MinAoe { get; set; }
+            public float AoeIncrement { get; set; }
+            public int MaxAoe { get; set; }
 
-            public int min_dot { get; set; }
-            public float dot_increment { get; set; }
-            public int max_dot { get; set; }
+            public int MinDot { get; set; }
+            public float DotIncrement { get; set; }
+            public int MaxDot { get; set; }
 
-            public int min_pierce { get; set; }
-            public float pierce_increment { get; set; }
-            public int max_pierce { get; set; }
+            public int MinPierce { get; set; }
+            public float PierceIncrement { get; set; }
+            public int MaxPierce { get; set; }
 
-            public int min_duration { get; set; }
-            public int duration_increment { get; set; }
-            public int max_duration { get; set; }
+            public int MinDuration { get; set; }
+            public int DurationIncrement { get; set; }
+            public int MaxDuration { get; set; }
 
-            public int base_energy_cost { get; set; }
-            public float energy_increment { get; set; }
-            public int final_energy_cost { get; set; }
+            public int BaseEnergyCost { get; set; }
+            public float EnergyIncrement { get; set; }
+            public int FinalEnergyCost { get; set; }
 
 
             [DefaultValue("NONE")]
-            public string spell_class { get; set; } = "NONE";
+            public string SpellClass { get; set; } = "NONE";
 
-            public int difficulty { get; set; }
-            public int max_level { get; set; }
+            public int Difficulty { get; set; }
+            public int MaxLevel { get; set; }
 
-            public int base_casting_time { get; set; }
-            public float casting_time_increment { get; set; }
-            public int final_casting_time { get; set; }
+            public int BaseCastingTime { get; set; }
+            public float CastingTimeIncrement { get; set; }
+            public int FinalCastingTime { get; set; }
 
             [DefaultValue(default(Dictionary<string, int>))]
-            public Dictionary<string, int> learn_spells { get; set; }
+            public Dictionary<string, int> LearnSpells { get; set; }
 
             [DefaultValue("NONE")]
-            public string energy_source { get; set; } = "NONE";
+            public string EnergySource { get; set; } = "NONE";
 
             [DefaultValue("NONE")]
-            public string damage_type { get; set; } = "NONE";
+            public string DamageType { get; set; } = "NONE";
+            public bool ShouldSerializeeffect_targets() => EffectTargets.Count > 0;
 
             [DefaultValue(default(List<string>))]
-            public List<string> effect_targets { get; set; }
+            public List<string> EffectTargets { get; set; }
 
             [DefaultValue(default(List<string>))]
-            public List<string> valid_targets { get; set; }
+            public List<string> ValidTargets { get; set; }
+            public bool ShouldSerializeaffected_bps() => AffectedBps.Count > 0;
 
             [DefaultValue(default(List<string>))]
-            public List<string> affected_bps { get; set; }
+            public List<string> AffectedBps { get; set; }
+            public bool ShouldSerializespell_tags() => Flags.Count > 0;
 
             [DefaultValue(default(List<string>))]
-            public List<string> spell_tags { get; set; }
+            public List<string> Flags { get; set; }
         }
     }
 }

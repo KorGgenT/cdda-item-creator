@@ -51,59 +51,25 @@ namespace cdda_item_creator
 
         private void clipboard_button_Click(object sender, EventArgs e)
         {
-            if (flags_listbox.CheckedItems.Count > 0)
+            main_spell.Flags = flags_listbox.CheckedItems.Cast<string>().ToList();
+            main_spell.ValidTargets = valid_targets_listbox.CheckedItems.Cast<string>().ToList();
+            main_spell.AffectedBps = effected_body_part_listbox.CheckedItems.Cast<string>().ToList();
+            main_spell.EffectTargets = effect_filter_listbox.CheckedItems.Cast<string>().ToList();
+
+            DefaultContractResolver contractResolver = new DefaultContractResolver
             {
-                main_spell.spell_tags = new List<string> { };
-
-                foreach (string item in flags_listbox.CheckedItems)
-                {
-                    main_spell.spell_tags.Add(item);
-                }
-            } else {
-                main_spell.spell_tags = null;
-            }
-
-            if (valid_targets_listbox.CheckedItems.Count > 0)
-            {
-                main_spell.valid_targets = new List<string> { };
-
-                foreach (string item in valid_targets_listbox.CheckedItems)
-                {
-                    main_spell.valid_targets.Add(item);
-                }
-            } else {
-                main_spell.valid_targets = null;
-            }
-
-            if (effected_body_part_listbox.CheckedItems.Count > 0)
-            {
-                main_spell.affected_bps = new List<string> { };
-
-                foreach (string item in effected_body_part_listbox.CheckedItems)
-                {
-                    main_spell.affected_bps.Add(item);
-                }
-            } else {
-                main_spell.affected_bps = null;
-            }
-
-            if(effect_filter_listbox.CheckedItems.Count > 0)
-            {
-                main_spell.effect_targets = new List<string> { };
-
-                foreach(string item in effect_filter_listbox.CheckedItems)
-                {
-                    main_spell.effect_targets.Add(item);
-                }
-            } else {
-                main_spell.effect_targets = null;
-            }
+                NamingStrategy = new SnakeCaseNamingStrategy()
+            };
 
             Clipboard.SetText(JsonConvert.SerializeObject(
                 main_spell,
                 Formatting.Indented,
-                new JsonSerializerSettings { DefaultValueHandling = DefaultValueHandling.Ignore }
-                ));
+                new JsonSerializerSettings
+                {
+                    DefaultValueHandling = DefaultValueHandling.Ignore,
+                    ContractResolver = contractResolver
+                }
+                )); ;
         }
 
         private void effect_combobox_SelectedIndexChanged(object sender, EventArgs e)
