@@ -33,7 +33,6 @@ namespace cdda_item_creator
         {
             this.components = new System.ComponentModel.Container();
             this.spell_name_textbox = new System.Windows.Forms.TextBox();
-            this.spelltypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.spell_description_textbox = new System.Windows.Forms.TextBox();
             this.energy_type_combobox = new System.Windows.Forms.ComboBox();
             this.name_label = new System.Windows.Forms.Label();
@@ -113,7 +112,18 @@ namespace cdda_item_creator
             this.flag_description_labe = new System.Windows.Forms.Label();
             this.spell_message_textbox = new System.Windows.Forms.TextBox();
             this.spell_message_label = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.spelltypeBindingSource)).BeginInit();
+            this.additionalSpellGrid = new System.Windows.Forms.DataGridView();
+            this.SpellId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaxLevel = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Self = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.FakeSpellIdTextbox = new System.Windows.Forms.TextBox();
+            this.fakeSpellAddButton = new System.Windows.Forms.Button();
+            this.fakeSpellUpDown = new System.Windows.Forms.NumericUpDown();
+            this.fakeSpellLabel = new System.Windows.Forms.Label();
+            this.fakeSpellSelfCheckbox = new System.Windows.Forms.CheckBox();
+            this.spelltypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.maxLevelInfoLabel = new System.Windows.Forms.Label();
+            this.additionalSpellInfoLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.min_damage_updown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.damage_increment_updown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.max_damage_updown)).BeginInit();
@@ -139,6 +149,9 @@ namespace cdda_item_creator
             ((System.ComponentModel.ISupportInitialize)(this.min_duration_updown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.field_chance_updown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.field_intensity_variance_updown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.additionalSpellGrid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fakeSpellUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spelltypeBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // spell_name_textbox
@@ -148,10 +161,6 @@ namespace cdda_item_creator
             this.spell_name_textbox.Name = "spell_name_textbox";
             this.spell_name_textbox.Size = new System.Drawing.Size(133, 20);
             this.spell_name_textbox.TabIndex = 0;
-            // 
-            // spelltypeBindingSource
-            // 
-            this.spelltypeBindingSource.DataSource = typeof(cdda_item_creator.spell.spell_type);
             // 
             // spell_description_textbox
             // 
@@ -610,7 +619,7 @@ namespace cdda_item_creator
             "item",
             "fd_fire",
             "fd_blood"});
-            this.valid_targets_listbox.Location = new System.Drawing.Point(155, 406);
+            this.valid_targets_listbox.Location = new System.Drawing.Point(121, 404);
             this.valid_targets_listbox.Margin = new System.Windows.Forms.Padding(2);
             this.valid_targets_listbox.Name = "valid_targets_listbox";
             this.valid_targets_listbox.Size = new System.Drawing.Size(96, 64);
@@ -619,7 +628,7 @@ namespace cdda_item_creator
             // valid_targets_label
             // 
             this.valid_targets_label.AutoSize = true;
-            this.valid_targets_label.Location = new System.Drawing.Point(157, 391);
+            this.valid_targets_label.Location = new System.Drawing.Point(123, 389);
             this.valid_targets_label.Name = "valid_targets_label";
             this.valid_targets_label.Size = new System.Drawing.Size(69, 13);
             this.valid_targets_label.TabIndex = 49;
@@ -641,7 +650,7 @@ namespace cdda_item_creator
             "LEG_R",
             "FOOT_L",
             "FOOT_R"});
-            this.effected_body_part_listbox.Location = new System.Drawing.Point(30, 406);
+            this.effected_body_part_listbox.Location = new System.Drawing.Point(12, 404);
             this.effected_body_part_listbox.Margin = new System.Windows.Forms.Padding(2);
             this.effected_body_part_listbox.Name = "effected_body_part_listbox";
             this.effected_body_part_listbox.Size = new System.Drawing.Size(96, 64);
@@ -650,7 +659,7 @@ namespace cdda_item_creator
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(30, 391);
+            this.label1.Location = new System.Drawing.Point(12, 389);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(101, 13);
             this.label1.TabIndex = 51;
@@ -1084,7 +1093,7 @@ namespace cdda_item_creator
             "item",
             "fd_fire",
             "fd_blood"});
-            this.effect_filter_listbox.Location = new System.Drawing.Point(281, 406);
+            this.effect_filter_listbox.Location = new System.Drawing.Point(231, 404);
             this.effect_filter_listbox.Margin = new System.Windows.Forms.Padding(2);
             this.effect_filter_listbox.Name = "effect_filter_listbox";
             this.effect_filter_listbox.Size = new System.Drawing.Size(96, 64);
@@ -1093,7 +1102,7 @@ namespace cdda_item_creator
             // effect_filter_label
             // 
             this.effect_filter_label.AutoSize = true;
-            this.effect_filter_label.Location = new System.Drawing.Point(289, 391);
+            this.effect_filter_label.Location = new System.Drawing.Point(239, 389);
             this.effect_filter_label.Name = "effect_filter_label";
             this.effect_filter_label.Size = new System.Drawing.Size(60, 13);
             this.effect_filter_label.TabIndex = 85;
@@ -1127,11 +1136,135 @@ namespace cdda_item_creator
             this.spell_message_label.TabIndex = 88;
             this.spell_message_label.Text = "Spell Message";
             // 
+            // additionalSpellGrid
+            // 
+            this.additionalSpellGrid.AllowUserToAddRows = false;
+            this.additionalSpellGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.additionalSpellGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.SpellId,
+            this.MaxLevel,
+            this.Self});
+            this.additionalSpellGrid.Location = new System.Drawing.Point(349, 473);
+            this.additionalSpellGrid.Name = "additionalSpellGrid";
+            this.additionalSpellGrid.ReadOnly = true;
+            this.additionalSpellGrid.Size = new System.Drawing.Size(343, 112);
+            this.additionalSpellGrid.TabIndex = 89;
+            // 
+            // SpellId
+            // 
+            this.SpellId.HeaderText = "spell_id";
+            this.SpellId.Name = "SpellId";
+            this.SpellId.ReadOnly = true;
+            // 
+            // MaxLevel
+            // 
+            this.MaxLevel.HeaderText = "max_level";
+            this.MaxLevel.Name = "MaxLevel";
+            this.MaxLevel.ReadOnly = true;
+            // 
+            // Self
+            // 
+            this.Self.HeaderText = "self";
+            this.Self.Name = "Self";
+            this.Self.ReadOnly = true;
+            // 
+            // FakeSpellIdTextbox
+            // 
+            this.FakeSpellIdTextbox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.spelltypeBindingSource, "Name", true));
+            this.FakeSpellIdTextbox.Location = new System.Drawing.Point(395, 447);
+            this.FakeSpellIdTextbox.Name = "FakeSpellIdTextbox";
+            this.FakeSpellIdTextbox.Size = new System.Drawing.Size(95, 20);
+            this.FakeSpellIdTextbox.TabIndex = 90;
+            // 
+            // fakeSpellAddButton
+            // 
+            this.fakeSpellAddButton.Location = new System.Drawing.Point(349, 444);
+            this.fakeSpellAddButton.Name = "fakeSpellAddButton";
+            this.fakeSpellAddButton.Size = new System.Drawing.Size(40, 23);
+            this.fakeSpellAddButton.TabIndex = 91;
+            this.fakeSpellAddButton.Text = "Add";
+            this.fakeSpellAddButton.UseVisualStyleBackColor = true;
+            this.fakeSpellAddButton.Click += new System.EventHandler(this.fakeSpellAddButton_Click);
+            // 
+            // fakeSpellUpDown
+            // 
+            this.fakeSpellUpDown.Location = new System.Drawing.Point(501, 448);
+            this.fakeSpellUpDown.Margin = new System.Windows.Forms.Padding(2);
+            this.fakeSpellUpDown.Maximum = new decimal(new int[] {
+            99999,
+            0,
+            0,
+            0});
+            this.fakeSpellUpDown.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            -2147483648});
+            this.fakeSpellUpDown.Name = "fakeSpellUpDown";
+            this.fakeSpellUpDown.Size = new System.Drawing.Size(53, 20);
+            this.fakeSpellUpDown.TabIndex = 92;
+            this.fakeSpellUpDown.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            -2147483648});
+            // 
+            // fakeSpellLabel
+            // 
+            this.fakeSpellLabel.AutoSize = true;
+            this.fakeSpellLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fakeSpellLabel.Location = new System.Drawing.Point(370, 404);
+            this.fakeSpellLabel.Name = "fakeSpellLabel";
+            this.fakeSpellLabel.Size = new System.Drawing.Size(101, 13);
+            this.fakeSpellLabel.TabIndex = 93;
+            this.fakeSpellLabel.Text = "Additional Spells";
+            // 
+            // fakeSpellSelfCheckbox
+            // 
+            this.fakeSpellSelfCheckbox.AutoSize = true;
+            this.fakeSpellSelfCheckbox.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.spelltypeBindingSource, "SoundAmbient", true));
+            this.fakeSpellSelfCheckbox.Location = new System.Drawing.Point(600, 451);
+            this.fakeSpellSelfCheckbox.Name = "fakeSpellSelfCheckbox";
+            this.fakeSpellSelfCheckbox.Size = new System.Drawing.Size(44, 17);
+            this.fakeSpellSelfCheckbox.TabIndex = 94;
+            this.fakeSpellSelfCheckbox.Text = "Self";
+            this.fakeSpellSelfCheckbox.UseVisualStyleBackColor = true;
+            // 
+            // spelltypeBindingSource
+            // 
+            this.spelltypeBindingSource.DataSource = typeof(cdda_item_creator.spell.spell_type);
+            // 
+            // maxLevelInfoLabel
+            // 
+            this.maxLevelInfoLabel.AutoSize = true;
+            this.maxLevelInfoLabel.Location = new System.Drawing.Point(493, 433);
+            this.maxLevelInfoLabel.Name = "maxLevelInfoLabel";
+            this.maxLevelInfoLabel.Size = new System.Drawing.Size(101, 13);
+            this.maxLevelInfoLabel.TabIndex = 95;
+            this.maxLevelInfoLabel.Text = "Leave -1 for no max";
+            // 
+            // additionalSpellInfoLabel
+            // 
+            this.additionalSpellInfoLabel.AutoSize = true;
+            this.additionalSpellInfoLabel.Location = new System.Drawing.Point(366, 418);
+            this.additionalSpellInfoLabel.Name = "additionalSpellInfoLabel";
+            this.additionalSpellInfoLabel.Size = new System.Drawing.Size(289, 13);
+            this.additionalSpellInfoLabel.TabIndex = 96;
+            this.additionalSpellInfoLabel.Text = "Additional Spells are activated when the parent spell is cast.";
+            // 
             // spell_form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(710, 542);
+            this.ClientSize = new System.Drawing.Size(710, 600);
+            this.Controls.Add(this.additionalSpellInfoLabel);
+            this.Controls.Add(this.maxLevelInfoLabel);
+            this.Controls.Add(this.fakeSpellSelfCheckbox);
+            this.Controls.Add(this.fakeSpellLabel);
+            this.Controls.Add(this.fakeSpellUpDown);
+            this.Controls.Add(this.fakeSpellAddButton);
+            this.Controls.Add(this.FakeSpellIdTextbox);
+            this.Controls.Add(this.additionalSpellGrid);
             this.Controls.Add(this.spell_message_label);
             this.Controls.Add(this.spell_message_textbox);
             this.Controls.Add(this.flag_description_labe);
@@ -1214,7 +1347,6 @@ namespace cdda_item_creator
             this.Controls.Add(this.spell_name_textbox);
             this.Name = "spell_form";
             this.Text = "Spell";
-            ((System.ComponentModel.ISupportInitialize)(this.spelltypeBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.min_damage_updown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.damage_increment_updown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.max_damage_updown)).EndInit();
@@ -1240,6 +1372,9 @@ namespace cdda_item_creator
             ((System.ComponentModel.ISupportInitialize)(this.min_duration_updown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.field_chance_updown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.field_intensity_variance_updown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.additionalSpellGrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fakeSpellUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spelltypeBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1342,6 +1477,17 @@ namespace cdda_item_creator
         private System.Windows.Forms.TextBox spell_message_textbox;
         private System.Windows.Forms.Label spell_message_label;
         private System.Windows.Forms.BindingSource spelltypeBindingSource;
+        private System.Windows.Forms.DataGridView additionalSpellGrid;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SpellId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaxLevel;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Self;
+        private System.Windows.Forms.TextBox FakeSpellIdTextbox;
+        private System.Windows.Forms.Button fakeSpellAddButton;
+        private System.Windows.Forms.NumericUpDown fakeSpellUpDown;
+        private System.Windows.Forms.Label fakeSpellLabel;
+        private System.Windows.Forms.CheckBox fakeSpellSelfCheckbox;
+        private System.Windows.Forms.Label maxLevelInfoLabel;
+        private System.Windows.Forms.Label additionalSpellInfoLabel;
     }
 }
 

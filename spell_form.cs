@@ -60,6 +60,22 @@ namespace cdda_item_creator
             main_spell.AffectedBps = effected_body_part_listbox.CheckedItems.Cast<string>().ToList();
             main_spell.EffectTargets = effect_filter_listbox.CheckedItems.Cast<string>().ToList();
 
+            main_spell.AdditionalSpells = null;
+            if(additionalSpellGrid.Rows.Count > 0)
+            {
+                main_spell.AdditionalSpells = new List<FakeSpell> { };
+            }
+            foreach(DataGridViewRow row in additionalSpellGrid.Rows)
+            {
+                FakeSpell spell = new FakeSpell
+                {
+                    Id = (string)row.Cells[0].Value,
+                    MaxLevel = (int)row.Cells[1].Value,
+                    Self = (bool)row.Cells[2].Value
+                };
+                main_spell.AdditionalSpells.Add(spell);
+            }
+
             DefaultContractResolver contractResolver = new DefaultContractResolver
             {
                 NamingStrategy = new SnakeCaseNamingStrategy()
@@ -85,6 +101,19 @@ namespace cdda_item_creator
             }
             spell_effect_description_label.Text = spell.allowed_strings.effect_descriptions[effect];
             update_effect_str(effect);
+        }
+
+        private void fakeSpellAddButton_Click(object sender, EventArgs e)
+        {
+            string fake_spell_id = FakeSpellIdTextbox.Text;
+            if(fake_spell_id.Length == 0)
+            {
+                // empty spell string is invalid
+                return;
+            }
+            int fake_spell_max_level = (int)fakeSpellUpDown.Value;
+            bool fake_spell_self = fakeSpellSelfCheckbox.Checked;
+            additionalSpellGrid.Rows.Add(fake_spell_id, fake_spell_max_level, fake_spell_self);
         }
     }
 }

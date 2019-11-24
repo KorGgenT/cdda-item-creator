@@ -129,10 +129,12 @@ namespace cdda_item_creator
         public class FakeSpell
         {
             // mandatory member
-            string Id { get; set; } = "";
-            int MaxLevel { get; set; }
-            int Level { get; set; }
-            bool Self { get; set; }
+            public string Id { get; set; } = "";
+            [DefaultValue(-1)]
+            public int MaxLevel { get; set; }
+            public int Level { get; set; }
+            [DefaultValue(false)]
+            public bool Self { get; set; }
         }
 
         public class spell_type
