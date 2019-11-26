@@ -49,6 +49,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MonsterForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MonsterForm.Designer.cs">
+      <DependentUpon>MonsterForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="mtype.cs" />
     <Compile Include="selector.cs">
       <SubType>Form</SubType>

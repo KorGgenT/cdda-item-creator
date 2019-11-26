@@ -27,7 +27,10 @@ namespace cdda_item_creator
 
         private void createMonster_button_Click(object sender, EventArgs e)
         {
-
+            MonsterForm form = new MonsterForm();
+            this.Hide();
+            form.ShowDialog();
+            this.Show();
         }
     }
 }
