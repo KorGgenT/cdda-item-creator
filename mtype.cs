@@ -30,6 +30,21 @@ namespace cdda_item_creator
         public bool AllowClimbStairs { get; set; }
     }
 
+    class DamageUnit
+    {
+        public float amount;
+        public int ArmorPenetration;
+        [DefaultValue(1.0f)]
+        public float ArmorMultiplier = 1.0f;
+        [DefaultValue(1.0f)]
+        public float DamageMultiplier = 1.0f;
+    }
+
+    class DamageInstance
+    {
+        public List<DamageUnit> Values;
+    }
+
     // this is a class that is supposed to be a carbon-copy of mtype from C:DDA
     // intended to be able to be written to JSON easily
     class Mtype
@@ -46,6 +61,11 @@ namespace cdda_item_creator
         [DefaultValue("")]
         public string LooksLike { get; set; } = "";
         public int Hp { get; set; }
+        [DefaultValue("")]
+        public string Volume { get; set; } = "";
+        public string Color { get; set; }
+        [DefaultValue("")]
+        public string Weight { get; set; } = "";
         public int Speed { get; set; }
         public char Symbol { get; set; }
         public int Diff { get; set; }
@@ -74,6 +94,7 @@ namespace cdda_item_creator
         public int MechStrBonus { get; set; }
         [DefaultValue("")]
         public string MechBattery { get; set; } = "";
+        public DamageInstance melee_damage;
         public int MeleeCut { get; set; }
         // mandatory json member
         public string Harvest { get; set; } = "";
@@ -82,5 +103,15 @@ namespace cdda_item_creator
         [DefaultValue(-1)]
         public int BashSkill { get; set; } = -1;
         public PathSettingsData PathSettings { get; set; }
+
+        public void UpdateVolume( int num_part, string unit )
+        {
+            Volume = num_part.ToString() + " " + unit;
+        }
+
+        public void UpdateWeight( int num_part, string unit )
+        {
+            Weight = num_part.ToString() + " " + unit;
+        }
     }
 }
