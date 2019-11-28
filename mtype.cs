@@ -7,12 +7,12 @@ using System.ComponentModel;
 
 namespace cdda_item_creator
 {
-    class MonsterNameStrings
+    class Translation
     {
         [DefaultValue("")]
-        public string Name { get; set; } = "";
+        public string Str { get; set; } = "";
         [DefaultValue("")]
-        public string NamePlural { get; set; } = "";
+        public string StrPl { get; set; } = "";
     }
 
     class PathSettingsData
@@ -37,10 +37,10 @@ namespace cdda_item_creator
         public const string Type = "MONSTER";
 
         [DefaultValue("")]
-        public string Id { get; set; }
-        public MonsterNameStrings Name { get; set; }
+        public string Id { get; set; } = "";
+        public Translation Name { get; set; } = new Translation { };
         [DefaultValue("")]
-        public string Description { get; set; }
+        public string Description { get; set; } = "";
         [DefaultValue("")]
         public string DefaultFaction { get; set; } = "";
         [DefaultValue("")]
