@@ -112,8 +112,6 @@
             this.meleeDamageRangeLabel = new System.Windows.Forms.Label();
             this.meleeSkillUpDown = new System.Windows.Forms.NumericUpDown();
             this.meleeSkillLabel = new System.Windows.Forms.Label();
-            this.mtypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.monsterNameStringsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.pathSettingsPanel = new System.Windows.Forms.Panel();
             this.pathSettingsMaxDistUpDown = new System.Windows.Forms.NumericUpDown();
             this.pathSettingsMaxLengthUpDown = new System.Windows.Forms.NumericUpDown();
@@ -126,6 +124,10 @@
             this.checkBox3 = new System.Windows.Forms.CheckBox();
             this.label7 = new System.Windows.Forms.Label();
             this.pathSettingsDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.mtypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.monsterNameStringsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.harvestTextBox = new System.Windows.Forms.TextBox();
+            this.harvestLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.hpUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.volumeUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.weightUpDown)).BeginInit();
@@ -155,13 +157,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.meleeDiceUpdown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.meleeDiceSidesUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.meleeSkillUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mtypeBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.monsterNameStringsBindingSource)).BeginInit();
             this.pathSettingsPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pathSettingsMaxDistUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pathSettingsMaxLengthUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pathSettingsBashStrengthUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pathSettingsDataBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mtypeBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.monsterNameStringsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // nameTextBox
@@ -174,7 +176,7 @@
             // 
             // clipboardButton
             // 
-            this.clipboardButton.Location = new System.Drawing.Point(659, 9);
+            this.clipboardButton.Location = new System.Drawing.Point(597, 9);
             this.clipboardButton.Name = "clipboardButton";
             this.clipboardButton.Size = new System.Drawing.Size(129, 23);
             this.clipboardButton.TabIndex = 1;
@@ -228,7 +230,7 @@
             // hpUpDown
             // 
             this.hpUpDown.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.mtypeBindingSource, "Hp", true));
-            this.hpUpDown.Location = new System.Drawing.Point(81, 8);
+            this.hpUpDown.Location = new System.Drawing.Point(40, 3);
             this.hpUpDown.Maximum = new decimal(new int[] {
             99999,
             0,
@@ -240,7 +242,7 @@
             0,
             0});
             this.hpUpDown.Name = "hpUpDown";
-            this.hpUpDown.Size = new System.Drawing.Size(58, 20);
+            this.hpUpDown.Size = new System.Drawing.Size(50, 20);
             this.hpUpDown.TabIndex = 7;
             this.hpUpDown.Value = new decimal(new int[] {
             1,
@@ -251,7 +253,7 @@
             // hpLabel
             // 
             this.hpLabel.AutoSize = true;
-            this.hpLabel.Location = new System.Drawing.Point(53, 10);
+            this.hpLabel.Location = new System.Drawing.Point(16, 6);
             this.hpLabel.Name = "hpLabel";
             this.hpLabel.Size = new System.Drawing.Size(22, 13);
             this.hpLabel.TabIndex = 8;
@@ -345,7 +347,7 @@
             // symbolTextBox
             // 
             this.symbolTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.mtypeBindingSource, "Symbol", true));
-            this.symbolTextBox.Location = new System.Drawing.Point(298, 63);
+            this.symbolTextBox.Location = new System.Drawing.Point(224, 64);
             this.symbolTextBox.MaxLength = 1;
             this.symbolTextBox.Name = "symbolTextBox";
             this.symbolTextBox.Size = new System.Drawing.Size(22, 20);
@@ -354,7 +356,7 @@
             // symbolLabel
             // 
             this.symbolLabel.AutoSize = true;
-            this.symbolLabel.Location = new System.Drawing.Point(286, 49);
+            this.symbolLabel.Location = new System.Drawing.Point(219, 49);
             this.symbolLabel.Name = "symbolLabel";
             this.symbolLabel.Size = new System.Drawing.Size(41, 13);
             this.symbolLabel.TabIndex = 49;
@@ -374,15 +376,19 @@
             this.armorPanel.Controls.Add(this.cutArmorUpDown);
             this.armorPanel.Controls.Add(this.fireArmorUpDown);
             this.armorPanel.Controls.Add(this.bashArmorUpDown);
-            this.armorPanel.Location = new System.Drawing.Point(347, 25);
+            this.armorPanel.Controls.Add(this.hpUpDown);
+            this.armorPanel.Controls.Add(this.hpLabel);
+            this.armorPanel.Controls.Add(this.dodgeUpDown);
+            this.armorPanel.Controls.Add(this.dodgeLabel);
+            this.armorPanel.Location = new System.Drawing.Point(627, 243);
             this.armorPanel.Name = "armorPanel";
-            this.armorPanel.Size = new System.Drawing.Size(93, 150);
+            this.armorPanel.Size = new System.Drawing.Size(99, 193);
             this.armorPanel.TabIndex = 50;
             // 
             // fireArmorLabel
             // 
             this.fireArmorLabel.AutoSize = true;
-            this.fireArmorLabel.Location = new System.Drawing.Point(10, 127);
+            this.fireArmorLabel.Location = new System.Drawing.Point(14, 171);
             this.fireArmorLabel.Name = "fireArmorLabel";
             this.fireArmorLabel.Size = new System.Drawing.Size(24, 13);
             this.fireArmorLabel.TabIndex = 10;
@@ -391,7 +397,7 @@
             // acidArmorLabel
             // 
             this.acidArmorLabel.AutoSize = true;
-            this.acidArmorLabel.Location = new System.Drawing.Point(6, 101);
+            this.acidArmorLabel.Location = new System.Drawing.Point(10, 145);
             this.acidArmorLabel.Name = "acidArmorLabel";
             this.acidArmorLabel.Size = new System.Drawing.Size(28, 13);
             this.acidArmorLabel.TabIndex = 9;
@@ -400,7 +406,7 @@
             // stabArmorLabel
             // 
             this.stabArmorLabel.AutoSize = true;
-            this.stabArmorLabel.Location = new System.Drawing.Point(5, 75);
+            this.stabArmorLabel.Location = new System.Drawing.Point(9, 119);
             this.stabArmorLabel.Name = "stabArmorLabel";
             this.stabArmorLabel.Size = new System.Drawing.Size(29, 13);
             this.stabArmorLabel.TabIndex = 8;
@@ -409,7 +415,7 @@
             // cutArmorLabel
             // 
             this.cutArmorLabel.AutoSize = true;
-            this.cutArmorLabel.Location = new System.Drawing.Point(11, 48);
+            this.cutArmorLabel.Location = new System.Drawing.Point(15, 92);
             this.cutArmorLabel.Name = "cutArmorLabel";
             this.cutArmorLabel.Size = new System.Drawing.Size(23, 13);
             this.cutArmorLabel.TabIndex = 7;
@@ -418,7 +424,7 @@
             // bashArmorLabel
             // 
             this.bashArmorLabel.AutoSize = true;
-            this.bashArmorLabel.Location = new System.Drawing.Point(3, 22);
+            this.bashArmorLabel.Location = new System.Drawing.Point(7, 66);
             this.bashArmorLabel.Name = "bashArmorLabel";
             this.bashArmorLabel.Size = new System.Drawing.Size(31, 13);
             this.bashArmorLabel.TabIndex = 6;
@@ -428,7 +434,7 @@
             // 
             this.armorLabel.AutoSize = true;
             this.armorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.armorLabel.Location = new System.Drawing.Point(39, 3);
+            this.armorLabel.Location = new System.Drawing.Point(43, 47);
             this.armorLabel.Name = "armorLabel";
             this.armorLabel.Size = new System.Drawing.Size(39, 13);
             this.armorLabel.TabIndex = 5;
@@ -437,7 +443,7 @@
             // stabArmorUpDown
             // 
             this.stabArmorUpDown.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.mtypeBindingSource, "ArmorStab", true));
-            this.stabArmorUpDown.Location = new System.Drawing.Point(36, 72);
+            this.stabArmorUpDown.Location = new System.Drawing.Point(40, 116);
             this.stabArmorUpDown.Name = "stabArmorUpDown";
             this.stabArmorUpDown.Size = new System.Drawing.Size(50, 20);
             this.stabArmorUpDown.TabIndex = 4;
@@ -445,7 +451,7 @@
             // acidArmorUpDown
             // 
             this.acidArmorUpDown.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.mtypeBindingSource, "ArmorAcid", true));
-            this.acidArmorUpDown.Location = new System.Drawing.Point(36, 98);
+            this.acidArmorUpDown.Location = new System.Drawing.Point(40, 142);
             this.acidArmorUpDown.Name = "acidArmorUpDown";
             this.acidArmorUpDown.Size = new System.Drawing.Size(50, 20);
             this.acidArmorUpDown.TabIndex = 3;
@@ -453,7 +459,7 @@
             // cutArmorUpDown
             // 
             this.cutArmorUpDown.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.mtypeBindingSource, "ArmorCut", true));
-            this.cutArmorUpDown.Location = new System.Drawing.Point(36, 45);
+            this.cutArmorUpDown.Location = new System.Drawing.Point(40, 89);
             this.cutArmorUpDown.Name = "cutArmorUpDown";
             this.cutArmorUpDown.Size = new System.Drawing.Size(50, 20);
             this.cutArmorUpDown.TabIndex = 2;
@@ -461,7 +467,7 @@
             // fireArmorUpDown
             // 
             this.fireArmorUpDown.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.mtypeBindingSource, "ArmorFire", true));
-            this.fireArmorUpDown.Location = new System.Drawing.Point(36, 124);
+            this.fireArmorUpDown.Location = new System.Drawing.Point(40, 168);
             this.fireArmorUpDown.Name = "fireArmorUpDown";
             this.fireArmorUpDown.Size = new System.Drawing.Size(50, 20);
             this.fireArmorUpDown.TabIndex = 1;
@@ -469,7 +475,7 @@
             // bashArmorUpDown
             // 
             this.bashArmorUpDown.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.mtypeBindingSource, "ArmorBash", true));
-            this.bashArmorUpDown.Location = new System.Drawing.Point(36, 19);
+            this.bashArmorUpDown.Location = new System.Drawing.Point(40, 63);
             this.bashArmorUpDown.Name = "bashArmorUpDown";
             this.bashArmorUpDown.Size = new System.Drawing.Size(50, 20);
             this.bashArmorUpDown.TabIndex = 0;
@@ -626,7 +632,7 @@
             // diffUpDown
             // 
             this.diffUpDown.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.mtypeBindingSource, "Diff", true));
-            this.diffUpDown.Location = new System.Drawing.Point(224, 179);
+            this.diffUpDown.Location = new System.Drawing.Point(668, 208);
             this.diffUpDown.Maximum = new decimal(new int[] {
             99999,
             0,
@@ -644,16 +650,18 @@
             // diffLabel
             // 
             this.diffLabel.AutoSize = true;
-            this.diffLabel.Location = new System.Drawing.Point(218, 166);
+            this.diffLabel.Location = new System.Drawing.Point(616, 204);
+            this.diffLabel.MaximumSize = new System.Drawing.Size(50, 0);
             this.diffLabel.Name = "diffLabel";
-            this.diffLabel.Size = new System.Drawing.Size(87, 13);
+            this.diffLabel.Size = new System.Drawing.Size(50, 26);
             this.diffLabel.TabIndex = 66;
             this.diffLabel.Text = "Difficulty Modifier";
+            this.diffLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // difficultyLabel
             // 
             this.difficultyLabel.AutoSize = true;
-            this.difficultyLabel.Location = new System.Drawing.Point(443, 9);
+            this.difficultyLabel.Location = new System.Drawing.Point(381, 9);
             this.difficultyLabel.Name = "difficultyLabel";
             this.difficultyLabel.Size = new System.Drawing.Size(182, 13);
             this.difficultyLabel.TabIndex = 67;
@@ -663,7 +671,7 @@
             // aggressionUpDown
             // 
             this.aggressionUpDown.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.mtypeBindingSource, "Aggression", true));
-            this.aggressionUpDown.Location = new System.Drawing.Point(81, 59);
+            this.aggressionUpDown.Location = new System.Drawing.Point(668, 155);
             this.aggressionUpDown.Minimum = new decimal(new int[] {
             100,
             0,
@@ -676,11 +684,12 @@
             // aggressionLabel
             // 
             this.aggressionLabel.AutoSize = true;
-            this.aggressionLabel.Location = new System.Drawing.Point(18, 60);
+            this.aggressionLabel.Location = new System.Drawing.Point(607, 158);
             this.aggressionLabel.Name = "aggressionLabel";
             this.aggressionLabel.Size = new System.Drawing.Size(59, 13);
             this.aggressionLabel.TabIndex = 69;
             this.aggressionLabel.Text = "Aggression";
+            this.aggressionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // combatEffectivenessPanel
             // 
@@ -703,21 +712,13 @@
             this.combatEffectivenessPanel.Controls.Add(this.damageInstanceArmorPenetrationUpDown);
             this.combatEffectivenessPanel.Controls.Add(this.damageInstanceTypeComboBox);
             this.combatEffectivenessPanel.Controls.Add(this.damageInstanceDataGrid);
-            this.combatEffectivenessPanel.Controls.Add(this.dodgeLabel);
-            this.combatEffectivenessPanel.Controls.Add(this.dodgeUpDown);
-            this.combatEffectivenessPanel.Controls.Add(this.grabStrengthLabel);
             this.combatEffectivenessPanel.Controls.Add(this.grabStrengthUpDown);
-            this.combatEffectivenessPanel.Controls.Add(this.moraleLabel);
-            this.combatEffectivenessPanel.Controls.Add(this.moraleUpDown);
-            this.combatEffectivenessPanel.Controls.Add(this.speedLabel);
-            this.combatEffectivenessPanel.Controls.Add(this.aggressionLabel);
+            this.combatEffectivenessPanel.Controls.Add(this.grabStrengthLabel);
             this.combatEffectivenessPanel.Controls.Add(this.speedUpDown);
-            this.combatEffectivenessPanel.Controls.Add(this.aggressionUpDown);
-            this.combatEffectivenessPanel.Controls.Add(this.hpUpDown);
-            this.combatEffectivenessPanel.Controls.Add(this.hpLabel);
-            this.combatEffectivenessPanel.Location = new System.Drawing.Point(229, 205);
+            this.combatEffectivenessPanel.Controls.Add(this.speedLabel);
+            this.combatEffectivenessPanel.Location = new System.Drawing.Point(224, 205);
             this.combatEffectivenessPanel.Name = "combatEffectivenessPanel";
-            this.combatEffectivenessPanel.Size = new System.Drawing.Size(530, 199);
+            this.combatEffectivenessPanel.Size = new System.Drawing.Size(389, 231);
             this.combatEffectivenessPanel.TabIndex = 70;
             // 
             // damageInstanceTypeComboBox
@@ -743,7 +744,7 @@
             "heat",
             "cold",
             "electric"});
-            this.damageInstanceTypeComboBox.Location = new System.Drawing.Point(186, 23);
+            this.damageInstanceTypeComboBox.Location = new System.Drawing.Point(49, 24);
             this.damageInstanceTypeComboBox.Name = "damageInstanceTypeComboBox";
             this.damageInstanceTypeComboBox.Size = new System.Drawing.Size(67, 21);
             this.damageInstanceTypeComboBox.TabIndex = 71;
@@ -758,7 +759,7 @@
             this.ArmorPenetration,
             this.ArmorMultiplier,
             this.DamageMultiplier});
-            this.damageInstanceDataGrid.Location = new System.Drawing.Point(145, 46);
+            this.damageInstanceDataGrid.Location = new System.Drawing.Point(8, 47);
             this.damageInstanceDataGrid.Name = "damageInstanceDataGrid";
             this.damageInstanceDataGrid.ReadOnly = true;
             this.damageInstanceDataGrid.Size = new System.Drawing.Size(370, 122);
@@ -802,7 +803,7 @@
             // dodgeLabel
             // 
             this.dodgeLabel.AutoSize = true;
-            this.dodgeLabel.Location = new System.Drawing.Point(36, 137);
+            this.dodgeLabel.Location = new System.Drawing.Point(0, 29);
             this.dodgeLabel.Name = "dodgeLabel";
             this.dodgeLabel.Size = new System.Drawing.Size(39, 13);
             this.dodgeLabel.TabIndex = 75;
@@ -811,29 +812,30 @@
             // dodgeUpDown
             // 
             this.dodgeUpDown.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.mtypeBindingSource, "Dodge", true));
-            this.dodgeUpDown.Location = new System.Drawing.Point(81, 137);
+            this.dodgeUpDown.Location = new System.Drawing.Point(40, 26);
             this.dodgeUpDown.Maximum = new decimal(new int[] {
             99999,
             0,
             0,
             0});
             this.dodgeUpDown.Name = "dodgeUpDown";
-            this.dodgeUpDown.Size = new System.Drawing.Size(58, 20);
+            this.dodgeUpDown.Size = new System.Drawing.Size(50, 20);
             this.dodgeUpDown.TabIndex = 74;
             // 
             // grabStrengthLabel
             // 
             this.grabStrengthLabel.AutoSize = true;
-            this.grabStrengthLabel.Location = new System.Drawing.Point(2, 113);
+            this.grabStrengthLabel.Location = new System.Drawing.Point(138, 199);
             this.grabStrengthLabel.Name = "grabStrengthLabel";
             this.grabStrengthLabel.Size = new System.Drawing.Size(73, 13);
             this.grabStrengthLabel.TabIndex = 73;
             this.grabStrengthLabel.Text = "Grab Strength";
+            this.grabStrengthLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // grabStrengthUpDown
             // 
             this.grabStrengthUpDown.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.mtypeBindingSource, "GrabStrength", true));
-            this.grabStrengthUpDown.Location = new System.Drawing.Point(81, 111);
+            this.grabStrengthUpDown.Location = new System.Drawing.Point(213, 196);
             this.grabStrengthUpDown.Maximum = new decimal(new int[] {
             99999,
             0,
@@ -851,16 +853,17 @@
             // moraleLabel
             // 
             this.moraleLabel.AutoSize = true;
-            this.moraleLabel.Location = new System.Drawing.Point(36, 87);
+            this.moraleLabel.Location = new System.Drawing.Point(627, 185);
             this.moraleLabel.Name = "moraleLabel";
             this.moraleLabel.Size = new System.Drawing.Size(39, 13);
             this.moraleLabel.TabIndex = 71;
             this.moraleLabel.Text = "Morale";
+            this.moraleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // moraleUpDown
             // 
             this.moraleUpDown.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.mtypeBindingSource, "Morale", true));
-            this.moraleUpDown.Location = new System.Drawing.Point(81, 85);
+            this.moraleUpDown.Location = new System.Drawing.Point(668, 182);
             this.moraleUpDown.Maximum = new decimal(new int[] {
             99999,
             0,
@@ -878,16 +881,17 @@
             // speedLabel
             // 
             this.speedLabel.AutoSize = true;
-            this.speedLabel.Location = new System.Drawing.Point(38, 36);
+            this.speedLabel.Location = new System.Drawing.Point(280, 199);
             this.speedLabel.Name = "speedLabel";
             this.speedLabel.Size = new System.Drawing.Size(38, 13);
             this.speedLabel.TabIndex = 1;
             this.speedLabel.Text = "Speed";
+            this.speedLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // speedUpDown
             // 
             this.speedUpDown.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.mtypeBindingSource, "Speed", true));
-            this.speedUpDown.Location = new System.Drawing.Point(81, 34);
+            this.speedUpDown.Location = new System.Drawing.Point(320, 196);
             this.speedUpDown.Maximum = new decimal(new int[] {
             99999,
             0,
@@ -909,7 +913,7 @@
             // 
             // damageInstanceArmorPenetrationUpDown
             // 
-            this.damageInstanceArmorPenetrationUpDown.Location = new System.Drawing.Point(303, 24);
+            this.damageInstanceArmorPenetrationUpDown.Location = new System.Drawing.Point(166, 25);
             this.damageInstanceArmorPenetrationUpDown.Maximum = new decimal(new int[] {
             99999,
             0,
@@ -921,7 +925,7 @@
             // 
             // damageInstanceAmountUpDown
             // 
-            this.damageInstanceAmountUpDown.Location = new System.Drawing.Point(259, 24);
+            this.damageInstanceAmountUpDown.Location = new System.Drawing.Point(122, 25);
             this.damageInstanceAmountUpDown.Maximum = new decimal(new int[] {
             99999,
             0,
@@ -939,7 +943,7 @@
             0,
             0,
             131072});
-            this.damageInstanceArmorMultiplierUpDown.Location = new System.Drawing.Point(367, 24);
+            this.damageInstanceArmorMultiplierUpDown.Location = new System.Drawing.Point(230, 25);
             this.damageInstanceArmorMultiplierUpDown.Maximum = new decimal(new int[] {
             99999,
             0,
@@ -962,7 +966,7 @@
             0,
             0,
             131072});
-            this.damageInstanceDamageMultiplierUpDown.Location = new System.Drawing.Point(435, 24);
+            this.damageInstanceDamageMultiplierUpDown.Location = new System.Drawing.Point(298, 25);
             this.damageInstanceDamageMultiplierUpDown.Maximum = new decimal(new int[] {
             99999,
             0,
@@ -979,7 +983,7 @@
             // 
             // damageInstanceAddButton
             // 
-            this.damageInstanceAddButton.Location = new System.Drawing.Point(145, 22);
+            this.damageInstanceAddButton.Location = new System.Drawing.Point(8, 23);
             this.damageInstanceAddButton.Name = "damageInstanceAddButton";
             this.damageInstanceAddButton.Size = new System.Drawing.Size(35, 23);
             this.damageInstanceAddButton.TabIndex = 81;
@@ -991,7 +995,7 @@
             // 
             this.meleeDamageLabel.AutoSize = true;
             this.meleeDamageLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.meleeDamageLabel.Location = new System.Drawing.Point(243, 2);
+            this.meleeDamageLabel.Location = new System.Drawing.Point(106, 2);
             this.meleeDamageLabel.Name = "meleeDamageLabel";
             this.meleeDamageLabel.Size = new System.Drawing.Size(129, 20);
             this.meleeDamageLabel.TabIndex = 82;
@@ -1000,7 +1004,7 @@
             // bonusCutUpDown
             // 
             this.bonusCutUpDown.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.mtypeBindingSource, "MeleeCut", true));
-            this.bonusCutUpDown.Location = new System.Drawing.Point(81, 162);
+            this.bonusCutUpDown.Location = new System.Drawing.Point(73, 171);
             this.bonusCutUpDown.Maximum = new decimal(new int[] {
             99999,
             0,
@@ -1014,7 +1018,7 @@
             // bonusCutLabel
             // 
             this.bonusCutLabel.AutoSize = true;
-            this.bonusCutLabel.Location = new System.Drawing.Point(20, 164);
+            this.bonusCutLabel.Location = new System.Drawing.Point(12, 173);
             this.bonusCutLabel.Name = "bonusCutLabel";
             this.bonusCutLabel.Size = new System.Drawing.Size(56, 13);
             this.bonusCutLabel.TabIndex = 84;
@@ -1023,7 +1027,7 @@
             // meleeDiceLabel
             // 
             this.meleeDiceLabel.AutoSize = true;
-            this.meleeDiceLabel.Location = new System.Drawing.Point(271, 171);
+            this.meleeDiceLabel.Location = new System.Drawing.Point(134, 172);
             this.meleeDiceLabel.Name = "meleeDiceLabel";
             this.meleeDiceLabel.Size = new System.Drawing.Size(61, 13);
             this.meleeDiceLabel.TabIndex = 85;
@@ -1032,7 +1036,7 @@
             // meleeDiceUpdown
             // 
             this.meleeDiceUpdown.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.mtypeBindingSource, "MeleeDice", true));
-            this.meleeDiceUpdown.Location = new System.Drawing.Point(338, 169);
+            this.meleeDiceUpdown.Location = new System.Drawing.Point(201, 170);
             this.meleeDiceUpdown.Maximum = new decimal(new int[] {
             99999,
             0,
@@ -1056,7 +1060,7 @@
             // meleeDiceSidesUpDown
             // 
             this.meleeDiceSidesUpDown.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.mtypeBindingSource, "MeleeDiceSides", true));
-            this.meleeDiceSidesUpDown.Location = new System.Drawing.Point(396, 169);
+            this.meleeDiceSidesUpDown.Location = new System.Drawing.Point(259, 170);
             this.meleeDiceSidesUpDown.Maximum = new decimal(new int[] {
             99999,
             0,
@@ -1080,7 +1084,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(381, 172);
+            this.label2.Location = new System.Drawing.Point(244, 173);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(13, 13);
             this.label2.TabIndex = 88;
@@ -1089,7 +1093,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(448, 172);
+            this.label3.Location = new System.Drawing.Point(311, 173);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(19, 13);
             this.label3.TabIndex = 89;
@@ -1098,7 +1102,7 @@
             // meleeDamageRangeLabel
             // 
             this.meleeDamageRangeLabel.AutoSize = true;
-            this.meleeDamageRangeLabel.Location = new System.Drawing.Point(473, 172);
+            this.meleeDamageRangeLabel.Location = new System.Drawing.Point(336, 173);
             this.meleeDamageRangeLabel.Name = "meleeDamageRangeLabel";
             this.meleeDamageRangeLabel.Size = new System.Drawing.Size(28, 13);
             this.meleeDamageRangeLabel.TabIndex = 90;
@@ -1108,7 +1112,7 @@
             // meleeSkillUpDown
             // 
             this.meleeSkillUpDown.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.mtypeBindingSource, "MeleeSkill", true));
-            this.meleeSkillUpDown.Location = new System.Drawing.Point(209, 170);
+            this.meleeSkillUpDown.Location = new System.Drawing.Point(73, 197);
             this.meleeSkillUpDown.Maximum = new decimal(new int[] {
             99999,
             0,
@@ -1121,19 +1125,11 @@
             // meleeSkillLabel
             // 
             this.meleeSkillLabel.AutoSize = true;
-            this.meleeSkillLabel.Location = new System.Drawing.Point(146, 172);
+            this.meleeSkillLabel.Location = new System.Drawing.Point(10, 199);
             this.meleeSkillLabel.Name = "meleeSkillLabel";
             this.meleeSkillLabel.Size = new System.Drawing.Size(58, 13);
             this.meleeSkillLabel.TabIndex = 92;
             this.meleeSkillLabel.Text = "Melee Skill";
-            // 
-            // mtypeBindingSource
-            // 
-            this.mtypeBindingSource.DataSource = typeof(cdda_item_creator.Mtype);
-            // 
-            // monsterNameStringsBindingSource
-            // 
-            this.monsterNameStringsBindingSource.DataSource = typeof(cdda_item_creator.Translation);
             // 
             // pathSettingsPanel
             // 
@@ -1148,7 +1144,7 @@
             this.pathSettingsPanel.Controls.Add(this.pathSettingsBashStrengthUpDown);
             this.pathSettingsPanel.Controls.Add(this.pathSettingsMaxLengthUpDown);
             this.pathSettingsPanel.Controls.Add(this.pathSettingsMaxDistUpDown);
-            this.pathSettingsPanel.Location = new System.Drawing.Point(446, 104);
+            this.pathSettingsPanel.Location = new System.Drawing.Point(338, 104);
             this.pathSettingsPanel.Name = "pathSettingsPanel";
             this.pathSettingsPanel.Size = new System.Drawing.Size(251, 95);
             this.pathSettingsPanel.TabIndex = 71;
@@ -1273,11 +1269,38 @@
             // 
             this.pathSettingsDataBindingSource.DataSource = typeof(cdda_item_creator.PathSettingsData);
             // 
+            // mtypeBindingSource
+            // 
+            this.mtypeBindingSource.DataSource = typeof(cdda_item_creator.Mtype);
+            // 
+            // monsterNameStringsBindingSource
+            // 
+            this.monsterNameStringsBindingSource.DataSource = typeof(cdda_item_creator.Translation);
+            // 
+            // harvestTextBox
+            // 
+            this.harvestTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.mtypeBindingSource, "Harvest", true));
+            this.harvestTextBox.Location = new System.Drawing.Point(224, 179);
+            this.harvestTextBox.Name = "harvestTextBox";
+            this.harvestTextBox.Size = new System.Drawing.Size(105, 20);
+            this.harvestTextBox.TabIndex = 74;
+            // 
+            // harvestLabel
+            // 
+            this.harvestLabel.AutoSize = true;
+            this.harvestLabel.Location = new System.Drawing.Point(224, 163);
+            this.harvestLabel.Name = "harvestLabel";
+            this.harvestLabel.Size = new System.Drawing.Size(44, 13);
+            this.harvestLabel.TabIndex = 75;
+            this.harvestLabel.Text = "Harvest";
+            // 
             // MonsterForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(738, 450);
+            this.Controls.Add(this.harvestLabel);
+            this.Controls.Add(this.harvestTextBox);
             this.Controls.Add(this.pathSettingsPanel);
             this.Controls.Add(this.combatEffectivenessPanel);
             this.Controls.Add(this.difficultyLabel);
@@ -1298,10 +1321,14 @@
             this.Controls.Add(this.bodytypeComboBox);
             this.Controls.Add(this.armorPanel);
             this.Controls.Add(this.symbolLabel);
+            this.Controls.Add(this.moraleLabel);
             this.Controls.Add(this.symbolTextBox);
+            this.Controls.Add(this.moraleUpDown);
             this.Controls.Add(this.weightComboBox);
             this.Controls.Add(this.weightLabel);
+            this.Controls.Add(this.aggressionLabel);
             this.Controls.Add(this.weightUpDown);
+            this.Controls.Add(this.aggressionUpDown);
             this.Controls.Add(this.volumeListbox);
             this.Controls.Add(this.volumeLabel);
             this.Controls.Add(this.volumeUpDown);
@@ -1345,14 +1372,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.meleeDiceUpdown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.meleeDiceSidesUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.meleeSkillUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mtypeBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.monsterNameStringsBindingSource)).EndInit();
             this.pathSettingsPanel.ResumeLayout(false);
             this.pathSettingsPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pathSettingsMaxDistUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pathSettingsMaxLengthUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pathSettingsBashStrengthUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pathSettingsDataBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mtypeBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.monsterNameStringsBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1457,5 +1484,7 @@
         private System.Windows.Forms.NumericUpDown pathSettingsMaxLengthUpDown;
         private System.Windows.Forms.NumericUpDown pathSettingsMaxDistUpDown;
         private System.Windows.Forms.BindingSource pathSettingsDataBindingSource;
+        private System.Windows.Forms.TextBox harvestTextBox;
+        private System.Windows.Forms.Label harvestLabel;
     }
 }
