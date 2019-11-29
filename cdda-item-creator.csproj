@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="custom_json.cs" />
     <Compile Include="MonsterForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -95,6 +96,7 @@
     <None Include="Properties\DataSources\cdda_item_creator.spell.spell_type1.datasource" />
     <None Include="Properties\DataSources\MonsterNameStrings.datasource" />
     <None Include="Properties\DataSources\Mtype.datasource" />
+    <None Include="Properties\DataSources\PathSettingsData.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

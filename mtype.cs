@@ -19,20 +19,21 @@ namespace cdda_item_creator
     {
         public int MaxDist { get; set; }
         [DefaultValue(-1)]
-        public int MaxLength { get; set; }
+        public int MaxLength { get; set; } = -1;
         [DefaultValue(-1)]
-        public int BashStrength { get; set; }
+        public int BashStrength { get; set; } = -1;
         [DefaultValue(false)]
         public bool AllowOpenDoors { get; set; }
         [DefaultValue(false)]
         public bool AvoidTraps { get; set; }
         [DefaultValue(true)]
-        public bool AllowClimbStairs { get; set; }
+        public bool AllowClimbStairs { get; set; } = true;
     }
 
     class DamageUnit
     {
-        public float amount;
+        public string Type;
+        public float Amount;
         public int ArmorPenetration;
         [DefaultValue(1.0f)]
         public float ArmorMultiplier = 1.0f;
@@ -64,6 +65,9 @@ namespace cdda_item_creator
         [DefaultValue("")]
         public string Volume { get; set; } = "";
         public string Color { get; set; }
+        public List<string> Material { get; set; }
+        public List<string> Species { get; set; }
+        public List<string> Categories { get; set; }
         [DefaultValue("")]
         public string Weight { get; set; } = "";
         public int Speed { get; set; }
@@ -74,8 +78,8 @@ namespace cdda_item_creator
         public float MountableWeightRatio { get; set; }
         public int AttackCost { get; set; }
         public int MeleeSkill { get; set; }
-        public int MeleeDice { get; set; }
-        public int MeleeDiceSides { get; set; }
+        public int MeleeDice { get; set; } = 1;
+        public int MeleeDiceSides { get; set; } = 1;
         public int GrabStrength { get; set; }
         public int Dodge { get; set; }
         public int ArmorBash { get; set; }
@@ -94,7 +98,7 @@ namespace cdda_item_creator
         public int MechStrBonus { get; set; }
         [DefaultValue("")]
         public string MechBattery { get; set; } = "";
-        public DamageInstance melee_damage;
+        public DamageInstance MeleeDamage;
         public int MeleeCut { get; set; }
         // mandatory json member
         public string Harvest { get; set; } = "";
@@ -102,7 +106,7 @@ namespace cdda_item_creator
         public string BurnInto { get; set; } = "";
         [DefaultValue(-1)]
         public int BashSkill { get; set; } = -1;
-        public PathSettingsData PathSettings { get; set; }
+        public PathSettingsData PathSettings { get; set; } = new PathSettingsData { };
 
         public void UpdateVolume( int num_part, string unit )
         {
@@ -112,6 +116,16 @@ namespace cdda_item_creator
         public void UpdateWeight( int num_part, string unit )
         {
             Weight = num_part.ToString() + " " + unit;
+        }
+
+        public int Difficulty()
+        {
+            int difficulty = (int)((MeleeSkill + 1) * MeleeDice * (MeleeCut + MeleeDiceSides) * 0.04 +
+                (Dodge + 1) * (3 + ArmorBash + ArmorCut) * 0.04 +
+                (Diff /* + special_attacks.size() + 8 * emit_fields.size() */));
+            difficulty = (int)( difficulty * (Hp + Speed - AttackCost + (Morale + Aggression) * 0.1) * 0.01 +
+                (VisionDay + 2 * VisionNight) * 0.01);
+            return difficulty;
         }
     }
 }
