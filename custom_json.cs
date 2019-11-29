@@ -3,6 +3,7 @@ using Newtonsoft.Json.Serialization;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -14,31 +15,26 @@ namespace cdda_item_creator
     {
         protected override JsonProperty CreateProperty(MemberInfo member, MemberSerialization memberSerialization)
         {
-            JsonProperty property = base.CreateProperty(member, memberSerialization);
+            var jsonProperty = base.CreateProperty(member, memberSerialization);
 
-            if (property.DeclaringType is IEnumerable)
+            if (typeof(IEnumerable<object>).IsAssignableFrom(jsonProperty.PropertyType))
             {
-                property.ShouldSerialize = instance =>
-                {
-                    IEnumerable enumer = instance
-                        .GetType()
-                        .GetProperty(property.PropertyName)
-                        .GetValue(instance, null) as IEnumerable;
+                jsonProperty.ShouldSerialize = instance => {
+                    var value = instance.GetType()
+                        .GetProperty(jsonProperty.PropertyName)
+                        ?.GetValue(instance);
 
-                    if (enumer != null)
+                    if (value == null)
                     {
-                        // check to see if there is at least one item in the Enumerable
-                        return enumer.GetEnumerator().MoveNext();
+                        return false;
                     }
-                    else
-                    {
-                        // if the enumerable is null, we defer the decision to NullValueHandling
-                        return true;
-                    }
+
+                    return ((IEnumerable<object>)value).GetEnumerator()
+                        .MoveNext();
                 };
             }
 
-            return property;
+            return jsonProperty;
         }
     }
 }
