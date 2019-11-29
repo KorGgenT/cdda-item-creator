@@ -130,7 +130,14 @@ namespace cdda_item_creator
             this.spellsLearnedAddButton = new System.Windows.Forms.Button();
             this.spellsLearnedTextbox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.validTargetsToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.messageToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.energySourceToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.spelltypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.damageToolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.damageToolTip2 = new System.Windows.Forms.ToolTip(this.components);
+            this.damageToolTip3 = new System.Windows.Forms.ToolTip(this.components);
+            this.damageToolTip4 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.min_damage_updown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.damage_increment_updown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.max_damage_updown)).BeginInit();
@@ -1581,6 +1588,13 @@ namespace cdda_item_creator
         private System.Windows.Forms.Button spellsLearnedAddButton;
         private System.Windows.Forms.TextBox spellsLearnedTextbox;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ToolTip validTargetsToolTip;
+        private System.Windows.Forms.ToolTip messageToolTip;
+        private System.Windows.Forms.ToolTip energySourceToolTip;
+        private System.Windows.Forms.ToolTip damageToolTip1;
+        private System.Windows.Forms.ToolTip damageToolTip2;
+        private System.Windows.Forms.ToolTip damageToolTip3;
+        private System.Windows.Forms.ToolTip damageToolTip4;
     }
 }
 

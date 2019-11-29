@@ -142,6 +142,7 @@ namespace cdda_item_creator
             damage_increment_updown.Enabled = false;
             max_damage_updown.Enabled = false;
             damage_type_combobox.Enabled = false;
+            UnsetDamageToolTip();
         }
         private void DisableRange()
         {
@@ -191,6 +192,7 @@ namespace cdda_item_creator
                 case "projectile_attack":
                 case "cone_attack":
                 case "line_attack":
+                    SetDamageToolTip("The amount of damage you deal to the target.\nIgnores dodge, and heals if the value is negative.");
                     effect_filter_listbox.Enabled = false;
                     break;
                 case "teleport_random":
@@ -206,6 +208,7 @@ namespace cdda_item_creator
                     DisableFields();
                     DisableRange();
                     DisableAoe();
+                    SetDamageToolTip("The number of items spawned.");
                     damage_type_combobox.Enabled = false;
                     effect_filter_listbox.Enabled = false;
                     effected_body_part_listbox.Enabled = false;
@@ -213,12 +216,14 @@ namespace cdda_item_creator
                     break;
                 case "recover_energy":
                     DisableFields();
+                    SetDamageToolTip("The amount of energy recovered.");
                     damage_type_combobox.Enabled = false;
                     effect_filter_listbox.Enabled = false;
                     effected_body_part_listbox.Enabled = false;
                     break;
                 case "summon":
                     DisableFields();
+                    SetDamageToolTip("The Number of creatures summoned.");
                     damage_type_combobox.Enabled = false;
                     effect_filter_listbox.Enabled = false;
                     effected_body_part_listbox.Enabled = false;
@@ -235,6 +240,7 @@ namespace cdda_item_creator
                 case "area_push":
                     DisableFields();
                     DisableDuration();
+                    SetDamageToolTip("The number of spaces the targets will be moved.");
                     damage_type_combobox.Enabled = false;
                     effected_body_part_listbox.Enabled = false;
                     effect_str_combobox.Enabled = false;
@@ -250,6 +256,7 @@ namespace cdda_item_creator
                     break;
                 case "ter_transform":
                     DisableFields();
+                    SetDamageToolTip("For each tile in the Area of effect, it is\na one in damage chance of transforming.");
                     effect_filter_listbox.Enabled = false;
                     effected_body_part_listbox.Enabled = false;
                     break;
@@ -257,6 +264,7 @@ namespace cdda_item_creator
                     DisableFields();
                     DisableAoe();
                     DisableDuration();
+                    SetDamageToolTip("The amount of noise made at the target location.");
                     effect_filter_listbox.Enabled = false;
                     effected_body_part_listbox.Enabled = false;
                     break;
@@ -270,6 +278,7 @@ namespace cdda_item_creator
                 case "explosion":
                     DisableFields();
                     DisableDuration();
+                    SetDamageToolTip("The power of the explosion.");
                     damage_type_combobox.Enabled = false;
                     effect_filter_listbox.Enabled = false;
                     effected_body_part_listbox.Enabled = false;
@@ -285,6 +294,7 @@ namespace cdda_item_creator
                 case "mod_moves":
                     DisableFields();
                     DisableDuration();
+                    SetDamageToolTip("The number of moves altered by the spell.\nPositive numbers add mvoes, negative numbers subtract moves.");
                     damage_type_combobox.Enabled = false;
                     effect_filter_listbox.Enabled = false;
                     effected_body_part_listbox.Enabled = false;
@@ -298,12 +308,14 @@ namespace cdda_item_creator
                     break;
                 case "morale":
                     DisableFields();
+                    SetDamageToolTip("The amount of morale gained by casting the spell.  Negative numbers subtract morale.");
                     damage_type_combobox.Enabled = false;
                     effect_filter_listbox.Enabled = false;
                     effected_body_part_listbox.Enabled = false;
                     break;
                 case "charm_monster":
                     DisableFields();
+                    SetDamageToolTip("The largest HP of monsters this spell can affect.");
                     damage_type_combobox.Enabled = false;
                     effect_filter_listbox.Enabled = false;
                     effected_body_part_listbox.Enabled = false;
@@ -311,6 +323,7 @@ namespace cdda_item_creator
                 case "mutate":
                     DisableFields();
                     DisableDuration();
+                    SetDamageToolTip("The chance the spell will take effect.\n10000 means 100% and 5000 means 50%.");
                     damage_type_combobox.Enabled = false;
                     effect_filter_listbox.Enabled = false;
                     effected_body_part_listbox.Enabled = false;
@@ -318,23 +331,46 @@ namespace cdda_item_creator
                 case "bash":
                     DisableFields();
                     DisableDuration();
+                    SetDamageToolTip("Bashes the location with strength equal to damage.");
                     damage_type_combobox.Enabled = false;
                     effect_filter_listbox.Enabled = false;
                     effected_body_part_listbox.Enabled = false;
                     break;
                 case "none":
                 default:
+                    SetDamageToolTip("");
                     break;
             }
             ResetDisabledFieldValues();
         }
-
+        private void UnsetDamageToolTip()
+        {
+            damageToolTip1.Active = false;
+            damageToolTip2.Active = false;
+            damageToolTip3.Active = false;
+            damageToolTip4.Active = false;
+        }
+        private void SetDamageToolTip(string tip)
+        {
+            damageToolTip1.Active = true;
+            damageToolTip2.Active = true;
+            damageToolTip3.Active = true;
+            damageToolTip4.Active = true;
+            damageToolTip1.SetToolTip(damage_label, tip);
+            damageToolTip2.SetToolTip(min_damage_updown, tip);
+            damageToolTip3.SetToolTip(damage_increment_updown, tip);
+            damageToolTip4.SetToolTip(max_damage_updown, tip);
+        }
+       
         public spell_form()
         {
             StaticDataLoader loader = new StaticDataLoader { };
             loader.loadAll();
             InitializeComponent();
             InitializeLists();
+            validTargetsToolTip.SetToolTip(valid_targets_listbox, "A valid target is not only something you can cast at in the\ntargeting menu, but something that is affected by its spell effect.");
+            messageToolTip.SetToolTip(spell_message_textbox, "This is the message that displays in the log when the spell is cast.");
+            energySourceToolTip.SetToolTip(energy_type_combobox, "The type of energy used by the caster in order to cast this spell.\nIf the caster does not have any of this energy available, it will not be castable.");
             spelltypeBindingSource.Add(main_spell);
             energy_type_combobox.SelectedIndex = 0;
             effect_combobox.SelectedIndex = 0;
