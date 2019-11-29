@@ -39,6 +39,295 @@ namespace cdda_item_creator
                 effect_str_combobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             }
         }
+        private void EnableAllFields()
+        {
+            min_damage_updown.Enabled = true;
+            damage_increment_updown.Enabled = true;
+            max_damage_updown.Enabled = true;
+            min_range_updown.Enabled = true;
+            range_increment_updown.Enabled = true;
+            max_range_updown.Enabled = true;
+            min_aoe_updown.Enabled = true;
+            aoe_increment_updown.Enabled = true;
+            max_aoe_updown.Enabled = true;
+            min_duration_updown.Enabled = true;
+            duration_increment_updown.Enabled = true;
+            max_duration_updown.Enabled = true;
+            min_field_intensity_updown.Enabled = true;
+            field_intensity_increment_updown.Enabled = true;
+            max_field_intensity_updown.Enabled = true;
+            field_id_textbox.Enabled = true;
+            field_chance_updown.Enabled = true;
+            field_intensity_variance_updown.Enabled = true;
+            effect_filter_listbox.Enabled = true;
+            effected_body_part_listbox.Enabled = true;
+            valid_targets_listbox.Enabled = true;
+            effect_str_combobox.Enabled = true;
+            damage_type_combobox.Enabled = true;
+            // "none" is not desirable for most spells
+            // and it is also partially hidden down the list
+            valid_targets_listbox
+                    .SetItemCheckState(4, CheckState.Unchecked);
+        }
+        private void ResetDisabledFieldValues()
+        {
+            List<NumericUpDown> disablable_fields = new List<NumericUpDown>{
+                min_damage_updown,
+                damage_increment_updown,
+                max_damage_updown,
+                min_range_updown,
+                range_increment_updown,
+                max_range_updown,
+                min_aoe_updown,
+                aoe_increment_updown,
+                max_aoe_updown,
+                min_duration_updown,
+                duration_increment_updown,
+                max_duration_updown,
+                min_field_intensity_updown,
+                field_intensity_increment_updown,
+                max_field_intensity_updown,
+                field_intensity_variance_updown
+            };
+            foreach(NumericUpDown box in disablable_fields)
+            {
+                if (!box.Enabled)
+                {
+                    box.Value = 0;
+                }
+            }
+            if (!field_id_textbox.Enabled)
+            {
+                field_id_textbox.Text = "";
+            }
+            if(!field_chance_updown.Enabled)
+            {
+                field_chance_updown.Value = 1;
+            }
+            if (!damage_type_combobox.Enabled)
+            {
+                damage_type_combobox.SelectedItem = "NONE";
+            }
+            if (!effected_body_part_listbox.Enabled)
+            {
+                foreach (int i in effected_body_part_listbox.CheckedIndices)
+                {
+                    effected_body_part_listbox
+                        .SetItemCheckState(i, CheckState.Unchecked);
+                }
+            }
+            if (!valid_targets_listbox.Enabled)
+            {
+                foreach (int i in effected_body_part_listbox.CheckedIndices)
+                {
+                    valid_targets_listbox
+                        .SetItemCheckState(i, CheckState.Unchecked);
+                }
+                // sets to "none"
+                valid_targets_listbox
+                    .SetItemCheckState(4, CheckState.Checked);
+            }
+            if (!effect_filter_listbox.Enabled)
+            {
+                foreach (int i in effect_filter_listbox.CheckedIndices)
+                {
+                    effect_filter_listbox
+                        .SetItemCheckState(i, CheckState.Unchecked);
+                }
+            }
+        }
+        private void DisableDamage()
+        {
+            min_damage_updown.Enabled = false;
+            damage_increment_updown.Enabled = false;
+            max_damage_updown.Enabled = false;
+            damage_type_combobox.Enabled = false;
+        }
+        private void DisableRange()
+        {
+            min_range_updown.Enabled = false;
+            range_increment_updown.Enabled = false;
+            max_range_updown.Enabled = false;
+        }
+        private void DisableAoe()
+        {
+            min_aoe_updown.Enabled = false;
+            aoe_increment_updown.Enabled = false;
+            max_aoe_updown.Enabled = false;
+        }
+        private void DisableDuration()
+        {
+            min_duration_updown.Enabled = false;
+            duration_increment_updown.Enabled = false;
+            max_duration_updown.Enabled = false;
+        }
+        private void DisableFields()
+        {
+            min_field_intensity_updown.Enabled = false;
+            field_intensity_increment_updown.Enabled = false;
+            max_field_intensity_updown.Enabled = false;
+            field_id_textbox.Enabled = false;
+            field_chance_updown.Enabled = false;
+            field_intensity_variance_updown.Enabled = false;
+        }
+        private void EnableValidEffectValues()
+        {
+            string effect = effect_combobox.Text;
+            EnableAllFields();
+            switch (effect)
+            {
+                case "pain_split":
+                    DisableDamage();
+                    DisableRange();
+                    DisableAoe();
+                    DisableDuration();
+                    DisableFields();
+                    effect_filter_listbox.Enabled = false;
+                    effected_body_part_listbox.Enabled = false;
+                    valid_targets_listbox.Enabled = false;
+                    effect_str_combobox.Enabled = false;
+                    break;
+                case "target_attack":
+                case "projectile_attack":
+                case "cone_attack":
+                case "line_attack":
+                    effect_filter_listbox.Enabled = false;
+                    break;
+                case "teleport_random":
+                    DisableDamage();
+                    DisableFields();
+                    DisableDuration();
+                    effect_filter_listbox.Enabled = false;
+                    effected_body_part_listbox.Enabled = false;
+                    valid_targets_listbox.Enabled = false;
+                    effect_str_combobox.Enabled = false;
+                    break;
+                case "spawn_item":
+                    DisableFields();
+                    DisableRange();
+                    DisableAoe();
+                    damage_type_combobox.Enabled = false;
+                    effect_filter_listbox.Enabled = false;
+                    effected_body_part_listbox.Enabled = false;
+                    valid_targets_listbox.Enabled = false;
+                    break;
+                case "recover_energy":
+                    DisableFields();
+                    damage_type_combobox.Enabled = false;
+                    effect_filter_listbox.Enabled = false;
+                    effected_body_part_listbox.Enabled = false;
+                    break;
+                case "summon":
+                    DisableFields();
+                    damage_type_combobox.Enabled = false;
+                    effect_filter_listbox.Enabled = false;
+                    effected_body_part_listbox.Enabled = false;
+                    break;
+                case "translocate":
+                    DisableDamage();
+                    DisableDuration();
+                    DisableFields();
+                    effect_filter_listbox.Enabled = false;
+                    effected_body_part_listbox.Enabled = false;
+                    effect_str_combobox.Enabled = false;
+                    break;
+                case "area_pull":
+                case "area_push":
+                    DisableFields();
+                    DisableDuration();
+                    damage_type_combobox.Enabled = false;
+                    effected_body_part_listbox.Enabled = false;
+                    effect_str_combobox.Enabled = false;
+                    break;
+                case "timed_event":
+                    DisableDamage();
+                    DisableRange();
+                    DisableAoe();
+                    DisableFields();
+                    effect_filter_listbox.Enabled = false;
+                    effected_body_part_listbox.Enabled = false;
+                    valid_targets_listbox.Enabled = false;
+                    break;
+                case "ter_transform":
+                    DisableFields();
+                    effect_filter_listbox.Enabled = false;
+                    effected_body_part_listbox.Enabled = false;
+                    break;
+                case "noise":
+                    DisableFields();
+                    DisableAoe();
+                    DisableDuration();
+                    effect_filter_listbox.Enabled = false;
+                    effected_body_part_listbox.Enabled = false;
+                    break;
+                case "vomit":
+                    DisableFields();
+                    DisableDamage();
+                    DisableDuration();
+                    effect_filter_listbox.Enabled = false;
+                    effected_body_part_listbox.Enabled = false;
+                    break;
+                case "explosion":
+                    DisableFields();
+                    DisableDuration();
+                    damage_type_combobox.Enabled = false;
+                    effect_filter_listbox.Enabled = false;
+                    effected_body_part_listbox.Enabled = false;
+                    break;
+                case "flashbang":
+                    DisableFields();
+                    DisableDuration();
+                    DisableDamage();
+                    DisableAoe();
+                    effect_filter_listbox.Enabled = false;
+                    effected_body_part_listbox.Enabled = false;
+                    break;
+                case "mod_moves":
+                    DisableFields();
+                    DisableDuration();
+                    damage_type_combobox.Enabled = false;
+                    effect_filter_listbox.Enabled = false;
+                    effected_body_part_listbox.Enabled = false;
+                    break;
+                case "map":
+                    DisableFields();
+                    DisableDuration();
+                    DisableDamage();
+                    effect_filter_listbox.Enabled = false;
+                    effected_body_part_listbox.Enabled = false;
+                    break;
+                case "morale":
+                    DisableFields();
+                    damage_type_combobox.Enabled = false;
+                    effect_filter_listbox.Enabled = false;
+                    effected_body_part_listbox.Enabled = false;
+                    break;
+                case "charm_monster":
+                    DisableFields();
+                    damage_type_combobox.Enabled = false;
+                    effect_filter_listbox.Enabled = false;
+                    effected_body_part_listbox.Enabled = false;
+                    break;
+                case "mutate":
+                    DisableFields();
+                    DisableDuration();
+                    damage_type_combobox.Enabled = false;
+                    effect_filter_listbox.Enabled = false;
+                    effected_body_part_listbox.Enabled = false;
+                    break;
+                case "bash":
+                    DisableFields();
+                    DisableDuration();
+                    damage_type_combobox.Enabled = false;
+                    effect_filter_listbox.Enabled = false;
+                    effected_body_part_listbox.Enabled = false;
+                    break;
+                case "none":
+                default:
+                    break;
+            }
+            ResetDisabledFieldValues();
+        }
 
         public spell_form()
         {
@@ -110,6 +399,7 @@ namespace cdda_item_creator
             }
             spell_effect_description_label.Text = spell.allowed_strings.effect_descriptions[effect];
             update_effect_str(effect);
+            EnableValidEffectValues();
         }
 
         private void fakeSpellAddButton_Click(object sender, EventArgs e)
