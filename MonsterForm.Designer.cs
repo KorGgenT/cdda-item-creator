@@ -123,11 +123,14 @@
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.checkBox3 = new System.Windows.Forms.CheckBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.pathSettingsDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.mtypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.monsterNameStringsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.harvestTextBox = new System.Windows.Forms.TextBox();
             this.harvestLabel = new System.Windows.Forms.Label();
+            this.flagsListBox = new System.Windows.Forms.CheckedListBox();
+            this.flagDescriptionLabel = new System.Windows.Forms.Label();
+            this.mtypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.pathSettingsDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.monsterNameStringsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.label8 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.hpUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.volumeUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.weightUpDown)).BeginInit();
@@ -161,8 +164,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pathSettingsMaxDistUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pathSettingsMaxLengthUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pathSettingsBashStrengthUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pathSettingsDataBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mtypeBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pathSettingsDataBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.monsterNameStringsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -1265,18 +1268,6 @@
             this.label7.TabIndex = 9;
             this.label7.Text = "Path Settings";
             // 
-            // pathSettingsDataBindingSource
-            // 
-            this.pathSettingsDataBindingSource.DataSource = typeof(cdda_item_creator.PathSettingsData);
-            // 
-            // mtypeBindingSource
-            // 
-            this.mtypeBindingSource.DataSource = typeof(cdda_item_creator.Mtype);
-            // 
-            // monsterNameStringsBindingSource
-            // 
-            this.monsterNameStringsBindingSource.DataSource = typeof(cdda_item_creator.Translation);
-            // 
             // harvestTextBox
             // 
             this.harvestTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.mtypeBindingSource, "Harvest", true));
@@ -1294,11 +1285,56 @@
             this.harvestLabel.TabIndex = 75;
             this.harvestLabel.Text = "Harvest";
             // 
+            // flagsListBox
+            // 
+            this.flagsListBox.FormattingEnabled = true;
+            this.flagsListBox.Location = new System.Drawing.Point(731, 27);
+            this.flagsListBox.Margin = new System.Windows.Forms.Padding(2);
+            this.flagsListBox.Name = "flagsListBox";
+            this.flagsListBox.Size = new System.Drawing.Size(182, 319);
+            this.flagsListBox.TabIndex = 76;
+            this.flagsListBox.SelectedIndexChanged += new System.EventHandler(this.flagsListBox_SelectedIndexChanged);
+            // 
+            // flagDescriptionLabel
+            // 
+            this.flagDescriptionLabel.AutoSize = true;
+            this.flagDescriptionLabel.Location = new System.Drawing.Point(734, 349);
+            this.flagDescriptionLabel.MaximumSize = new System.Drawing.Size(182, 0);
+            this.flagDescriptionLabel.Name = "flagDescriptionLabel";
+            this.flagDescriptionLabel.Size = new System.Drawing.Size(158, 13);
+            this.flagDescriptionLabel.TabIndex = 77;
+            this.flagDescriptionLabel.Text = "Click a flag to see its description";
+            // 
+            // mtypeBindingSource
+            // 
+            this.mtypeBindingSource.DataSource = typeof(cdda_item_creator.Mtype);
+            // 
+            // pathSettingsDataBindingSource
+            // 
+            this.pathSettingsDataBindingSource.DataSource = typeof(cdda_item_creator.PathSettingsData);
+            // 
+            // monsterNameStringsBindingSource
+            // 
+            this.monsterNameStringsBindingSource.DataSource = typeof(cdda_item_creator.Translation);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(744, 5);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(53, 20);
+            this.label8.TabIndex = 10;
+            this.label8.Text = "Flags";
+            // 
             // MonsterForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(738, 450);
+            this.ClientSize = new System.Drawing.Size(926, 450);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.flagDescriptionLabel);
+            this.Controls.Add(this.flagsListBox);
             this.Controls.Add(this.harvestLabel);
             this.Controls.Add(this.harvestTextBox);
             this.Controls.Add(this.pathSettingsPanel);
@@ -1377,8 +1413,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pathSettingsMaxDistUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pathSettingsMaxLengthUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pathSettingsBashStrengthUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pathSettingsDataBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mtypeBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pathSettingsDataBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.monsterNameStringsBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -1486,5 +1522,8 @@
         private System.Windows.Forms.BindingSource pathSettingsDataBindingSource;
         private System.Windows.Forms.TextBox harvestTextBox;
         private System.Windows.Forms.Label harvestLabel;
+        private System.Windows.Forms.CheckedListBox flagsListBox;
+        private System.Windows.Forms.Label flagDescriptionLabel;
+        private System.Windows.Forms.Label label8;
     }
 }

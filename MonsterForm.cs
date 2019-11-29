@@ -11,12 +11,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.CheckedListBox;
 
 namespace cdda_item_creator
 {
     public partial class MonsterForm : Form
     {
         Mtype main_monster = new Mtype { };
+        Dictionary<string, string> monster_flags;
         public void loadColors()
         {
             string flag_path = System.Windows.Forms.Application.StartupPath + "\\json\\valid_color.json";
@@ -24,10 +26,25 @@ namespace cdda_item_creator
             JArray parray = JArray.Parse(flag_file_text);
             colorComboBox.Items.AddRange(parray.ToObject<string[]>());
         }
+        public void loadFlags()
+        {
+            string flag_path = System.Windows.Forms.Application.StartupPath + "\\json\\monster_flags.json";
+            string flag_file_text = File.ReadAllText(flag_path);
+            JObject o1 = JObject.Parse(flag_file_text);
+            monster_flags = o1.ToObject<Dictionary<string, string>>();
+            foreach( string key in monster_flags.Keys)
+            {
+                flagsListBox.Items.Add(key);
+            }
+        }
         public MonsterForm()
         {
+
+
             InitializeComponent();
             loadColors();
+            loadFlags();
+
             mtypeBindingSource.Add(main_monster);
             monsterNameStringsBindingSource.Add(main_monster.Name);
             pathSettingsDataBindingSource.Add(main_monster.PathSettings);
@@ -53,14 +70,64 @@ namespace cdda_item_creator
             }
             return ret;
         }
+        private List<string> ListDataUpdater(CheckedListBox info)
+        {
+            List<string> ret = null;
+            if (info.CheckedItems.Count > 0)
+            {
+                ret = new List<string> { };
+            }
+            foreach (string checked_item in info.CheckedItems)
+            {
+                if (checked_item != null)
+                {
+                    ret.Add(checked_item);
+                }
+            }
+            return ret;
+        }
+        private void UpdateDamageInstanceData()
+        {
+            main_monster.MeleeDamage = null;
+            if(damageInstanceDataGrid.Rows.Count > 0)
+            {
+                main_monster.MeleeDamage = new DamageInstance { };
+            }
+            foreach(DataGridViewRow row in damageInstanceDataGrid.Rows)
+            {
+                string type = row.Cells["Type"].Value.ToString();
+                int amount;
+                int.TryParse(row.Cells["Amount"].Value.ToString(), out amount);
+                int armor_penetration;
+                int.TryParse(row.Cells["ArmorPenetration"].Value.ToString(), out armor_penetration);
+                float armor_multiplier;
+                float.TryParse(row.Cells["ArmorMultiplier"].Value.ToString(), out armor_multiplier);
+                float damage_multiplier;
+                float.TryParse(row.Cells["DamageMultiplier"].Value.ToString(), out damage_multiplier);
+                DamageUnit du = 
+                    new DamageUnit
+                    {
+                        Type = type,
+                        Amount = amount,
+                        ArmorPenetration = armor_penetration,
+                        ArmorMultiplier = armor_multiplier,
+                        DamageMultiplier = damage_multiplier
+                    };
+                main_monster.MeleeDamage.Add(du);
+            }
+        }
         private void UpdateMonsterDataGrid()
         {
             main_monster.UpdateVolume((int)volumeUpDown.Value, volumeListbox.Text);
             main_monster.UpdateWeight((int)weightUpDown.Value, weightComboBox.Text);
 
+            UpdateDamageInstanceData();
+
             main_monster.Material = ListDataUpdater(materialDataGrid);
             main_monster.Species = ListDataUpdater(speciesDataGrid);
             main_monster.Categories = ListDataUpdater(categoriesDataGrid);
+
+            main_monster.Flags = ListDataUpdater(flagsListBox);
         }
 
         private void clipboardButton_Click(object sender, EventArgs e)
@@ -87,7 +154,7 @@ namespace cdda_item_creator
         {
             damageInstanceDataGrid.Rows.Add(
                 damageInstanceTypeComboBox.Text,
-                damageInstanceAmountUpDown.Value,
+                damageInstanceAmountUpDown.Value.ToString(),
                 damageInstanceArmorPenetrationUpDown.Value,
                 damageInstanceArmorMultiplierUpDown.Value,
                 damageInstanceDamageMultiplierUpDown.Value
@@ -126,6 +193,11 @@ namespace cdda_item_creator
         private void meleeDamageRangeLabel_Click(object sender, EventArgs e)
         {
             UpdateMeleeDamageRange();
+        }
+
+        private void flagsListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            flagDescriptionLabel.Text = monster_flags[flagsListBox.SelectedItem.ToString()];
         }
     }
 }

@@ -43,7 +43,11 @@ namespace cdda_item_creator
 
     class DamageInstance
     {
-        public List<DamageUnit> Values;
+        public List<DamageUnit> Values = new List<DamageUnit> { };
+        public void Add(DamageUnit du_add)
+        {
+            Values.Add(du_add);
+        }
     }
 
     // this is a class that is supposed to be a carbon-copy of mtype from C:DDA
@@ -107,6 +111,7 @@ namespace cdda_item_creator
         [DefaultValue(-1)]
         public int BashSkill { get; set; } = -1;
         public PathSettingsData PathSettings { get; set; } = new PathSettingsData { };
+        public List<string> Flags { get; set; }
 
         public void UpdateVolume( int num_part, string unit )
         {
