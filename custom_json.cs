@@ -21,14 +21,13 @@ namespace cdda_item_creator
             {
                 jsonProperty.ShouldSerialize = instance => {
                     var value = instance.GetType()
-                        .GetProperty(jsonProperty.PropertyName)
+                        .GetProperty(member.Name)
                         ?.GetValue(instance);
 
                     if (value == null)
                     {
                         return false;
                     }
-
                     return ((IEnumerable<object>)value).GetEnumerator()
                         .MoveNext();
                 };

@@ -19,14 +19,14 @@ namespace cdda_item_creator
     {
         Mtype main_monster = new Mtype { };
         Dictionary<string, string> monster_flags;
-        public void loadColors()
+        private void loadColors()
         {
             string flag_path = System.Windows.Forms.Application.StartupPath + "\\json\\valid_color.json";
             string flag_file_text = File.ReadAllText(flag_path);
             JArray parray = JArray.Parse(flag_file_text);
             colorComboBox.Items.AddRange(parray.ToObject<string[]>());
         }
-        public void loadFlags()
+        private void loadFlags()
         {
             string flag_path = System.Windows.Forms.Application.StartupPath + "\\json\\monster_flags.json";
             string flag_file_text = File.ReadAllText(flag_path);
@@ -35,6 +35,66 @@ namespace cdda_item_creator
             foreach( string key in monster_flags.Keys)
             {
                 flagsListBox.Items.Add(key);
+            }
+        }
+        private void loadHarvest()
+        {
+            HashSet<string> harvest = Program.LoadedObjectDictionary.GetList("harvest");
+            if(harvest == null)
+            {
+                return;
+            }
+            foreach(string harvest_entry in harvest)
+            {
+                harvestTextBox.Items.Add(harvest_entry);
+            }
+        }
+        private void loadSpecies()
+        {
+            HashSet<string> species = Program.LoadedObjectDictionary.GetList("SPECIES");
+            if (species == null)
+            {
+                return;
+            }
+            foreach (string species_entry in species)
+            {
+                SpeciesComboBox.Items.Add(species_entry);
+            }
+        }
+        private void loadMaterial()
+        {
+            HashSet<string> material = Program.LoadedObjectDictionary.GetList("material");
+            if (material == null)
+            {
+                return;
+            }
+            foreach (string material_entry in material)
+            {
+                MaterialComboBox.Items.Add(material_entry);
+            }
+        }
+        private void loadMonsterLists()
+        {
+            HashSet<string> monster = Program.LoadedObjectDictionary.GetList("material");
+            if (monster == null)
+            {
+                return;
+            }
+            foreach (string monster_entry in monster)
+            {
+                looksLikeTextBox.Items.Add(monster);
+            }
+        }
+        private void loadFaction()
+        {
+            HashSet<string> faction = Program.LoadedObjectDictionary.GetList("faction");
+            if(faction == null)
+            {
+                return;
+            }
+            foreach(string faction_entry in faction)
+            {
+                defaultFactionTextBox.Items.Add(faction);
             }
         }
         public void UpdateSymbolPreviewColor()
@@ -79,6 +139,11 @@ namespace cdda_item_creator
             InitializeComponent();
             loadColors();
             loadFlags();
+            loadHarvest();
+            loadSpecies();
+            loadMaterial();
+            loadMonsterLists();
+            loadFaction();
 
             mtypeBindingSource.Add(main_monster);
             monsterNameStringsBindingSource.Add(main_monster.Name);

@@ -34,7 +34,7 @@ namespace cdda_item_creator
                     {
                         if (obj.valid())
                         {
-                            Program.LoadedObjectDictionary.Add(obj.Type, obj.Id);
+                            Program.LoadedObjectDictionary.Add(obj.Type, obj.GetId());
                         }
                     }
                 } catch
@@ -77,9 +77,21 @@ namespace cdda_item_creator
     {
         public string Type { get; set; }
         public string Id { get; set; }
+        public string Ident { get; set; }
+        public string GetId()
+        {
+            if(Id != null)
+            {
+                return Id;
+            } else
+            {
+                // this could also get null. check validity first.
+                return Ident;
+            }
+        }
         public bool valid()
         {
-            return Type != null && Id != null;
+            return Type != null && (Id != null || Ident != null);
         }
     }
 }

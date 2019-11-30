@@ -67,16 +67,13 @@
             this.colorComboBox = new System.Windows.Forms.ComboBox();
             this.colorLabel = new System.Windows.Forms.Label();
             this.materialDataGrid = new System.Windows.Forms.DataGridView();
-            this.Material = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.materialBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.speciesDataGrid = new System.Windows.Forms.DataGridView();
-            this.species = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.categoriesDataGrid = new System.Windows.Forms.DataGridView();
-            this.Categories = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.defaultFactionLabel = new System.Windows.Forms.Label();
-            this.defaultFactionTextBox = new System.Windows.Forms.TextBox();
-            this.looksLikeTextBox = new System.Windows.Forms.TextBox();
+            this.defaultFactionTextBox = new System.Windows.Forms.ComboBox();
+            this.looksLikeTextBox = new System.Windows.Forms.ComboBox();
             this.diffUpDown = new System.Windows.Forms.NumericUpDown();
             this.diffLabel = new System.Windows.Forms.Label();
             this.difficultyLabel = new System.Windows.Forms.Label();
@@ -123,15 +120,18 @@
             this.pathSettingsBashStrengthUpDown = new System.Windows.Forms.NumericUpDown();
             this.pathSettingsMaxLengthUpDown = new System.Windows.Forms.NumericUpDown();
             this.pathSettingsMaxDistUpDown = new System.Windows.Forms.NumericUpDown();
-            this.harvestTextBox = new System.Windows.Forms.TextBox();
+            this.harvestTextBox = new System.Windows.Forms.ComboBox();
             this.harvestLabel = new System.Windows.Forms.Label();
             this.flagsListBox = new System.Windows.Forms.CheckedListBox();
             this.flagDescriptionLabel = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.symbolPreviewLabel = new System.Windows.Forms.Label();
+            this.MaterialComboBox = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.mtypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.pathSettingsDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.monsterNameStringsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.SpeciesComboBox = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.Categories = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.hpUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.volumeUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.weightUpDown)).BeginInit();
@@ -574,17 +574,11 @@
             // 
             this.materialDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.materialDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Material});
+            this.MaterialComboBox});
             this.materialDataGrid.Location = new System.Drawing.Point(12, 220);
             this.materialDataGrid.Name = "materialDataGrid";
             this.materialDataGrid.Size = new System.Drawing.Size(206, 68);
             this.materialDataGrid.TabIndex = 57;
-            // 
-            // Material
-            // 
-            this.Material.HeaderText = "Material";
-            this.Material.Name = "Material";
-            this.Material.Width = 130;
             // 
             // materialBindingSource
             // 
@@ -595,17 +589,11 @@
             // 
             this.speciesDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.speciesDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.species});
+            this.SpeciesComboBox});
             this.speciesDataGrid.Location = new System.Drawing.Point(12, 294);
             this.speciesDataGrid.Name = "speciesDataGrid";
             this.speciesDataGrid.Size = new System.Drawing.Size(206, 68);
             this.speciesDataGrid.TabIndex = 58;
-            // 
-            // species
-            // 
-            this.species.HeaderText = "Species";
-            this.species.Name = "species";
-            this.species.Width = 130;
             // 
             // categoriesDataGrid
             // 
@@ -616,12 +604,6 @@
             this.categoriesDataGrid.Name = "categoriesDataGrid";
             this.categoriesDataGrid.Size = new System.Drawing.Size(206, 68);
             this.categoriesDataGrid.TabIndex = 59;
-            // 
-            // Categories
-            // 
-            this.Categories.HeaderText = "Categories";
-            this.Categories.Name = "Categories";
-            this.Categories.Width = 130;
             // 
             // label1
             // 
@@ -1276,7 +1258,7 @@
             this.harvestTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.mtypeBindingSource, "Harvest", true));
             this.harvestTextBox.Location = new System.Drawing.Point(224, 179);
             this.harvestTextBox.Name = "harvestTextBox";
-            this.harvestTextBox.Size = new System.Drawing.Size(105, 20);
+            this.harvestTextBox.Size = new System.Drawing.Size(105, 21);
             this.harvestTextBox.TabIndex = 74;
             // 
             // harvestLabel
@@ -1329,6 +1311,14 @@
             this.symbolPreviewLabel.Size = new System.Drawing.Size(0, 17);
             this.symbolPreviewLabel.TabIndex = 78;
             // 
+            // MaterialComboBox
+            // 
+            this.MaterialComboBox.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
+            this.MaterialComboBox.HeaderText = "Material";
+            this.MaterialComboBox.Name = "MaterialComboBox";
+            this.MaterialComboBox.ToolTipText = "The Material this monster is made out of.";
+            this.MaterialComboBox.Width = 146;
+            // 
             // mtypeBindingSource
             // 
             this.mtypeBindingSource.DataSource = typeof(cdda_item_creator.Mtype);
@@ -1340,6 +1330,21 @@
             // monsterNameStringsBindingSource
             // 
             this.monsterNameStringsBindingSource.DataSource = typeof(cdda_item_creator.Translation);
+            // 
+            // SpeciesComboBox
+            // 
+            this.SpeciesComboBox.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
+            this.SpeciesComboBox.HeaderText = "Species";
+            this.SpeciesComboBox.Name = "SpeciesComboBox";
+            this.SpeciesComboBox.Sorted = true;
+            this.SpeciesComboBox.ToolTipText = "The Monster inherits fear, placate, and anger triggers from its species.";
+            this.SpeciesComboBox.Width = 146;
+            // 
+            // Categories
+            // 
+            this.Categories.HeaderText = "Categories";
+            this.Categories.Name = "Categories";
+            this.Categories.Width = 146;
             // 
             // MonsterForm
             // 
@@ -1477,15 +1482,12 @@
         private System.Windows.Forms.Label colorLabel;
         private System.Windows.Forms.DataGridView materialDataGrid;
         private System.Windows.Forms.BindingSource materialBindingSource;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Material;
         private System.Windows.Forms.DataGridView speciesDataGrid;
-        private System.Windows.Forms.DataGridViewTextBoxColumn species;
         private System.Windows.Forms.DataGridView categoriesDataGrid;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Categories;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label defaultFactionLabel;
-        private System.Windows.Forms.TextBox defaultFactionTextBox;
-        private System.Windows.Forms.TextBox looksLikeTextBox;
+        private System.Windows.Forms.ComboBox defaultFactionTextBox;
+        private System.Windows.Forms.ComboBox looksLikeTextBox;
         private System.Windows.Forms.NumericUpDown diffUpDown;
         private System.Windows.Forms.Label diffLabel;
         private System.Windows.Forms.Label difficultyLabel;
@@ -1535,11 +1537,14 @@
         private System.Windows.Forms.NumericUpDown pathSettingsMaxLengthUpDown;
         private System.Windows.Forms.NumericUpDown pathSettingsMaxDistUpDown;
         private System.Windows.Forms.BindingSource pathSettingsDataBindingSource;
-        private System.Windows.Forms.TextBox harvestTextBox;
+        private System.Windows.Forms.ComboBox harvestTextBox;
         private System.Windows.Forms.Label harvestLabel;
         private System.Windows.Forms.CheckedListBox flagsListBox;
         private System.Windows.Forms.Label flagDescriptionLabel;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label symbolPreviewLabel;
+        private System.Windows.Forms.DataGridViewComboBoxColumn MaterialComboBox;
+        private System.Windows.Forms.DataGridViewComboBoxColumn SpeciesComboBox;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Categories;
     }
 }
