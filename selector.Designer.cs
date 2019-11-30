@@ -30,6 +30,8 @@
         {
             this.spellButton = new System.Windows.Forms.Button();
             this.createMonster_button = new System.Windows.Forms.Button();
+            this.cddaFolderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
+            this.viewLoadedItemsButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // spellButton
@@ -52,11 +54,26 @@
             this.createMonster_button.UseVisualStyleBackColor = true;
             this.createMonster_button.Click += new System.EventHandler(this.createMonster_button_Click);
             // 
+            // cddaFolderBrowserDialog
+            // 
+            this.cddaFolderBrowserDialog.Description = "Choose the folder where C:DDA is located:";
+            // 
+            // viewLoadedItemsButton
+            // 
+            this.viewLoadedItemsButton.Location = new System.Drawing.Point(12, 79);
+            this.viewLoadedItemsButton.Name = "viewLoadedItemsButton";
+            this.viewLoadedItemsButton.Size = new System.Drawing.Size(75, 61);
+            this.viewLoadedItemsButton.TabIndex = 2;
+            this.viewLoadedItemsButton.Text = "View Loaded Items";
+            this.viewLoadedItemsButton.UseVisualStyleBackColor = true;
+            this.viewLoadedItemsButton.Click += new System.EventHandler(this.viewLoadedItemsButton_Click);
+            // 
             // SelectorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(192, 82);
+            this.ClientSize = new System.Drawing.Size(192, 146);
+            this.Controls.Add(this.viewLoadedItemsButton);
             this.Controls.Add(this.createMonster_button);
             this.Controls.Add(this.spellButton);
             this.Name = "SelectorForm";
@@ -69,5 +86,7 @@
 
         private System.Windows.Forms.Button spellButton;
         private System.Windows.Forms.Button createMonster_button;
+        private System.Windows.Forms.FolderBrowserDialog cddaFolderBrowserDialog;
+        private System.Windows.Forms.Button viewLoadedItemsButton;
     }
 }

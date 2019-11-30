@@ -1295,6 +1295,7 @@
             this.flagsListBox.Margin = new System.Windows.Forms.Padding(2);
             this.flagsListBox.Name = "flagsListBox";
             this.flagsListBox.Size = new System.Drawing.Size(182, 319);
+            this.flagsListBox.Sorted = true;
             this.flagsListBox.TabIndex = 76;
             this.flagsListBox.SelectedIndexChanged += new System.EventHandler(this.flagsListBox_SelectedIndexChanged);
             // 
