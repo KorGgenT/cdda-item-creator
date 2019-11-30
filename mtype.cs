@@ -4,9 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
+using Newtonsoft.Json;
 
 namespace cdda_item_creator
 {
+    [JsonConverter(typeof(MonsterAttackConverter))]
+    class MonsterAttack
+    {
+
+    }
     class Translation
     {
         [DefaultValue("")]
@@ -54,7 +60,7 @@ namespace cdda_item_creator
     // intended to be able to be written to JSON easily
     class Mtype
     {
-        public const string Type = "MONSTER";
+        public string Type { get; } = "MONSTER";
 
         [DefaultValue("")]
         public string Id { get; set; } = "";

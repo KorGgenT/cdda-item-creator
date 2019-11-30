@@ -37,4 +37,21 @@ namespace cdda_item_creator
             return jsonProperty;
         }
     }
+
+    public class MonsterAttackConverter : JsonConverter
+    {
+        public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
+        {
+            MonsterAttack attack = value as MonsterAttack;
+            throw new NotImplementedException();
+        }
+        public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
+        {
+            throw new NotImplementedException();
+        }
+        public override bool CanConvert(Type objectType)
+        {
+            return typeof(MonsterAttack).IsAssignableFrom(objectType);
+        }
+    }
 }

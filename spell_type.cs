@@ -142,7 +142,7 @@ namespace cdda_item_creator
             public spell_type() { }
 
             public string Id { get; set; } = "";
-            public const string Type = "SPELL";
+            public string Type { get; } = "SPELL";
             public string Name { get; set; } = "";
             public string Description { get; set; } = "";
 

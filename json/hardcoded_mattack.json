@@ -1,10 +1,10 @@
 {
-  "NONE":
-  "EAT_CROP":
-  "EAT_FOOD":
-  "ANTQUEEN":
-  "CHECK_UP":
-  "ASSIST":
+  "NONE": "no attack chosen",
+  "EAT_CROP": "eats a furniture with the PLANT flag",
+  "EAT_FOOD": "eats a food item",
+  "ANTQUEEN": "lays ant eggs and feeds them to have them grow into an adult",
+  "CHECK_UP": "robot nurse checkup special",
+  "ASSIST": "self-aware special",
   "OPERATE":
   "PAID_BOT":
   "SHRIEK":
