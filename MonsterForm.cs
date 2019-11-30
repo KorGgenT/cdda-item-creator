@@ -37,6 +37,41 @@ namespace cdda_item_creator
                 flagsListBox.Items.Add(key);
             }
         }
+        public void UpdateSymbolPreviewColor()
+        {
+            string raw_color_string = colorComboBox.Text;
+            string[] color_split = raw_color_string.Split('_');
+            string text_color = "";
+            string back_color = "";
+            if(color_split.Length == 3)
+            {
+                back_color = char.ToUpper(color_split[2][0]) + color_split[2].Substring(1);
+                text_color = char.ToUpper(color_split[0][0]) + color_split[0].Substring(1) + char.ToUpper(color_split[1][0]) + color_split[1].Substring(1);
+            } else 
+            {
+                text_color = char.ToUpper(color_split[0][0]) + color_split[0].Substring(1);
+            }
+            if (color_split.Length == 2)
+            {
+                if (color_split[0] != "light" && color_split[0] != "dark")
+                {
+                    back_color = char.ToUpper(color_split[1][0]) + color_split[1].Substring(1);
+                } else
+                {
+                    text_color = char.ToUpper(color_split[0][0]) + color_split[0].Substring(1) + char.ToUpper(color_split[1][0]) + color_split[1].Substring(1);
+                }
+            }
+            if(text_color == "LightRed")
+            {
+                text_color = "Pink";
+            }
+            if(back_color == "LightRed")
+            {
+                back_color = "Pink";
+            }
+            symbolPreviewLabel.BackColor = Color.FromName(back_color);
+            symbolPreviewLabel.ForeColor = Color.FromName(text_color);
+        }
         public MonsterForm()
         {
 
@@ -198,6 +233,16 @@ namespace cdda_item_creator
         private void flagsListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             flagDescriptionLabel.Text = monster_flags[flagsListBox.SelectedItem.ToString()];
+        }
+
+        private void symbolTextBox_TextChanged(object sender, EventArgs e)
+        {
+            UpdateSymbolPreviewColor();
+        }
+
+        private void colorComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            UpdateSymbolPreviewColor();
         }
     }
 }
