@@ -25,10 +25,6 @@ namespace cdda_item_creator
             InitializeTypeList();
         }
 
-        private void idListBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-        }
-
         private void typeListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             idListBox.Items.Clear();

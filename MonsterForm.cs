@@ -75,14 +75,15 @@ namespace cdda_item_creator
         }
         private void loadMonsterLists()
         {
-            HashSet<string> monster = Program.LoadedObjectDictionary.GetList("material");
+            HashSet<string> monster = Program.LoadedObjectDictionary.GetList("MONSTER");
             if (monster == null)
             {
                 return;
             }
             foreach (string monster_entry in monster)
             {
-                looksLikeTextBox.Items.Add(monster);
+                looksLikeTextBox.Items.Add(monster_entry);
+                copyFromComboBox.Items.Add(monster_entry);
             }
         }
         private void loadFaction()
@@ -134,8 +135,6 @@ namespace cdda_item_creator
         }
         public MonsterForm()
         {
-
-
             InitializeComponent();
             loadColors();
             loadFlags();
@@ -144,6 +143,9 @@ namespace cdda_item_creator
             loadMaterial();
             loadMonsterLists();
             loadFaction();
+
+            MaterialComboBox.DataSource = main_monster.Material;
+            SpeciesComboBox.DataSource = main_monster.Species;
 
             mtypeBindingSource.Add(main_monster);
             monsterNameStringsBindingSource.Add(main_monster.Name);
@@ -308,6 +310,16 @@ namespace cdda_item_creator
         private void colorComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             UpdateSymbolPreviewColor();
+        }
+
+        private void copyFromComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // TODO: selector for items, and show what mod they're from
+            main_monster = Program.LoadedObjectDictionary.GetMtypes(copyFromComboBox.Text)[0];
+            foreach (Control ctl in this.Controls)
+            {
+                ctl.ResetBindings();
+            }
         }
     }
 }

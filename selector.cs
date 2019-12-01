@@ -29,15 +29,29 @@ namespace cdda_item_creator
                 try
                 {
                     JArray ja = JArray.Parse(file_text);
-                    List<GenericTypedObject> temp_list = (List<GenericTypedObject>)ja.ToObject(typeof(List<GenericTypedObject>));
-                    foreach (GenericTypedObject obj in temp_list)
+                    List<JObject> temp_list = (List<JObject>)ja.ToObject(typeof(List<JObject>));
+                    foreach (JObject obj in temp_list)
                     {
-                        if (obj.valid())
+                        GenericTypedObject generic_object = (GenericTypedObject)obj.ToObject(typeof(GenericTypedObject));
+                        if (generic_object.valid())
                         {
-                            Program.LoadedObjectDictionary.Add(obj.Type, obj.GetId());
+                            Program.LoadedObjectDictionary.Add(generic_object.Type, generic_object.GetId());
+                            switch (generic_object.Type)
+                            {
+                                case "MONSTER":
+                                    Program.LoadedObjectDictionary.Add(generic_object.Id, (Mtype)obj.ToObject(typeof(Mtype)));
+                                    break;
+                                case "SPELL":
+                                    Program.LoadedObjectDictionary.Add(generic_object.Id, (spell.spell_type)obj.ToObject(typeof(spell.spell_type)));
+                                    break;
+                                default: break;
+                            }
                         }
                     }
-                } catch
+                } catch(Newtonsoft.Json.JsonReaderException)
+                {
+
+                } catch(System.ArgumentException)
                 {
 
                 }

@@ -50,13 +50,12 @@
             this.idListBox.Size = new System.Drawing.Size(208, 420);
             this.idListBox.Sorted = true;
             this.idListBox.TabIndex = 1;
-            this.idListBox.SelectedIndexChanged += new System.EventHandler(this.idListBox_SelectedIndexChanged);
             // 
             // ViewerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(454, 450);
+            this.ClientSize = new System.Drawing.Size(442, 440);
             this.Controls.Add(this.idListBox);
             this.Controls.Add(this.typeListBox);
             this.Name = "ViewerForm";

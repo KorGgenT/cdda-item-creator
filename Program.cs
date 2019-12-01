@@ -12,6 +12,8 @@ namespace cdda_item_creator
         public static class LoadedObjectDictionary
         {
             static Dictionary<string, HashSet<string>> ids_by_type = new Dictionary<string, HashSet<string>> { };
+            static Dictionary<string, List<Mtype>> mtypes_by_id = new Dictionary<string, List<Mtype>> { };
+            static Dictionary<string, List<spell.spell_type>> spells_by_id = new Dictionary<string, List<spell.spell_type>> { };
 
             static public void Add(string type, string id)
             {
@@ -26,6 +28,33 @@ namespace cdda_item_creator
                     ids_by_type.Add(type, temp_list);
                 }
             }
+            static public void Add(string id, Mtype mon)
+            {
+                List<Mtype> temp_list;
+                if(mtypes_by_id.TryGetValue(id, out temp_list))
+                {
+                    temp_list.Add(mon);
+                    mtypes_by_id[id] = temp_list;
+                } else
+                {
+                    temp_list = new List<Mtype> { mon };
+                    mtypes_by_id.Add(id, temp_list);
+                }
+            }
+            static public void Add(string id, spell.spell_type spell)
+            {
+                List<spell.spell_type> temp_list;
+                if (spells_by_id.TryGetValue(id, out temp_list))
+                {
+                    temp_list.Add(spell);
+                    spells_by_id[id] = temp_list;
+                }
+                else
+                {
+                    temp_list = new List<spell.spell_type> { spell };
+                    spells_by_id.Add(id, temp_list);
+                }
+            }
             static public Dictionary<string, HashSet<string>>.KeyCollection Keys()
             {
                 return ids_by_type.Keys;
@@ -34,6 +63,12 @@ namespace cdda_item_creator
             {
                 HashSet<string> ret;
                 ids_by_type.TryGetValue(key, out ret);
+                return ret;
+            }
+            static public List<Mtype> GetMtypes(string id)
+            {
+                List<Mtype> ret;
+                mtypes_by_id.TryGetValue(id, out ret);
                 return ret;
             }
         }

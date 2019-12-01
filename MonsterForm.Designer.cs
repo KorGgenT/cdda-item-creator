@@ -67,9 +67,12 @@
             this.colorComboBox = new System.Windows.Forms.ComboBox();
             this.colorLabel = new System.Windows.Forms.Label();
             this.materialDataGrid = new System.Windows.Forms.DataGridView();
+            this.MaterialComboBox = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.materialBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.speciesDataGrid = new System.Windows.Forms.DataGridView();
+            this.SpeciesComboBox = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.categoriesDataGrid = new System.Windows.Forms.DataGridView();
+            this.Categories = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.defaultFactionLabel = new System.Windows.Forms.Label();
             this.defaultFactionTextBox = new System.Windows.Forms.ComboBox();
@@ -126,12 +129,12 @@
             this.flagDescriptionLabel = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.symbolPreviewLabel = new System.Windows.Forms.Label();
-            this.MaterialComboBox = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.copyFromComboBox = new System.Windows.Forms.ComboBox();
+            this.clearCopyFromButton = new System.Windows.Forms.Button();
+            this.copyFromLabel = new System.Windows.Forms.Label();
             this.mtypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.pathSettingsDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.monsterNameStringsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.SpeciesComboBox = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.Categories = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.hpUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.volumeUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.weightUpDown)).BeginInit();
@@ -173,7 +176,7 @@
             // nameTextBox
             // 
             this.nameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.monsterNameStringsBindingSource, "Str", true));
-            this.nameTextBox.Location = new System.Drawing.Point(12, 25);
+            this.nameTextBox.Location = new System.Drawing.Point(12, 61);
             this.nameTextBox.Name = "nameTextBox";
             this.nameTextBox.Size = new System.Drawing.Size(100, 20);
             this.nameTextBox.TabIndex = 0;
@@ -191,7 +194,7 @@
             // nameLabel
             // 
             this.nameLabel.AutoSize = true;
-            this.nameLabel.Location = new System.Drawing.Point(12, 9);
+            this.nameLabel.Location = new System.Drawing.Point(12, 45);
             this.nameLabel.Name = "nameLabel";
             this.nameLabel.Size = new System.Drawing.Size(35, 13);
             this.nameLabel.TabIndex = 2;
@@ -200,7 +203,7 @@
             // idTextBox
             // 
             this.idTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.mtypeBindingSource, "Id", true));
-            this.idTextBox.Location = new System.Drawing.Point(118, 25);
+            this.idTextBox.Location = new System.Drawing.Point(118, 61);
             this.idTextBox.Name = "idTextBox";
             this.idTextBox.Size = new System.Drawing.Size(100, 20);
             this.idTextBox.TabIndex = 3;
@@ -208,7 +211,7 @@
             // idLabel
             // 
             this.idLabel.AutoSize = true;
-            this.idLabel.Location = new System.Drawing.Point(120, 9);
+            this.idLabel.Location = new System.Drawing.Point(120, 45);
             this.idLabel.Name = "idLabel";
             this.idLabel.Size = new System.Drawing.Size(15, 13);
             this.idLabel.TabIndex = 4;
@@ -217,7 +220,7 @@
             // pluralNameTextBox
             // 
             this.pluralNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.monsterNameStringsBindingSource, "StrPl", true));
-            this.pluralNameTextBox.Location = new System.Drawing.Point(12, 65);
+            this.pluralNameTextBox.Location = new System.Drawing.Point(12, 101);
             this.pluralNameTextBox.Name = "pluralNameTextBox";
             this.pluralNameTextBox.Size = new System.Drawing.Size(100, 20);
             this.pluralNameTextBox.TabIndex = 5;
@@ -225,7 +228,7 @@
             // pluralNameLabel
             // 
             this.pluralNameLabel.AutoSize = true;
-            this.pluralNameLabel.Location = new System.Drawing.Point(12, 49);
+            this.pluralNameLabel.Location = new System.Drawing.Point(12, 85);
             this.pluralNameLabel.Name = "pluralNameLabel";
             this.pluralNameLabel.Size = new System.Drawing.Size(105, 13);
             this.pluralNameLabel.TabIndex = 6;
@@ -265,7 +268,7 @@
             // 
             // volumeUpDown
             // 
-            this.volumeUpDown.Location = new System.Drawing.Point(224, 104);
+            this.volumeUpDown.Location = new System.Drawing.Point(224, 118);
             this.volumeUpDown.Maximum = new decimal(new int[] {
             99999,
             0,
@@ -288,7 +291,7 @@
             // volumeLabel
             // 
             this.volumeLabel.AutoSize = true;
-            this.volumeLabel.Location = new System.Drawing.Point(226, 88);
+            this.volumeLabel.Location = new System.Drawing.Point(226, 102);
             this.volumeLabel.Name = "volumeLabel";
             this.volumeLabel.Size = new System.Drawing.Size(42, 13);
             this.volumeLabel.TabIndex = 10;
@@ -300,7 +303,7 @@
             this.volumeListbox.Items.AddRange(new object[] {
             "mL",
             "L"});
-            this.volumeListbox.Location = new System.Drawing.Point(288, 104);
+            this.volumeListbox.Location = new System.Drawing.Point(288, 118);
             this.volumeListbox.Name = "volumeListbox";
             this.volumeListbox.Size = new System.Drawing.Size(41, 21);
             this.volumeListbox.TabIndex = 44;
@@ -312,7 +315,7 @@
             "mg",
             "g",
             "kg"});
-            this.weightComboBox.Location = new System.Drawing.Point(288, 143);
+            this.weightComboBox.Location = new System.Drawing.Point(288, 157);
             this.weightComboBox.Name = "weightComboBox";
             this.weightComboBox.Size = new System.Drawing.Size(41, 21);
             this.weightComboBox.TabIndex = 47;
@@ -320,7 +323,7 @@
             // weightLabel
             // 
             this.weightLabel.AutoSize = true;
-            this.weightLabel.Location = new System.Drawing.Point(226, 127);
+            this.weightLabel.Location = new System.Drawing.Point(226, 141);
             this.weightLabel.Name = "weightLabel";
             this.weightLabel.Size = new System.Drawing.Size(41, 13);
             this.weightLabel.TabIndex = 46;
@@ -328,7 +331,7 @@
             // 
             // weightUpDown
             // 
-            this.weightUpDown.Location = new System.Drawing.Point(224, 143);
+            this.weightUpDown.Location = new System.Drawing.Point(224, 157);
             this.weightUpDown.Maximum = new decimal(new int[] {
             99999,
             0,
@@ -385,7 +388,7 @@
             this.armorPanel.Controls.Add(this.hpLabel);
             this.armorPanel.Controls.Add(this.dodgeUpDown);
             this.armorPanel.Controls.Add(this.dodgeLabel);
-            this.armorPanel.Location = new System.Drawing.Point(627, 243);
+            this.armorPanel.Location = new System.Drawing.Point(627, 257);
             this.armorPanel.Name = "armorPanel";
             this.armorPanel.Size = new System.Drawing.Size(99, 193);
             this.armorPanel.TabIndex = 50;
@@ -519,7 +522,7 @@
             "angel",
             "snake",
             "blob"});
-            this.bodytypeComboBox.Location = new System.Drawing.Point(118, 64);
+            this.bodytypeComboBox.Location = new System.Drawing.Point(118, 100);
             this.bodytypeComboBox.Name = "bodytypeComboBox";
             this.bodytypeComboBox.Size = new System.Drawing.Size(100, 21);
             this.bodytypeComboBox.TabIndex = 51;
@@ -527,7 +530,7 @@
             // bodytypeId
             // 
             this.bodytypeId.AutoSize = true;
-            this.bodytypeId.Location = new System.Drawing.Point(119, 49);
+            this.bodytypeId.Location = new System.Drawing.Point(119, 85);
             this.bodytypeId.Name = "bodytypeId";
             this.bodytypeId.Size = new System.Drawing.Size(58, 13);
             this.bodytypeId.TabIndex = 52;
@@ -536,16 +539,16 @@
             // descriptionTextBox
             // 
             this.descriptionTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.mtypeBindingSource, "Description", true));
-            this.descriptionTextBox.Location = new System.Drawing.Point(12, 142);
+            this.descriptionTextBox.Location = new System.Drawing.Point(12, 177);
             this.descriptionTextBox.Multiline = true;
             this.descriptionTextBox.Name = "descriptionTextBox";
-            this.descriptionTextBox.Size = new System.Drawing.Size(206, 72);
+            this.descriptionTextBox.Size = new System.Drawing.Size(206, 51);
             this.descriptionTextBox.TabIndex = 53;
             // 
             // descriptionLabel
             // 
             this.descriptionLabel.AutoSize = true;
-            this.descriptionLabel.Location = new System.Drawing.Point(12, 126);
+            this.descriptionLabel.Location = new System.Drawing.Point(12, 162);
             this.descriptionLabel.Name = "descriptionLabel";
             this.descriptionLabel.Size = new System.Drawing.Size(60, 13);
             this.descriptionLabel.TabIndex = 54;
@@ -575,10 +578,18 @@
             this.materialDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.materialDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MaterialComboBox});
-            this.materialDataGrid.Location = new System.Drawing.Point(12, 220);
+            this.materialDataGrid.Location = new System.Drawing.Point(12, 234);
             this.materialDataGrid.Name = "materialDataGrid";
             this.materialDataGrid.Size = new System.Drawing.Size(206, 68);
             this.materialDataGrid.TabIndex = 57;
+            // 
+            // MaterialComboBox
+            // 
+            this.MaterialComboBox.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
+            this.MaterialComboBox.HeaderText = "Material";
+            this.MaterialComboBox.Name = "MaterialComboBox";
+            this.MaterialComboBox.ToolTipText = "The Material this monster is made out of.";
+            this.MaterialComboBox.Width = 146;
             // 
             // materialBindingSource
             // 
@@ -590,25 +601,40 @@
             this.speciesDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.speciesDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.SpeciesComboBox});
-            this.speciesDataGrid.Location = new System.Drawing.Point(12, 294);
+            this.speciesDataGrid.Location = new System.Drawing.Point(12, 308);
             this.speciesDataGrid.Name = "speciesDataGrid";
             this.speciesDataGrid.Size = new System.Drawing.Size(206, 68);
             this.speciesDataGrid.TabIndex = 58;
+            // 
+            // SpeciesComboBox
+            // 
+            this.SpeciesComboBox.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
+            this.SpeciesComboBox.HeaderText = "Species";
+            this.SpeciesComboBox.Name = "SpeciesComboBox";
+            this.SpeciesComboBox.Sorted = true;
+            this.SpeciesComboBox.ToolTipText = "The Monster inherits fear, placate, and anger triggers from its species.";
+            this.SpeciesComboBox.Width = 146;
             // 
             // categoriesDataGrid
             // 
             this.categoriesDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.categoriesDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Categories});
-            this.categoriesDataGrid.Location = new System.Drawing.Point(12, 368);
+            this.categoriesDataGrid.Location = new System.Drawing.Point(12, 382);
             this.categoriesDataGrid.Name = "categoriesDataGrid";
             this.categoriesDataGrid.Size = new System.Drawing.Size(206, 68);
             this.categoriesDataGrid.TabIndex = 59;
             // 
+            // Categories
+            // 
+            this.Categories.HeaderText = "Categories";
+            this.Categories.Name = "Categories";
+            this.Categories.Width = 146;
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(119, 88);
+            this.label1.Location = new System.Drawing.Point(119, 124);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(59, 13);
             this.label1.TabIndex = 63;
@@ -617,7 +643,7 @@
             // defaultFactionLabel
             // 
             this.defaultFactionLabel.AutoSize = true;
-            this.defaultFactionLabel.Location = new System.Drawing.Point(12, 87);
+            this.defaultFactionLabel.Location = new System.Drawing.Point(12, 123);
             this.defaultFactionLabel.Name = "defaultFactionLabel";
             this.defaultFactionLabel.Size = new System.Drawing.Size(79, 13);
             this.defaultFactionLabel.TabIndex = 61;
@@ -626,23 +652,23 @@
             // defaultFactionTextBox
             // 
             this.defaultFactionTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.mtypeBindingSource, "DefaultFaction", true));
-            this.defaultFactionTextBox.Location = new System.Drawing.Point(12, 103);
+            this.defaultFactionTextBox.Location = new System.Drawing.Point(12, 139);
             this.defaultFactionTextBox.Name = "defaultFactionTextBox";
-            this.defaultFactionTextBox.Size = new System.Drawing.Size(100, 20);
+            this.defaultFactionTextBox.Size = new System.Drawing.Size(100, 21);
             this.defaultFactionTextBox.TabIndex = 60;
             // 
             // looksLikeTextBox
             // 
             this.looksLikeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.mtypeBindingSource, "LooksLike", true));
-            this.looksLikeTextBox.Location = new System.Drawing.Point(118, 103);
+            this.looksLikeTextBox.Location = new System.Drawing.Point(118, 139);
             this.looksLikeTextBox.Name = "looksLikeTextBox";
-            this.looksLikeTextBox.Size = new System.Drawing.Size(100, 20);
+            this.looksLikeTextBox.Size = new System.Drawing.Size(100, 21);
             this.looksLikeTextBox.TabIndex = 64;
             // 
             // diffUpDown
             // 
             this.diffUpDown.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.mtypeBindingSource, "Diff", true));
-            this.diffUpDown.Location = new System.Drawing.Point(668, 208);
+            this.diffUpDown.Location = new System.Drawing.Point(668, 222);
             this.diffUpDown.Maximum = new decimal(new int[] {
             99999,
             0,
@@ -660,7 +686,7 @@
             // diffLabel
             // 
             this.diffLabel.AutoSize = true;
-            this.diffLabel.Location = new System.Drawing.Point(616, 204);
+            this.diffLabel.Location = new System.Drawing.Point(616, 218);
             this.diffLabel.MaximumSize = new System.Drawing.Size(50, 0);
             this.diffLabel.Name = "diffLabel";
             this.diffLabel.Size = new System.Drawing.Size(47, 26);
@@ -681,7 +707,7 @@
             // aggressionUpDown
             // 
             this.aggressionUpDown.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.mtypeBindingSource, "Aggression", true));
-            this.aggressionUpDown.Location = new System.Drawing.Point(668, 155);
+            this.aggressionUpDown.Location = new System.Drawing.Point(668, 169);
             this.aggressionUpDown.Minimum = new decimal(new int[] {
             100,
             0,
@@ -694,7 +720,7 @@
             // aggressionLabel
             // 
             this.aggressionLabel.AutoSize = true;
-            this.aggressionLabel.Location = new System.Drawing.Point(607, 158);
+            this.aggressionLabel.Location = new System.Drawing.Point(607, 172);
             this.aggressionLabel.Name = "aggressionLabel";
             this.aggressionLabel.Size = new System.Drawing.Size(59, 13);
             this.aggressionLabel.TabIndex = 69;
@@ -726,7 +752,7 @@
             this.combatEffectivenessPanel.Controls.Add(this.grabStrengthLabel);
             this.combatEffectivenessPanel.Controls.Add(this.speedUpDown);
             this.combatEffectivenessPanel.Controls.Add(this.speedLabel);
-            this.combatEffectivenessPanel.Location = new System.Drawing.Point(224, 205);
+            this.combatEffectivenessPanel.Location = new System.Drawing.Point(224, 219);
             this.combatEffectivenessPanel.Name = "combatEffectivenessPanel";
             this.combatEffectivenessPanel.Size = new System.Drawing.Size(389, 231);
             this.combatEffectivenessPanel.TabIndex = 70;
@@ -1094,7 +1120,7 @@
             // moraleLabel
             // 
             this.moraleLabel.AutoSize = true;
-            this.moraleLabel.Location = new System.Drawing.Point(627, 185);
+            this.moraleLabel.Location = new System.Drawing.Point(627, 199);
             this.moraleLabel.Name = "moraleLabel";
             this.moraleLabel.Size = new System.Drawing.Size(39, 13);
             this.moraleLabel.TabIndex = 71;
@@ -1104,7 +1130,7 @@
             // moraleUpDown
             // 
             this.moraleUpDown.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.mtypeBindingSource, "Morale", true));
-            this.moraleUpDown.Location = new System.Drawing.Point(668, 182);
+            this.moraleUpDown.Location = new System.Drawing.Point(668, 196);
             this.moraleUpDown.Maximum = new decimal(new int[] {
             99999,
             0,
@@ -1132,7 +1158,7 @@
             this.pathSettingsPanel.Controls.Add(this.pathSettingsBashStrengthUpDown);
             this.pathSettingsPanel.Controls.Add(this.pathSettingsMaxLengthUpDown);
             this.pathSettingsPanel.Controls.Add(this.pathSettingsMaxDistUpDown);
-            this.pathSettingsPanel.Location = new System.Drawing.Point(338, 104);
+            this.pathSettingsPanel.Location = new System.Drawing.Point(338, 118);
             this.pathSettingsPanel.Name = "pathSettingsPanel";
             this.pathSettingsPanel.Size = new System.Drawing.Size(251, 95);
             this.pathSettingsPanel.TabIndex = 71;
@@ -1256,7 +1282,7 @@
             // harvestTextBox
             // 
             this.harvestTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.mtypeBindingSource, "Harvest", true));
-            this.harvestTextBox.Location = new System.Drawing.Point(224, 179);
+            this.harvestTextBox.Location = new System.Drawing.Point(224, 193);
             this.harvestTextBox.Name = "harvestTextBox";
             this.harvestTextBox.Size = new System.Drawing.Size(105, 21);
             this.harvestTextBox.TabIndex = 74;
@@ -1264,7 +1290,7 @@
             // harvestLabel
             // 
             this.harvestLabel.AutoSize = true;
-            this.harvestLabel.Location = new System.Drawing.Point(224, 163);
+            this.harvestLabel.Location = new System.Drawing.Point(224, 177);
             this.harvestLabel.Name = "harvestLabel";
             this.harvestLabel.Size = new System.Drawing.Size(44, 13);
             this.harvestLabel.TabIndex = 75;
@@ -1311,13 +1337,33 @@
             this.symbolPreviewLabel.Size = new System.Drawing.Size(0, 17);
             this.symbolPreviewLabel.TabIndex = 78;
             // 
-            // MaterialComboBox
+            // copyFromComboBox
             // 
-            this.MaterialComboBox.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
-            this.MaterialComboBox.HeaderText = "Material";
-            this.MaterialComboBox.Name = "MaterialComboBox";
-            this.MaterialComboBox.ToolTipText = "The Material this monster is made out of.";
-            this.MaterialComboBox.Width = 146;
+            this.copyFromComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.copyFromComboBox.Location = new System.Drawing.Point(52, 15);
+            this.copyFromComboBox.Name = "copyFromComboBox";
+            this.copyFromComboBox.Size = new System.Drawing.Size(126, 21);
+            this.copyFromComboBox.TabIndex = 79;
+            this.copyFromComboBox.SelectedIndexChanged += new System.EventHandler(this.copyFromComboBox_SelectedIndexChanged);
+            // 
+            // clearCopyFromButton
+            // 
+            this.clearCopyFromButton.Location = new System.Drawing.Point(178, 15);
+            this.clearCopyFromButton.Name = "clearCopyFromButton";
+            this.clearCopyFromButton.Size = new System.Drawing.Size(40, 21);
+            this.clearCopyFromButton.TabIndex = 80;
+            this.clearCopyFromButton.Text = "Clear";
+            this.clearCopyFromButton.UseVisualStyleBackColor = true;
+            // 
+            // copyFromLabel
+            // 
+            this.copyFromLabel.AutoSize = true;
+            this.copyFromLabel.Location = new System.Drawing.Point(14, 11);
+            this.copyFromLabel.MaximumSize = new System.Drawing.Size(40, 0);
+            this.copyFromLabel.Name = "copyFromLabel";
+            this.copyFromLabel.Size = new System.Drawing.Size(34, 26);
+            this.copyFromLabel.TabIndex = 81;
+            this.copyFromLabel.Text = "Copy From";
             // 
             // mtypeBindingSource
             // 
@@ -1331,26 +1377,14 @@
             // 
             this.monsterNameStringsBindingSource.DataSource = typeof(cdda_item_creator.Translation);
             // 
-            // SpeciesComboBox
-            // 
-            this.SpeciesComboBox.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.ComboBox;
-            this.SpeciesComboBox.HeaderText = "Species";
-            this.SpeciesComboBox.Name = "SpeciesComboBox";
-            this.SpeciesComboBox.Sorted = true;
-            this.SpeciesComboBox.ToolTipText = "The Monster inherits fear, placate, and anger triggers from its species.";
-            this.SpeciesComboBox.Width = 146;
-            // 
-            // Categories
-            // 
-            this.Categories.HeaderText = "Categories";
-            this.Categories.Name = "Categories";
-            this.Categories.Width = 146;
-            // 
             // MonsterForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(926, 450);
+            this.ClientSize = new System.Drawing.Size(926, 462);
+            this.Controls.Add(this.copyFromLabel);
+            this.Controls.Add(this.clearCopyFromButton);
+            this.Controls.Add(this.copyFromComboBox);
             this.Controls.Add(this.symbolPreviewLabel);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.flagDescriptionLabel);
@@ -1546,5 +1580,8 @@
         private System.Windows.Forms.DataGridViewComboBoxColumn MaterialComboBox;
         private System.Windows.Forms.DataGridViewComboBoxColumn SpeciesComboBox;
         private System.Windows.Forms.DataGridViewTextBoxColumn Categories;
+        private System.Windows.Forms.ComboBox copyFromComboBox;
+        private System.Windows.Forms.Button clearCopyFromButton;
+        private System.Windows.Forms.Label copyFromLabel;
     }
 }

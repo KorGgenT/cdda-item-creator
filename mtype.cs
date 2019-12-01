@@ -13,15 +13,26 @@ namespace cdda_item_creator
     {
 
     }
-    class Translation
+    public class Translation
     {
         [DefaultValue("")]
         public string Str { get; set; } = "";
         [DefaultValue("")]
         public string StrPl { get; set; } = "";
+        public Translation() { }
+        public Translation(string str)
+        {
+            Str = str;
+        }
+        public Translation(string str, string strpl)
+        {
+            Str = str;
+            StrPl = strpl;
+        }
+        public static explicit operator Translation(string str) => new Translation(str);
     }
 
-    class PathSettingsData
+    public class PathSettingsData
     {
         public int MaxDist { get; set; }
         [DefaultValue(-1)]
@@ -36,7 +47,7 @@ namespace cdda_item_creator
         public bool AllowClimbStairs { get; set; } = true;
     }
 
-    class DamageUnit
+    public class DamageUnit
     {
         public string Type;
         public float Amount;
@@ -47,7 +58,7 @@ namespace cdda_item_creator
         public float DamageMultiplier = 1.0f;
     }
 
-    class DamageInstance
+    public class DamageInstance
     {
         public List<DamageUnit> Values = new List<DamageUnit> { };
         public void Add(DamageUnit du_add)
@@ -58,13 +69,15 @@ namespace cdda_item_creator
 
     // this is a class that is supposed to be a carbon-copy of mtype from C:DDA
     // intended to be able to be written to JSON easily
-    class Mtype
+    public class Mtype
     {
         public string Type { get; } = "MONSTER";
 
         [DefaultValue("")]
         public string Id { get; set; } = "";
         public Translation Name { get; set; } = new Translation { };
+        [JsonIgnore]
+        public string NamePlural { get; set; }
         [DefaultValue("")]
         public string Description { get; set; } = "";
         [DefaultValue("")]
@@ -75,8 +88,11 @@ namespace cdda_item_creator
         [DefaultValue("")]
         public string Volume { get; set; } = "";
         public string Color { get; set; }
+        [JsonConverter(typeof(SingleOrArrayConverter<string>))]
         public List<string> Material { get; set; }
+        [JsonConverter(typeof(SingleOrArrayConverter<string>))]
         public List<string> Species { get; set; }
+        [JsonConverter(typeof(SingleOrArrayConverter<string>))]
         public List<string> Categories { get; set; }
         [DefaultValue("")]
         public string Weight { get; set; } = "";
