@@ -30,9 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             this.nameTextBox = new System.Windows.Forms.TextBox();
+            this.monsterNameStringsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.clipboardButton = new System.Windows.Forms.Button();
             this.nameLabel = new System.Windows.Forms.Label();
             this.idTextBox = new System.Windows.Forms.TextBox();
+            this.mtypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.idLabel = new System.Windows.Forms.Label();
             this.pluralNameTextBox = new System.Windows.Forms.TextBox();
             this.pluralNameLabel = new System.Windows.Forms.Label();
@@ -115,6 +117,7 @@
             this.pathSettingsPanel = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
             this.checkBox3 = new System.Windows.Forms.CheckBox();
+            this.pathSettingsDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -132,9 +135,8 @@
             this.copyFromComboBox = new System.Windows.Forms.ComboBox();
             this.clearCopyFromButton = new System.Windows.Forms.Button();
             this.copyFromLabel = new System.Windows.Forms.Label();
-            this.mtypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.pathSettingsDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.monsterNameStringsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.monsterNameStringsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mtypeBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hpUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.volumeUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.weightUpDown)).BeginInit();
@@ -165,12 +167,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.speedUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.moraleUpDown)).BeginInit();
             this.pathSettingsPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pathSettingsDataBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pathSettingsBashStrengthUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pathSettingsMaxLengthUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pathSettingsMaxDistUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mtypeBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pathSettingsDataBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.monsterNameStringsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // nameTextBox
@@ -180,6 +180,10 @@
             this.nameTextBox.Name = "nameTextBox";
             this.nameTextBox.Size = new System.Drawing.Size(100, 20);
             this.nameTextBox.TabIndex = 0;
+            // 
+            // monsterNameStringsBindingSource
+            // 
+            this.monsterNameStringsBindingSource.DataSource = typeof(cdda_item_creator.Translation);
             // 
             // clipboardButton
             // 
@@ -207,6 +211,10 @@
             this.idTextBox.Name = "idTextBox";
             this.idTextBox.Size = new System.Drawing.Size(100, 20);
             this.idTextBox.TabIndex = 3;
+            // 
+            // mtypeBindingSource
+            // 
+            this.mtypeBindingSource.DataSource = typeof(cdda_item_creator.Mtype);
             // 
             // idLabel
             // 
@@ -1186,6 +1194,10 @@
             this.checkBox3.Text = "Allow Climb Stairs";
             this.checkBox3.UseVisualStyleBackColor = true;
             // 
+            // pathSettingsDataBindingSource
+            // 
+            this.pathSettingsDataBindingSource.DataSource = typeof(cdda_item_creator.PathSettingsData);
+            // 
             // checkBox2
             // 
             this.checkBox2.AutoSize = true;
@@ -1298,6 +1310,7 @@
             // 
             // flagsListBox
             // 
+            this.flagsListBox.CheckOnClick = true;
             this.flagsListBox.FormattingEnabled = true;
             this.flagsListBox.Location = new System.Drawing.Point(731, 27);
             this.flagsListBox.Margin = new System.Windows.Forms.Padding(2);
@@ -1365,18 +1378,6 @@
             this.copyFromLabel.TabIndex = 81;
             this.copyFromLabel.Text = "Copy From";
             // 
-            // mtypeBindingSource
-            // 
-            this.mtypeBindingSource.DataSource = typeof(cdda_item_creator.Mtype);
-            // 
-            // pathSettingsDataBindingSource
-            // 
-            this.pathSettingsDataBindingSource.DataSource = typeof(cdda_item_creator.PathSettingsData);
-            // 
-            // monsterNameStringsBindingSource
-            // 
-            this.monsterNameStringsBindingSource.DataSource = typeof(cdda_item_creator.Translation);
-            // 
             // MonsterForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1431,6 +1432,8 @@
             this.Controls.Add(this.nameTextBox);
             this.Name = "MonsterForm";
             this.Text = "Monster Creator";
+            ((System.ComponentModel.ISupportInitialize)(this.monsterNameStringsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mtypeBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.hpUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.volumeUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.weightUpDown)).EndInit();
@@ -1464,12 +1467,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.moraleUpDown)).EndInit();
             this.pathSettingsPanel.ResumeLayout(false);
             this.pathSettingsPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pathSettingsDataBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pathSettingsBashStrengthUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pathSettingsMaxLengthUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pathSettingsMaxDistUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mtypeBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pathSettingsDataBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.monsterNameStringsBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
