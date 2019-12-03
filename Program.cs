@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -6,6 +7,13 @@ using System.Windows.Forms;
 
 namespace cdda_item_creator
 {
+    public static class ObjectExtensions
+    {
+        public static T DeepCopy<T>(this T original)
+        {
+            return JsonConvert.DeserializeObject<T>(JsonConvert.SerializeObject(original));
+        }
+    }
     static class Program
     {
         // the container for the lists of CDDA objects by type

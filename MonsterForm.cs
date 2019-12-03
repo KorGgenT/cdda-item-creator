@@ -101,6 +101,10 @@ namespace cdda_item_creator
         public void UpdateSymbolPreviewColor()
         {
             string raw_color_string = colorComboBox.Text;
+            if(raw_color_string == "")
+            {
+                return;
+            }
             string[] color_split = raw_color_string.Split('_');
             string text_color = "";
             string back_color = "";
@@ -315,11 +319,11 @@ namespace cdda_item_creator
         private void copyFromComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             // TODO: selector for items, and show what mod they're from
-            main_monster = Program.LoadedObjectDictionary.GetMtypes(copyFromComboBox.Text)[0];
-            foreach (Control ctl in this.Controls)
-            {
-                ctl.ResetBindings();
-            }
+            main_monster = Program.LoadedObjectDictionary.GetMtypes(copyFromComboBox.Text)[0].DeepCopy();
+
+            mtypeBindingSource.Clear();
+            mtypeBindingSource.Add(main_monster);
+            mtypeBindingSource.ResetBindings(false);
         }
     }
 }

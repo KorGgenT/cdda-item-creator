@@ -1356,6 +1356,7 @@
             this.copyFromComboBox.Location = new System.Drawing.Point(52, 15);
             this.copyFromComboBox.Name = "copyFromComboBox";
             this.copyFromComboBox.Size = new System.Drawing.Size(126, 21);
+            this.copyFromComboBox.Sorted = true;
             this.copyFromComboBox.TabIndex = 79;
             this.copyFromComboBox.SelectedIndexChanged += new System.EventHandler(this.copyFromComboBox_SelectedIndexChanged);
             // 
