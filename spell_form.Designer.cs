@@ -33,6 +33,7 @@ namespace cdda_item_creator
         {
             this.components = new System.ComponentModel.Container();
             this.spell_name_textbox = new System.Windows.Forms.TextBox();
+            this.spelltypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.spell_description_textbox = new System.Windows.Forms.TextBox();
             this.energy_type_combobox = new System.Windows.Forms.ComboBox();
             this.name_label = new System.Windows.Forms.Label();
@@ -133,11 +134,11 @@ namespace cdda_item_creator
             this.validTargetsToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.messageToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.energySourceToolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.spelltypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.damageToolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.damageToolTip2 = new System.Windows.Forms.ToolTip(this.components);
             this.damageToolTip3 = new System.Windows.Forms.ToolTip(this.components);
             this.damageToolTip4 = new System.Windows.Forms.ToolTip(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.spelltypeBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.min_damage_updown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.damage_increment_updown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.max_damage_updown)).BeginInit();
@@ -167,7 +168,6 @@ namespace cdda_item_creator
             ((System.ComponentModel.ISupportInitialize)(this.fakeSpellUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spellsLearnedGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SpellsLearnedUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.spelltypeBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // spell_name_textbox
@@ -177,6 +177,10 @@ namespace cdda_item_creator
             this.spell_name_textbox.Name = "spell_name_textbox";
             this.spell_name_textbox.Size = new System.Drawing.Size(133, 20);
             this.spell_name_textbox.TabIndex = 0;
+            // 
+            // spelltypeBindingSource
+            // 
+            this.spelltypeBindingSource.DataSource = typeof(cdda_item_creator.spell.spell_type);
             // 
             // spell_description_textbox
             // 
@@ -280,6 +284,7 @@ namespace cdda_item_creator
             // 
             // flags_listbox
             // 
+            this.flags_listbox.CheckOnClick = true;
             this.flags_listbox.FormattingEnabled = true;
             this.flags_listbox.Location = new System.Drawing.Point(256, 24);
             this.flags_listbox.Margin = new System.Windows.Forms.Padding(2);
@@ -626,6 +631,7 @@ namespace cdda_item_creator
             // 
             // valid_targets_listbox
             // 
+            this.valid_targets_listbox.CheckOnClick = true;
             this.valid_targets_listbox.FormattingEnabled = true;
             this.valid_targets_listbox.Items.AddRange(new object[] {
             "ally",
@@ -653,6 +659,7 @@ namespace cdda_item_creator
             // 
             // effected_body_part_listbox
             // 
+            this.effected_body_part_listbox.CheckOnClick = true;
             this.effected_body_part_listbox.FormattingEnabled = true;
             this.effected_body_part_listbox.Items.AddRange(new object[] {
             "TORSO",
@@ -1100,6 +1107,7 @@ namespace cdda_item_creator
             // 
             // effect_filter_listbox
             // 
+            this.effect_filter_listbox.CheckOnClick = true;
             this.effect_filter_listbox.FormattingEnabled = true;
             this.effect_filter_listbox.Items.AddRange(new object[] {
             "ally",
@@ -1334,10 +1342,6 @@ namespace cdda_item_creator
             this.label3.TabIndex = 101;
             this.label3.Text = "Spells learned at level:";
             // 
-            // spelltypeBindingSource
-            // 
-            this.spelltypeBindingSource.DataSource = typeof(cdda_item_creator.spell.spell_type);
-            // 
             // spell_form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1438,6 +1442,7 @@ namespace cdda_item_creator
             this.Controls.Add(this.spell_name_textbox);
             this.Name = "spell_form";
             this.Text = "Spell";
+            ((System.ComponentModel.ISupportInitialize)(this.spelltypeBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.min_damage_updown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.damage_increment_updown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.max_damage_updown)).EndInit();
@@ -1467,7 +1472,6 @@ namespace cdda_item_creator
             ((System.ComponentModel.ISupportInitialize)(this.fakeSpellUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spellsLearnedGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.SpellsLearnedUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.spelltypeBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
