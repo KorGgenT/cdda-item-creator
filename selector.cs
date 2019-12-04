@@ -17,12 +17,27 @@ namespace cdda_item_creator
     {
         private void TryLoadObjectLists()
         {
-            cddaFolderBrowserDialog.ShowDialog();
-            if(cddaFolderBrowserDialog.SelectedPath == "")
+            string cdda_path;
+            try
+            {
+                string cdda_path_file = System.Windows.Forms.Application.StartupPath + "\\cdda_data_path";
+                cdda_path = File.ReadAllText(cdda_path_file);
+            }
+            catch
+            {
+                cddaFolderBrowserDialog.ShowDialog();
+                cdda_path = cddaFolderBrowserDialog.SelectedPath;
+            }
+            currentPathLabel.Text = cdda_path;
+            if (cdda_path == "")
             {
                 return;
             }
-            DirectoryInfo dir = new DirectoryInfo(cddaFolderBrowserDialog.SelectedPath);
+            else
+            {
+                File.WriteAllText(Application.StartupPath + "\\cdda_data_path", cdda_path);
+            }
+            DirectoryInfo dir = new DirectoryInfo(cdda_path);
             foreach (FileInfo file in dir.GetFiles("*.json", SearchOption.AllDirectories))
             {
                 string file_text = File.ReadAllText(file.FullName);
@@ -39,7 +54,8 @@ namespace cdda_item_creator
                             switch (generic_object.Type)
                             {
                                 case "MONSTER":
-                                    Program.LoadedObjectDictionary.Add(generic_object.Id, (Mtype)obj.ToObject(typeof(Mtype)));
+                                    Mtype temp = (Mtype)obj.ToObject(typeof(Mtype));
+                                    Program.LoadedObjectDictionary.Add(generic_object.Id, temp);
                                     break;
                                 case "SPELL":
                                     Program.LoadedObjectDictionary.Add(generic_object.Id, (spell.spell_type)obj.ToObject(typeof(spell.spell_type)));
@@ -85,6 +101,22 @@ namespace cdda_item_creator
             this.Hide();
             form.ShowDialog();
             this.Show();
+        }
+
+        private void loadGameDialog_Click(object sender, EventArgs e)
+        {
+            string cdda_path;
+            cddaFolderBrowserDialog.ShowDialog();
+            cdda_path = cddaFolderBrowserDialog.SelectedPath;
+            currentPathLabel.Text = cdda_path;
+            if (cdda_path == "")
+            {
+                return;
+            }
+            else
+            {
+                File.WriteAllText(Application.StartupPath + "\\cdda_data_path", cdda_path);
+            }
         }
     }
     public class GenericTypedObject
