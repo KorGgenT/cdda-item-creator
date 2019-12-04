@@ -278,7 +278,7 @@
             // 
             this.volumeUpDown.Location = new System.Drawing.Point(224, 118);
             this.volumeUpDown.Maximum = new decimal(new int[] {
-            99999,
+            9999999,
             0,
             0,
             0});
@@ -341,7 +341,7 @@
             // 
             this.weightUpDown.Location = new System.Drawing.Point(224, 157);
             this.weightUpDown.Maximum = new decimal(new int[] {
-            99999,
+            9999999,
             0,
             0,
             0});
@@ -1356,6 +1356,7 @@
             this.copyFromComboBox.Location = new System.Drawing.Point(52, 15);
             this.copyFromComboBox.Name = "copyFromComboBox";
             this.copyFromComboBox.Size = new System.Drawing.Size(126, 21);
+            this.copyFromComboBox.Sorted = true;
             this.copyFromComboBox.TabIndex = 79;
             this.copyFromComboBox.SelectedIndexChanged += new System.EventHandler(this.copyFromComboBox_SelectedIndexChanged);
             // 

@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -79,6 +80,150 @@ namespace cdda_item_creator
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
         {
             throw new NotImplementedException();
+        }
+    }
+    public class DamageInstanceConverter<T> : JsonConverter
+    {
+        public override bool CanConvert(Type objectType)
+        {
+            return (objectType == typeof(DamageInstance));
+        }
+        public override bool CanWrite
+        {
+            get { return true; }
+        }
+        public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
+        {
+            DamageInstance instance = (DamageInstance)value;
+            JToken token = JToken.FromObject(instance.Values,
+                new JsonSerializer
+                {
+                    ContractResolver = new DefaultContractResolver
+                    {
+                        NamingStrategy = new SnakeCaseNamingStrategy()
+                    }
+                }
+                );
+            token.WriteTo(writer);
+        }
+        public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
+        {
+            JToken token = JToken.Load(reader);
+            DamageInstance instance = new DamageInstance { };
+            if(token.Type == JTokenType.Array)
+            {
+                foreach(JObject jo in token.ToObject<List<JObject>>())
+                {
+                    DamageUnit du = (DamageUnit)jo.ToObject(typeof(DamageUnit),
+                        new JsonSerializer
+                        {
+                            ContractResolver = new DefaultContractResolver
+                            {
+                                NamingStrategy = new SnakeCaseNamingStrategy()
+                            }
+                        });
+                    instance.Add(du);
+                }
+            }
+            else
+            {
+                return token.ToObject<DamageInstance>();
+            }
+            return instance;
+        }
+    }
+    public class VolumeConverter<T> : JsonConverter
+    {
+        public override bool CanConvert(Type objectType)
+        {
+            return (objectType == typeof(string));
+        }
+        public override bool CanWrite
+        {
+            get { return false; }
+        }
+        public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
+        {
+            throw new NotImplementedException();
+        }
+        public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
+        {
+            JToken token = JToken.Load(reader);
+            if(token.Type == JTokenType.String)
+            {
+                return token.ToObject<string>();
+            } else if(token.Type == JTokenType.Integer)
+            {
+                int vol_ml = token.ToObject<int>() * 250;
+                if(vol_ml % 1000 == 0)
+                {
+                    return (vol_ml / 1000).ToString() + " L";
+                }
+                return vol_ml.ToString() + " ml";
+            }
+            return null;
+        }
+    }
+    public class WeightConverter<T> : JsonConverter
+    {
+        public override bool CanConvert(Type objectType)
+        {
+            return (objectType == typeof(string));
+        }
+        public override bool CanWrite
+        {
+            get { return false; }
+        }
+        public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
+        {
+            throw new NotImplementedException();
+        }
+        public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
+        {
+            JToken token = JToken.Load(reader);
+            if (token.Type == JTokenType.String)
+            {
+                return token.ToObject<string>();
+            }
+            else if (token.Type == JTokenType.Integer)
+            {
+                int grams = token.ToObject<int>();
+                if (grams % 1000 == 0)
+                {
+                    return (grams / 1000).ToString() + " kg";
+                }
+                return grams.ToString() + " g";
+            }
+            return null;
+        }
+    }
+    public class TranslationConverter<T> : JsonConverter
+    {
+        public override bool CanConvert(Type objectType)
+        {
+            return (objectType == typeof(Translation));
+        }
+        public override bool CanWrite
+        {
+            get { return false; }
+        }
+        public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
+        {
+            throw new NotImplementedException();
+        }
+        public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
+        {
+            JToken token = JToken.Load(reader);
+            if (token.Type == JTokenType.Object)
+            {
+                return token.ToObject<Translation>();
+            }
+            else if (token.Type == JTokenType.String)
+            {
+                string name = token.ToString();
+                return new Translation { Str = name };
+            }
+            return null;
         }
     }
 }

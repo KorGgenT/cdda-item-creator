@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using Newtonsoft.Json.Serialization;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -38,6 +39,13 @@ namespace cdda_item_creator
                 File.WriteAllText(Application.StartupPath + "\\cdda_data_path", cdda_path);
             }
             DirectoryInfo dir = new DirectoryInfo(cdda_path);
+            JsonSerializer j_ser = new JsonSerializer
+            {
+                ContractResolver = new IgnoreEmptyEnumerablesResolver
+                {
+                    NamingStrategy = new SnakeCaseNamingStrategy()
+                }
+            };
             foreach (FileInfo file in dir.GetFiles("*.json", SearchOption.AllDirectories))
             {
                 string file_text = File.ReadAllText(file.FullName);
@@ -47,18 +55,18 @@ namespace cdda_item_creator
                     List<JObject> temp_list = (List<JObject>)ja.ToObject(typeof(List<JObject>));
                     foreach (JObject obj in temp_list)
                     {
-                        GenericTypedObject generic_object = (GenericTypedObject)obj.ToObject(typeof(GenericTypedObject));
+                        GenericTypedObject generic_object = (GenericTypedObject)obj.ToObject(typeof(GenericTypedObject), j_ser);
                         if (generic_object.valid())
                         {
                             Program.LoadedObjectDictionary.Add(generic_object.Type, generic_object.GetId());
                             switch (generic_object.Type)
                             {
                                 case "MONSTER":
-                                    Mtype temp = (Mtype)obj.ToObject(typeof(Mtype));
+                                    Mtype temp = (Mtype)obj.ToObject(typeof(Mtype), j_ser);
                                     Program.LoadedObjectDictionary.Add(generic_object.Id, temp);
                                     break;
                                 case "SPELL":
-                                    Program.LoadedObjectDictionary.Add(generic_object.Id, (spell.spell_type)obj.ToObject(typeof(spell.spell_type)));
+                                    Program.LoadedObjectDictionary.Add(generic_object.Id, (spell.spell_type)obj.ToObject(typeof(spell.spell_type), j_ser));
                                     break;
                                 default: break;
                             }

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
 using Newtonsoft.Json;
+using System.Runtime.CompilerServices;
 
 namespace cdda_item_creator
 {
@@ -49,6 +50,7 @@ namespace cdda_item_creator
 
     public class DamageUnit
     {
+        [JsonProperty("damage_type")]
         public string Type;
         public float Amount;
         public int ArmorPenetration;
@@ -69,13 +71,41 @@ namespace cdda_item_creator
 
     // this is a class that is supposed to be a carbon-copy of mtype from C:DDA
     // intended to be able to be written to JSON easily
-    public class Mtype
+    public class Mtype : INotifyPropertyChanged
     {
+        public Mtype()
+        {
+            Id = "";
+            Name = new Translation { };
+        }
+        public event PropertyChangedEventHandler PropertyChanged;
+        // This method is called by the Set accessor of each property.  
+        // The CallerMemberName attribute that is applied to the optional propertyName  
+        // parameter causes the property name of the caller to be substituted as an argument.  
+        private void NotifyPropertyChanged([CallerMemberName] string propertyName = "")
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
         public string Type { get; } = "MONSTER";
+        [JsonIgnore]
+        public string IdValue = "";
 
         [DefaultValue("")]
-        public string Id { get; set; } = "";
-        public Translation Name { get; set; } = new Translation { };
+        public string Id 
+        {
+            get { 
+                return IdValue; 
+            }
+            set { 
+                if (value != IdValue) 
+                { 
+                    IdValue = value;
+                    NotifyPropertyChanged(); 
+                } 
+            } 
+        }
+        [JsonConverter(typeof(TranslationConverter<Translation>))]
+        public Translation Name { get; set; }
         [JsonIgnore]
         public string NamePlural { get; set; }
         [DefaultValue("")]
@@ -86,6 +116,7 @@ namespace cdda_item_creator
         public string LooksLike { get; set; } = "";
         public int Hp { get; set; }
         [DefaultValue("")]
+        [JsonConverter(typeof(VolumeConverter<string>))]
         public string Volume { get; set; } = "";
         public string Color { get; set; }
         [JsonConverter(typeof(SingleOrArrayConverter<string>))]
@@ -95,6 +126,7 @@ namespace cdda_item_creator
         [JsonConverter(typeof(SingleOrArrayConverter<string>))]
         public List<string> Categories { get; set; }
         [DefaultValue("")]
+        [JsonConverter(typeof(WeightConverter<string>))]
         public string Weight { get; set; } = "";
         public int Speed { get; set; }
         public char Symbol { get; set; }
@@ -124,6 +156,7 @@ namespace cdda_item_creator
         public int MechStrBonus { get; set; }
         [DefaultValue("")]
         public string MechBattery { get; set; } = "";
+        [JsonConverter(typeof(DamageInstanceConverter<DamageUnit>))]
         public DamageInstance MeleeDamage;
         public int MeleeCut { get; set; }
         // mandatory json member
