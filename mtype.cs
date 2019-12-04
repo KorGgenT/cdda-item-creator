@@ -156,7 +156,7 @@ namespace cdda_item_creator
         public int MechStrBonus { get; set; }
         [DefaultValue("")]
         public string MechBattery { get; set; } = "";
-        [JsonConverter(typeof(DamageInstanceConverter<DamageUnit>))]
+        [JsonConverter(typeof(DamageInstanceConverter<DamageInstance>))]
         public DamageInstance MeleeDamage;
         public int MeleeCut { get; set; }
         // mandatory json member

@@ -127,7 +127,7 @@ namespace cdda_item_creator
             }
             else
             {
-                return token.ToObject<DamageInstance>();
+                return token.ToObject<T>();
             }
             return instance;
         }
