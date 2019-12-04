@@ -278,7 +278,7 @@
             // 
             this.volumeUpDown.Location = new System.Drawing.Point(224, 118);
             this.volumeUpDown.Maximum = new decimal(new int[] {
-            99999,
+            9999999,
             0,
             0,
             0});
@@ -341,7 +341,7 @@
             // 
             this.weightUpDown.Location = new System.Drawing.Point(224, 157);
             this.weightUpDown.Maximum = new decimal(new int[] {
-            99999,
+            9999999,
             0,
             0,
             0});

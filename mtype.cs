@@ -50,6 +50,7 @@ namespace cdda_item_creator
 
     public class DamageUnit
     {
+        [JsonProperty("damage_type")]
         public string Type;
         public float Amount;
         public int ArmorPenetration;
@@ -103,6 +104,7 @@ namespace cdda_item_creator
                 } 
             } 
         }
+        [JsonConverter(typeof(TranslationConverter<Translation>))]
         public Translation Name { get; set; }
         [JsonIgnore]
         public string NamePlural { get; set; }
@@ -114,6 +116,7 @@ namespace cdda_item_creator
         public string LooksLike { get; set; } = "";
         public int Hp { get; set; }
         [DefaultValue("")]
+        [JsonConverter(typeof(VolumeConverter<string>))]
         public string Volume { get; set; } = "";
         public string Color { get; set; }
         [JsonConverter(typeof(SingleOrArrayConverter<string>))]
@@ -123,6 +126,7 @@ namespace cdda_item_creator
         [JsonConverter(typeof(SingleOrArrayConverter<string>))]
         public List<string> Categories { get; set; }
         [DefaultValue("")]
+        [JsonConverter(typeof(WeightConverter<string>))]
         public string Weight { get; set; } = "";
         public int Speed { get; set; }
         public char Symbol { get; set; }
@@ -152,6 +156,7 @@ namespace cdda_item_creator
         public int MechStrBonus { get; set; }
         [DefaultValue("")]
         public string MechBattery { get; set; } = "";
+        [JsonConverter(typeof(DamageInstanceConverter<DamageUnit>))]
         public DamageInstance MeleeDamage;
         public int MeleeCut { get; set; }
         // mandatory json member

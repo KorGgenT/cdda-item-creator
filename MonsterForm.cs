@@ -98,6 +98,91 @@ namespace cdda_item_creator
                 defaultFactionTextBox.Items.Add(faction);
             }
         }
+        // updates the lists on the form to the data from the Mtype object
+        private void UpdateFormListInternal()
+        {
+            List<int> indices = new List<int> { };
+            foreach(string checked_item in flagsListBox.CheckedItems)
+            {
+                indices.Add(flagsListBox.Items.IndexOf(checked_item));
+            }
+            foreach(int idx in indices)
+            {
+                flagsListBox.SetItemChecked(idx, false);
+            }
+            if (main_monster.Flags != null)
+            {
+                foreach (string flag in main_monster.Flags)
+                {
+                    int idx = flagsListBox.Items.IndexOf(flag);
+                    if (idx == -1)
+                    {
+                        continue;
+                    }
+                    flagsListBox.SetItemChecked(idx, true);
+                }
+            }
+
+            damageInstanceDataGrid.Rows.Clear();
+            if (main_monster.MeleeDamage != null)
+            {
+                foreach (DamageUnit du in main_monster.MeleeDamage.Values)
+                {
+                    damageInstanceDataGrid.Rows.Add(du.Type, du.Amount, du.ArmorPenetration, du.ArmorMultiplier, du.DamageMultiplier);
+                }
+            }
+
+            materialDataGrid.Rows.Clear();
+            if(main_monster.Material != null)
+            {
+                foreach(string mat in main_monster.Material)
+                {
+                    materialDataGrid.Rows.Add(mat);
+                }
+            }
+
+            speciesDataGrid.Rows.Clear();
+            if(main_monster.Species != null)
+            {
+                foreach(string spec in main_monster.Species)
+                {
+                    speciesDataGrid.Rows.Add(spec);
+                }
+            }
+
+            categoriesDataGrid.Rows.Clear();
+            if(main_monster.Categories != null)
+            {
+                foreach(string cat in main_monster.Categories)
+                {
+                    categoriesDataGrid.Rows.Add(cat);
+                }
+            }
+
+            if(main_monster.Volume != null && main_monster.Volume != "")
+            {
+                string[] split = main_monster.Volume.Split(' ');
+                int vol = 1;
+                int.TryParse(split[0], out vol);
+                volumeUpDown.Value = vol;
+                volumeListbox.SelectedItem = split[1];
+            } else
+            {
+                volumeUpDown.Value = 1;
+            }
+
+            if(main_monster.Weight != null && main_monster.Weight != "")
+            {
+                string[] split = main_monster.Weight.Split(' ');
+                int weight = 1;
+                int.TryParse(split[0], out weight);
+                weightUpDown.Value = weight;
+                weightComboBox.SelectedItem = split[1];
+            } else
+            {
+                weightUpDown.Value = 1;
+            }
+        }
         public void UpdateSymbolPreviewColor()
         {
             string raw_color_string = colorComboBox.Text;
@@ -324,6 +409,20 @@ namespace cdda_item_creator
             mtypeBindingSource.Clear();
             mtypeBindingSource.Add(main_monster);
             mtypeBindingSource.ResetBindings(false);
+
+            pathSettingsDataBindingSource.Clear();
+            pathSettingsDataBindingSource.Add(main_monster.PathSettings);
+            pathSettingsDataBindingSource.ResetBindings(false);
+
+            if (main_monster.NamePlural != null)
+            {
+                main_monster.Name.StrPl = main_monster.NamePlural;
+            }
+            monsterNameStringsBindingSource.Clear();
+            monsterNameStringsBindingSource.Add(main_monster.Name);
+            monsterNameStringsBindingSource.ResetBindings(false);
+
+            UpdateFormListInternal();
         }
     }
 }
