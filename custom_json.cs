@@ -39,16 +39,44 @@ namespace cdda_item_creator
         }
     }
 
-    public class MonsterAttackConverter : JsonConverter
+    public class MonsterAttackConverter<T> : JsonConverter
     {
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
         {
             MonsterAttack attack = value as MonsterAttack;
-            throw new NotImplementedException();
+            if(attack.Type == "hardcoded")
+            {
+                JArray array = new JArray { attack.Id, attack.Cooldown };
+                array.WriteTo(writer);
+            }
+
+            JToken token = JToken.FromObject(attack,
+                new JsonSerializer
+                {
+                    ContractResolver = new DefaultContractResolver
+                    {
+                        NamingStrategy = new SnakeCaseNamingStrategy()
+                    }
+                }
+                );
+            token.WriteTo(writer);
         }
         public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
         {
-            throw new NotImplementedException();
+            if (reader.TokenType == JsonToken.StartArray)
+            {
+                JArray array = JArray.Load(reader);
+                return new MonsterAttack
+                {
+                    Id = (string)array[0],
+                    Cooldown = (int)array[1]
+                };
+            }
+            else 
+            {
+                JToken obj = JToken.Load(reader);
+                return obj.ToObject<T>();
+            }            
         }
         public override bool CanConvert(Type objectType)
         {

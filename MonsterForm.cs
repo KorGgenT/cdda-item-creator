@@ -165,7 +165,12 @@ namespace cdda_item_creator
                 int vol = 1;
                 int.TryParse(split[0], out vol);
                 volumeUpDown.Value = vol;
-                volumeListbox.SelectedItem = split[1];
+                string it = "ml";
+                if(split[1] == "L")
+                {
+                    it = "L";
+                }
+                volumeListbox.SelectedItem = it;
             } else
             {
                 volumeUpDown.Value = 1;

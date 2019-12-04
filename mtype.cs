@@ -9,11 +9,6 @@ using System.Runtime.CompilerServices;
 
 namespace cdda_item_creator
 {
-    [JsonConverter(typeof(MonsterAttackConverter))]
-    class MonsterAttack
-    {
-
-    }
     public class Translation
     {
         [DefaultValue("")]
@@ -167,6 +162,7 @@ namespace cdda_item_creator
         public int BashSkill { get; set; } = -1;
         public PathSettingsData PathSettings { get; set; } = new PathSettingsData { };
         public List<string> Flags { get; set; }
+        public List<MonsterAttack> SpecialAttacks { get; set; }
 
         public void UpdateVolume( int num_part, string unit )
         {
