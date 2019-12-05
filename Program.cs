@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,6 +23,7 @@ namespace cdda_item_creator
             static Dictionary<string, HashSet<string>> ids_by_type = new Dictionary<string, HashSet<string>> { };
             static Dictionary<string, List<Mtype>> mtypes_by_id = new Dictionary<string, List<Mtype>> { };
             static Dictionary<string, List<spell.spell_type>> spells_by_id = new Dictionary<string, List<spell.spell_type>> { };
+            static Dictionary<string, List<MonsterAttack>> mattacks_by_id = new Dictionary<string, List<MonsterAttack>> { };
 
             static public void Add(string type, string id)
             {
@@ -34,6 +36,19 @@ namespace cdda_item_creator
                 {
                     temp_list = new HashSet<string> { id };
                     ids_by_type.Add(type, temp_list);
+                }
+            }
+            static public void Add(string id, MonsterAttack mattack)
+            {
+                List<MonsterAttack> temp_attack;
+                if (mattacks_by_id.TryGetValue(id, out temp_attack))
+                {
+                    temp_attack.Add(mattack);
+                    mattacks_by_id[id] = temp_attack;
+                } else
+                {
+                    temp_attack = new List<MonsterAttack> { mattack };
+                    mattacks_by_id.Add(id, temp_attack);
                 }
             }
             static public void Add(string id, Mtype mon)
@@ -77,6 +92,12 @@ namespace cdda_item_creator
             {
                 List<Mtype> ret;
                 mtypes_by_id.TryGetValue(id, out ret);
+                return ret;
+            }
+            static public List<MonsterAttack> GetMAttacks(string id)
+            {
+                List<MonsterAttack> ret;
+                mattacks_by_id.TryGetValue(id, out ret);
                 return ret;
             }
         }

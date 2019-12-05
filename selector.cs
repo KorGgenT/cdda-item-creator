@@ -68,6 +68,32 @@ namespace cdda_item_creator
                                 case "SPELL":
                                     Program.LoadedObjectDictionary.Add(generic_object.Id, (spell.spell_type)obj.ToObject(typeof(spell.spell_type), j_ser));
                                     break;
+                                case "monster_attack":
+                                    MonsterAttack loaded_attack = (MonsterAttack)obj.ToObject(typeof(MonsterAttack), j_ser);
+                                    switch (loaded_attack.AttackType)
+                                    {
+                                        case "hardcoded":
+                                            Program.LoadedObjectDictionary.Add(generic_object.Id, loaded_attack);
+                                            break;
+                                        case "leap":
+                                            Program.LoadedObjectDictionary.Add(generic_object.Id, (MonsterAttackLeap)obj.ToObject(typeof(MonsterAttackLeap), j_ser));
+                                            break;
+                                        case "bite":
+                                            Program.LoadedObjectDictionary.Add(generic_object.Id, (MonsterAttackBite)obj.ToObject(typeof(MonsterAttackBite), j_ser));
+                                            break;
+                                        case "melee":
+                                            string melee = obj.ToString();
+                                            Program.LoadedObjectDictionary.Add(generic_object.Id, (MonsterAttackMelee)obj.ToObject(typeof(MonsterAttackMelee), j_ser));
+                                            break;
+                                        case "spell":
+                                            Program.LoadedObjectDictionary.Add(generic_object.Id, (MonsterAttackSpell)obj.ToObject(typeof(MonsterAttackSpell), j_ser));
+                                            break;
+                                        case "gun":
+                                            Program.LoadedObjectDictionary.Add(generic_object.Id, (MonsterAttackGun)obj.ToObject(typeof(MonsterAttackGun), j_ser));
+                                            break;
+                                        default: break;
+                                    }
+                                    break;
                                 default: break;
                             }
                         }

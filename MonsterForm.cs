@@ -98,9 +98,26 @@ namespace cdda_item_creator
                 defaultFactionTextBox.Items.Add(faction);
             }
         }
+        private void UpdateSpecialAttackDataGrid()
+        {
+            specialAttacksDataGrid.Rows.Clear();
+            if(main_monster.SpecialAttacks == null)
+            {
+                return;
+            }
+            foreach(MonsterAttack mattack in main_monster.SpecialAttacks)
+            {
+                specialAttacksDataGrid.Rows.Add(
+                    mattack.Id,
+                    mattack.Type,
+                    mattack.Cooldown
+                    );
+            }
+        }
         // updates the lists on the form to the data from the Mtype object
         private void UpdateFormListInternal()
         {
+            UpdateSpecialAttackDataGrid();
             List<int> indices = new List<int> { };
             foreach(string checked_item in flagsListBox.CheckedItems)
             {
@@ -405,12 +422,8 @@ namespace cdda_item_creator
         {
             UpdateSymbolPreviewColor();
         }
-
-        private void copyFromComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        private void UpdateMainMonsterBindings()
         {
-            // TODO: selector for items, and show what mod they're from
-            main_monster = Program.LoadedObjectDictionary.GetMtypes(copyFromComboBox.Text)[0].DeepCopy();
-
             mtypeBindingSource.Clear();
             mtypeBindingSource.Add(main_monster);
             mtypeBindingSource.ResetBindings(false);
@@ -428,6 +441,21 @@ namespace cdda_item_creator
             monsterNameStringsBindingSource.ResetBindings(false);
 
             UpdateFormListInternal();
+        }
+        private void copyFromComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if ( copyFromComboBox.SelectedIndex == -1)
+            {
+                return;
+            }
+            // TODO: selector for items, and show what mod they're from
+            main_monster = Program.LoadedObjectDictionary.GetMtypes(copyFromComboBox.Text)[0].DeepCopy();
+            UpdateMainMonsterBindings();
+        }
+
+        private void clearCopyFromButton_Click(object sender, EventArgs e)
+        {
+            copyFromComboBox.SelectedIndex = -1;
         }
     }
 }

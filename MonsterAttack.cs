@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace cdda_item_creator
 {
-    [JsonConverter(typeof(MonsterAttackConverter<MonsterAttack>))]
     public class MonsterAttack
     {
+        public string AttackType { get; set; }
         public string Type { set;  get; } = "hardcoded";
         [DefaultValue("")]
         public string Id { get; set; } = "";
@@ -81,6 +81,7 @@ namespace cdda_item_creator
     }
     public class MonsterAttackMelee : MonsterAttack
     {
+        [JsonConverter(typeof(DamageInstanceConverter<DamageInstance>))]
         public DamageInstance DamageMaxInstance { get; set; }
         public float MinMul { get; set; }
         public float MaxMul { get; set; }
@@ -99,7 +100,8 @@ namespace cdda_item_creator
         public string NoDmgMsgNpc { get; set; }
         [DefaultValue("The %1$s bites <npcname>'s %2$s!")]
         public string HitDmgNpc { get; set; }
-        public Dictionary<string, float> BodyParts { get; set; }
+        [JsonConverter(typeof(IdValueArrayConverter))]
+        public List<IdValueArray> BodyParts { get; set; }
         List<MonEffectData> Effects { get; set; }
         public MonsterAttackMelee()
         {
@@ -120,18 +122,34 @@ namespace cdda_item_creator
     {
         [DefaultValue(14)]
         public int NoInfectionChance { get; set; } = 14;
-        public new string Type { get; } = "bite";
+        MonsterAttackBite()
+        {
+            Type = "bite";
+        }
+    }
+    public class IdValueArray
+    {
+        public string Id { get; set; }
+        public int Value { get; set; }
+    }
+    public class GunRange
+    {
+        public int Min { get; set; }
+        public int Max { get; set; }
+        public string Type { get; set; }
     }
     public class MonsterAttackGun : MonsterAttack
     {
         public string GunType { get; set; }
         public string AmmoType { get; set; }
-        public List<Tuple<string, int>> FakeSkills { get; set; }
+        [JsonConverter(typeof(IdValueArrayConverter))]
+        public List<IdValueArray> FakeSkills { get; set; }
         public int FakeDex { get; set; }
         public int FakeInt { get; set; }
         public int FakeStr { get; set; }
         public int FakePer { get; set; }
-        public List<Tuple<int, int, string>> Ranges { get; set; }
+        [JsonConverter(typeof(MAttackGunRangeConverter))]
+        public List<GunRange> Ranges { get; set; }
         public int MaxAmmo { get; set; }
         public int MoveCost { get; set; }
         public string Description { get; set; }
