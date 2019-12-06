@@ -457,5 +457,13 @@ namespace cdda_item_creator
         {
             copyFromComboBox.SelectedIndex = -1;
         }
+
+        private void specialAttacksEditButton_Click(object sender, EventArgs e)
+        {
+            MonsterAttackForm form = new MonsterAttackForm { };
+            this.Hide();
+            form.ShowDialog();
+            this.Show();
+        }
     }
 }
