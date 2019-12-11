@@ -5,88 +5,88 @@
   "ANTQUEEN": "lays ant eggs and feeds them to have them grow into an adult",
   "CHECK_UP": "robot nurse checkup special",
   "ASSIST": "self-aware special",
-  "OPERATE":
-  "PAID_BOT":
-  "SHRIEK":
-  "SHRIEK_ALERT":
-  "SHRIEK_STUN":
-  "RATTLE":
-  "HOWL":
-  "ACID":
-  "ACID_BARF":
-  "ACID_ACCURATE":
-  "SHOCKSTORM":
-  "SHOCKING_REVEAL":
-  "PULL_METAL_WEAPON":
-  "BOOMER":
-  "BOOMER_GLOW":
-  "RESURRECT":
-  "SMASH":
-  "SCIENCE":
-  "GROWPLANTS":
-  "GROW_VINE":
-  "VINE":
-  "SPIT_SAP":
-  "TRIFFID_HEARTBEAT":
-  "FUNGUS":
-  "FUNGUS_CORPORATE":
-  "FUNGUS_HAZE":
-  "FUNGUS_BIG_BLOSSOM":
-  "FUNGUS_INJECT":
-  "FUNGUS_BRISTLE":
-  "FUNGUS_GROWTH":
-  "FUNGUS_SPROUT":
-  "FUNGUS_FORTIFY":
-  "DERMATIK":
-  "DERMATIK_GROWTH":
-  "FUNGAL_TRAIL":
-  "PLANT":
-  "DISAPPEAR":
-  "FORMBLOB":
-  "CALLBLOBS":
-  "JACKSON":
-  "DANCE":
-  "DOGTHING":
-  "TENTACLE":
-  "GENE_STING":
-  "PARA_STING":
-  "TRIFFID_GROWTH":
-  "STARE":
-  "FEAR_PARALYZE":
-  "PHOTOGRAPH":
-  "TAZER":
-  "SEARCHLIGHT":
-  "FLAMETHROWER":
-  "COPBOT":
-  "CHICKENBOT":
-  "MULTI_ROBOT":
-  "RATKING":
-  "GENERATOR":
-  "UPGRADE":
-  "BREATHE":
-  "IMPALE":
-  "BRANDISH":
-  "FLESH_GOLEM":
-  "ABSORB_MEAT":
-  "LUNGE":
-  "LONGSWIPE":
-  "PARROT":
-  "PARROT_AT_DANGER":
-  "DARKMAN":
-  "SLIMESPRING":
-  "TINDALOS_TELEPORT":
-  "FLESH_TENDRIL":
-  "BIO_OP_TAKEDOWN":
-  "SUICIDE":
-  "KAMIKAZE":
-  "GRENADIER":
-  "GRENADIER_ELITE":
-  "RIOTBOT":
-  "STRETCH_ATTACK":
-  "STRETCH_BITE":
-  "RANGED_PULL":
-  "GRAB":
-  "GRAB_DRAG":
-  "DOOT":
-  "ZOMBIE_FUSE":
+  "OPERATE": "no description available.",
+  "PAID_BOT": "no description available.",
+  "SHRIEK": "no description available.",
+  "SHRIEK_ALERT": "no description available.",
+  "SHRIEK_STUN": "no description available.",
+  "RATTLE": "no description available.",
+  "HOWL": "no description available.",
+  "ACID": "no description available.",
+  "ACID_BARF": "no description available.",
+  "ACID_ACCURATE": "no description available.",
+  "SHOCKSTORM": "no description available.",
+  "SHOCKING_REVEAL": "no description available.",
+  "PULL_METAL_WEAPON": "no description available.",
+  "BOOMER": "no description available.",
+  "BOOMER_GLOW": "no description available.",
+  "RESURRECT": "no description available.",
+  "SMASH": "no description available.",
+  "SCIENCE": "no description available.",
+  "GROWPLANTS": "no description available.",
+  "GROW_VINE": "no description available.",
+  "VINE": "no description available.",
+  "SPIT_SAP": "no description available.",
+  "TRIFFID_HEARTBEAT": "no description available.",
+  "FUNGUS": "no description available.",
+  "FUNGUS_CORPORATE": "no description available.",
+  "FUNGUS_HAZE": "no description available.",
+  "FUNGUS_BIG_BLOSSOM": "no description available.",
+  "FUNGUS_INJECT": "no description available.",
+  "FUNGUS_BRISTLE": "no description available.",
+  "FUNGUS_GROWTH": "no description available.",
+  "FUNGUS_SPROUT": "no description available.",
+  "FUNGUS_FORTIFY": "no description available.",
+  "DERMATIK": "no description available.",
+  "DERMATIK_GROWTH": "no description available.",
+  "FUNGAL_TRAIL": "no description available.",
+  "PLANT": "no description available.",
+  "DISAPPEAR": "no description available.",
+  "FORMBLOB": "no description available.",
+  "CALLBLOBS": "no description available.",
+  "JACKSON": "no description available.",
+  "DANCE": "no description available.",
+  "DOGTHING": "no description available.",
+  "TENTACLE": "no description available.",
+  "GENE_STING": "no description available.",
+  "PARA_STING": "no description available.",
+  "TRIFFID_GROWTH": "no description available.",
+  "STARE": "no description available.",
+  "FEAR_PARALYZE": "no description available.",
+  "PHOTOGRAPH": "no description available.",
+  "TAZER": "no description available.",
+  "SEARCHLIGHT": "no description available.",
+  "FLAMETHROWER": "no description available.",
+  "COPBOT": "no description available.",
+  "CHICKENBOT": "no description available.",
+  "MULTI_ROBOT": "no description available.",
+  "RATKING": "no description available.",
+  "GENERATOR": "no description available.",
+  "UPGRADE": "no description available.",
+  "BREATHE": "no description available.",
+  "IMPALE": "no description available.",
+  "BRANDISH": "no description available.",
+  "FLESH_GOLEM": "no description available.",
+  "ABSORB_MEAT": "no description available.",
+  "LUNGE": "no description available.",
+  "LONGSWIPE": "no description available.",
+  "PARROT": "no description available.",
+  "PARROT_AT_DANGER": "no description available.",
+  "DARKMAN": "no description available.",
+  "SLIMESPRING": "no description available.",
+  "TINDALOS_TELEPORT": "no description available.",
+  "FLESH_TENDRIL": "no description available.",
+  "BIO_OP_TAKEDOWN": "no description available.",
+  "SUICIDE": "no description available.",
+  "KAMIKAZE": "no description available.",
+  "GRENADIER": "no description available.",
+  "GRENADIER_ELITE": "no description available.",
+  "RIOTBOT": "no description available.",
+  "STRETCH_ATTACK": "no description available.",
+  "STRETCH_BITE": "no description available.",
+  "RANGED_PULL": "no description available.",
+  "GRAB": "no description available.",
+  "GRAB_DRAG": "no description available.",
+  "DOOT": "no description available.",
+  "ZOMBIE_FUSE": "no description available."
 }

@@ -9,11 +9,6 @@ using System.Runtime.CompilerServices;
 
 namespace cdda_item_creator
 {
-    [JsonConverter(typeof(MonsterAttackConverter))]
-    class MonsterAttack
-    {
-
-    }
     public class Translation
     {
         [DefaultValue("")]
@@ -167,6 +162,8 @@ namespace cdda_item_creator
         public int BashSkill { get; set; } = -1;
         public PathSettingsData PathSettings { get; set; } = new PathSettingsData { };
         public List<string> Flags { get; set; }
+        [JsonConverter(typeof(MonsterAttackConverter))]
+        public List<MonsterAttack> SpecialAttacks { get; set; }
 
         public void UpdateVolume( int num_part, string unit )
         {
@@ -182,7 +179,7 @@ namespace cdda_item_creator
         {
             int difficulty = (int)((MeleeSkill + 1) * MeleeDice * (MeleeCut + MeleeDiceSides) * 0.04 +
                 (Dodge + 1) * (3 + ArmorBash + ArmorCut) * 0.04 +
-                (Diff /* + special_attacks.size() + 8 * emit_fields.size() */));
+                (Diff + SpecialAttacks.Count /* + 8 * emit_fields.size() */));
             difficulty = (int)( difficulty * (Hp + Speed - AttackCost + (Morale + Aggression) * 0.1) * 0.01 +
                 (VisionDay + 2 * VisionNight) * 0.01);
             return difficulty;

@@ -50,6 +50,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="custom_json.cs" />
+    <Compile Include="MonsterAttack.cs" />
+    <Compile Include="MonsterAttackForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MonsterAttackForm.Designer.cs">
+      <DependentUpon>MonsterAttackForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MonsterForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,6 +85,9 @@
     <Compile Include="ViewerForm.Designer.cs">
       <DependentUpon>ViewerForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="MonsterAttackForm.resx">
+      <DependentUpon>MonsterAttackForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MonsterForm.resx">
       <DependentUpon>MonsterForm.cs</DependentUpon>
     </EmbeddedResource>

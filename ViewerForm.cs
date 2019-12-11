@@ -28,10 +28,13 @@ namespace cdda_item_creator
         private void typeListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             idListBox.Items.Clear();
+            string s = "";
             foreach (string id in Program.LoadedObjectDictionary.GetList((string)typeListBox.SelectedItem))
             {
                 idListBox.Items.Add(id);
+                s += id + "\n";
             }
+            Clipboard.SetText(s);
         }
     }
 }

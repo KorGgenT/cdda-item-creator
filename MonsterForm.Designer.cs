@@ -30,11 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             this.nameTextBox = new System.Windows.Forms.TextBox();
-            this.monsterNameStringsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.clipboardButton = new System.Windows.Forms.Button();
             this.nameLabel = new System.Windows.Forms.Label();
             this.idTextBox = new System.Windows.Forms.TextBox();
-            this.mtypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.idLabel = new System.Windows.Forms.Label();
             this.pluralNameTextBox = new System.Windows.Forms.TextBox();
             this.pluralNameLabel = new System.Windows.Forms.Label();
@@ -70,7 +68,6 @@
             this.colorLabel = new System.Windows.Forms.Label();
             this.materialDataGrid = new System.Windows.Forms.DataGridView();
             this.MaterialComboBox = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.materialBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.speciesDataGrid = new System.Windows.Forms.DataGridView();
             this.SpeciesComboBox = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.categoriesDataGrid = new System.Windows.Forms.DataGridView();
@@ -117,7 +114,6 @@
             this.pathSettingsPanel = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
             this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.pathSettingsDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -135,8 +131,16 @@
             this.copyFromComboBox = new System.Windows.Forms.ComboBox();
             this.clearCopyFromButton = new System.Windows.Forms.Button();
             this.copyFromLabel = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.monsterNameStringsBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mtypeBindingSource)).BeginInit();
+            this.specialAttacksDataGrid = new System.Windows.Forms.DataGridView();
+            this.specialAttackIdColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.specialAttackTypeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.specialAttackCooldownColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.specialAttacksLabel = new System.Windows.Forms.Label();
+            this.specialAttacksEditButton = new System.Windows.Forms.Button();
+            this.materialBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.mtypeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.pathSettingsDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.monsterNameStringsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.hpUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.volumeUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.weightUpDown)).BeginInit();
@@ -148,7 +152,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.bashArmorUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dodgeUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.materialDataGrid)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.materialBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.speciesDataGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoriesDataGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.diffUpDown)).BeginInit();
@@ -167,10 +170,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.speedUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.moraleUpDown)).BeginInit();
             this.pathSettingsPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pathSettingsDataBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pathSettingsBashStrengthUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pathSettingsMaxLengthUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pathSettingsMaxDistUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.specialAttacksDataGrid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.materialBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mtypeBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pathSettingsDataBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.monsterNameStringsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // nameTextBox
@@ -180,10 +187,6 @@
             this.nameTextBox.Name = "nameTextBox";
             this.nameTextBox.Size = new System.Drawing.Size(100, 20);
             this.nameTextBox.TabIndex = 0;
-            // 
-            // monsterNameStringsBindingSource
-            // 
-            this.monsterNameStringsBindingSource.DataSource = typeof(cdda_item_creator.Translation);
             // 
             // clipboardButton
             // 
@@ -211,10 +214,6 @@
             this.idTextBox.Name = "idTextBox";
             this.idTextBox.Size = new System.Drawing.Size(100, 20);
             this.idTextBox.TabIndex = 3;
-            // 
-            // mtypeBindingSource
-            // 
-            this.mtypeBindingSource.DataSource = typeof(cdda_item_creator.Mtype);
             // 
             // idLabel
             // 
@@ -599,11 +598,6 @@
             this.MaterialComboBox.ToolTipText = "The Material this monster is made out of.";
             this.MaterialComboBox.Width = 146;
             // 
-            // materialBindingSource
-            // 
-            this.materialBindingSource.DataMember = "Material";
-            this.materialBindingSource.DataSource = this.mtypeBindingSource;
-            // 
             // speciesDataGrid
             // 
             this.speciesDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -705,7 +699,7 @@
             // difficultyLabel
             // 
             this.difficultyLabel.AutoSize = true;
-            this.difficultyLabel.Location = new System.Drawing.Point(381, 9);
+            this.difficultyLabel.Location = new System.Drawing.Point(180, 7);
             this.difficultyLabel.Name = "difficultyLabel";
             this.difficultyLabel.Size = new System.Drawing.Size(182, 13);
             this.difficultyLabel.TabIndex = 67;
@@ -750,6 +744,7 @@
             this.combatEffectivenessPanel.Controls.Add(this.bonusCutUpDown);
             this.combatEffectivenessPanel.Controls.Add(this.meleeDamageLabel);
             this.combatEffectivenessPanel.Controls.Add(this.damageInstanceAddButton);
+            this.combatEffectivenessPanel.Controls.Add(this.difficultyLabel);
             this.combatEffectivenessPanel.Controls.Add(this.damageInstanceDamageMultiplierUpDown);
             this.combatEffectivenessPanel.Controls.Add(this.damageInstanceArmorMultiplierUpDown);
             this.combatEffectivenessPanel.Controls.Add(this.damageInstanceAmountUpDown);
@@ -899,7 +894,7 @@
             // 
             this.meleeDamageLabel.AutoSize = true;
             this.meleeDamageLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.meleeDamageLabel.Location = new System.Drawing.Point(106, 2);
+            this.meleeDamageLabel.Location = new System.Drawing.Point(42, 2);
             this.meleeDamageLabel.Name = "meleeDamageLabel";
             this.meleeDamageLabel.Size = new System.Drawing.Size(129, 20);
             this.meleeDamageLabel.TabIndex = 82;
@@ -1194,10 +1189,6 @@
             this.checkBox3.Text = "Allow Climb Stairs";
             this.checkBox3.UseVisualStyleBackColor = true;
             // 
-            // pathSettingsDataBindingSource
-            // 
-            this.pathSettingsDataBindingSource.DataSource = typeof(cdda_item_creator.PathSettingsData);
-            // 
             // checkBox2
             // 
             this.checkBox2.AutoSize = true;
@@ -1368,6 +1359,7 @@
             this.clearCopyFromButton.TabIndex = 80;
             this.clearCopyFromButton.Text = "Clear";
             this.clearCopyFromButton.UseVisualStyleBackColor = true;
+            this.clearCopyFromButton.Click += new System.EventHandler(this.clearCopyFromButton_Click);
             // 
             // copyFromLabel
             // 
@@ -1379,11 +1371,88 @@
             this.copyFromLabel.TabIndex = 81;
             this.copyFromLabel.Text = "Copy From";
             // 
+            // specialAttacksDataGrid
+            // 
+            this.specialAttacksDataGrid.AllowUserToAddRows = false;
+            this.specialAttacksDataGrid.AllowUserToDeleteRows = false;
+            this.specialAttacksDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.specialAttacksDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.specialAttackIdColumn,
+            this.specialAttackTypeColumn,
+            this.specialAttackCooldownColumn});
+            this.specialAttacksDataGrid.Location = new System.Drawing.Point(338, 27);
+            this.specialAttacksDataGrid.Name = "specialAttacksDataGrid";
+            this.specialAttacksDataGrid.ReadOnly = true;
+            this.specialAttacksDataGrid.RowHeadersWidth = 5;
+            this.specialAttacksDataGrid.Size = new System.Drawing.Size(251, 85);
+            this.specialAttacksDataGrid.TabIndex = 82;
+            // 
+            // specialAttackIdColumn
+            // 
+            this.specialAttackIdColumn.HeaderText = "ID";
+            this.specialAttackIdColumn.Name = "specialAttackIdColumn";
+            this.specialAttackIdColumn.ReadOnly = true;
+            // 
+            // specialAttackTypeColumn
+            // 
+            this.specialAttackTypeColumn.HeaderText = "Type";
+            this.specialAttackTypeColumn.Name = "specialAttackTypeColumn";
+            this.specialAttackTypeColumn.ReadOnly = true;
+            this.specialAttackTypeColumn.Width = 65;
+            // 
+            // specialAttackCooldownColumn
+            // 
+            this.specialAttackCooldownColumn.HeaderText = "Cooldown";
+            this.specialAttackCooldownColumn.Name = "specialAttackCooldownColumn";
+            this.specialAttackCooldownColumn.ReadOnly = true;
+            this.specialAttackCooldownColumn.ToolTipText = "Cooldown in Moves. 100 moves is 1 second.";
+            this.specialAttackCooldownColumn.Width = 65;
+            // 
+            // specialAttacksLabel
+            // 
+            this.specialAttacksLabel.AutoSize = true;
+            this.specialAttacksLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.specialAttacksLabel.Location = new System.Drawing.Point(341, 6);
+            this.specialAttacksLabel.Name = "specialAttacksLabel";
+            this.specialAttacksLabel.Size = new System.Drawing.Size(134, 20);
+            this.specialAttacksLabel.TabIndex = 83;
+            this.specialAttacksLabel.Text = "Special Attacks";
+            // 
+            // specialAttacksEditButton
+            // 
+            this.specialAttacksEditButton.Location = new System.Drawing.Point(554, 6);
+            this.specialAttacksEditButton.Name = "specialAttacksEditButton";
+            this.specialAttacksEditButton.Size = new System.Drawing.Size(36, 20);
+            this.specialAttacksEditButton.TabIndex = 84;
+            this.specialAttacksEditButton.Text = "Edit";
+            this.specialAttacksEditButton.UseVisualStyleBackColor = true;
+            this.specialAttacksEditButton.Click += new System.EventHandler(this.specialAttacksEditButton_Click);
+            // 
+            // materialBindingSource
+            // 
+            this.materialBindingSource.DataMember = "Material";
+            this.materialBindingSource.DataSource = this.mtypeBindingSource;
+            // 
+            // mtypeBindingSource
+            // 
+            this.mtypeBindingSource.DataSource = typeof(cdda_item_creator.Mtype);
+            // 
+            // pathSettingsDataBindingSource
+            // 
+            this.pathSettingsDataBindingSource.DataSource = typeof(cdda_item_creator.PathSettingsData);
+            // 
+            // monsterNameStringsBindingSource
+            // 
+            this.monsterNameStringsBindingSource.DataSource = typeof(cdda_item_creator.Translation);
+            // 
             // MonsterForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(926, 462);
+            this.Controls.Add(this.specialAttacksEditButton);
+            this.Controls.Add(this.specialAttacksLabel);
+            this.Controls.Add(this.specialAttacksDataGrid);
             this.Controls.Add(this.copyFromLabel);
             this.Controls.Add(this.clearCopyFromButton);
             this.Controls.Add(this.copyFromComboBox);
@@ -1395,7 +1464,6 @@
             this.Controls.Add(this.harvestTextBox);
             this.Controls.Add(this.pathSettingsPanel);
             this.Controls.Add(this.combatEffectivenessPanel);
-            this.Controls.Add(this.difficultyLabel);
             this.Controls.Add(this.diffLabel);
             this.Controls.Add(this.diffUpDown);
             this.Controls.Add(this.looksLikeTextBox);
@@ -1433,8 +1501,6 @@
             this.Controls.Add(this.nameTextBox);
             this.Name = "MonsterForm";
             this.Text = "Monster Creator";
-            ((System.ComponentModel.ISupportInitialize)(this.monsterNameStringsBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mtypeBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.hpUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.volumeUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.weightUpDown)).EndInit();
@@ -1447,7 +1513,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.bashArmorUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dodgeUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.materialDataGrid)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.materialBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.speciesDataGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoriesDataGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.diffUpDown)).EndInit();
@@ -1468,10 +1533,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.moraleUpDown)).EndInit();
             this.pathSettingsPanel.ResumeLayout(false);
             this.pathSettingsPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pathSettingsDataBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pathSettingsBashStrengthUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pathSettingsMaxLengthUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pathSettingsMaxDistUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.specialAttacksDataGrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.materialBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mtypeBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pathSettingsDataBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.monsterNameStringsBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1585,5 +1654,11 @@
         private System.Windows.Forms.ComboBox copyFromComboBox;
         private System.Windows.Forms.Button clearCopyFromButton;
         private System.Windows.Forms.Label copyFromLabel;
+        private System.Windows.Forms.DataGridView specialAttacksDataGrid;
+        private System.Windows.Forms.DataGridViewTextBoxColumn specialAttackIdColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn specialAttackTypeColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn specialAttackCooldownColumn;
+        private System.Windows.Forms.Label specialAttacksLabel;
+        private System.Windows.Forms.Button specialAttacksEditButton;
     }
 }
