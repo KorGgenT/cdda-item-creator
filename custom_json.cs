@@ -326,6 +326,34 @@ namespace cdda_item_creator
             return null;
         }
     }
+    // T is the value of the dictionary. the key is a string
+    public class DictionaryAsArrayConverter<T> : JsonConverter
+    {
+        public override bool CanConvert(Type objectType)
+        {
+            return (objectType == typeof(Dictionary<string, T>));
+        }
+        public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
+        {
+            Dictionary<string, T> pairs = value as Dictionary<string, T>;
+            JArray outer = new JArray { };
+            foreach (string key in pairs.Keys)
+            {
+                outer.Add(new JArray { key, pairs[key] });
+            }
+            outer.WriteTo(writer);
+        }
+        public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
+        {
+            JArray outer = JToken.Load(reader).ToObject<JArray>();
+            Dictionary<string, T> ret = new Dictionary<string, T> { };
+            foreach (JArray array in outer)
+            {
+                ret.Add((string)array[0], array[1].ToObject<T>());
+            }
+            return ret;
+        }
+    }
     public class MAttackGunRangeConverter : JsonConverter
     {
         public override bool CanConvert(Type objectType)

@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="custom_json.cs" />
+    <Compile Include="MaterialType.cs" />
     <Compile Include="MonsterAttack.cs" />
     <Compile Include="MonsterAttackForm.cs">
       <SubType>Form</SubType>
