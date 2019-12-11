@@ -37,38 +37,58 @@
             this.cancelButton = new System.Windows.Forms.Button();
             this.saveButton = new System.Windows.Forms.Button();
             this.spellPanel = new System.Windows.Forms.Panel();
-            this.spellIdComboBox = new System.Windows.Forms.ComboBox();
-            this.spellIdLabel = new System.Windows.Forms.Label();
-            this.spellSelfCheckBox = new System.Windows.Forms.CheckBox();
-            this.spellLevelLabel = new System.Windows.Forms.Label();
-            this.spellLevelUpDown = new System.Windows.Forms.NumericUpDown();
-            this.spellMessageTextBox = new System.Windows.Forms.TextBox();
-            this.spellMessageLabel = new System.Windows.Forms.Label();
             this.spellMessageInfoLabel = new System.Windows.Forms.Label();
+            this.spellMessageLabel = new System.Windows.Forms.Label();
+            this.spellMessageTextBox = new System.Windows.Forms.TextBox();
+            this.spellLevelUpDown = new System.Windows.Forms.NumericUpDown();
+            this.spellLevelLabel = new System.Windows.Forms.Label();
+            this.spellSelfCheckBox = new System.Windows.Forms.CheckBox();
+            this.spellIdLabel = new System.Windows.Forms.Label();
+            this.spellIdComboBox = new System.Windows.Forms.ComboBox();
             this.leapPanel = new System.Windows.Forms.Panel();
-            this.leapMinRangeUpDown = new System.Windows.Forms.NumericUpDown();
-            this.leapMaxRangeUpDown = new System.Windows.Forms.NumericUpDown();
-            this.leapMaxRangeLabel = new System.Windows.Forms.Label();
-            this.leapMinRangeLabel = new System.Windows.Forms.Label();
-            this.leapAllowNoTargetCheckBox = new System.Windows.Forms.CheckBox();
+            this.leapMoveCostLabel = new System.Windows.Forms.Label();
+            this.leapMoveCostUpDown = new System.Windows.Forms.NumericUpDown();
             this.leapMinConsiderRangeLabel = new System.Windows.Forms.Label();
             this.leapMaxConsiderRangeLabel = new System.Windows.Forms.Label();
             this.leapMaxConsiderRangeUpDown = new System.Windows.Forms.NumericUpDown();
             this.leapMinConsiderRangeUpDown = new System.Windows.Forms.NumericUpDown();
-            this.leapMoveCostUpDown = new System.Windows.Forms.NumericUpDown();
-            this.leapMoveCostLabel = new System.Windows.Forms.Label();
+            this.leapAllowNoTargetCheckBox = new System.Windows.Forms.CheckBox();
+            this.leapMinRangeLabel = new System.Windows.Forms.Label();
+            this.leapMaxRangeLabel = new System.Windows.Forms.Label();
+            this.leapMaxRangeUpDown = new System.Windows.Forms.NumericUpDown();
+            this.leapMinRangeUpDown = new System.Windows.Forms.NumericUpDown();
             this.meleePanel = new System.Windows.Forms.Panel();
-            this.meleeHitDmgNpcMessageTextBox = new System.Windows.Forms.TextBox();
-            this.meleeNoDmgNpcMessageTextBox = new System.Windows.Forms.TextBox();
-            this.meleeNoDmgUMessageTextBox = new System.Windows.Forms.TextBox();
-            this.meleeMissUMessageTextBox = new System.Windows.Forms.TextBox();
-            this.meleeMissNpcMessageTextBox = new System.Windows.Forms.TextBox();
-            this.meleeHitDmgUMessageTextBox = new System.Windows.Forms.TextBox();
-            this.meleeNpcLabel = new System.Windows.Forms.Label();
-            this.meleeYouMessageLabel = new System.Windows.Forms.Label();
-            this.meleeHitLabel = new System.Windows.Forms.Label();
-            this.meleeMissMessage = new System.Windows.Forms.Label();
-            this.meleeNoDamageLabel = new System.Windows.Forms.Label();
+            this.moneEffectDataAddButton = new System.Windows.Forms.Button();
+            this.biteNoInfectionChanceLabel = new System.Windows.Forms.Label();
+            this.biteNoInfectionChanceUpDown = new System.Windows.Forms.NumericUpDown();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.monEffectDataChanceUpDown = new System.Windows.Forms.NumericUpDown();
+            this.monEffectDataBodyPartComboBox = new System.Windows.Forms.ComboBox();
+            this.monEffectDataDurationUpDown = new System.Windows.Forms.NumericUpDown();
+            this.monEffectDataIdComboBox = new System.Windows.Forms.ComboBox();
+            this.monEffectDataAffectHitBpCheckBox = new System.Windows.Forms.CheckBox();
+            this.monEffectDataPermanentCheckbox = new System.Windows.Forms.CheckBox();
+            this.meleeMonEffectDataGrid = new System.Windows.Forms.DataGridView();
+            this.effectDataIdColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.effectDataDurationColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.affectHitBpColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.effectDataBodyPartColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.effectDataPermanentColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.effectDataChanceColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bodyPartHitRateUpDown = new System.Windows.Forms.NumericUpDown();
+            this.meleeBodyPartAddButton = new System.Windows.Forms.Button();
+            this.bodyPartComboBox = new System.Windows.Forms.ComboBox();
+            this.bodyPartsDataGrid = new System.Windows.Forms.DataGridView();
+            this.bodyPartTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bodyPartHitRateColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.damageInstanceLabel = new System.Windows.Forms.Label();
             this.damageInstanceAddButton = new System.Windows.Forms.Button();
             this.damageInstanceDamageMultiplierUpDown = new System.Windows.Forms.NumericUpDown();
             this.damageInstanceArmorMultiplierUpDown = new System.Windows.Forms.NumericUpDown();
@@ -81,85 +101,75 @@
             this.ArmorPenetration = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ArmorMultiplier = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DamageMultiplier = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.damageInstanceLabel = new System.Windows.Forms.Label();
-            this.bodyPartsDataGrid = new System.Windows.Forms.DataGridView();
-            this.bodyPartTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bodyPartHitRateColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bodyPartComboBox = new System.Windows.Forms.ComboBox();
-            this.meleeBodyPartAddButton = new System.Windows.Forms.Button();
-            this.bodyPartHitRateUpDown = new System.Windows.Forms.NumericUpDown();
-            this.meleeMonEffectDataGrid = new System.Windows.Forms.DataGridView();
-            this.monEffectDataPermanentCheckbox = new System.Windows.Forms.CheckBox();
-            this.monEffectDataAffectHitBpCheckBox = new System.Windows.Forms.CheckBox();
-            this.monEffectDataIdComboBox = new System.Windows.Forms.ComboBox();
-            this.monEffectDataDurationUpDown = new System.Windows.Forms.NumericUpDown();
-            this.monEffectDataBodyPartComboBox = new System.Windows.Forms.ComboBox();
-            this.monEffectDataChanceUpDown = new System.Windows.Forms.NumericUpDown();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.effectDataIdColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.effectDataDurationColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.affectHitBpColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.effectDataBodyPartColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.effectDataPermanentColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.effectDataChanceColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.biteNoInfectionChanceUpDown = new System.Windows.Forms.NumericUpDown();
-            this.biteNoInfectionChanceLabel = new System.Windows.Forms.Label();
-            this.moneEffectDataAddButton = new System.Windows.Forms.Button();
+            this.meleeNoDamageLabel = new System.Windows.Forms.Label();
+            this.meleeMissMessage = new System.Windows.Forms.Label();
+            this.meleeHitLabel = new System.Windows.Forms.Label();
+            this.meleeYouMessageLabel = new System.Windows.Forms.Label();
+            this.meleeNpcLabel = new System.Windows.Forms.Label();
+            this.meleeHitDmgUMessageTextBox = new System.Windows.Forms.TextBox();
+            this.meleeMissNpcMessageTextBox = new System.Windows.Forms.TextBox();
+            this.meleeMissUMessageTextBox = new System.Windows.Forms.TextBox();
+            this.meleeNoDmgUMessageTextBox = new System.Windows.Forms.TextBox();
+            this.meleeNoDmgNpcMessageTextBox = new System.Windows.Forms.TextBox();
+            this.meleeHitDmgNpcMessageTextBox = new System.Windows.Forms.TextBox();
             this.gunPanel = new System.Windows.Forms.Panel();
-            this.gunTypeComboBox = new System.Windows.Forms.ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.ammoTypeComboBox = new System.Windows.Forms.ComboBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.gunFakeDexUpDown = new System.Windows.Forms.NumericUpDown();
-            this.gunFakeIntUpDown = new System.Windows.Forms.NumericUpDown();
-            this.gunFakePerUpDown = new System.Windows.Forms.NumericUpDown();
-            this.gunFakeStrUpDown = new System.Windows.Forms.NumericUpDown();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.gunMaxAmmoUpDown = new System.Windows.Forms.NumericUpDown();
-            this.label12 = new System.Windows.Forms.Label();
-            this.gunMoveCostUpDown = new System.Windows.Forms.NumericUpDown();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.gunRangeMaxUpDown = new System.Windows.Forms.NumericUpDown();
+            this.gunRangeMinUpDown = new System.Windows.Forms.NumericUpDown();
+            this.rangesDataGrid = new System.Windows.Forms.DataGridView();
+            this.gunRangeMinColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gunRangeMaxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gunRangeTypeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label13 = new System.Windows.Forms.Label();
+            this.gunMoveCostUpDown = new System.Windows.Forms.NumericUpDown();
+            this.label12 = new System.Windows.Forms.Label();
+            this.gunMaxAmmoUpDown = new System.Windows.Forms.NumericUpDown();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.gunFakeStrUpDown = new System.Windows.Forms.NumericUpDown();
+            this.gunFakePerUpDown = new System.Windows.Forms.NumericUpDown();
+            this.gunFakeIntUpDown = new System.Windows.Forms.NumericUpDown();
+            this.gunFakeDexUpDown = new System.Windows.Forms.NumericUpDown();
+            this.label7 = new System.Windows.Forms.Label();
+            this.ammoTypeComboBox = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.gunTypeComboBox = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.cooldownUpDown)).BeginInit();
             this.spellPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.spellLevelUpDown)).BeginInit();
             this.leapPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.leapMinRangeUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.leapMaxRangeUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.leapMoveCostUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.leapMaxConsiderRangeUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.leapMinConsiderRangeUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.leapMoveCostUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.leapMaxRangeUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.leapMinRangeUpDown)).BeginInit();
             this.meleePanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.biteNoInfectionChanceUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.monEffectDataChanceUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.monEffectDataDurationUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.meleeMonEffectDataGrid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bodyPartHitRateUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bodyPartsDataGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.damageInstanceDamageMultiplierUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.damageInstanceArmorMultiplierUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.damageInstanceAmountUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.damageInstanceArmorPenetrationUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.damageInstanceDataGrid)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bodyPartsDataGrid)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bodyPartHitRateUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.meleeMonEffectDataGrid)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.monEffectDataDurationUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.monEffectDataChanceUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.biteNoInfectionChanceUpDown)).BeginInit();
             this.gunPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gunFakeDexUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gunFakeIntUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gunFakePerUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gunFakeStrUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gunMaxAmmoUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gunRangeMaxUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gunRangeMinUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rangesDataGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gunMoveCostUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gunMaxAmmoUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gunFakeStrUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gunFakePerUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gunFakeIntUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gunFakeDexUpDown)).BeginInit();
             this.SuspendLayout();
             // 
             // mattackTypeCombobox
@@ -170,7 +180,6 @@
             "hardcoded",
             "bite",
             "melee",
-            "gun",
             "leap",
             "spell"});
             this.mattackTypeCombobox.Location = new System.Drawing.Point(12, 66);
@@ -270,6 +279,69 @@
             this.spellPanel.Size = new System.Drawing.Size(200, 174);
             this.spellPanel.TabIndex = 8;
             // 
+            // spellMessageInfoLabel
+            // 
+            this.spellMessageInfoLabel.AutoSize = true;
+            this.spellMessageInfoLabel.Location = new System.Drawing.Point(13, 121);
+            this.spellMessageInfoLabel.MaximumSize = new System.Drawing.Size(175, 0);
+            this.spellMessageInfoLabel.Name = "spellMessageInfoLabel";
+            this.spellMessageInfoLabel.Size = new System.Drawing.Size(146, 39);
+            this.spellMessageInfoLabel.TabIndex = 14;
+            this.spellMessageInfoLabel.Text = "%1$s: The caster of the spell.\r\n%2$s: The name of the spell.\r\n%3$s: The creature " +
+    "targeted.";
+            // 
+            // spellMessageLabel
+            // 
+            this.spellMessageLabel.AutoSize = true;
+            this.spellMessageLabel.Location = new System.Drawing.Point(13, 83);
+            this.spellMessageLabel.Name = "spellMessageLabel";
+            this.spellMessageLabel.Size = new System.Drawing.Size(76, 13);
+            this.spellMessageLabel.TabIndex = 13;
+            this.spellMessageLabel.Text = "Spell Message";
+            // 
+            // spellMessageTextBox
+            // 
+            this.spellMessageTextBox.Location = new System.Drawing.Point(9, 98);
+            this.spellMessageTextBox.Name = "spellMessageTextBox";
+            this.spellMessageTextBox.Size = new System.Drawing.Size(180, 20);
+            this.spellMessageTextBox.TabIndex = 12;
+            this.spellMessageTextBox.Text = "%1$s casts %2$s at %3$s!";
+            // 
+            // spellLevelUpDown
+            // 
+            this.spellLevelUpDown.Location = new System.Drawing.Point(135, 32);
+            this.spellLevelUpDown.Name = "spellLevelUpDown";
+            this.spellLevelUpDown.Size = new System.Drawing.Size(45, 20);
+            this.spellLevelUpDown.TabIndex = 11;
+            // 
+            // spellLevelLabel
+            // 
+            this.spellLevelLabel.AutoSize = true;
+            this.spellLevelLabel.Location = new System.Drawing.Point(139, 16);
+            this.spellLevelLabel.Name = "spellLevelLabel";
+            this.spellLevelLabel.Size = new System.Drawing.Size(33, 13);
+            this.spellLevelLabel.TabIndex = 10;
+            this.spellLevelLabel.Text = "Level";
+            // 
+            // spellSelfCheckBox
+            // 
+            this.spellSelfCheckBox.AutoSize = true;
+            this.spellSelfCheckBox.Location = new System.Drawing.Point(16, 58);
+            this.spellSelfCheckBox.Name = "spellSelfCheckBox";
+            this.spellSelfCheckBox.Size = new System.Drawing.Size(78, 17);
+            this.spellSelfCheckBox.TabIndex = 9;
+            this.spellSelfCheckBox.Text = "Target Self";
+            this.spellSelfCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // spellIdLabel
+            // 
+            this.spellIdLabel.AutoSize = true;
+            this.spellIdLabel.Location = new System.Drawing.Point(19, 12);
+            this.spellIdLabel.Name = "spellIdLabel";
+            this.spellIdLabel.Size = new System.Drawing.Size(41, 13);
+            this.spellIdLabel.TabIndex = 9;
+            this.spellIdLabel.Text = "Spell id";
+            // 
             // spellIdComboBox
             // 
             this.spellIdComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -286,69 +358,6 @@
             this.spellIdComboBox.Size = new System.Drawing.Size(120, 21);
             this.spellIdComboBox.Sorted = true;
             this.spellIdComboBox.TabIndex = 9;
-            // 
-            // spellIdLabel
-            // 
-            this.spellIdLabel.AutoSize = true;
-            this.spellIdLabel.Location = new System.Drawing.Point(19, 12);
-            this.spellIdLabel.Name = "spellIdLabel";
-            this.spellIdLabel.Size = new System.Drawing.Size(41, 13);
-            this.spellIdLabel.TabIndex = 9;
-            this.spellIdLabel.Text = "Spell id";
-            // 
-            // spellSelfCheckBox
-            // 
-            this.spellSelfCheckBox.AutoSize = true;
-            this.spellSelfCheckBox.Location = new System.Drawing.Point(16, 58);
-            this.spellSelfCheckBox.Name = "spellSelfCheckBox";
-            this.spellSelfCheckBox.Size = new System.Drawing.Size(78, 17);
-            this.spellSelfCheckBox.TabIndex = 9;
-            this.spellSelfCheckBox.Text = "Target Self";
-            this.spellSelfCheckBox.UseVisualStyleBackColor = true;
-            // 
-            // spellLevelLabel
-            // 
-            this.spellLevelLabel.AutoSize = true;
-            this.spellLevelLabel.Location = new System.Drawing.Point(139, 16);
-            this.spellLevelLabel.Name = "spellLevelLabel";
-            this.spellLevelLabel.Size = new System.Drawing.Size(33, 13);
-            this.spellLevelLabel.TabIndex = 10;
-            this.spellLevelLabel.Text = "Level";
-            // 
-            // spellLevelUpDown
-            // 
-            this.spellLevelUpDown.Location = new System.Drawing.Point(135, 32);
-            this.spellLevelUpDown.Name = "spellLevelUpDown";
-            this.spellLevelUpDown.Size = new System.Drawing.Size(45, 20);
-            this.spellLevelUpDown.TabIndex = 11;
-            // 
-            // spellMessageTextBox
-            // 
-            this.spellMessageTextBox.Location = new System.Drawing.Point(9, 98);
-            this.spellMessageTextBox.Name = "spellMessageTextBox";
-            this.spellMessageTextBox.Size = new System.Drawing.Size(180, 20);
-            this.spellMessageTextBox.TabIndex = 12;
-            this.spellMessageTextBox.Text = "%1$s casts %2$s at %3$s!";
-            // 
-            // spellMessageLabel
-            // 
-            this.spellMessageLabel.AutoSize = true;
-            this.spellMessageLabel.Location = new System.Drawing.Point(13, 83);
-            this.spellMessageLabel.Name = "spellMessageLabel";
-            this.spellMessageLabel.Size = new System.Drawing.Size(76, 13);
-            this.spellMessageLabel.TabIndex = 13;
-            this.spellMessageLabel.Text = "Spell Message";
-            // 
-            // spellMessageInfoLabel
-            // 
-            this.spellMessageInfoLabel.AutoSize = true;
-            this.spellMessageInfoLabel.Location = new System.Drawing.Point(13, 121);
-            this.spellMessageInfoLabel.MaximumSize = new System.Drawing.Size(175, 0);
-            this.spellMessageInfoLabel.Name = "spellMessageInfoLabel";
-            this.spellMessageInfoLabel.Size = new System.Drawing.Size(146, 39);
-            this.spellMessageInfoLabel.TabIndex = 14;
-            this.spellMessageInfoLabel.Text = "%1$s: The caster of the spell.\r\n%2$s: The name of the spell.\r\n%3$s: The creature " +
-    "targeted.";
             // 
             // leapPanel
             // 
@@ -368,47 +377,26 @@
             this.leapPanel.Size = new System.Drawing.Size(196, 143);
             this.leapPanel.TabIndex = 9;
             // 
-            // leapMinRangeUpDown
+            // leapMoveCostLabel
             // 
-            this.leapMinRangeUpDown.Location = new System.Drawing.Point(14, 30);
-            this.leapMinRangeUpDown.Name = "leapMinRangeUpDown";
-            this.leapMinRangeUpDown.Size = new System.Drawing.Size(56, 20);
-            this.leapMinRangeUpDown.TabIndex = 0;
+            this.leapMoveCostLabel.AutoSize = true;
+            this.leapMoveCostLabel.Location = new System.Drawing.Point(12, 96);
+            this.leapMoveCostLabel.Name = "leapMoveCostLabel";
+            this.leapMoveCostLabel.Size = new System.Drawing.Size(58, 13);
+            this.leapMoveCostLabel.TabIndex = 10;
+            this.leapMoveCostLabel.Text = "Move Cost";
             // 
-            // leapMaxRangeUpDown
+            // leapMoveCostUpDown
             // 
-            this.leapMaxRangeUpDown.Location = new System.Drawing.Point(14, 73);
-            this.leapMaxRangeUpDown.Name = "leapMaxRangeUpDown";
-            this.leapMaxRangeUpDown.Size = new System.Drawing.Size(56, 20);
-            this.leapMaxRangeUpDown.TabIndex = 1;
-            // 
-            // leapMaxRangeLabel
-            // 
-            this.leapMaxRangeLabel.AutoSize = true;
-            this.leapMaxRangeLabel.Location = new System.Drawing.Point(14, 54);
-            this.leapMaxRangeLabel.Name = "leapMaxRangeLabel";
-            this.leapMaxRangeLabel.Size = new System.Drawing.Size(62, 13);
-            this.leapMaxRangeLabel.TabIndex = 2;
-            this.leapMaxRangeLabel.Text = "Max Range";
-            // 
-            // leapMinRangeLabel
-            // 
-            this.leapMinRangeLabel.AutoSize = true;
-            this.leapMinRangeLabel.Location = new System.Drawing.Point(11, 14);
-            this.leapMinRangeLabel.Name = "leapMinRangeLabel";
-            this.leapMinRangeLabel.Size = new System.Drawing.Size(59, 13);
-            this.leapMinRangeLabel.TabIndex = 3;
-            this.leapMinRangeLabel.Text = "Min Range";
-            // 
-            // leapAllowNoTargetCheckBox
-            // 
-            this.leapAllowNoTargetCheckBox.AutoSize = true;
-            this.leapAllowNoTargetCheckBox.Location = new System.Drawing.Point(86, 25);
-            this.leapAllowNoTargetCheckBox.Name = "leapAllowNoTargetCheckBox";
-            this.leapAllowNoTargetCheckBox.Size = new System.Drawing.Size(102, 17);
-            this.leapAllowNoTargetCheckBox.TabIndex = 4;
-            this.leapAllowNoTargetCheckBox.Text = "Allow No Target";
-            this.leapAllowNoTargetCheckBox.UseVisualStyleBackColor = true;
+            this.leapMoveCostUpDown.Location = new System.Drawing.Point(14, 111);
+            this.leapMoveCostUpDown.Maximum = new decimal(new int[] {
+            999999,
+            0,
+            0,
+            0});
+            this.leapMoveCostUpDown.Name = "leapMoveCostUpDown";
+            this.leapMoveCostUpDown.Size = new System.Drawing.Size(56, 20);
+            this.leapMoveCostUpDown.TabIndex = 9;
             // 
             // leapMinConsiderRangeLabel
             // 
@@ -442,26 +430,47 @@
             this.leapMinConsiderRangeUpDown.Size = new System.Drawing.Size(56, 20);
             this.leapMinConsiderRangeUpDown.TabIndex = 5;
             // 
-            // leapMoveCostUpDown
+            // leapAllowNoTargetCheckBox
             // 
-            this.leapMoveCostUpDown.Location = new System.Drawing.Point(14, 111);
-            this.leapMoveCostUpDown.Maximum = new decimal(new int[] {
-            999999,
-            0,
-            0,
-            0});
-            this.leapMoveCostUpDown.Name = "leapMoveCostUpDown";
-            this.leapMoveCostUpDown.Size = new System.Drawing.Size(56, 20);
-            this.leapMoveCostUpDown.TabIndex = 9;
+            this.leapAllowNoTargetCheckBox.AutoSize = true;
+            this.leapAllowNoTargetCheckBox.Location = new System.Drawing.Point(86, 25);
+            this.leapAllowNoTargetCheckBox.Name = "leapAllowNoTargetCheckBox";
+            this.leapAllowNoTargetCheckBox.Size = new System.Drawing.Size(102, 17);
+            this.leapAllowNoTargetCheckBox.TabIndex = 4;
+            this.leapAllowNoTargetCheckBox.Text = "Allow No Target";
+            this.leapAllowNoTargetCheckBox.UseVisualStyleBackColor = true;
             // 
-            // leapMoveCostLabel
+            // leapMinRangeLabel
             // 
-            this.leapMoveCostLabel.AutoSize = true;
-            this.leapMoveCostLabel.Location = new System.Drawing.Point(12, 96);
-            this.leapMoveCostLabel.Name = "leapMoveCostLabel";
-            this.leapMoveCostLabel.Size = new System.Drawing.Size(58, 13);
-            this.leapMoveCostLabel.TabIndex = 10;
-            this.leapMoveCostLabel.Text = "Move Cost";
+            this.leapMinRangeLabel.AutoSize = true;
+            this.leapMinRangeLabel.Location = new System.Drawing.Point(11, 14);
+            this.leapMinRangeLabel.Name = "leapMinRangeLabel";
+            this.leapMinRangeLabel.Size = new System.Drawing.Size(59, 13);
+            this.leapMinRangeLabel.TabIndex = 3;
+            this.leapMinRangeLabel.Text = "Min Range";
+            // 
+            // leapMaxRangeLabel
+            // 
+            this.leapMaxRangeLabel.AutoSize = true;
+            this.leapMaxRangeLabel.Location = new System.Drawing.Point(14, 54);
+            this.leapMaxRangeLabel.Name = "leapMaxRangeLabel";
+            this.leapMaxRangeLabel.Size = new System.Drawing.Size(62, 13);
+            this.leapMaxRangeLabel.TabIndex = 2;
+            this.leapMaxRangeLabel.Text = "Max Range";
+            // 
+            // leapMaxRangeUpDown
+            // 
+            this.leapMaxRangeUpDown.Location = new System.Drawing.Point(14, 73);
+            this.leapMaxRangeUpDown.Name = "leapMaxRangeUpDown";
+            this.leapMaxRangeUpDown.Size = new System.Drawing.Size(56, 20);
+            this.leapMaxRangeUpDown.TabIndex = 1;
+            // 
+            // leapMinRangeUpDown
+            // 
+            this.leapMinRangeUpDown.Location = new System.Drawing.Point(14, 30);
+            this.leapMinRangeUpDown.Name = "leapMinRangeUpDown";
+            this.leapMinRangeUpDown.Size = new System.Drawing.Size(56, 20);
+            this.leapMinRangeUpDown.TabIndex = 0;
             // 
             // meleePanel
             // 
@@ -511,104 +520,370 @@
             this.meleePanel.Size = new System.Drawing.Size(442, 755);
             this.meleePanel.TabIndex = 10;
             // 
-            // meleeHitDmgNpcMessageTextBox
+            // moneEffectDataAddButton
             // 
-            this.meleeHitDmgNpcMessageTextBox.Location = new System.Drawing.Point(253, 27);
-            this.meleeHitDmgNpcMessageTextBox.Multiline = true;
-            this.meleeHitDmgNpcMessageTextBox.Name = "meleeHitDmgNpcMessageTextBox";
-            this.meleeHitDmgNpcMessageTextBox.Size = new System.Drawing.Size(166, 40);
-            this.meleeHitDmgNpcMessageTextBox.TabIndex = 0;
-            this.meleeHitDmgNpcMessageTextBox.Text = "The %1$s bites <npcname>\'s %2$s!";
+            this.moneEffectDataAddButton.Location = new System.Drawing.Point(377, 542);
+            this.moneEffectDataAddButton.Name = "moneEffectDataAddButton";
+            this.moneEffectDataAddButton.Size = new System.Drawing.Size(58, 23);
+            this.moneEffectDataAddButton.TabIndex = 111;
+            this.moneEffectDataAddButton.Text = "Add";
+            this.moneEffectDataAddButton.UseVisualStyleBackColor = true;
+            this.moneEffectDataAddButton.Click += new System.EventHandler(this.moneEffectDataAddButton_Click);
             // 
-            // meleeNoDmgNpcMessageTextBox
+            // biteNoInfectionChanceLabel
             // 
-            this.meleeNoDmgNpcMessageTextBox.Location = new System.Drawing.Point(252, 118);
-            this.meleeNoDmgNpcMessageTextBox.Multiline = true;
-            this.meleeNoDmgNpcMessageTextBox.Name = "meleeNoDmgNpcMessageTextBox";
-            this.meleeNoDmgNpcMessageTextBox.Size = new System.Drawing.Size(166, 40);
-            this.meleeNoDmgNpcMessageTextBox.TabIndex = 1;
-            this.meleeNoDmgNpcMessageTextBox.Text = "The %1$s bites <npcname>\'s %2$s!";
+            this.biteNoInfectionChanceLabel.AutoSize = true;
+            this.biteNoInfectionChanceLabel.Location = new System.Drawing.Point(277, 436);
+            this.biteNoInfectionChanceLabel.Name = "biteNoInfectionChanceLabel";
+            this.biteNoInfectionChanceLabel.Size = new System.Drawing.Size(65, 26);
+            this.biteNoInfectionChanceLabel.TabIndex = 110;
+            this.biteNoInfectionChanceLabel.Text = "No Infection\r\nChance";
             // 
-            // meleeNoDmgUMessageTextBox
+            // biteNoInfectionChanceUpDown
             // 
-            this.meleeNoDmgUMessageTextBox.Location = new System.Drawing.Point(81, 118);
-            this.meleeNoDmgUMessageTextBox.Multiline = true;
-            this.meleeNoDmgUMessageTextBox.Name = "meleeNoDmgUMessageTextBox";
-            this.meleeNoDmgUMessageTextBox.Size = new System.Drawing.Size(166, 40);
-            this.meleeNoDmgUMessageTextBox.TabIndex = 2;
-            this.meleeNoDmgUMessageTextBox.Text = "The %1$s bites your %2$s, but fails to penetrate armor!";
+            this.biteNoInfectionChanceUpDown.Location = new System.Drawing.Point(344, 438);
+            this.biteNoInfectionChanceUpDown.Maximum = new decimal(new int[] {
+            99999,
+            0,
+            0,
+            0});
+            this.biteNoInfectionChanceUpDown.Name = "biteNoInfectionChanceUpDown";
+            this.biteNoInfectionChanceUpDown.Size = new System.Drawing.Size(62, 20);
+            this.biteNoInfectionChanceUpDown.TabIndex = 109;
+            this.biteNoInfectionChanceUpDown.Value = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
             // 
-            // meleeMissUMessageTextBox
+            // label5
             // 
-            this.meleeMissUMessageTextBox.Location = new System.Drawing.Point(81, 72);
-            this.meleeMissUMessageTextBox.Multiline = true;
-            this.meleeMissUMessageTextBox.Name = "meleeMissUMessageTextBox";
-            this.meleeMissUMessageTextBox.Size = new System.Drawing.Size(166, 40);
-            this.meleeMissUMessageTextBox.TabIndex = 3;
-            this.meleeMissUMessageTextBox.Text = "The %s lunges at you, but you dodge!";
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(284, 413);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(58, 13);
+            this.label5.TabIndex = 108;
+            this.label5.Text = "Move Cost";
             // 
-            // meleeMissNpcMessageTextBox
+            // label4
             // 
-            this.meleeMissNpcMessageTextBox.Location = new System.Drawing.Point(252, 72);
-            this.meleeMissNpcMessageTextBox.Multiline = true;
-            this.meleeMissNpcMessageTextBox.Name = "meleeMissNpcMessageTextBox";
-            this.meleeMissNpcMessageTextBox.Size = new System.Drawing.Size(166, 40);
-            this.meleeMissNpcMessageTextBox.TabIndex = 4;
-            this.meleeMissNpcMessageTextBox.Text = "The %s lunges at <npcname>, but they dodge!";
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(295, 386);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(47, 13);
+            this.label4.TabIndex = 107;
+            this.label4.Text = "Max Mul";
             // 
-            // meleeHitDmgUMessageTextBox
+            // label3
             // 
-            this.meleeHitDmgUMessageTextBox.Location = new System.Drawing.Point(81, 27);
-            this.meleeHitDmgUMessageTextBox.Multiline = true;
-            this.meleeHitDmgUMessageTextBox.Name = "meleeHitDmgUMessageTextBox";
-            this.meleeHitDmgUMessageTextBox.Size = new System.Drawing.Size(166, 40);
-            this.meleeHitDmgUMessageTextBox.TabIndex = 5;
-            this.meleeHitDmgUMessageTextBox.Text = "The %1$s bites your %2$s!";
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(298, 359);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(44, 13);
+            this.label3.TabIndex = 106;
+            this.label3.Text = "Min Mul";
             // 
-            // meleeNpcLabel
+            // numericUpDown3
             // 
-            this.meleeNpcLabel.AutoSize = true;
-            this.meleeNpcLabel.Location = new System.Drawing.Point(286, 8);
-            this.meleeNpcLabel.Name = "meleeNpcLabel";
-            this.meleeNpcLabel.Size = new System.Drawing.Size(75, 13);
-            this.meleeNpcLabel.TabIndex = 6;
-            this.meleeNpcLabel.Text = "NPC Message";
+            this.numericUpDown3.Location = new System.Drawing.Point(344, 410);
+            this.numericUpDown3.Maximum = new decimal(new int[] {
+            99999,
+            0,
+            0,
+            0});
+            this.numericUpDown3.Name = "numericUpDown3";
+            this.numericUpDown3.Size = new System.Drawing.Size(62, 20);
+            this.numericUpDown3.TabIndex = 105;
+            this.numericUpDown3.Value = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
             // 
-            // meleeYouMessageLabel
+            // numericUpDown2
             // 
-            this.meleeYouMessageLabel.AutoSize = true;
-            this.meleeYouMessageLabel.Location = new System.Drawing.Point(115, 8);
-            this.meleeYouMessageLabel.Name = "meleeYouMessageLabel";
-            this.meleeYouMessageLabel.Size = new System.Drawing.Size(72, 13);
-            this.meleeYouMessageLabel.TabIndex = 7;
-            this.meleeYouMessageLabel.Text = "You Message";
+            this.numericUpDown2.DecimalPlaces = 3;
+            this.numericUpDown2.Increment = new decimal(new int[] {
+            5,
+            0,
+            0,
+            131072});
+            this.numericUpDown2.Location = new System.Drawing.Point(344, 384);
+            this.numericUpDown2.Maximum = new decimal(new int[] {
+            99999,
+            0,
+            0,
+            0});
+            this.numericUpDown2.Name = "numericUpDown2";
+            this.numericUpDown2.Size = new System.Drawing.Size(62, 20);
+            this.numericUpDown2.TabIndex = 104;
+            this.numericUpDown2.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
-            // meleeHitLabel
+            // numericUpDown1
             // 
-            this.meleeHitLabel.AutoSize = true;
-            this.meleeHitLabel.Location = new System.Drawing.Point(35, 27);
-            this.meleeHitLabel.Name = "meleeHitLabel";
-            this.meleeHitLabel.Size = new System.Drawing.Size(20, 13);
-            this.meleeHitLabel.TabIndex = 8;
-            this.meleeHitLabel.Text = "Hit";
+            this.numericUpDown1.DecimalPlaces = 3;
+            this.numericUpDown1.Increment = new decimal(new int[] {
+            5,
+            0,
+            0,
+            131072});
+            this.numericUpDown1.Location = new System.Drawing.Point(344, 356);
+            this.numericUpDown1.Maximum = new decimal(new int[] {
+            99999,
+            0,
+            0,
+            0});
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(62, 20);
+            this.numericUpDown1.TabIndex = 103;
             // 
-            // meleeMissMessage
+            // label2
             // 
-            this.meleeMissMessage.AutoSize = true;
-            this.meleeMissMessage.Location = new System.Drawing.Point(27, 69);
-            this.meleeMissMessage.Name = "meleeMissMessage";
-            this.meleeMissMessage.Size = new System.Drawing.Size(28, 13);
-            this.meleeMissMessage.TabIndex = 9;
-            this.meleeMissMessage.Text = "Miss";
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(34, 333);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(96, 20);
+            this.label2.TabIndex = 102;
+            this.label2.Text = "Body Parts";
             // 
-            // meleeNoDamageLabel
+            // label1
             // 
-            this.meleeNoDamageLabel.AutoSize = true;
-            this.meleeNoDamageLabel.Location = new System.Drawing.Point(11, 121);
-            this.meleeNoDamageLabel.Name = "meleeNoDamageLabel";
-            this.meleeNoDamageLabel.Size = new System.Drawing.Size(64, 13);
-            this.meleeNoDamageLabel.TabIndex = 10;
-            this.meleeNoDamageLabel.Text = "No Damage";
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(40, 545);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(67, 20);
+            this.label1.TabIndex = 101;
+            this.label1.Text = "Effects";
+            // 
+            // monEffectDataChanceUpDown
+            // 
+            this.monEffectDataChanceUpDown.Location = new System.Drawing.Point(377, 568);
+            this.monEffectDataChanceUpDown.Maximum = new decimal(new int[] {
+            99999,
+            0,
+            0,
+            0});
+            this.monEffectDataChanceUpDown.Name = "monEffectDataChanceUpDown";
+            this.monEffectDataChanceUpDown.Size = new System.Drawing.Size(58, 20);
+            this.monEffectDataChanceUpDown.TabIndex = 100;
+            // 
+            // monEffectDataBodyPartComboBox
+            // 
+            this.monEffectDataBodyPartComboBox.AutoCompleteCustomSource.AddRange(new string[] {
+            "true",
+            "biological",
+            "bash",
+            "cut",
+            "acid",
+            "stab",
+            "heat",
+            "cold",
+            "electric"});
+            this.monEffectDataBodyPartComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.monEffectDataBodyPartComboBox.Location = new System.Drawing.Point(206, 568);
+            this.monEffectDataBodyPartComboBox.Name = "monEffectDataBodyPartComboBox";
+            this.monEffectDataBodyPartComboBox.Size = new System.Drawing.Size(86, 21);
+            this.monEffectDataBodyPartComboBox.TabIndex = 99;
+            // 
+            // monEffectDataDurationUpDown
+            // 
+            this.monEffectDataDurationUpDown.Location = new System.Drawing.Point(118, 568);
+            this.monEffectDataDurationUpDown.Maximum = new decimal(new int[] {
+            99999,
+            0,
+            0,
+            0});
+            this.monEffectDataDurationUpDown.Name = "monEffectDataDurationUpDown";
+            this.monEffectDataDurationUpDown.Size = new System.Drawing.Size(58, 20);
+            this.monEffectDataDurationUpDown.TabIndex = 98;
+            // 
+            // monEffectDataIdComboBox
+            // 
+            this.monEffectDataIdComboBox.AutoCompleteCustomSource.AddRange(new string[] {
+            "true",
+            "biological",
+            "bash",
+            "cut",
+            "acid",
+            "stab",
+            "heat",
+            "cold",
+            "electric"});
+            this.monEffectDataIdComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.monEffectDataIdComboBox.Location = new System.Drawing.Point(3, 568);
+            this.monEffectDataIdComboBox.Name = "monEffectDataIdComboBox";
+            this.monEffectDataIdComboBox.Size = new System.Drawing.Size(108, 21);
+            this.monEffectDataIdComboBox.Sorted = true;
+            this.monEffectDataIdComboBox.TabIndex = 97;
+            // 
+            // monEffectDataAffectHitBpCheckBox
+            // 
+            this.monEffectDataAffectHitBpCheckBox.AutoSize = true;
+            this.monEffectDataAffectHitBpCheckBox.Location = new System.Drawing.Point(185, 575);
+            this.monEffectDataAffectHitBpCheckBox.Name = "monEffectDataAffectHitBpCheckBox";
+            this.monEffectDataAffectHitBpCheckBox.Size = new System.Drawing.Size(15, 14);
+            this.monEffectDataAffectHitBpCheckBox.TabIndex = 96;
+            this.monEffectDataAffectHitBpCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // monEffectDataPermanentCheckbox
+            // 
+            this.monEffectDataPermanentCheckbox.AutoSize = true;
+            this.monEffectDataPermanentCheckbox.Location = new System.Drawing.Point(319, 575);
+            this.monEffectDataPermanentCheckbox.Name = "monEffectDataPermanentCheckbox";
+            this.monEffectDataPermanentCheckbox.Size = new System.Drawing.Size(15, 14);
+            this.monEffectDataPermanentCheckbox.TabIndex = 95;
+            this.monEffectDataPermanentCheckbox.UseVisualStyleBackColor = true;
+            // 
+            // meleeMonEffectDataGrid
+            // 
+            this.meleeMonEffectDataGrid.AllowUserToAddRows = false;
+            this.meleeMonEffectDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.meleeMonEffectDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.effectDataIdColumn,
+            this.effectDataDurationColumn,
+            this.affectHitBpColumn,
+            this.effectDataBodyPartColumn,
+            this.effectDataPermanentColumn,
+            this.effectDataChanceColumn});
+            this.meleeMonEffectDataGrid.Location = new System.Drawing.Point(3, 595);
+            this.meleeMonEffectDataGrid.Name = "meleeMonEffectDataGrid";
+            this.meleeMonEffectDataGrid.ReadOnly = true;
+            this.meleeMonEffectDataGrid.RowHeadersWidth = 10;
+            this.meleeMonEffectDataGrid.Size = new System.Drawing.Size(436, 150);
+            this.meleeMonEffectDataGrid.TabIndex = 94;
+            // 
+            // effectDataIdColumn
+            // 
+            this.effectDataIdColumn.HeaderText = "Effect Id";
+            this.effectDataIdColumn.Name = "effectDataIdColumn";
+            this.effectDataIdColumn.ReadOnly = true;
+            // 
+            // effectDataDurationColumn
+            // 
+            this.effectDataDurationColumn.HeaderText = "Duration";
+            this.effectDataDurationColumn.Name = "effectDataDurationColumn";
+            this.effectDataDurationColumn.ReadOnly = true;
+            this.effectDataDurationColumn.Width = 55;
+            // 
+            // affectHitBpColumn
+            // 
+            this.affectHitBpColumn.HeaderText = "Affect Hit BP?";
+            this.affectHitBpColumn.Name = "affectHitBpColumn";
+            this.affectHitBpColumn.ReadOnly = true;
+            this.affectHitBpColumn.Width = 40;
+            // 
+            // effectDataBodyPartColumn
+            // 
+            this.effectDataBodyPartColumn.HeaderText = "Body Part";
+            this.effectDataBodyPartColumn.Name = "effectDataBodyPartColumn";
+            this.effectDataBodyPartColumn.ReadOnly = true;
+            // 
+            // effectDataPermanentColumn
+            // 
+            this.effectDataPermanentColumn.HeaderText = "Permanent?";
+            this.effectDataPermanentColumn.Name = "effectDataPermanentColumn";
+            this.effectDataPermanentColumn.ReadOnly = true;
+            this.effectDataPermanentColumn.Width = 70;
+            // 
+            // effectDataChanceColumn
+            // 
+            this.effectDataChanceColumn.HeaderText = "Chance";
+            this.effectDataChanceColumn.Name = "effectDataChanceColumn";
+            this.effectDataChanceColumn.ReadOnly = true;
+            this.effectDataChanceColumn.Width = 50;
+            // 
+            // bodyPartHitRateUpDown
+            // 
+            this.bodyPartHitRateUpDown.DecimalPlaces = 3;
+            this.bodyPartHitRateUpDown.Increment = new decimal(new int[] {
+            5,
+            0,
+            0,
+            131072});
+            this.bodyPartHitRateUpDown.Location = new System.Drawing.Point(155, 355);
+            this.bodyPartHitRateUpDown.Maximum = new decimal(new int[] {
+            99999,
+            0,
+            0,
+            0});
+            this.bodyPartHitRateUpDown.Name = "bodyPartHitRateUpDown";
+            this.bodyPartHitRateUpDown.Size = new System.Drawing.Size(62, 20);
+            this.bodyPartHitRateUpDown.TabIndex = 93;
+            this.bodyPartHitRateUpDown.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // meleeBodyPartAddButton
+            // 
+            this.meleeBodyPartAddButton.Location = new System.Drawing.Point(26, 355);
+            this.meleeBodyPartAddButton.Name = "meleeBodyPartAddButton";
+            this.meleeBodyPartAddButton.Size = new System.Drawing.Size(35, 23);
+            this.meleeBodyPartAddButton.TabIndex = 92;
+            this.meleeBodyPartAddButton.Text = "Add";
+            this.meleeBodyPartAddButton.UseVisualStyleBackColor = true;
+            this.meleeBodyPartAddButton.Click += new System.EventHandler(this.meleeBodyPartAddButton_Click);
+            // 
+            // bodyPartComboBox
+            // 
+            this.bodyPartComboBox.AutoCompleteCustomSource.AddRange(new string[] {
+            "true",
+            "biological",
+            "bash",
+            "cut",
+            "acid",
+            "stab",
+            "heat",
+            "cold",
+            "electric"});
+            this.bodyPartComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.bodyPartComboBox.Location = new System.Drawing.Point(63, 356);
+            this.bodyPartComboBox.Name = "bodyPartComboBox";
+            this.bodyPartComboBox.Size = new System.Drawing.Size(86, 21);
+            this.bodyPartComboBox.TabIndex = 91;
+            // 
+            // bodyPartsDataGrid
+            // 
+            this.bodyPartsDataGrid.AllowUserToAddRows = false;
+            this.bodyPartsDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.bodyPartsDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.bodyPartTextBoxColumn,
+            this.bodyPartHitRateColumn});
+            this.bodyPartsDataGrid.Location = new System.Drawing.Point(26, 384);
+            this.bodyPartsDataGrid.Name = "bodyPartsDataGrid";
+            this.bodyPartsDataGrid.ReadOnly = true;
+            this.bodyPartsDataGrid.RowHeadersWidth = 20;
+            this.bodyPartsDataGrid.Size = new System.Drawing.Size(240, 150);
+            this.bodyPartsDataGrid.TabIndex = 90;
+            // 
+            // bodyPartTextBoxColumn
+            // 
+            this.bodyPartTextBoxColumn.HeaderText = "Body Part";
+            this.bodyPartTextBoxColumn.Name = "bodyPartTextBoxColumn";
+            this.bodyPartTextBoxColumn.ReadOnly = true;
+            // 
+            // bodyPartHitRateColumn
+            // 
+            this.bodyPartHitRateColumn.HeaderText = "Hit Rate";
+            this.bodyPartHitRateColumn.Name = "bodyPartHitRateColumn";
+            this.bodyPartHitRateColumn.ReadOnly = true;
+            // 
+            // damageInstanceLabel
+            // 
+            this.damageInstanceLabel.AutoSize = true;
+            this.damageInstanceLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.damageInstanceLabel.Location = new System.Drawing.Point(50, 160);
+            this.damageInstanceLabel.Name = "damageInstanceLabel";
+            this.damageInstanceLabel.Size = new System.Drawing.Size(188, 20);
+            this.damageInstanceLabel.TabIndex = 89;
+            this.damageInstanceLabel.Text = "Damage Max Instance";
             // 
             // damageInstanceAddButton
             // 
@@ -769,373 +1044,111 @@
             this.DamageMultiplier.ReadOnly = true;
             this.DamageMultiplier.Width = 65;
             // 
-            // damageInstanceLabel
+            // meleeNoDamageLabel
             // 
-            this.damageInstanceLabel.AutoSize = true;
-            this.damageInstanceLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.damageInstanceLabel.Location = new System.Drawing.Point(50, 160);
-            this.damageInstanceLabel.Name = "damageInstanceLabel";
-            this.damageInstanceLabel.Size = new System.Drawing.Size(188, 20);
-            this.damageInstanceLabel.TabIndex = 89;
-            this.damageInstanceLabel.Text = "Damage Max Instance";
+            this.meleeNoDamageLabel.AutoSize = true;
+            this.meleeNoDamageLabel.Location = new System.Drawing.Point(11, 121);
+            this.meleeNoDamageLabel.Name = "meleeNoDamageLabel";
+            this.meleeNoDamageLabel.Size = new System.Drawing.Size(64, 13);
+            this.meleeNoDamageLabel.TabIndex = 10;
+            this.meleeNoDamageLabel.Text = "No Damage";
             // 
-            // bodyPartsDataGrid
+            // meleeMissMessage
             // 
-            this.bodyPartsDataGrid.AllowUserToAddRows = false;
-            this.bodyPartsDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.bodyPartsDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.bodyPartTextBoxColumn,
-            this.bodyPartHitRateColumn});
-            this.bodyPartsDataGrid.Location = new System.Drawing.Point(26, 384);
-            this.bodyPartsDataGrid.Name = "bodyPartsDataGrid";
-            this.bodyPartsDataGrid.ReadOnly = true;
-            this.bodyPartsDataGrid.RowHeadersWidth = 20;
-            this.bodyPartsDataGrid.Size = new System.Drawing.Size(240, 150);
-            this.bodyPartsDataGrid.TabIndex = 90;
+            this.meleeMissMessage.AutoSize = true;
+            this.meleeMissMessage.Location = new System.Drawing.Point(27, 69);
+            this.meleeMissMessage.Name = "meleeMissMessage";
+            this.meleeMissMessage.Size = new System.Drawing.Size(28, 13);
+            this.meleeMissMessage.TabIndex = 9;
+            this.meleeMissMessage.Text = "Miss";
             // 
-            // bodyPartTextBoxColumn
+            // meleeHitLabel
             // 
-            this.bodyPartTextBoxColumn.HeaderText = "Body Part";
-            this.bodyPartTextBoxColumn.Name = "bodyPartTextBoxColumn";
-            this.bodyPartTextBoxColumn.ReadOnly = true;
+            this.meleeHitLabel.AutoSize = true;
+            this.meleeHitLabel.Location = new System.Drawing.Point(35, 27);
+            this.meleeHitLabel.Name = "meleeHitLabel";
+            this.meleeHitLabel.Size = new System.Drawing.Size(20, 13);
+            this.meleeHitLabel.TabIndex = 8;
+            this.meleeHitLabel.Text = "Hit";
             // 
-            // bodyPartHitRateColumn
+            // meleeYouMessageLabel
             // 
-            this.bodyPartHitRateColumn.HeaderText = "Hit Rate";
-            this.bodyPartHitRateColumn.Name = "bodyPartHitRateColumn";
-            this.bodyPartHitRateColumn.ReadOnly = true;
+            this.meleeYouMessageLabel.AutoSize = true;
+            this.meleeYouMessageLabel.Location = new System.Drawing.Point(115, 8);
+            this.meleeYouMessageLabel.Name = "meleeYouMessageLabel";
+            this.meleeYouMessageLabel.Size = new System.Drawing.Size(72, 13);
+            this.meleeYouMessageLabel.TabIndex = 7;
+            this.meleeYouMessageLabel.Text = "You Message";
             // 
-            // bodyPartComboBox
+            // meleeNpcLabel
             // 
-            this.bodyPartComboBox.AutoCompleteCustomSource.AddRange(new string[] {
-            "true",
-            "biological",
-            "bash",
-            "cut",
-            "acid",
-            "stab",
-            "heat",
-            "cold",
-            "electric"});
-            this.bodyPartComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.bodyPartComboBox.Location = new System.Drawing.Point(63, 356);
-            this.bodyPartComboBox.Name = "bodyPartComboBox";
-            this.bodyPartComboBox.Size = new System.Drawing.Size(86, 21);
-            this.bodyPartComboBox.TabIndex = 91;
+            this.meleeNpcLabel.AutoSize = true;
+            this.meleeNpcLabel.Location = new System.Drawing.Point(286, 8);
+            this.meleeNpcLabel.Name = "meleeNpcLabel";
+            this.meleeNpcLabel.Size = new System.Drawing.Size(75, 13);
+            this.meleeNpcLabel.TabIndex = 6;
+            this.meleeNpcLabel.Text = "NPC Message";
             // 
-            // meleeBodyPartAddButton
+            // meleeHitDmgUMessageTextBox
             // 
-            this.meleeBodyPartAddButton.Location = new System.Drawing.Point(26, 355);
-            this.meleeBodyPartAddButton.Name = "meleeBodyPartAddButton";
-            this.meleeBodyPartAddButton.Size = new System.Drawing.Size(35, 23);
-            this.meleeBodyPartAddButton.TabIndex = 92;
-            this.meleeBodyPartAddButton.Text = "Add";
-            this.meleeBodyPartAddButton.UseVisualStyleBackColor = true;
-            this.meleeBodyPartAddButton.Click += new System.EventHandler(this.meleeBodyPartAddButton_Click);
+            this.meleeHitDmgUMessageTextBox.Location = new System.Drawing.Point(81, 27);
+            this.meleeHitDmgUMessageTextBox.Multiline = true;
+            this.meleeHitDmgUMessageTextBox.Name = "meleeHitDmgUMessageTextBox";
+            this.meleeHitDmgUMessageTextBox.Size = new System.Drawing.Size(166, 40);
+            this.meleeHitDmgUMessageTextBox.TabIndex = 5;
+            this.meleeHitDmgUMessageTextBox.Text = "The %1$s bites your %2$s!";
             // 
-            // bodyPartHitRateUpDown
+            // meleeMissNpcMessageTextBox
             // 
-            this.bodyPartHitRateUpDown.DecimalPlaces = 3;
-            this.bodyPartHitRateUpDown.Increment = new decimal(new int[] {
-            5,
-            0,
-            0,
-            131072});
-            this.bodyPartHitRateUpDown.Location = new System.Drawing.Point(155, 355);
-            this.bodyPartHitRateUpDown.Maximum = new decimal(new int[] {
-            99999,
-            0,
-            0,
-            0});
-            this.bodyPartHitRateUpDown.Name = "bodyPartHitRateUpDown";
-            this.bodyPartHitRateUpDown.Size = new System.Drawing.Size(62, 20);
-            this.bodyPartHitRateUpDown.TabIndex = 93;
-            this.bodyPartHitRateUpDown.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
+            this.meleeMissNpcMessageTextBox.Location = new System.Drawing.Point(252, 72);
+            this.meleeMissNpcMessageTextBox.Multiline = true;
+            this.meleeMissNpcMessageTextBox.Name = "meleeMissNpcMessageTextBox";
+            this.meleeMissNpcMessageTextBox.Size = new System.Drawing.Size(166, 40);
+            this.meleeMissNpcMessageTextBox.TabIndex = 4;
+            this.meleeMissNpcMessageTextBox.Text = "The %s lunges at <npcname>, but they dodge!";
             // 
-            // meleeMonEffectDataGrid
+            // meleeMissUMessageTextBox
             // 
-            this.meleeMonEffectDataGrid.AllowUserToAddRows = false;
-            this.meleeMonEffectDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.meleeMonEffectDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.effectDataIdColumn,
-            this.effectDataDurationColumn,
-            this.affectHitBpColumn,
-            this.effectDataBodyPartColumn,
-            this.effectDataPermanentColumn,
-            this.effectDataChanceColumn});
-            this.meleeMonEffectDataGrid.Location = new System.Drawing.Point(3, 595);
-            this.meleeMonEffectDataGrid.Name = "meleeMonEffectDataGrid";
-            this.meleeMonEffectDataGrid.ReadOnly = true;
-            this.meleeMonEffectDataGrid.RowHeadersWidth = 10;
-            this.meleeMonEffectDataGrid.Size = new System.Drawing.Size(436, 150);
-            this.meleeMonEffectDataGrid.TabIndex = 94;
+            this.meleeMissUMessageTextBox.Location = new System.Drawing.Point(81, 72);
+            this.meleeMissUMessageTextBox.Multiline = true;
+            this.meleeMissUMessageTextBox.Name = "meleeMissUMessageTextBox";
+            this.meleeMissUMessageTextBox.Size = new System.Drawing.Size(166, 40);
+            this.meleeMissUMessageTextBox.TabIndex = 3;
+            this.meleeMissUMessageTextBox.Text = "The %s lunges at you, but you dodge!";
             // 
-            // monEffectDataPermanentCheckbox
+            // meleeNoDmgUMessageTextBox
             // 
-            this.monEffectDataPermanentCheckbox.AutoSize = true;
-            this.monEffectDataPermanentCheckbox.Location = new System.Drawing.Point(319, 575);
-            this.monEffectDataPermanentCheckbox.Name = "monEffectDataPermanentCheckbox";
-            this.monEffectDataPermanentCheckbox.Size = new System.Drawing.Size(15, 14);
-            this.monEffectDataPermanentCheckbox.TabIndex = 95;
-            this.monEffectDataPermanentCheckbox.UseVisualStyleBackColor = true;
+            this.meleeNoDmgUMessageTextBox.Location = new System.Drawing.Point(81, 118);
+            this.meleeNoDmgUMessageTextBox.Multiline = true;
+            this.meleeNoDmgUMessageTextBox.Name = "meleeNoDmgUMessageTextBox";
+            this.meleeNoDmgUMessageTextBox.Size = new System.Drawing.Size(166, 40);
+            this.meleeNoDmgUMessageTextBox.TabIndex = 2;
+            this.meleeNoDmgUMessageTextBox.Text = "The %1$s bites your %2$s, but fails to penetrate armor!";
             // 
-            // monEffectDataAffectHitBpCheckBox
+            // meleeNoDmgNpcMessageTextBox
             // 
-            this.monEffectDataAffectHitBpCheckBox.AutoSize = true;
-            this.monEffectDataAffectHitBpCheckBox.Location = new System.Drawing.Point(185, 575);
-            this.monEffectDataAffectHitBpCheckBox.Name = "monEffectDataAffectHitBpCheckBox";
-            this.monEffectDataAffectHitBpCheckBox.Size = new System.Drawing.Size(15, 14);
-            this.monEffectDataAffectHitBpCheckBox.TabIndex = 96;
-            this.monEffectDataAffectHitBpCheckBox.UseVisualStyleBackColor = true;
+            this.meleeNoDmgNpcMessageTextBox.Location = new System.Drawing.Point(252, 118);
+            this.meleeNoDmgNpcMessageTextBox.Multiline = true;
+            this.meleeNoDmgNpcMessageTextBox.Name = "meleeNoDmgNpcMessageTextBox";
+            this.meleeNoDmgNpcMessageTextBox.Size = new System.Drawing.Size(166, 40);
+            this.meleeNoDmgNpcMessageTextBox.TabIndex = 1;
+            this.meleeNoDmgNpcMessageTextBox.Text = "The %1$s bites <npcname>\'s %2$s!";
             // 
-            // monEffectDataIdComboBox
+            // meleeHitDmgNpcMessageTextBox
             // 
-            this.monEffectDataIdComboBox.AutoCompleteCustomSource.AddRange(new string[] {
-            "true",
-            "biological",
-            "bash",
-            "cut",
-            "acid",
-            "stab",
-            "heat",
-            "cold",
-            "electric"});
-            this.monEffectDataIdComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.monEffectDataIdComboBox.Location = new System.Drawing.Point(3, 568);
-            this.monEffectDataIdComboBox.Name = "monEffectDataIdComboBox";
-            this.monEffectDataIdComboBox.Size = new System.Drawing.Size(108, 21);
-            this.monEffectDataIdComboBox.Sorted = true;
-            this.monEffectDataIdComboBox.TabIndex = 97;
-            // 
-            // monEffectDataDurationUpDown
-            // 
-            this.monEffectDataDurationUpDown.Location = new System.Drawing.Point(118, 568);
-            this.monEffectDataDurationUpDown.Maximum = new decimal(new int[] {
-            99999,
-            0,
-            0,
-            0});
-            this.monEffectDataDurationUpDown.Name = "monEffectDataDurationUpDown";
-            this.monEffectDataDurationUpDown.Size = new System.Drawing.Size(58, 20);
-            this.monEffectDataDurationUpDown.TabIndex = 98;
-            // 
-            // monEffectDataBodyPartComboBox
-            // 
-            this.monEffectDataBodyPartComboBox.AutoCompleteCustomSource.AddRange(new string[] {
-            "true",
-            "biological",
-            "bash",
-            "cut",
-            "acid",
-            "stab",
-            "heat",
-            "cold",
-            "electric"});
-            this.monEffectDataBodyPartComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.monEffectDataBodyPartComboBox.Location = new System.Drawing.Point(206, 568);
-            this.monEffectDataBodyPartComboBox.Name = "monEffectDataBodyPartComboBox";
-            this.monEffectDataBodyPartComboBox.Size = new System.Drawing.Size(86, 21);
-            this.monEffectDataBodyPartComboBox.TabIndex = 99;
-            // 
-            // monEffectDataChanceUpDown
-            // 
-            this.monEffectDataChanceUpDown.Location = new System.Drawing.Point(377, 568);
-            this.monEffectDataChanceUpDown.Maximum = new decimal(new int[] {
-            99999,
-            0,
-            0,
-            0});
-            this.monEffectDataChanceUpDown.Name = "monEffectDataChanceUpDown";
-            this.monEffectDataChanceUpDown.Size = new System.Drawing.Size(58, 20);
-            this.monEffectDataChanceUpDown.TabIndex = 100;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(40, 545);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(67, 20);
-            this.label1.TabIndex = 101;
-            this.label1.Text = "Effects";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(34, 333);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(96, 20);
-            this.label2.TabIndex = 102;
-            this.label2.Text = "Body Parts";
-            // 
-            // effectDataIdColumn
-            // 
-            this.effectDataIdColumn.HeaderText = "Effect Id";
-            this.effectDataIdColumn.Name = "effectDataIdColumn";
-            this.effectDataIdColumn.ReadOnly = true;
-            // 
-            // effectDataDurationColumn
-            // 
-            this.effectDataDurationColumn.HeaderText = "Duration";
-            this.effectDataDurationColumn.Name = "effectDataDurationColumn";
-            this.effectDataDurationColumn.ReadOnly = true;
-            this.effectDataDurationColumn.Width = 55;
-            // 
-            // affectHitBpColumn
-            // 
-            this.affectHitBpColumn.HeaderText = "Affect Hit BP?";
-            this.affectHitBpColumn.Name = "affectHitBpColumn";
-            this.affectHitBpColumn.ReadOnly = true;
-            this.affectHitBpColumn.Width = 40;
-            // 
-            // effectDataBodyPartColumn
-            // 
-            this.effectDataBodyPartColumn.HeaderText = "Body Part";
-            this.effectDataBodyPartColumn.Name = "effectDataBodyPartColumn";
-            this.effectDataBodyPartColumn.ReadOnly = true;
-            // 
-            // effectDataPermanentColumn
-            // 
-            this.effectDataPermanentColumn.HeaderText = "Permanent?";
-            this.effectDataPermanentColumn.Name = "effectDataPermanentColumn";
-            this.effectDataPermanentColumn.ReadOnly = true;
-            this.effectDataPermanentColumn.Width = 70;
-            // 
-            // effectDataChanceColumn
-            // 
-            this.effectDataChanceColumn.HeaderText = "Chance";
-            this.effectDataChanceColumn.Name = "effectDataChanceColumn";
-            this.effectDataChanceColumn.ReadOnly = true;
-            this.effectDataChanceColumn.Width = 50;
-            // 
-            // numericUpDown1
-            // 
-            this.numericUpDown1.DecimalPlaces = 3;
-            this.numericUpDown1.Increment = new decimal(new int[] {
-            5,
-            0,
-            0,
-            131072});
-            this.numericUpDown1.Location = new System.Drawing.Point(344, 356);
-            this.numericUpDown1.Maximum = new decimal(new int[] {
-            99999,
-            0,
-            0,
-            0});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(62, 20);
-            this.numericUpDown1.TabIndex = 103;
-            // 
-            // numericUpDown2
-            // 
-            this.numericUpDown2.DecimalPlaces = 3;
-            this.numericUpDown2.Increment = new decimal(new int[] {
-            5,
-            0,
-            0,
-            131072});
-            this.numericUpDown2.Location = new System.Drawing.Point(344, 384);
-            this.numericUpDown2.Maximum = new decimal(new int[] {
-            99999,
-            0,
-            0,
-            0});
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(62, 20);
-            this.numericUpDown2.TabIndex = 104;
-            this.numericUpDown2.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
-            // numericUpDown3
-            // 
-            this.numericUpDown3.Location = new System.Drawing.Point(344, 410);
-            this.numericUpDown3.Maximum = new decimal(new int[] {
-            99999,
-            0,
-            0,
-            0});
-            this.numericUpDown3.Name = "numericUpDown3";
-            this.numericUpDown3.Size = new System.Drawing.Size(62, 20);
-            this.numericUpDown3.TabIndex = 105;
-            this.numericUpDown3.Value = new decimal(new int[] {
-            100,
-            0,
-            0,
-            0});
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(298, 359);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(44, 13);
-            this.label3.TabIndex = 106;
-            this.label3.Text = "Min Mul";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(295, 386);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(47, 13);
-            this.label4.TabIndex = 107;
-            this.label4.Text = "Max Mul";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(284, 413);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(58, 13);
-            this.label5.TabIndex = 108;
-            this.label5.Text = "Move Cost";
-            // 
-            // biteNoInfectionChanceUpDown
-            // 
-            this.biteNoInfectionChanceUpDown.Location = new System.Drawing.Point(344, 438);
-            this.biteNoInfectionChanceUpDown.Maximum = new decimal(new int[] {
-            99999,
-            0,
-            0,
-            0});
-            this.biteNoInfectionChanceUpDown.Name = "biteNoInfectionChanceUpDown";
-            this.biteNoInfectionChanceUpDown.Size = new System.Drawing.Size(62, 20);
-            this.biteNoInfectionChanceUpDown.TabIndex = 109;
-            this.biteNoInfectionChanceUpDown.Value = new decimal(new int[] {
-            100,
-            0,
-            0,
-            0});
-            // 
-            // biteNoInfectionChanceLabel
-            // 
-            this.biteNoInfectionChanceLabel.AutoSize = true;
-            this.biteNoInfectionChanceLabel.Location = new System.Drawing.Point(277, 436);
-            this.biteNoInfectionChanceLabel.Name = "biteNoInfectionChanceLabel";
-            this.biteNoInfectionChanceLabel.Size = new System.Drawing.Size(65, 26);
-            this.biteNoInfectionChanceLabel.TabIndex = 110;
-            this.biteNoInfectionChanceLabel.Text = "No Infection\r\nChance";
-            // 
-            // moneEffectDataAddButton
-            // 
-            this.moneEffectDataAddButton.Location = new System.Drawing.Point(377, 542);
-            this.moneEffectDataAddButton.Name = "moneEffectDataAddButton";
-            this.moneEffectDataAddButton.Size = new System.Drawing.Size(58, 23);
-            this.moneEffectDataAddButton.TabIndex = 111;
-            this.moneEffectDataAddButton.Text = "Add";
-            this.moneEffectDataAddButton.UseVisualStyleBackColor = true;
-            this.moneEffectDataAddButton.Click += new System.EventHandler(this.moneEffectDataAddButton_Click);
+            this.meleeHitDmgNpcMessageTextBox.Location = new System.Drawing.Point(253, 27);
+            this.meleeHitDmgNpcMessageTextBox.Multiline = true;
+            this.meleeHitDmgNpcMessageTextBox.Name = "meleeHitDmgNpcMessageTextBox";
+            this.meleeHitDmgNpcMessageTextBox.Size = new System.Drawing.Size(166, 40);
+            this.meleeHitDmgNpcMessageTextBox.TabIndex = 0;
+            this.meleeHitDmgNpcMessageTextBox.Text = "The %1$s bites <npcname>\'s %2$s!";
             // 
             // gunPanel
             // 
+            this.gunPanel.Controls.Add(this.comboBox1);
+            this.gunPanel.Controls.Add(this.gunRangeMaxUpDown);
+            this.gunPanel.Controls.Add(this.gunRangeMinUpDown);
+            this.gunPanel.Controls.Add(this.rangesDataGrid);
             this.gunPanel.Controls.Add(this.label13);
             this.gunPanel.Controls.Add(this.gunMoveCostUpDown);
             this.gunPanel.Controls.Add(this.label12);
@@ -1157,33 +1170,212 @@
             this.gunPanel.Size = new System.Drawing.Size(482, 755);
             this.gunPanel.TabIndex = 11;
             // 
-            // gunTypeComboBox
+            // comboBox1
             // 
-            this.gunTypeComboBox.AutoCompleteCustomSource.AddRange(new string[] {
-            "true",
-            "biological",
-            "bash",
-            "cut",
-            "acid",
-            "stab",
-            "heat",
-            "cold",
-            "electric"});
-            this.gunTypeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.gunTypeComboBox.Location = new System.Drawing.Point(21, 24);
-            this.gunTypeComboBox.Name = "gunTypeComboBox";
-            this.gunTypeComboBox.Size = new System.Drawing.Size(135, 21);
-            this.gunTypeComboBox.Sorted = true;
-            this.gunTypeComboBox.TabIndex = 112;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "DEFAULT",
+            "AUTO",
+            "BURST",
+            "MULTI",
+            "DOUBLE"});
+            this.comboBox1.Location = new System.Drawing.Point(151, 294);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.TabIndex = 131;
             // 
-            // label6
+            // gunRangeMaxUpDown
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(18, 8);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(54, 13);
-            this.label6.TabIndex = 113;
-            this.label6.Text = "Gun Type";
+            this.gunRangeMaxUpDown.Location = new System.Drawing.Point(105, 294);
+            this.gunRangeMaxUpDown.Maximum = new decimal(new int[] {
+            99999,
+            0,
+            0,
+            0});
+            this.gunRangeMaxUpDown.Name = "gunRangeMaxUpDown";
+            this.gunRangeMaxUpDown.Size = new System.Drawing.Size(40, 20);
+            this.gunRangeMaxUpDown.TabIndex = 130;
+            // 
+            // gunRangeMinUpDown
+            // 
+            this.gunRangeMinUpDown.Location = new System.Drawing.Point(63, 294);
+            this.gunRangeMinUpDown.Maximum = new decimal(new int[] {
+            99999,
+            0,
+            0,
+            0});
+            this.gunRangeMinUpDown.Name = "gunRangeMinUpDown";
+            this.gunRangeMinUpDown.Size = new System.Drawing.Size(40, 20);
+            this.gunRangeMinUpDown.TabIndex = 129;
+            // 
+            // rangesDataGrid
+            // 
+            this.rangesDataGrid.AllowUserToAddRows = false;
+            this.rangesDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.rangesDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.gunRangeMinColumn,
+            this.gunRangeMaxColumn,
+            this.gunRangeTypeColumn});
+            this.rangesDataGrid.Location = new System.Drawing.Point(21, 320);
+            this.rangesDataGrid.Name = "rangesDataGrid";
+            this.rangesDataGrid.ReadOnly = true;
+            this.rangesDataGrid.Size = new System.Drawing.Size(240, 150);
+            this.rangesDataGrid.TabIndex = 127;
+            // 
+            // gunRangeMinColumn
+            // 
+            this.gunRangeMinColumn.HeaderText = "Min";
+            this.gunRangeMinColumn.Name = "gunRangeMinColumn";
+            this.gunRangeMinColumn.ReadOnly = true;
+            this.gunRangeMinColumn.Width = 40;
+            // 
+            // gunRangeMaxColumn
+            // 
+            this.gunRangeMaxColumn.HeaderText = "Max";
+            this.gunRangeMaxColumn.Name = "gunRangeMaxColumn";
+            this.gunRangeMaxColumn.ReadOnly = true;
+            this.gunRangeMaxColumn.Width = 40;
+            // 
+            // gunRangeTypeColumn
+            // 
+            this.gunRangeTypeColumn.HeaderText = "Type";
+            this.gunRangeTypeColumn.Name = "gunRangeTypeColumn";
+            this.gunRangeTypeColumn.ReadOnly = true;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(83, 208);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(58, 13);
+            this.label13.TabIndex = 126;
+            this.label13.Text = "Move Cost";
+            // 
+            // gunMoveCostUpDown
+            // 
+            this.gunMoveCostUpDown.Location = new System.Drawing.Point(176, 208);
+            this.gunMoveCostUpDown.Maximum = new decimal(new int[] {
+            99999,
+            0,
+            0,
+            0});
+            this.gunMoveCostUpDown.Name = "gunMoveCostUpDown";
+            this.gunMoveCostUpDown.Size = new System.Drawing.Size(58, 20);
+            this.gunMoveCostUpDown.TabIndex = 125;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(82, 166);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(59, 13);
+            this.label12.TabIndex = 124;
+            this.label12.Text = "Max Ammo";
+            // 
+            // gunMaxAmmoUpDown
+            // 
+            this.gunMaxAmmoUpDown.Location = new System.Drawing.Point(176, 166);
+            this.gunMaxAmmoUpDown.Maximum = new decimal(new int[] {
+            99999,
+            0,
+            0,
+            0});
+            this.gunMaxAmmoUpDown.Name = "gunMaxAmmoUpDown";
+            this.gunMaxAmmoUpDown.Size = new System.Drawing.Size(58, 20);
+            this.gunMaxAmmoUpDown.TabIndex = 123;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(159, 105);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(88, 13);
+            this.label11.TabIndex = 122;
+            this.label11.Text = "Fake Intelligence";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(163, 79);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(85, 13);
+            this.label10.TabIndex = 121;
+            this.label10.Text = "Fake Perception";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(173, 53);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(75, 13);
+            this.label9.TabIndex = 120;
+            this.label9.Text = "Fake Dexterity";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(173, 27);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(74, 13);
+            this.label8.TabIndex = 119;
+            this.label8.Text = "Fake Strength";
+            // 
+            // gunFakeStrUpDown
+            // 
+            this.gunFakeStrUpDown.Location = new System.Drawing.Point(249, 24);
+            this.gunFakeStrUpDown.Maximum = new decimal(new int[] {
+            99999,
+            0,
+            0,
+            0});
+            this.gunFakeStrUpDown.Name = "gunFakeStrUpDown";
+            this.gunFakeStrUpDown.Size = new System.Drawing.Size(58, 20);
+            this.gunFakeStrUpDown.TabIndex = 118;
+            // 
+            // gunFakePerUpDown
+            // 
+            this.gunFakePerUpDown.Location = new System.Drawing.Point(250, 76);
+            this.gunFakePerUpDown.Maximum = new decimal(new int[] {
+            99999,
+            0,
+            0,
+            0});
+            this.gunFakePerUpDown.Name = "gunFakePerUpDown";
+            this.gunFakePerUpDown.Size = new System.Drawing.Size(58, 20);
+            this.gunFakePerUpDown.TabIndex = 117;
+            // 
+            // gunFakeIntUpDown
+            // 
+            this.gunFakeIntUpDown.Location = new System.Drawing.Point(249, 102);
+            this.gunFakeIntUpDown.Maximum = new decimal(new int[] {
+            99999,
+            0,
+            0,
+            0});
+            this.gunFakeIntUpDown.Name = "gunFakeIntUpDown";
+            this.gunFakeIntUpDown.Size = new System.Drawing.Size(58, 20);
+            this.gunFakeIntUpDown.TabIndex = 116;
+            // 
+            // gunFakeDexUpDown
+            // 
+            this.gunFakeDexUpDown.Location = new System.Drawing.Point(250, 50);
+            this.gunFakeDexUpDown.Maximum = new decimal(new int[] {
+            99999,
+            0,
+            0,
+            0});
+            this.gunFakeDexUpDown.Name = "gunFakeDexUpDown";
+            this.gunFakeDexUpDown.Size = new System.Drawing.Size(58, 20);
+            this.gunFakeDexUpDown.TabIndex = 112;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(18, 54);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(63, 13);
+            this.label7.TabIndex = 115;
+            this.label7.Text = "Ammo Type";
             // 
             // ammoTypeComboBox
             // 
@@ -1204,140 +1396,33 @@
             this.ammoTypeComboBox.Sorted = true;
             this.ammoTypeComboBox.TabIndex = 114;
             // 
-            // label7
+            // label6
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(18, 54);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(63, 13);
-            this.label7.TabIndex = 115;
-            this.label7.Text = "Ammo Type";
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(18, 8);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(54, 13);
+            this.label6.TabIndex = 113;
+            this.label6.Text = "Gun Type";
             // 
-            // gunFakeDexUpDown
+            // gunTypeComboBox
             // 
-            this.gunFakeDexUpDown.Location = new System.Drawing.Point(250, 50);
-            this.gunFakeDexUpDown.Maximum = new decimal(new int[] {
-            99999,
-            0,
-            0,
-            0});
-            this.gunFakeDexUpDown.Name = "gunFakeDexUpDown";
-            this.gunFakeDexUpDown.Size = new System.Drawing.Size(58, 20);
-            this.gunFakeDexUpDown.TabIndex = 112;
-            // 
-            // gunFakeIntUpDown
-            // 
-            this.gunFakeIntUpDown.Location = new System.Drawing.Point(249, 102);
-            this.gunFakeIntUpDown.Maximum = new decimal(new int[] {
-            99999,
-            0,
-            0,
-            0});
-            this.gunFakeIntUpDown.Name = "gunFakeIntUpDown";
-            this.gunFakeIntUpDown.Size = new System.Drawing.Size(58, 20);
-            this.gunFakeIntUpDown.TabIndex = 116;
-            // 
-            // gunFakePerUpDown
-            // 
-            this.gunFakePerUpDown.Location = new System.Drawing.Point(250, 76);
-            this.gunFakePerUpDown.Maximum = new decimal(new int[] {
-            99999,
-            0,
-            0,
-            0});
-            this.gunFakePerUpDown.Name = "gunFakePerUpDown";
-            this.gunFakePerUpDown.Size = new System.Drawing.Size(58, 20);
-            this.gunFakePerUpDown.TabIndex = 117;
-            // 
-            // gunFakeStrUpDown
-            // 
-            this.gunFakeStrUpDown.Location = new System.Drawing.Point(249, 24);
-            this.gunFakeStrUpDown.Maximum = new decimal(new int[] {
-            99999,
-            0,
-            0,
-            0});
-            this.gunFakeStrUpDown.Name = "gunFakeStrUpDown";
-            this.gunFakeStrUpDown.Size = new System.Drawing.Size(58, 20);
-            this.gunFakeStrUpDown.TabIndex = 118;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(173, 27);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(74, 13);
-            this.label8.TabIndex = 119;
-            this.label8.Text = "Fake Strength";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(173, 53);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(75, 13);
-            this.label9.TabIndex = 120;
-            this.label9.Text = "Fake Dexterity";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(163, 79);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(85, 13);
-            this.label10.TabIndex = 121;
-            this.label10.Text = "Fake Perception";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(159, 105);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(88, 13);
-            this.label11.TabIndex = 122;
-            this.label11.Text = "Fake Intelligence";
-            // 
-            // gunMaxAmmoUpDown
-            // 
-            this.gunMaxAmmoUpDown.Location = new System.Drawing.Point(176, 248);
-            this.gunMaxAmmoUpDown.Maximum = new decimal(new int[] {
-            99999,
-            0,
-            0,
-            0});
-            this.gunMaxAmmoUpDown.Name = "gunMaxAmmoUpDown";
-            this.gunMaxAmmoUpDown.Size = new System.Drawing.Size(58, 20);
-            this.gunMaxAmmoUpDown.TabIndex = 123;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(82, 248);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(59, 13);
-            this.label12.TabIndex = 124;
-            this.label12.Text = "Max Ammo";
-            // 
-            // gunMoveCostUpDown
-            // 
-            this.gunMoveCostUpDown.Location = new System.Drawing.Point(176, 290);
-            this.gunMoveCostUpDown.Maximum = new decimal(new int[] {
-            99999,
-            0,
-            0,
-            0});
-            this.gunMoveCostUpDown.Name = "gunMoveCostUpDown";
-            this.gunMoveCostUpDown.Size = new System.Drawing.Size(58, 20);
-            this.gunMoveCostUpDown.TabIndex = 125;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(83, 290);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(58, 13);
-            this.label13.TabIndex = 126;
-            this.label13.Text = "Move Cost";
+            this.gunTypeComboBox.AutoCompleteCustomSource.AddRange(new string[] {
+            "true",
+            "biological",
+            "bash",
+            "cut",
+            "acid",
+            "stab",
+            "heat",
+            "cold",
+            "electric"});
+            this.gunTypeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.gunTypeComboBox.Location = new System.Drawing.Point(21, 24);
+            this.gunTypeComboBox.Name = "gunTypeComboBox";
+            this.gunTypeComboBox.Size = new System.Drawing.Size(135, 21);
+            this.gunTypeComboBox.Sorted = true;
+            this.gunTypeComboBox.TabIndex = 112;
             // 
             // MonsterAttackForm
             // 
@@ -1365,35 +1450,38 @@
             ((System.ComponentModel.ISupportInitialize)(this.spellLevelUpDown)).EndInit();
             this.leapPanel.ResumeLayout(false);
             this.leapPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.leapMinRangeUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.leapMaxRangeUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.leapMoveCostUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.leapMaxConsiderRangeUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.leapMinConsiderRangeUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.leapMoveCostUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.leapMaxRangeUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.leapMinRangeUpDown)).EndInit();
             this.meleePanel.ResumeLayout(false);
             this.meleePanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.biteNoInfectionChanceUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.monEffectDataChanceUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.monEffectDataDurationUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.meleeMonEffectDataGrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bodyPartHitRateUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bodyPartsDataGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.damageInstanceDamageMultiplierUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.damageInstanceArmorMultiplierUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.damageInstanceAmountUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.damageInstanceArmorPenetrationUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.damageInstanceDataGrid)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bodyPartsDataGrid)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bodyPartHitRateUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.meleeMonEffectDataGrid)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.monEffectDataDurationUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.monEffectDataChanceUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.biteNoInfectionChanceUpDown)).EndInit();
             this.gunPanel.ResumeLayout(false);
             this.gunPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gunFakeDexUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gunFakeIntUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gunFakePerUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gunFakeStrUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gunMaxAmmoUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gunRangeMaxUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gunRangeMinUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rangesDataGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gunMoveCostUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gunMaxAmmoUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gunFakeStrUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gunFakePerUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gunFakeIntUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gunFakeDexUpDown)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1502,5 +1590,12 @@
         private System.Windows.Forms.NumericUpDown gunMoveCostUpDown;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.NumericUpDown gunMaxAmmoUpDown;
+        private System.Windows.Forms.DataGridView rangesDataGrid;
+        private System.Windows.Forms.NumericUpDown gunRangeMaxUpDown;
+        private System.Windows.Forms.NumericUpDown gunRangeMinUpDown;
+        private System.Windows.Forms.DataGridViewTextBoxColumn gunRangeMinColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn gunRangeMaxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn gunRangeTypeColumn;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }
