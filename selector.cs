@@ -94,6 +94,9 @@ namespace cdda_item_creator
                                         default: break;
                                     }
                                     break;
+                                case "material":
+                                    Program.LoadedObjectDictionary.Add(generic_object.Ident, (MaterialType)obj.ToObject(typeof(MaterialType), j_ser));
+                                    break;
                                 default: break;
                             }
                         }
@@ -116,25 +119,25 @@ namespace cdda_item_creator
         private void spellButton_Click(object sender, EventArgs e)
         {
             spell_form form = new spell_form();
-            this.Hide();
+            Hide();
             form.ShowDialog();
-            this.Show();
+            Show();
         }
 
         private void createMonster_button_Click(object sender, EventArgs e)
         {
             MonsterForm form = new MonsterForm();
-            this.Hide();
+            Hide();
             form.ShowDialog();
-            this.Show();
+            Show();
         }
 
         private void viewLoadedItemsButton_Click(object sender, EventArgs e)
         {
             ViewerForm form = new ViewerForm();
-            this.Hide();
+            Hide();
             form.ShowDialog();
-            this.Show();
+            Show();
         }
 
         private void loadGameDialog_Click(object sender, EventArgs e)
@@ -151,6 +154,14 @@ namespace cdda_item_creator
             {
                 File.WriteAllText(Application.StartupPath + "\\cdda_data_path", cdda_path);
             }
+        }
+
+        private void createMaterialButton_Click(object sender, EventArgs e)
+        {
+            MaterialForm form = new MaterialForm();
+            Hide();
+            form.ShowDialog();
+            Show();
         }
     }
     public class GenericTypedObject

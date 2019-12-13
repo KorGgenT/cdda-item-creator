@@ -346,10 +346,14 @@ namespace cdda_item_creator
         public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
         {
             JArray outer = JToken.Load(reader).ToObject<JArray>();
-            Dictionary<string, T> ret = new Dictionary<string, T> { };
-            foreach (JArray array in outer)
+            Dictionary<string, T> ret = null;
+            if (outer != null)
             {
-                ret.Add((string)array[0], array[1].ToObject<T>());
+                ret = new Dictionary<string, T> { };
+                foreach (JArray array in outer)
+                {
+                    ret.Add((string)array[0], array[1].ToObject<T>());
+                }
             }
             return ret;
         }

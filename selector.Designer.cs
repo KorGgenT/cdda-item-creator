@@ -35,6 +35,7 @@
             this.loadGameDialog = new System.Windows.Forms.Button();
             this.currentPathLabelLabel = new System.Windows.Forms.Label();
             this.currentPathLabel = new System.Windows.Forms.Label();
+            this.createMaterialButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // spellButton
@@ -99,11 +100,22 @@
             this.currentPathLabel.Size = new System.Drawing.Size(0, 13);
             this.currentPathLabel.TabIndex = 5;
             // 
+            // createMaterialButton
+            // 
+            this.createMaterialButton.Location = new System.Drawing.Point(93, 146);
+            this.createMaterialButton.Name = "createMaterialButton";
+            this.createMaterialButton.Size = new System.Drawing.Size(75, 61);
+            this.createMaterialButton.TabIndex = 6;
+            this.createMaterialButton.Text = "Create Material";
+            this.createMaterialButton.UseVisualStyleBackColor = true;
+            this.createMaterialButton.Click += new System.EventHandler(this.createMaterialButton_Click);
+            // 
             // SelectorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(256, 146);
+            this.ClientSize = new System.Drawing.Size(256, 214);
+            this.Controls.Add(this.createMaterialButton);
             this.Controls.Add(this.currentPathLabel);
             this.Controls.Add(this.currentPathLabelLabel);
             this.Controls.Add(this.loadGameDialog);
@@ -126,5 +138,6 @@
         private System.Windows.Forms.Button loadGameDialog;
         private System.Windows.Forms.Label currentPathLabelLabel;
         private System.Windows.Forms.Label currentPathLabel;
+        private System.Windows.Forms.Button createMaterialButton;
     }
 }

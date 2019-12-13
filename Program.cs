@@ -24,6 +24,7 @@ namespace cdda_item_creator
             static Dictionary<string, List<Mtype>> mtypes_by_id = new Dictionary<string, List<Mtype>> { };
             static Dictionary<string, List<spell.spell_type>> spells_by_id = new Dictionary<string, List<spell.spell_type>> { };
             static Dictionary<string, List<MonsterAttack>> mattacks_by_id = new Dictionary<string, List<MonsterAttack>> { };
+            static Dictionary<string, List<MaterialType>> materials_by_id = new Dictionary<string, List<MaterialType>> { };
 
             static public void Add(string type, string id)
             {
@@ -36,6 +37,20 @@ namespace cdda_item_creator
                 {
                     temp_list = new HashSet<string> { id };
                     ids_by_type.Add(type, temp_list);
+                }
+            }
+            static public void Add(string id, MaterialType material)
+            {
+                List<MaterialType> temp_material;
+                if (materials_by_id.TryGetValue(id, out temp_material))
+                {
+                    temp_material.Add(material);
+                    materials_by_id[id] = temp_material;
+                }
+                else
+                {
+                    temp_material = new List<MaterialType> { material };
+                    materials_by_id.Add(id, temp_material);
                 }
             }
             static public void Add(string id, MonsterAttack mattack)
@@ -98,6 +113,12 @@ namespace cdda_item_creator
             {
                 List<MonsterAttack> ret;
                 mattacks_by_id.TryGetValue(id, out ret);
+                return ret;
+            }
+            static public List<MaterialType> GetMaterials(string id)
+            {
+                List<MaterialType> ret;
+                materials_by_id.TryGetValue(id, out ret);
                 return ret;
             }
         }

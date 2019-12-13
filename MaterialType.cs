@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace cdda_item_creator
 {
-    class BurnDataChunk
+    public class BurnDataChunk
     {
         public bool Immune { get; set; }
         // volume string, like "10 ml"
@@ -17,7 +17,7 @@ namespace cdda_item_creator
         public float Smoke { get; set; }
         public float Burn { get; set; }
     }
-    class MaterialType
+    public class MaterialType
     {
         // mandatory
         public string Ident { get; set; } = "";
