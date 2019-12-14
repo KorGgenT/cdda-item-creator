@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.nameTextBox = new System.Windows.Forms.TextBox();
             this.clipboardButton = new System.Windows.Forms.Button();
             this.nameLabel = new System.Windows.Forms.Label();

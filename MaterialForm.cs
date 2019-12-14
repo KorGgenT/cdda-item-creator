@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,6 +18,7 @@ namespace cdda_item_creator
         private BindingSource MaterialBindingSource;
         private void LoadMaterialDataBinding()
         {
+            components = new Container();
             MaterialBindingSource = new BindingSource(components);
             ((ISupportInitialize)(MaterialBindingSource)).BeginInit();
 
@@ -76,6 +79,32 @@ namespace cdda_item_creator
             // TODO: selector for items, and show what mod they're from
             List<MaterialType> mats = Program.LoadedObjectDictionary.GetMaterials(materialLoaderComboBox.Text);
             main_material = mats[0].DeepCopy();
+            UpdateMainMaterialBindings();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+            IgnoreEmptyEnumerablesResolver contractResolver = new IgnoreEmptyEnumerablesResolver
+            {
+                NamingStrategy = new SnakeCaseNamingStrategy()
+            };
+
+            Clipboard.SetText(JsonConvert.SerializeObject(
+                main_material,
+                Formatting.Indented,
+                new JsonSerializerSettings
+                {
+                    DefaultValueHandling = DefaultValueHandling.Ignore,
+                    ContractResolver = contractResolver
+                }
+                ));
+        }
+
+        private void clearButton_Click(object sender, EventArgs e)
+        {
+            main_material = new MaterialType() { };
+            materialLoaderComboBox.SelectedIndex = -1;
             UpdateMainMaterialBindings();
         }
     }
