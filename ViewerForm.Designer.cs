@@ -59,7 +59,7 @@
             this.Controls.Add(this.idListBox);
             this.Controls.Add(this.typeListBox);
             this.Name = "ViewerForm";
-            this.Text = "ViewerForm";
+            this.Text = "Item ID Viewer";
             this.ResumeLayout(false);
 
         }

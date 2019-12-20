@@ -36,25 +36,37 @@
             this.currentPathLabelLabel = new System.Windows.Forms.Label();
             this.currentPathLabel = new System.Windows.Forms.Label();
             this.createMaterialButton = new System.Windows.Forms.Button();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
+            this.splitContainer1.Panel1.SuspendLayout();
+            this.splitContainer1.Panel2.SuspendLayout();
+            this.splitContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
+            this.splitContainer2.Panel1.SuspendLayout();
+            this.splitContainer2.Panel2.SuspendLayout();
+            this.splitContainer2.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // spellButton
             // 
-            this.spellButton.Location = new System.Drawing.Point(93, 79);
+            this.spellButton.Location = new System.Drawing.Point(84, 3);
             this.spellButton.Name = "spellButton";
             this.spellButton.Size = new System.Drawing.Size(75, 61);
-            this.spellButton.TabIndex = 0;
+            this.spellButton.TabIndex = 3;
             this.spellButton.Text = "Create Spell";
             this.spellButton.UseVisualStyleBackColor = true;
             this.spellButton.Click += new System.EventHandler(this.spellButton_Click);
             // 
             // createMonster_button
             // 
-            this.createMonster_button.Location = new System.Drawing.Point(174, 79);
+            this.createMonster_button.Location = new System.Drawing.Point(165, 3);
             this.createMonster_button.Name = "createMonster_button";
             this.createMonster_button.Size = new System.Drawing.Size(75, 61);
-            this.createMonster_button.TabIndex = 1;
-            this.createMonster_button.Text = "Create monster";
+            this.createMonster_button.TabIndex = 4;
+            this.createMonster_button.Text = "Create Monster";
             this.createMonster_button.UseVisualStyleBackColor = true;
             this.createMonster_button.Click += new System.EventHandler(this.createMonster_button_Click);
             // 
@@ -64,7 +76,7 @@
             // 
             // viewLoadedItemsButton
             // 
-            this.viewLoadedItemsButton.Location = new System.Drawing.Point(12, 79);
+            this.viewLoadedItemsButton.Location = new System.Drawing.Point(3, 3);
             this.viewLoadedItemsButton.Name = "viewLoadedItemsButton";
             this.viewLoadedItemsButton.Size = new System.Drawing.Size(75, 61);
             this.viewLoadedItemsButton.TabIndex = 2;
@@ -74,58 +86,113 @@
             // 
             // loadGameDialog
             // 
-            this.loadGameDialog.Location = new System.Drawing.Point(12, 12);
+            this.loadGameDialog.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.loadGameDialog.Location = new System.Drawing.Point(3, 3);
             this.loadGameDialog.Name = "loadGameDialog";
-            this.loadGameDialog.Size = new System.Drawing.Size(75, 44);
-            this.loadGameDialog.TabIndex = 3;
+            this.loadGameDialog.Size = new System.Drawing.Size(98, 44);
+            this.loadGameDialog.TabIndex = 1;
             this.loadGameDialog.Text = "Pick C:DDA Folder";
             this.loadGameDialog.UseVisualStyleBackColor = true;
             this.loadGameDialog.Click += new System.EventHandler(this.loadGameDialog_Click);
             // 
             // currentPathLabelLabel
             // 
-            this.currentPathLabelLabel.AutoSize = true;
-            this.currentPathLabelLabel.Location = new System.Drawing.Point(94, 13);
+            this.currentPathLabelLabel.Location = new System.Drawing.Point(2, 9);
             this.currentPathLabelLabel.Name = "currentPathLabelLabel";
-            this.currentPathLabelLabel.Size = new System.Drawing.Size(69, 13);
+            this.currentPathLabelLabel.Size = new System.Drawing.Size(209, 18);
             this.currentPathLabelLabel.TabIndex = 4;
             this.currentPathLabelLabel.Text = "Current Path:";
             // 
             // currentPathLabel
             // 
-            this.currentPathLabel.AutoSize = true;
-            this.currentPathLabel.Location = new System.Drawing.Point(97, 30);
-            this.currentPathLabel.MaximumSize = new System.Drawing.Size(150, 0);
+            this.currentPathLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.currentPathLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.currentPathLabel.Location = new System.Drawing.Point(3, 27);
             this.currentPathLabel.Name = "currentPathLabel";
-            this.currentPathLabel.Size = new System.Drawing.Size(0, 13);
+            this.currentPathLabel.Size = new System.Drawing.Size(200, 20);
             this.currentPathLabel.TabIndex = 5;
             // 
             // createMaterialButton
             // 
-            this.createMaterialButton.Location = new System.Drawing.Point(93, 146);
+            this.createMaterialButton.Location = new System.Drawing.Point(3, 70);
             this.createMaterialButton.Name = "createMaterialButton";
             this.createMaterialButton.Size = new System.Drawing.Size(75, 61);
-            this.createMaterialButton.TabIndex = 6;
+            this.createMaterialButton.TabIndex = 5;
             this.createMaterialButton.Text = "Create Material";
             this.createMaterialButton.UseVisualStyleBackColor = true;
             this.createMaterialButton.Click += new System.EventHandler(this.createMaterialButton_Click);
+            // 
+            // splitContainer1
+            // 
+            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.IsSplitterFixed = true;
+            this.splitContainer1.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer1.Name = "splitContainer1";
+            this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer1.Panel1
+            // 
+            this.splitContainer1.Panel1.Controls.Add(this.splitContainer2);
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.Controls.Add(this.flowLayoutPanel1);
+            this.splitContainer1.Size = new System.Drawing.Size(314, 201);
+            this.splitContainer1.SplitterDistance = 61;
+            this.splitContainer1.TabIndex = 7;
+            // 
+            // splitContainer2
+            // 
+            this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer2.IsSplitterFixed = true;
+            this.splitContainer2.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer2.Name = "splitContainer2";
+            // 
+            // splitContainer2.Panel1
+            // 
+            this.splitContainer2.Panel1.Controls.Add(this.loadGameDialog);
+            // 
+            // splitContainer2.Panel2
+            // 
+            this.splitContainer2.Panel2.Controls.Add(this.currentPathLabelLabel);
+            this.splitContainer2.Panel2.Controls.Add(this.currentPathLabel);
+            this.splitContainer2.Size = new System.Drawing.Size(314, 61);
+            this.splitContainer2.SplitterDistance = 104;
+            this.splitContainer2.TabIndex = 0;
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Controls.Add(this.viewLoadedItemsButton);
+            this.flowLayoutPanel1.Controls.Add(this.spellButton);
+            this.flowLayoutPanel1.Controls.Add(this.createMonster_button);
+            this.flowLayoutPanel1.Controls.Add(this.createMaterialButton);
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(314, 136);
+            this.flowLayoutPanel1.TabIndex = 0;
             // 
             // SelectorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(256, 214);
-            this.Controls.Add(this.createMaterialButton);
-            this.Controls.Add(this.currentPathLabel);
-            this.Controls.Add(this.currentPathLabelLabel);
-            this.Controls.Add(this.loadGameDialog);
-            this.Controls.Add(this.viewLoadedItemsButton);
-            this.Controls.Add(this.createMonster_button);
-            this.Controls.Add(this.spellButton);
+            this.ClientSize = new System.Drawing.Size(314, 201);
+            this.Controls.Add(this.splitContainer1);
+            this.MinimumSize = new System.Drawing.Size(260, 240);
             this.Name = "SelectorForm";
-            this.Text = "SelectorForm";
+            this.Text = "CDDA JSON Helper";
+            this.splitContainer1.Panel1.ResumeLayout(false);
+            this.splitContainer1.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
+            this.splitContainer1.ResumeLayout(false);
+            this.splitContainer2.Panel1.ResumeLayout(false);
+            this.splitContainer2.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
+            this.splitContainer2.ResumeLayout(false);
+            this.flowLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -139,5 +206,8 @@
         private System.Windows.Forms.Label currentPathLabelLabel;
         private System.Windows.Forms.Label currentPathLabel;
         private System.Windows.Forms.Button createMaterialButton;
+        private System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.SplitContainer splitContainer2;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
     }
 }

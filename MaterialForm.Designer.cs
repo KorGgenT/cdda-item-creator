@@ -618,7 +618,7 @@
             this.Controls.Add(this.nameTextBox);
             this.Controls.Add(this.identTextBox);
             this.Name = "MaterialForm";
-            this.Text = "MaterialForm";
+            this.Text = "Material Creator";
             ((System.ComponentModel.ISupportInitialize)(this.bashResistUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cutResistUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.acidResistUpDown)).EndInit();
