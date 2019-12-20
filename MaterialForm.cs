@@ -14,12 +14,16 @@ namespace cdda_item_creator
 {
     public partial class MaterialForm : Form
     {
-        MaterialType main_material = new MaterialType() { };
+        MaterialType main_material = new MaterialType() { BurnData = new List<BurnDataChunk>() { } };
+        BindingList<BurnDataChunk> burn_data_list;
         private BindingSource MaterialBindingSource;
         private void LoadMaterialDataBinding()
         {
             components = new Container();
             MaterialBindingSource = new BindingSource(components);
+            burn_data_list = new BindingList<BurnDataChunk>(main_material.BurnData);
+            burnDataGrid.DataSource = new BindingSource(burn_data_list, null);
+
             ((ISupportInitialize)(MaterialBindingSource)).BeginInit();
 
             identTextBox.DataBindings.Add(new Binding("Text", MaterialBindingSource, "Ident", true));
@@ -69,6 +73,13 @@ namespace cdda_item_creator
             MaterialBindingSource.Clear();
             MaterialBindingSource.Add(main_material);
             MaterialBindingSource.ResetBindings(false);
+
+            burnDataGrid.Rows.Clear();
+            if (main_material.BurnData != null)
+            {
+                burn_data_list = new BindingList<BurnDataChunk>(main_material.BurnData);
+                burnDataGrid.DataSource = new BindingSource(burn_data_list, null);
+            }
         }
         private void materialLoaderComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {

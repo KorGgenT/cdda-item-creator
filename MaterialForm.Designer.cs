@@ -70,6 +70,7 @@
             this.label18 = new System.Windows.Forms.Label();
             this.clearButton = new System.Windows.Forms.Button();
             this.clipboardButton = new System.Windows.Forms.Button();
+            this.burnDataGrid = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.bashResistUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cutResistUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.acidResistUpDown)).BeginInit();
@@ -81,6 +82,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.latentHeatUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.freezePointUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.densityUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.burnDataGrid)).BeginInit();
             this.SuspendLayout();
             // 
             // identTextBox
@@ -557,11 +559,22 @@
             this.clipboardButton.UseVisualStyleBackColor = true;
             this.clipboardButton.Click += new System.EventHandler(this.button2_Click);
             // 
+            // burnDataGrid
+            // 
+            this.burnDataGrid.AllowUserToAddRows = false;
+            this.burnDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.burnDataGrid.Location = new System.Drawing.Point(391, 132);
+            this.burnDataGrid.Name = "burnDataGrid";
+            this.burnDataGrid.ReadOnly = true;
+            this.burnDataGrid.Size = new System.Drawing.Size(568, 150);
+            this.burnDataGrid.TabIndex = 42;
+            // 
             // MaterialForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1014, 450);
+            this.Controls.Add(this.burnDataGrid);
             this.Controls.Add(this.clipboardButton);
             this.Controls.Add(this.clearButton);
             this.Controls.Add(this.label18);
@@ -617,6 +630,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.latentHeatUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.freezePointUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.densityUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.burnDataGrid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -666,5 +680,6 @@
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Button clearButton;
         private System.Windows.Forms.Button clipboardButton;
+        private System.Windows.Forms.DataGridView burnDataGrid;
     }
 }
