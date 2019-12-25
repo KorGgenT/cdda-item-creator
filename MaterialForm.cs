@@ -33,7 +33,7 @@ namespace cdda_item_creator
             cutResistUpDown.DataBindings.Add(new Binding("Value", MaterialBindingSource, "CutResist", true));
             acidResistUpDown.DataBindings.Add(new Binding("Value", MaterialBindingSource, "AcidResist", true));
             elecResistUpDown.DataBindings.Add(new Binding("Value", MaterialBindingSource, "ElecResist", true));
-            fireResistUpDown.DataBindings.Add(new Binding("Value", MaterialBindingSource, "fireResist", true));
+            fireResistUpDown.DataBindings.Add(new Binding("Value", MaterialBindingSource, "FireResist", true));
             chipResistUpDown.DataBindings.Add(new Binding("Value", MaterialBindingSource, "ChipResist", true));
 
             densityUpDown.DataBindings.Add(new Binding("Value", MaterialBindingSource, "Density", true));
