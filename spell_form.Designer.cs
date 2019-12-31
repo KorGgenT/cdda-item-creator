@@ -1441,7 +1441,7 @@ namespace cdda_item_creator
             this.Controls.Add(this.spell_description_textbox);
             this.Controls.Add(this.spell_name_textbox);
             this.Name = "spell_form";
-            this.Text = "Spell";
+            this.Text = "Spell Creator";
             ((System.ComponentModel.ISupportInitialize)(this.spelltypeBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.min_damage_updown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.damage_increment_updown)).EndInit();
